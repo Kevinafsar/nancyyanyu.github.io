@@ -1651,7 +1651,7 @@ pre .javascript .function {
 }
 .sidebar a,
 .sidebar span.exturl {
-  color: #999;
+  color: #edfaea;
   border-bottom-color: #555;
 }
 .sidebar a:hover,
@@ -1667,7 +1667,7 @@ pre .javascript .function {
 .sidebar-inner {
   position: relative;
   padding: 20px 10px;
-  color: #999;
+  color: #edfaea;
   text-align: center;
 }
 .site-overview-wrap {
@@ -1735,7 +1735,7 @@ pre .javascript .function {
   margin: 5px 0 0;
   text-align: center;
   color: #f5f5f5;
-  font-weight: normal;
+  font-weight: large;
 }
 .site-description {
   margin-top: 5px;
@@ -1764,7 +1764,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #815353;
+  background: #ffffa7;
 }
 .feed-link,
 .chat {
@@ -1774,19 +1774,19 @@ pre .javascript .function {
 .chat a {
   display: inline-block;
   padding: 0 15px;
-  color: #fc6423;
+  color: #000;
   border: 1px solid #fc6423 !important;
   border-radius: 4px;
 }
 .feed-link a i,
 .chat a i {
-  color: #fc6423;
+  color: #000;
   font-size: 14px;
 }
 .feed-link a:hover,
 .chat a:hover {
   color: #fff;
-  background: #fc6423;
+  background: #0e2b07;
 }
 .feed-link a:hover i,
 .chat a:hover i {
@@ -1883,7 +1883,7 @@ pre .javascript .function {
 }
 .post-toc-empty {
   font-size: 14px;
-  color: #666;
+  color: rgba(0,0,0,0.7);
 }
 .post-toc-wrap {
   overflow: hidden;
@@ -1906,12 +1906,12 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: all;
-  color: #999;
-  border-bottom-color: #555;
+  color: #d8ecce;
+  border-bottom-color: #000;
 }
 .post-toc ol a:hover {
-  color: #ccc;
-  border-bottom-color: #ccc;
+  color: #ecf8e6;
+  border-bottom-color: #000;
 }
 .post-toc .nav-item {
   overflow: hidden;
@@ -1932,14 +1932,14 @@ pre .javascript .function {
   display: block;
 }
 .post-toc .nav .active > a {
-  color: #87daff;
-  border-bottom-color: #87daff;
+  color: #000;
+  border-bottom-color: #000;
 }
 .post-toc .nav .active-current > a {
-  color: #87daff;
+  color: #ccfab7;
 }
 .post-toc .nav .active-current > a:hover {
-  color: #87daff;
+  color: rgba(203,254,179,0.4);
 }
 .footer {
   font-size: 14px;
@@ -2720,20 +2720,14 @@ hr {
 }
 .sidebar {
   box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.3);
-  background-color: rgba(47,85,42,0.93);
+  background-color: rgba(47,85,42,0.63);
+  color: rgba(255,255,255,0.9);
 }
 .post-button .btn {
   background-color: #3f3f3f;
   margin-top: 20px;
   margin-bottom: 20px;
   border-color: #7f7f7f;
-}
-body {
-  background: url("https://hbimg.b0.upaiyun.com/fe7343d213869361a4428c581278d427e3d2b0aa9725-Os4lwD_fw658");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 100%;
-  background-size: cover;
 }
 .post-button .btn {
   color: #555 !important;
@@ -2750,5 +2744,5 @@ body {
   border-radius: 3px;
   font-size: 15px;
   box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.35);
-  background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
+  background-image: linear-gradient(90deg, #12310b 0%, #12310b 25%, #12310b 50%, #12310b 75%, #12310b 100%);
 }
