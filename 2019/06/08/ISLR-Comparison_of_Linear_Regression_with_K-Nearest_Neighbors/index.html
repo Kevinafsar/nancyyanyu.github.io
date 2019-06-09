@@ -113,7 +113,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://nancyyanyu.github.io/2019/06/08/ISLR-Comparison_of_Linear_Regression_with_K-Nearest_Neighbors/26.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/2019/06/08/ISLR-Comparison_of_Linear_Regression_with_K-Nearest_Neighbors/25.png">
-<meta property="og:updated_time" content="2019-06-09T04:05:05.097Z">
+<meta property="og:updated_time" content="2019-06-09T06:18:17.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Comparison of Linear Regression with K-Nearest Neighbors">
 <meta name="twitter:description" content="Parametric v.s. Non-parametric Linear regression is an example of a parametric approach because it assumes a linear functional form for f(X). Parametric methods - Advantages: - Easy to fit, because on">
@@ -242,7 +242,7 @@
         
         
           
-          <li class="menu-item menu-item-about">
+          <li class="menu-item menu-item-resume">
 
     
     
@@ -252,7 +252,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-heart"></i> <br>Resume</a>
 
   </li>
         
@@ -304,6 +304,40 @@
     
 
     <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>Schedule</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>Sitemap</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>Commonweal 404</a>
 
   </li>
 
@@ -398,12 +432,24 @@
                 
               
 
-              <time title="Created: 2019-06-08 22:58:39 / Modified: 23:05:05" itemprop="dateCreated datePublished" datetime="2019-06-08T22:58:39-05:00">2019-06-08</time>
+              <time title="Created: 2019-06-08 22:58:39" itemprop="dateCreated datePublished" datetime="2019-06-08T22:58:39-05:00">2019-06-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-09 01:18:17" itemprop="dateModified" datetime="2019-06-09T01:18:17-05:00">2019-06-09</time>
               
             
           </span>
@@ -458,6 +504,7 @@
         <h1 id="parametric-v.s.-non-parametric">Parametric v.s. Non-parametric</h1>
 <p>Linear regression is an example of a parametric approach because it assumes a linear functional form for f(X).</p>
 <p><strong>Parametric methods</strong> - <strong>Advantages</strong>: - Easy to fit, because one need estimate only a small number of coefficients. - Simple interpretations, and tests of statistical significance can be easily performed - <strong>Disadvantage</strong>: - Strong assumptions about the form of f(X). If the specified functional form is far from the truth, and prediction accuracy is our goal, then the parametric method will perform poorly.</p>
+<a id="more"></a>
 <p><strong>Non-parametric methods</strong> - Do not explicitly assume a parametric form for f(X), and thereby provide an alternative and more flexible approach for performing regression. - K-nearest neighbors regression (KNN regression)</p>
 <h1 id="knn-regression">KNN Regression</h1>
 <p>Given a value for <span class="math inline">\(K\)</span> and a prediction point <span class="math inline">\(x_0\)</span>, KNN regression first identifies the <span class="math inline">\(K\)</span> training observations that are closest to <span class="math inline">\(x_0\)</span>, represented by <span class="math inline">\(N_0\)</span>. It then estimates <span class="math inline">\(f(x_0)\)</span> using the average of all the training responses in <span class="math inline">\(N_0\)</span>.</p>
@@ -582,7 +629,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -594,12 +641,16 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
                     <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">categories</span>
-                  
+                  </a>
                 </div>
               
 
@@ -963,4 +1014,9 @@
   
 
 </body>
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
 </html>

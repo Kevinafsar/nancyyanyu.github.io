@@ -2,58 +2,184 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Linear_Regression_Models_and_Least_Squares/</loc>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-The_Bootstrap/</loc>
     
-    <lastmod>2019-06-09T04:24:16.119Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Example-Prostate%20Cancer/</loc>
-    
-    <lastmod>2019-06-09T04:21:28.924Z</lastmod>
+    <lastmod>2019-06-09T06:19:40.533Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Potential_Problems/</loc>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-The_Basics_of_Decision_Trees/</loc>
     
-    <lastmod>2019-06-09T04:07:47.967Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Comparison_of_Linear_Regression_with_K-Nearest_Neighbors/</loc>
-    
-    <lastmod>2019-06-09T04:05:05.097Z</lastmod>
+    <lastmod>2019-06-09T06:19:34.494Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Multiple%20Linear%20Regression/</loc>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Subset_Selection/</loc>
     
-    <lastmod>2019-06-09T04:04:27.773Z</lastmod>
+    <lastmod>2019-06-09T06:19:29.296Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Simple_Linear_Regression/</loc>
     
-    <lastmod>2019-06-09T04:04:20.335Z</lastmod>
+    <lastmod>2019-06-09T06:19:21.488Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Shrinkage%20Methods/</loc>
+    
+    <lastmod>2019-06-09T06:19:16.572Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Potential_Problems/</loc>
+    
+    <lastmod>2019-06-09T06:19:10.424Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Multiple%20Linear%20Regression/</loc>
+    
+    <lastmod>2019-06-09T06:19:04.131Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Logistic_Regression/</loc>
+    
+    <lastmod>2019-06-09T06:18:54.623Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Linear_Discriminant_Analysis/</loc>
+    
+    <lastmod>2019-06-09T06:18:48.924Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Intro_Model_Selection/</loc>
+    
+    <lastmod>2019-06-09T06:18:42.684Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Dimension_Reduction-PCA/</loc>
+    
+    <lastmod>2019-06-09T06:18:35.376Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Cross_Validation/</loc>
+    
+    <lastmod>2019-06-09T06:18:30.286Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Considerations_In_High_Dimensions/</loc>
+    
+    <lastmod>2019-06-09T06:18:24.073Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Comparison_of_Linear_Regression_with_K-Nearest_Neighbors/</loc>
+    
+    <lastmod>2019-06-09T06:18:17.375Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Comparison_of_Classification_Methods/</loc>
+    
+    <lastmod>2019-06-09T06:18:10.886Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Bagging,Random_Forest,Boosting/</loc>
+    
+    <lastmod>2019-06-09T06:18:04.699Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-Assessing%20Model%20Accuracy/</loc>
+    
+    <lastmod>2019-06-09T06:17:58.032Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Subset_Selection/</loc>
+    
+    <lastmod>2019-06-09T06:17:50.575Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ISLR-PCA/</loc>
+    
+    <lastmod>2019-06-09T06:17:31.326Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Shrinkage_Methods/</loc>
+    
+    <lastmod>2019-06-09T06:17:16.996Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Logistic_Regression/</loc>
+    
+    <lastmod>2019-06-09T06:17:07.879Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Linear_Regression_Models_and_Least_Squares/</loc>
+    
+    <lastmod>2019-06-09T06:16:21.842Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Example-Prostate%20Cancer/</loc>
+    
+    <lastmod>2019-06-09T06:16:12.886Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Bias,%20Variance/</loc>
+    
+    <lastmod>2019-06-09T06:14:17.498Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/resume/index.html</loc>
+    
+    <lastmod>2019-06-09T06:07:14.555Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nancyyanyu.github.io/categories/index.html</loc>
     
-    <lastmod>2019-06-09T01:52:55.677Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/schedule/index.html</loc>
-    
-    <lastmod>2019-06-08T20:13:33.877Z</lastmod>
+    <lastmod>2019-06-09T05:46:30.811Z</lastmod>
     
   </url>
   
@@ -75,13 +201,6 @@
     <loc>https://nancyyanyu.github.io/lib/three/README.html</loc>
     
     <lastmod>2019-06-08T20:03:41.138Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/about/index.html</loc>
-    
-    <lastmod>2019-06-08T19:24:15.323Z</lastmod>
     
   </url>
   
