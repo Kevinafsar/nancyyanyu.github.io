@@ -104,13 +104,22 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nancy&#39;s Notes">
-<meta property="og:url" content="https://nancyyanyu.github.io/index.html">
+  <meta name="description" content="Simple linear regression: approach for predicting a quantitative response Y on the basis of a single predictor variable X. It assumes that there is approximately a linear relationship between X and Y:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“ISLR Note - Simple Linear Regression”">
+<meta property="og:url" content="https://nancyyanyu.github.io/2019/06/08/ISLR-Simple_Linear_Regression/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
+<meta property="og:description" content="Simple linear regression: approach for predicting a quantitative response Y on the basis of a single predictor variable X. It assumes that there is approximately a linear relationship between X and Y:">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://nancyyanyu.github.io/2019/06/08/ISLR-Simple_Linear_Regression/1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/2019/06/08/ISLR-Simple_Linear_Regression/2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/2019/06/08/ISLR-Simple_Linear_Regression/3.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/2019/06/08/ISLR-Simple_Linear_Regression/4.png">
+<meta property="og:updated_time" content="2019-06-09T03:47:08.843Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancy&#39;s Notes">
+<meta name="twitter:title" content="“ISLR Note - Simple Linear Regression”">
+<meta name="twitter:description" content="Simple linear regression: approach for predicting a quantitative response Y on the basis of a single predictor variable X. It assumes that there is approximately a linear relationship between X and Y:">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/2019/06/08/ISLR-Simple_Linear_Regression/1.png">
 
 
 
@@ -118,7 +127,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/">
+  <link rel="canonical" href="https://nancyyanyu.github.io/2019/06/08/ISLR-Simple_Linear_Regression/">
 
 
 
@@ -128,7 +137,7 @@
   };
 </script>
 
-  <title>Nancy's Notes</title>
+  <title>“ISLR Note - Simple Linear Regression” | Nancy's Notes</title>
   
 
 
@@ -176,8 +185,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right 
-  page-home">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -219,7 +227,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -332,9 +340,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -366,10 +374,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/08/ISLR-Simple_Linear_Regression/" class="post-title-link" itemprop="url">“ISLR Note - Simple Linear Regression”</a>
+          <h1 class="post-title" itemprop="name headline">“ISLR Note - Simple Linear Regression”
+
               
             
           </h1>
@@ -451,9 +457,7 @@
       
 
       
-        
-          
-            <p><strong>Simple linear regression</strong>: approach for predicting a quantitative response Y on the basis of a single predictor variable X.</p>
+        <p><strong>Simple linear regression</strong>: approach for predicting a quantitative response Y on the basis of a single predictor variable X.</p>
 <p>It assumes that there is approximately a linear relationship between X and Y:</p>
 <p><span class="math display">\[\begin{align}
 Y=\beta_0+\beta_1X
@@ -567,8 +571,6 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
 <p>In the simple linear regression setting, <span class="math inline">\(R^2 = [Cor]^2\)</span>. In other words, the squared correlation and the R2 statistic are identical</p>
 </blockquote>
 
-          
-        
       
     </div>
 
@@ -591,12 +593,12 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -606,14 +608,15 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -633,8 +636,17 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -733,6 +745,23 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#estimating-the-coefficients"><span class="nav-number">1.</span> <span class="nav-text">Estimating the Coefficients</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#assessing-the-accuracy-of-the-coefficient-estimates"><span class="nav-number">2.</span> <span class="nav-text">Assessing the Accuracy of the Coefficient Estimates</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#population-v.s.-sample"><span class="nav-number">2.1.</span> <span class="nav-text">Population V.S. Sample</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#standard-error"><span class="nav-number">2.1.1.</span> <span class="nav-text">Standard Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hypothesis-tests"><span class="nav-number">2.1.2.</span> <span class="nav-text">Hypothesis Tests</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#assessing-the-accuracy-of-the-model"><span class="nav-number">3.</span> <span class="nav-text">Assessing the Accuracy of the Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#residual-standard-error"><span class="nav-number">3.1.</span> <span class="nav-text">Residual Standard Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#r2-statistic"><span class="nav-number">3.2.</span> <span class="nav-text">R2 Statistic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#squared-correlation-v.s.-r2-statistic"><span class="nav-number">3.3.</span> <span class="nav-text">Squared Correlation V.S. R2 Statistic</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -892,6 +921,10 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
 
   
 
@@ -908,6 +941,8 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
   
 
 
+  
+
 
   
 
@@ -922,12 +957,6 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
   
 
   
-  
-    
-      
-        
-      
-    
   
 
   

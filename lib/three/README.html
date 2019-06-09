@@ -16,7 +16,7 @@
 
 <html class="theme-next mist use-motion" lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -104,17 +104,17 @@
 
 
 
-  <meta name="description" content="JavaScript 3D library for NexT  Installation  Step 1 &amp;rarr; Go to NexT dir  Change dir to NexT directory. There must be layout, source, languages and other directories: 123$ cd themes/next$ lsbower.js">
+  <meta name="description" content="JavaScript 3D library for NexT   Installation   Step 1 → Go to NexT dir  Change dir to NexT directory. There must be layout, source, languages and other directories: 123$ cd themes/next$ lsbower.json">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nancy&#39;s Notes">
 <meta property="og:url" content="https://nancyyanyu.github.io/lib/three/README.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="JavaScript 3D library for NexT  Installation  Step 1 &amp;rarr; Go to NexT dir  Change dir to NexT directory. There must be layout, source, languages and other directories: 123$ cd themes/next$ lsbower.js">
+<meta property="og:description" content="JavaScript 3D library for NexT   Installation   Step 1 → Go to NexT dir  Change dir to NexT directory. There must be layout, source, languages and other directories: 123$ cd themes/next$ lsbower.json">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-06-08T20:03:41.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nancy&#39;s Notes">
-<meta name="twitter:description" content="JavaScript 3D library for NexT  Installation  Step 1 &amp;rarr; Go to NexT dir  Change dir to NexT directory. There must be layout, source, languages and other directories: 123$ cd themes/next$ lsbower.js">
+<meta name="twitter:description" content="JavaScript 3D library for NexT   Installation   Step 1 → Go to NexT dir  Change dir to NexT directory. There must be layout, source, languages and other directories: 123$ cd themes/next$ lsbower.json">
 
 
 
@@ -169,7 +169,7 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -180,7 +180,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -427,29 +427,31 @@
       <div class="post-body han-init-context">
         
         
-          <h1 align="center"><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">JavaScript 3D library</a> for <a href="https://github.com/theme-next" target="_blank" rel="noopener">NexT</a></h1>
-
-<h1 align="center">Installation</h1>
-
-<h2 align="center">Step 1 &rarr; Go to NexT dir</h2>
-
+          <h1 align="center">
+<a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">JavaScript 3D library</a> for <a href="https://github.com/theme-next" target="_blank" rel="noopener">NexT</a>
+</h1>
+<h1 align="center">
+Installation
+</h1>
+<h2 align="center">
+Step 1 → Go to NexT dir
+</h2>
 <p>Change dir to <strong>NexT</strong> directory. There must be <code>layout</code>, <code>source</code>, <code>languages</code> and other directories:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ ls</span><br><span class="line">bower.json  _config.yml  docs  gulpfile.coffee  languages  layout  LICENSE.md  package.json  README.md  scripts  <span class="built_in">source</span>  <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-
-<h2 align="center">Step 2 &rarr; Get module</h2>
-
+<h2 align="center">
+Step 2 → Get module
+</h2>
 <p>Install module to <code>source/lib</code> directory:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-three <span class="built_in">source</span>/lib/three</span><br></pre></td></tr></table></figure>
-
-<h2 align="center">Step 3 &rarr; Set it up</h2>
-
+<h2 align="center">
+Step 3 → Set it up
+</h2>
 <p>Enable module in <strong>NexT</strong> <code>_config.yml</code> file:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">three_waves:</span> <span class="literal">true</span></span><br><span class="line"><span class="string">OR</span></span><br><span class="line"><span class="attr">canvas_lines:</span> <span class="literal">true</span></span><br><span class="line"><span class="string">OR</span></span><br><span class="line"><span class="attr">canvas_sphere:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h1 align="center">Update</h1>
-
+<h1 align="center">
+Update
+</h1>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next/<span class="built_in">source</span>/lib/three</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
-
 
         
       </div>
@@ -559,12 +561,25 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
 
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
               
 
               
@@ -594,6 +609,15 @@
                     
                   
                   <a href="mailto:yy2799@columbia.edu" title="E-Mail &rarr; mailto:yy2799@columbia.edu" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://www.linkedin.com/in/nancy-yanyu-yan" title="LinkedIn &rarr; https://www.linkedin.com/in/nancy-yanyu-yan" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -632,7 +656,19 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 3D library for NexT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Step 1 → Go to NexT dir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Step 2 → Get module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">Step 3 → Set it up</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Update</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">
+JavaScript 3D library for NexT
+</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">
+Installation
+</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">
+Step 1 → Go to NexT dir
+</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">
+Step 2 → Get module
+</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">
+Step 3 → Set it up
+</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">
+Update
+</span></a></li></ol></div>
             
 
           </div>
@@ -722,6 +758,12 @@
 
 
 
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
 
 
   
@@ -738,6 +780,10 @@
   
 
 
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
 
 
 
@@ -795,7 +841,24 @@
   
 
 
-  <script src="/js/next-boot.js?v=7.1.2"></script>
+  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
   

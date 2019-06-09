@@ -1764,7 +1764,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d6ffff;
+  background: #06d2ff;
 }
 .feed-link,
 .chat {
@@ -2711,6 +2711,22 @@ hr {
     width: auto;
     text-align: center;
   }
+}
+.site-title {
+  font-family: fantasy;
+  font-size: 38px;
+  font-weight: bold;
+  color: #222;
+}
+.sidebar {
+  box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.3);
+  background-color: rgba(47,85,42,0.93);
+}
+.post-button .btn {
+  background-color: #3f3f3f;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-color: #7f7f7f;
 }
 body {
   background: url("https://hbimg.b0.upaiyun.com/fe7343d213869361a4428c581278d427e3d2b0aa9725-Os4lwD_fw658");
