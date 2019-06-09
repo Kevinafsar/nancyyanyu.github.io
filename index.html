@@ -349,6 +349,1317 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/2019/06/09/ESL-Example-Prostate Cancer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/09/ESL-Example-Prostate Cancer/" class="post-title-link" itemprop="url">ESL Note - Linear Regression Example Prostate Cancer</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-08 23:11:36 / Modified: 23:21:28" itemprop="dateCreated datePublished" datetime="2019-06-08T23:11:36-05:00">2019-06-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy</span><br><span class="line"><span class="keyword">import</span> scipy.stats</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data=pd.read_csv(<span class="string">'./data/prostate.data'</span>,delimiter=<span class="string">'\t'</span>,index_col=<span class="number">0</span>)</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+lcavol
+</th>
+<th>
+lweight
+</th>
+<th>
+age
+</th>
+<th>
+lbph
+</th>
+<th>
+svi
+</th>
+<th>
+lcp
+</th>
+<th>
+gleason
+</th>
+<th>
+pgg45
+</th>
+<th>
+lpsa
+</th>
+<th>
+train
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+1
+</th>
+<td>
+-0.579818
+</td>
+<td>
+2.769459
+</td>
+<td>
+50
+</td>
+<td>
+-1.386294
+</td>
+<td>
+0
+</td>
+<td>
+-1.386294
+</td>
+<td>
+6
+</td>
+<td>
+0
+</td>
+<td>
+-0.430783
+</td>
+<td>
+T
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+-0.994252
+</td>
+<td>
+3.319626
+</td>
+<td>
+58
+</td>
+<td>
+-1.386294
+</td>
+<td>
+0
+</td>
+<td>
+-1.386294
+</td>
+<td>
+6
+</td>
+<td>
+0
+</td>
+<td>
+-0.162519
+</td>
+<td>
+T
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+-0.510826
+</td>
+<td>
+2.691243
+</td>
+<td>
+74
+</td>
+<td>
+-1.386294
+</td>
+<td>
+0
+</td>
+<td>
+-1.386294
+</td>
+<td>
+7
+</td>
+<td>
+20
+</td>
+<td>
+-0.162519
+</td>
+<td>
+T
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+-1.203973
+</td>
+<td>
+3.282789
+</td>
+<td>
+58
+</td>
+<td>
+-1.386294
+</td>
+<td>
+0
+</td>
+<td>
+-1.386294
+</td>
+<td>
+6
+</td>
+<td>
+0
+</td>
+<td>
+-0.162519
+</td>
+<td>
+T
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+0.751416
+</td>
+<td>
+3.432373
+</td>
+<td>
+62
+</td>
+<td>
+-1.386294
+</td>
+<td>
+0
+</td>
+<td>
+-1.386294
+</td>
+<td>
+6
+</td>
+<td>
+0
+</td>
+<td>
+0.371564
+</td>
+<td>
+T
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The correlation matrix of the predictors:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.corr()</span><br></pre></td></tr></table></figure>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+lcavol
+</th>
+<th>
+lweight
+</th>
+<th>
+age
+</th>
+<th>
+lbph
+</th>
+<th>
+svi
+</th>
+<th>
+lcp
+</th>
+<th>
+gleason
+</th>
+<th>
+pgg45
+</th>
+<th>
+lpsa
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+lcavol
+</th>
+<td>
+1.000000
+</td>
+<td>
+0.280521
+</td>
+<td>
+0.225000
+</td>
+<td>
+0.027350
+</td>
+<td>
+0.538845
+</td>
+<td>
+0.675310
+</td>
+<td>
+0.432417
+</td>
+<td>
+0.433652
+</td>
+<td>
+0.734460
+</td>
+</tr>
+<tr>
+<th>
+lweight
+</th>
+<td>
+0.280521
+</td>
+<td>
+1.000000
+</td>
+<td>
+0.347969
+</td>
+<td>
+0.442264
+</td>
+<td>
+0.155385
+</td>
+<td>
+0.164537
+</td>
+<td>
+0.056882
+</td>
+<td>
+0.107354
+</td>
+<td>
+0.433319
+</td>
+</tr>
+<tr>
+<th>
+age
+</th>
+<td>
+0.225000
+</td>
+<td>
+0.347969
+</td>
+<td>
+1.000000
+</td>
+<td>
+0.350186
+</td>
+<td>
+0.117658
+</td>
+<td>
+0.127668
+</td>
+<td>
+0.268892
+</td>
+<td>
+0.276112
+</td>
+<td>
+0.169593
+</td>
+</tr>
+<tr>
+<th>
+lbph
+</th>
+<td>
+0.027350
+</td>
+<td>
+0.442264
+</td>
+<td>
+0.350186
+</td>
+<td>
+1.000000
+</td>
+<td>
+-0.085843
+</td>
+<td>
+-0.006999
+</td>
+<td>
+0.077820
+</td>
+<td>
+0.078460
+</td>
+<td>
+0.179809
+</td>
+</tr>
+<tr>
+<th>
+svi
+</th>
+<td>
+0.538845
+</td>
+<td>
+0.155385
+</td>
+<td>
+0.117658
+</td>
+<td>
+-0.085843
+</td>
+<td>
+1.000000
+</td>
+<td>
+0.673111
+</td>
+<td>
+0.320412
+</td>
+<td>
+0.457648
+</td>
+<td>
+0.566218
+</td>
+</tr>
+<tr>
+<th>
+lcp
+</th>
+<td>
+0.675310
+</td>
+<td>
+0.164537
+</td>
+<td>
+0.127668
+</td>
+<td>
+-0.006999
+</td>
+<td>
+0.673111
+</td>
+<td>
+1.000000
+</td>
+<td>
+0.514830
+</td>
+<td>
+0.631528
+</td>
+<td>
+0.548813
+</td>
+</tr>
+<tr>
+<th>
+gleason
+</th>
+<td>
+0.432417
+</td>
+<td>
+0.056882
+</td>
+<td>
+0.268892
+</td>
+<td>
+0.077820
+</td>
+<td>
+0.320412
+</td>
+<td>
+0.514830
+</td>
+<td>
+1.000000
+</td>
+<td>
+0.751905
+</td>
+<td>
+0.368987
+</td>
+</tr>
+<tr>
+<th>
+pgg45
+</th>
+<td>
+0.433652
+</td>
+<td>
+0.107354
+</td>
+<td>
+0.276112
+</td>
+<td>
+0.078460
+</td>
+<td>
+0.457648
+</td>
+<td>
+0.631528
+</td>
+<td>
+0.751905
+</td>
+<td>
+1.000000
+</td>
+<td>
+0.422316
+</td>
+</tr>
+<tr>
+<th>
+lpsa
+</th>
+<td>
+0.734460
+</td>
+<td>
+0.433319
+</td>
+<td>
+0.169593
+</td>
+<td>
+0.179809
+</td>
+<td>
+0.566218
+</td>
+<td>
+0.548813
+</td>
+<td>
+0.368987
+</td>
+<td>
+0.422316
+</td>
+<td>
+1.000000
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Scatterplot matrix:</strong>(showing every pairwise plot between the variables)We see that <em>svi</em> is a binary variable, and <em>gleason</em> is an ordered categorical variable.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pd.plotting.scatter_matrix(data,figsize=(<span class="number">12</span>,<span class="number">12</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="ESL-Example-Prostate%20Cancer_5_0.png" alt="png"><figcaption>png</figcaption>
+</figure>
+<h2 id="simple-univariate-regression">Simple univariate regression</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">y=data[<span class="string">'lpsa'</span>]</span><br><span class="line">mask_train=data[<span class="string">'train'</span>]</span><br><span class="line">X=data.drop([<span class="string">'lpsa'</span>,<span class="string">'train'</span>],axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_train_data</span><span class="params">(X)</span>:</span></span><br><span class="line">    <span class="comment">#normalize X</span></span><br><span class="line">    X=X.apply(scipy.stats.zscore)</span><br><span class="line">    X_train=X[mask_train==<span class="string">'T'</span>]</span><br><span class="line">    y_train=y[mask_train==<span class="string">'T'</span>]</span><br><span class="line">    X_test=X[mask_train!=<span class="string">'T'</span>]</span><br><span class="line">    y_test=y[mask_train!=<span class="string">'T'</span>]</span><br><span class="line">    X_test=np.hstack((np.ones((len(X_test),<span class="number">1</span>)),X_test))</span><br><span class="line">    X_train=np.hstack((np.ones((len(X_train),<span class="number">1</span>)),X_train))</span><br><span class="line">    <span class="keyword">return</span> X_train, y_train,X_test,y_test</span><br><span class="line"></span><br><span class="line">X_train, y_train,X_test,y_test=get_train_data(X)</span><br><span class="line">X_train.shape</span><br></pre></td></tr></table></figure>
+<p>(67, 9)</p>
+<p><span class="math display">\[\begin{align}\hat{\beta}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^Ty \end{align}\]</span> Fitted values at the training inputs: <span class="math inline">\(\hat{y}=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^Ty\)</span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ols</span><span class="params">(X_,y_)</span>:</span></span><br><span class="line">    w=np.linalg.inv(X_.T.dot(X_)).dot(X_.T).dot(y_)</span><br><span class="line">    y_hat=X_.dot(w)</span><br><span class="line">    <span class="keyword">return</span> w,y_hat</span><br><span class="line">w,y_hat=ols(X_train,y_train)</span><br><span class="line">y_hat.shape</span><br></pre></td></tr></table></figure>
+<p>(67,)</p>
+<p>Unbiased estimate of <span class="math inline">\(\sigma^2\)</span>: <span class="math display">\[\begin{align} \hat{\sigma^2}=\frac{1}{N-p-1}\sum^{N}_{i=1}(y_i-\hat{y_i})^2 \end{align}\]</span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sigma2_hat=sum((y_train-y_hat)**<span class="number">2</span>)/(len(y_train)<span class="number">-1</span>-len(X.columns))</span><br><span class="line">sigma2_hat</span><br></pre></td></tr></table></figure>
+<p>0.5073514562053173</p>
+<p>The variance–covariance matrix of the least squares parameter estimates: <span class="math display">\[\begin{align} Var(\hat{\beta})=(\mathbf{X}^T\mathbf{X})^{-1}\sigma^2) \end{align}\]</span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std_w=np.sqrt(np.diag(np.linalg.inv(X_train.T.dot(X_train)))*sigma2_hat)</span><br><span class="line">std_w</span><br></pre></td></tr></table></figure>
+<p>array([ 0.08931498, 0.12597461, 0.095134 , 0.10081871, 0.10169077, 0.1229615 , 0.15373073, 0.14449659, 0.1528197 ])</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">table=pd.DataFrame(columns=[<span class="string">'Term'</span>,<span class="string">'Coeﬃcient'</span>,<span class="string">'Std. Error'</span>,<span class="string">'Z Score'</span>])</span><br><span class="line">table[<span class="string">'Term'</span>]=[<span class="string">'Intercept'</span>]+list(X.columns)</span><br><span class="line">table[<span class="string">'Coeﬃcient'</span>]=w</span><br><span class="line">table[<span class="string">'Std. Error'</span>]=std_w</span><br><span class="line">table[<span class="string">'Z Score'</span>]=w/std_w</span><br><span class="line">table</span><br></pre></td></tr></table></figure>
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+Term
+</th>
+<th>
+Coeﬃcient
+</th>
+<th>
+Std. Error
+</th>
+<th>
+Z Score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Intercept
+</td>
+<td>
+2.464933
+</td>
+<td>
+0.089315
+</td>
+<td>
+27.598203
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+lcavol
+</td>
+<td>
+0.676016
+</td>
+<td>
+0.125975
+</td>
+<td>
+5.366290
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+lweight
+</td>
+<td>
+0.261694
+</td>
+<td>
+0.095134
+</td>
+<td>
+2.750789
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+age
+</td>
+<td>
+-0.140734
+</td>
+<td>
+0.100819
+</td>
+<td>
+-1.395909
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+lbph
+</td>
+<td>
+0.209061
+</td>
+<td>
+0.101691
+</td>
+<td>
+2.055846
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+svi
+</td>
+<td>
+0.303623
+</td>
+<td>
+0.122962
+</td>
+<td>
+2.469255
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+lcp
+</td>
+<td>
+-0.287002
+</td>
+<td>
+0.153731
+</td>
+<td>
+-1.866913
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+gleason
+</td>
+<td>
+-0.021195
+</td>
+<td>
+0.144497
+</td>
+<td>
+-0.146681
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+pgg45
+</td>
+<td>
+0.265576
+</td>
+<td>
+0.152820
+</td>
+<td>
+1.737840
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can also test for the exclusion of a number of terms at once, using the F-statistic: <span class="math display">\[\begin{align} F=\frac{(RSS_2-RSS_1)/(p_1-p_2)}{RSS_1/(N-p_1)} \end{align}\]</span> <span class="math display">\[\begin{align}
+RSS(\beta)=\sum_{i=1}^{N}(y_{i}-f(x_{i}))^2=\sum_{i=1}^{N}(y_{i}-\beta_{0}-\sum_{j=1}^{p}X_{ij}\beta_{j})^2
+\end{align}\]</span></p>
+<p>we consider dropping all the non-signiﬁcant terms, namely <em>age, lcp, gleason, and pgg45</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">X2=X.drop([<span class="string">'age'</span>, <span class="string">'lcp'</span>, <span class="string">'gleason'</span>, <span class="string">'pgg45'</span>],axis=<span class="number">1</span>)</span><br><span class="line">X_train2, y_train2,X_test2,y_test2=get_train_data(X2)</span><br><span class="line">w2,y_hat2=ols(X_train2,y_train2)</span><br><span class="line">RSS1=sum((y_train-y_hat)**<span class="number">2</span>)</span><br><span class="line">RSS2=sum((y_train2-y_hat2)**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">p2=X_train2.shape[<span class="number">1</span>]</span><br><span class="line">N,p1=X_train.shape</span><br><span class="line">F=round(((RSS2-RSS1)/(p1-p2))/((RSS1)/(N-p1)),<span class="number">2</span>)</span><br><span class="line">p_value=round(<span class="number">1</span>-scipy.stats.f.cdf(F,p1-p2,N-p1),<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"F:&#123;&#125;"</span>.format(F))</span><br><span class="line">print(<span class="string">"Pr(F(&#123;a&#125;,&#123;b&#125;)&gt;&#123;c&#125;)=&#123;d&#125;"</span>.format(a=p1-p2,b=N-p1,c=F,d=p_value))</span><br></pre></td></tr></table></figure>
+<p>F:1.67 Pr(F(4,58)&gt;1.67)=0.17</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RSS1,RSS2</span><br></pre></td></tr></table></figure>
+<p>(29.4263844599084, 32.81499474881556)</p>
+<p>The mean prediction error on the test data is 0.521. In contrast, prediction using the mean training value of lpsa has a test error of 1.057, which is called the “base error rate.” Hence the linear model reduces the base error rate by about 50%. We will return to this example later to compare various selection and shrinkage methods.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">y_test_fit=X_test.dot(w)</span><br><span class="line">base_error=round(sum((y_test-y_train.mean())**<span class="number">2</span>)/len(y_test),<span class="number">3</span>)</span><br><span class="line">prediction_error=round(sum((y_test-y_test_fit)**<span class="number">2</span>)/len(y_test),<span class="number">3</span>)</span><br><span class="line">print(<span class="string">'base_error:'</span>,base_error)</span><br><span class="line">print(<span class="string">'prediction_error:'</span>,prediction_error)</span><br></pre></td></tr></table></figure>
+<p>base_error: 1.057 prediction_error: 0.521</p>
+<h2 id="best-subset-selection">Best-Subset Selection</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> itertools</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nCr</span><span class="params">(n,r)</span>:</span></span><br><span class="line">    <span class="string">"""calculate how many combination of (n,r)"""</span></span><br><span class="line">    f = math.factorial</span><br><span class="line">    <span class="keyword">return</span> int(f(n) / f(r) / f(n-r))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best_subset_ols</span><span class="params">(i)</span>:</span></span><br><span class="line">    <span class="string">"""calculate all ols estimate of i size subset"""</span></span><br><span class="line">    combine=itertools.combinations(range(<span class="number">1</span>,p+<span class="number">1</span>),i)</span><br><span class="line">    y_subset_train=y_train</span><br><span class="line">    result=[]</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> combine:</span><br><span class="line">        X_subset_train=X_train[:,[<span class="number">0</span>]+list(k)]</span><br><span class="line">        w,y_hat=ols(X_subset_train,y_subset_train)</span><br><span class="line">        result.append((w,sum((y_subset_train-y_hat)**<span class="number">2</span>)))</span><br><span class="line">    <span class="keyword">return</span> np.array(result)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p=len(X.columns)</span><br><span class="line">best=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, p+<span class="number">1</span>):</span><br><span class="line">    ncr=nCr(p,i)</span><br><span class="line">    result=best_subset_ols(i)</span><br><span class="line">    best.append(min(result[:,<span class="number">1</span>]))</span><br><span class="line">    plt.plot(np.ones(ncr)*i,result[:,<span class="number">1</span>],<span class="string">'o'</span>,c=<span class="string">'grey'</span>)</span><br><span class="line">plt.plot(range(<span class="number">0</span>, p+<span class="number">1</span>),best,<span class="string">'o--'</span>,c=<span class="string">'red'</span>)  </span><br><span class="line">plt.xlabel(<span class="string">'Subset Size k'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'RSS'</span>)</span><br><span class="line">plt.savefig(<span class="string">'./images/best_subset.png'</span>)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="ESL-Example-Prostate%20Cancer_22_0.png" alt="png"><figcaption>png</figcaption>
+</figure>
+<h2 id="the-ridge-regression">The ridge regression</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">U,D,V=np.linalg.svd(X_train, full_matrices=<span class="literal">False</span>)</span><br><span class="line">p=len(D)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">df</span><span class="params">(D,lam)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> sum(D**<span class="number">2</span>/(D**<span class="number">2</span>+lam))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ddf</span><span class="params">(D,lam)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> -sum(D**<span class="number">2</span>/(D**<span class="number">2</span>+lam)**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">newton</span><span class="params">(p,D)</span>:</span></span><br><span class="line">    <span class="string">"""Calculate lambdas through eﬀective degrees of freedom """</span></span><br><span class="line">    edfs=np.linspace(<span class="number">0.5</span>, p<span class="number">-0.5</span>, (p<span class="number">-1</span>)*<span class="number">10</span>+<span class="number">1</span>)</span><br><span class="line">    threshold=<span class="number">1e-3</span></span><br><span class="line">    lambdas=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> edfs:</span><br><span class="line">        lam0=(p-i)/i</span><br><span class="line">        lam1=<span class="number">1e6</span></span><br><span class="line">        diff=lam1-lam0</span><br><span class="line">        <span class="keyword">while</span> diff&gt;threshold:</span><br><span class="line">            lam1=lam0-(df(D,lam0)-i)/ddf(D,lam0)</span><br><span class="line">            diff=lam1-lam0</span><br><span class="line">            lam0=lam1</span><br><span class="line">            </span><br><span class="line">        lambdas.append(lam1)</span><br><span class="line">    lambdas.append(<span class="number">0</span>)</span><br><span class="line">    edfs=np.concatenate(([<span class="number">0</span>],edfs,[p]))</span><br><span class="line">    <span class="keyword">return</span> edfs,np.array(lambdas)</span><br><span class="line"></span><br><span class="line">edfs,lambdas=newton(p,D)</span><br><span class="line">beta_ridge=[np.zeros(p)]</span><br><span class="line"><span class="keyword">for</span> lam <span class="keyword">in</span> lambdas:</span><br><span class="line">    beta=V.T.dot(np.diag(D/(D**<span class="number">2</span>+lam))).dot(U.T).dot(y_train)</span><br><span class="line">    beta_ridge.append(beta)</span><br><span class="line">beta_ridge=np.array(beta_ridge)</span><br><span class="line">plt.plot(edfs,beta_ridge, <span class="string">'o-'</span>, markersize=<span class="number">2</span>)</span><br><span class="line">plt.xlabel(<span class="string">'df(lambda)'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'beta_ridge'</span>)</span><br><span class="line">plt.legend(X.columns)</span><br><span class="line">plt.title(<span class="string">'Proﬁles of ridge coeﬃcients'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="ESL-Example-Prostate%20Cancer_25_0.png" alt="png"><figcaption>png</figcaption>
+</figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/2019/06/09/ESL-Linear_Regression_Models_and_Least_Squares/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/09/ESL-Linear_Regression_Models_and_Least_Squares/" class="post-title-link" itemprop="url">ESL Note - Linear Regression Models and Least Squares</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-08 23:11:26 / Modified: 23:24:16" itemprop="dateCreated datePublished" datetime="2019-06-08T23:11:26-05:00">2019-06-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="linear-regression-models-and-least-squares">Linear Regression Models and Least Squares</h1>
+<h3 id="linear-regression-model">Linear Regression Model</h3>
+<ul>
+<li><p>Form of the linear regression model: <em><span class="math inline">\(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\)</span></em>.</p></li>
+<li><p>Training data: (x1,y1) ... (xN,yN). Each <span class="math inline">\(x_{i} =(x_{i1},x_{i2},...,x_{ip})^{T}\)</span> is a vector of feature measurements for the ith case.</p></li>
+<li><p>Goal: estimate the parameters β</p></li>
+<li><p>Estimation method: <strong>Least Squares</strong>, we pick the coeﬃcients <span class="math inline">\(β =(β0,β1,...,βp)^{T}\)</span> to minimize the <strong>residual sum of squares</strong></p></li>
+</ul>
+<p><strong>Assumptions:</strong></p>
+<ul>
+<li>Observations <span class="math inline">\(y_i\)</span> are uncorrelated and have constant variance <span class="math inline">\(\sigma^2\)</span>;</li>
+<li><span class="math inline">\(x_i\)</span> are ﬁxed (non random)</li>
+<li>The regression function E(Y |X) is linear, or the linear model is a reasonable approximation.</li>
+</ul>
+<h3 id="residual-sum-of-squares">Residual Sum of Squares</h3>
+<p><span class="math display">\[\begin{align}
+RSS(\beta)=\sum_{i=1}^{N}(y_{i}-f(x_{i}))^2=\sum_{i=1}^{N}(y_{i}-\beta_{0}-\sum_{j=1}^{p}X_{ij}\beta_{j})^2
+\end{align}\]</span></p>
+<h4 id="solution">Solution</h4>
+<p>Denote by X the N × (p + 1) matrix with each row an input vector (with a 1 in the ﬁrst position), and similarly let y be the N-vector of outputs in the training set.</p>
+<p><span class="math display">\[\begin{align} \min RSS(\beta)= (y-\mathbf{X}\beta)^T(y-\mathbf{X}\beta) \end{align}\]</span></p>
+<p>A quadratic function in the p + 1 parameters</p>
+<p>Taking derivatives:</p>
+<p><span class="math display">\[\begin{align} \frac{\partial RSS}{\partial \beta}=-2\mathbf{X}^T(y-\mathbf{X}\beta) \end{align}\]</span></p>
+<p><span class="math display">\[\begin{align} \frac{\partial^2 RSS}{\partial \beta \partial \beta^T}=2\mathbf{X}^T\mathbf{X}  \end{align}\]</span></p>
+<p>Assuming (for the moment) that <span class="math inline">\(\mathbf{X}\)</span> has full column rank, and hence <span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span> is positive deﬁnite, we set the ﬁrst derivative to zero: <span class="math inline">\(\mathbf{X}^T(y-\mathbf{X}\beta)=0\)</span></p>
+<p><span class="math display">\[\begin{align}\Rightarrow \hat{\beta}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^Ty \end{align}\]</span></p>
+<p>Fitted values at the training inputs: <span class="math inline">\(\hat{y}=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^Ty\)</span></p>
+<p>Hat matrix: <span class="math inline">\(H=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\)</span></p>
+<h3 id="sampling-properties-of-beta">Sampling Properties of <span class="math inline">\(\beta\)</span></h3>
+<p>The variance–covariance matrix of the least squares parameter estimates: <span class="math display">\[\begin{align} Var(\hat{\beta})=(\mathbf{X}^T\mathbf{X})^{-1}\sigma^2) \end{align}\]</span></p>
+<p>Unbiased estimate of <span class="math inline">\(\sigma^2\)</span>: <span class="math display">\[\begin{align} \hat{\sigma^2}=\frac{1}{N-p-1}\sum^{N}_{i=1}(y_i-\hat{y_i})^2 \end{align}\]</span></p>
+<p>Assume the deviations of <span class="math inline">\(\mathbf{Y}\)</span> around its expectation are additive and Gaussian: <span class="math display">\[\begin{align} Y=E(Y|X_1,...,X_p)+\epsilon=\beta_0+\sum_{j=1}^{p}X_j\beta_j+\epsilon \end{align}\]</span></p>
+<p>where <span class="math inline">\(\epsilon \sim N(0,\sigma^2)\)</span></p>
+<p>Thus, <span class="math inline">\(\beta\)</span> follows multivariate normal distribution with mean vector and variance–covariance matrix: <span class="math display">\[\begin{align}\hat{\beta} \sim N(\beta,(\mathbf{X}^T\mathbf{X})^{-1}\sigma^2 ) \end{align}\]</span></p>
+<p>Also, a chi-squared distribution with N −p−1 degrees of freedom: <span class="math display">\[\begin{align} (N-p-1)\hat{\sigma^2} \sim \sigma^2 \chi_{N-p-1}^{2} \end{align}\]</span></p>
+<p>(<span class="math inline">\(\hat{\beta}\)</span> and <span class="math inline">\(\hat{\sigma^2}\)</span> are indep.)</p>
+<p>We use these distributional properties to form tests of hypothesis and conﬁdence intervals for the parameters <span class="math inline">\(\beta_j\)</span>:</p>
+<h3 id="inference">Inference</h3>
+<h4 id="test-hypothesis">Test hypothesis</h4>
+<p>To test the hypothesis that a particular coeﬃcient <span class="math inline">\(\beta_j= 0\)</span>, we form thestandardized coeﬃcient or Z-score: <span class="math display">\[\begin{align} z_j=\frac{\hat{\beta_j}}{\hat{\sigma}\sqrt{\upsilon_j}} \end{align}\]</span></p>
+<p>where <span class="math inline">\(\upsilon_j\)</span> is the jth diagonal element of <span class="math inline">\((\mathbf{X}^T\mathbf{X})^{-1}\)</span></p>
+<p>Under the null hypothesis that <span class="math inline">\(\beta_j= 0\)</span>, <span class="math inline">\(z_j\)</span> is distributed as <span class="math inline">\(t_{N-p-1}\)</span>, and hence a large (absolute) value of zj will lead to rejection of this null hypothesis. If <span class="math inline">\(\hat{\sigma}\)</span> is replaced by a known value σ, then <span class="math inline">\(z_j\)</span> would have a standard normal distribution.</p>
+<h4 id="test-the-signiﬁcance-of-groups-of-coeﬃcients">Test the signiﬁcance of groups of coeﬃcients</h4>
+<p>To test if a categorical variable with k levels can be excluded from a model, we need to test whether the coeﬃcients of the dummy variables used to represent the levels can all be set to zero. Here we use the F statistic：</p>
+<p><span class="math display">\[\begin{align} F=\frac{(RSS_0-RSS_1)/(p_1-p_0)}{RSS_1/(N-p_1-1)} \end{align}\]</span></p>
+<ul>
+<li>RSS1 is the residual sum-of-squares for the least squares ﬁt of the bigger model with p1+1 parameters;</li>
+<li>RSS0 the same for the nested smaller model with p0 +1 parameters, having p1 −p0 parameters constrained to be zero.</li>
+</ul>
+<p>The F statistic measures the change in residual sum-of-squares per additional parameter in the bigger model, and it is normalized by an estimate of <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>Under the Gaussian assumptions, and the null hypothesis that the smaller model is correct, the F statistic will have a <span class="math inline">\(F_{p_1-p_0,N-p_1-1}\)</span> distribution.</p>
+<h3 id="confidence-interval">Confidence Interval</h3>
+<p><span class="math inline">\(1-2\alpha\)</span> conﬁdence interval for <span class="math inline">\(\beta_j\)</span>: <span class="math display">\[\begin{align} (\hat{\beta_j}-z^{(1-\alpha)}\upsilon^{0.5}_j \hat{\sigma},\hat{\beta_j}+z^{(1-\alpha)}\upsilon^{0.5}_j \hat{\sigma}) \end{align}\]</span> where <span class="math inline">\(z^{(1-\alpha)}\)</span> is the 1 − α percentile of the normal distribution. <span class="math inline">\(\alpha\)</span> could be 0.025, 0.5, etc.</p>
+<p>In a similar fashion we can obtain an approximate confidence set for the entire parameter vector <span class="math inline">\(\beta\)</span>, namely</p>
+<p><span class="math display">\[\begin{equation}
+C_\beta = \left\{ \beta \big| (\hat\beta-\beta)^T\mathbf{X}^T\mathbf{X}(\hat\beta-\beta) \le \hat\sigma^2{\chi^2_{p+1}}^{(1-\alpha)}\right\},
+\end{equation}\]</span></p>
+<p>This condifence set for <span class="math inline">\(\beta\)</span> generates a corresponding confidence set for the true function <span class="math inline">\(f(x) = x^T\beta\)</span>: <span class="math inline">\(\left\{ x^T\beta \big| \beta \in C_\beta \right\}\)</span></p>
+<h2 id="example-prostate-cancer">3.2.1 Example: Prostate Cancer</h2>
+<p>See other notebook</p>
+<h2 id="the-gaussmarkov-theorem">3.2.2 The Gauss–Markov Theorem</h2>
+<p>We focus on estimation of any linear combination of the parameters <span class="math inline">\(\theta=\alpha^T\beta\)</span>, for example, predictions <span class="math inline">\(f(x_0)=x^T_0\beta\)</span> are of this form.The least squares estimate of <span class="math inline">\(\alpha^T\beta\)</span> is: <span class="math display">\[\begin{equation}
+\hat{\theta}=\alpha^T\hat{\beta}=\alpha^T(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}
+\end{equation}\]</span></p>
+<p>Considering <span class="math inline">\(\mathbf{X}\)</span> to be ﬁxed, this is a linear function <span class="math inline">\(\mathbf{c}^T_0\mathbf{y}\)</span> of the response vector <span class="math inline">\(\mathbf{y}\)</span>.If we assume that the linear model is correct, <span class="math inline">\(\alpha^T\hat{\beta}\)</span> is unbiased.</p>
+<p>The Gauss–Markov theorem states that if we have any other linear estimator <span class="math inline">\(\tilde{\theta}=\mathbf{c}^T\mathbf{y}\)</span> that is unbiased for <span class="math inline">\(\alpha^T\beta\)</span>, that is, <span class="math inline">\(E(\mathbf{c}^T\mathbf{y})= \alpha^T\beta\)</span>, then: <span class="math display">\[\begin{equation}
+Var(\alpha^T\hat{\beta})\leq Var(\mathbf{c}^T\mathbf{y})
+\end{equation}\]</span></p>
+<h3 id="variance-bias">Variance &amp; Bias</h3>
+<p>Consider the mean squared error of an estimator <span class="math inline">\(\tilde{\theta}\)</span> in estimating <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+MSE(\tilde{\theta})&amp;= E(\tilde{\theta}-\theta)^2 \\
+&amp;= E(\tilde{\theta^2}+\theta^2-2\theta\tilde{\theta}) \\
+&amp;= E(\tilde{\theta^2})-E^2(\tilde{\theta})+E^2(\tilde{\theta})+E(\theta^2-2\theta\tilde{\theta})\\
+&amp;= Var(\tilde{\theta})+[E(\tilde{\theta})-\theta]^2
+\end{align}\]</span></p>
+<p>The ﬁrst term is the <strong>variance</strong>, while the second term is the <strong>squared bias</strong>.</p>
+<p>The <strong>Gauss-Markov theorem</strong> implies that the <em>least squares estimator</em> has the smallest mean squared error of all linear estimators with no bias. However, there may well exist a biased estimator with smaller mean squared error. <font color="red">Such an estimator would trade a little bias for a larger reduction in variance.</font></p>
+<p>From a more pragmatic point of view, most models are distortions of the truth, and hence are biased; picking the right model amounts to creating the right balance between bias and variance.</p>
+<p>Mean squared error is intimately related to prediction accuracy. Consider the prediction of the new response at input <span class="math inline">\(x_0\)</span>, <span class="math display">\[\begin{equation}
+y_0=f(x_0)+\epsilon_0
+\end{equation}\]</span></p>
+<h3 id="prediction-error-mse">Prediction error &amp; MSE</h3>
+<p>The expected prediction error of an estimate <span class="math inline">\(\tilde{f}(x_0)=x_0^T\tilde{\beta}\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+E(y_0-\tilde{f}(x_0))^2 &amp;=E(f(x_0)+\epsilon_0-x_0^T\tilde{\beta})^2 \\
+&amp;=E(\epsilon_0^2)+E(f(x_0)-x_0^T\tilde{\beta})^2-2E(\epsilon_0(f(x_0)-x_0^T\tilde{\beta})) \\
+&amp;=\sigma^2+E(f(x_0)-x_0^T\tilde{\beta})^2 \\
+&amp;=\sigma^2+MSE(\tilde{f}(x_0))
+\end{align}\]</span></p>
+<p>Therefore, expected prediction error and mean squared error diﬀer only by the constant <span class="math inline">\(\sigma^2\)</span>, representing the variance of the new observation <span class="math inline">\(y_0\)</span>.</p>
+<h2 id="multiple-regression-from-simple-univariate-regression">Multiple Regression from Simple Univariate Regression</h2>
+<p>Gram-Schmidt正交化</p>
+<h3 id="simple-univariate-regression">Simple Univariate Regression</h3>
+<p>Suppose ﬁrst that we have a univariate model with no intercept: <span class="math display">\[\begin{align}
+\mathbf{Y}=\mathbf{X}\beta+\epsilon
+\end{align}\]</span> The least squares estimate and residuals are: <span class="math display">\[\begin{align}
+\hat{\beta}&amp;=\frac{\sum_1^Nx_iy_i}{\sum_1^Nx_i^2} \\
+r_i&amp;=y_i-x_i\hat{\beta}
+\end{align}\]</span></p>
+<p>Let <span class="math inline">\(\mathbf{y}=(y_1,...,y_N)^T\)</span>,<span class="math inline">\(\mathbf{x}=(x_1,...,x_N)^T\)</span></p>
+<p>Define the <strong>inner product</strong> between <span class="math inline">\(\mathbf{x}\)</span> and <span class="math inline">\(\mathbf{y}\)</span>: <span class="math display">\[\begin{align}
+&lt;\mathbf{x},\mathbf{y}&gt;=\sum_1^Nx_iy_i=\mathbf{x}^T\mathbf{y}
+\end{align}\]</span></p>
+<p>Then, <span class="math display">\[\begin{align}
+\hat{\beta}&amp;=\frac{&lt;\mathbf{x},\mathbf{y}&gt;}{&lt;\mathbf{x},\mathbf{x}&gt;} \\
+\mathbf{r}&amp;=\mathbf{y}-\mathbf{x}\hat{\beta}
+\end{align}\]</span></p>
+<p>Suppose the inputs x1, x2,..., xp (the columns of the data matrix <span class="math inline">\(\mathbf{X}\)</span>) are orthogonal; that is <span class="math inline">\(&lt;\mathbf{x_k},\mathbf{x_j}&gt;=0\)</span>. Then the multiple least squares estimates <span class="math inline">\(\hat{\beta_j}\)</span> are equal to <span class="math inline">\(\frac{&lt;\mathbf{x_j},\mathbf{y}&gt;}{&lt;\mathbf{x_j},\mathbf{x_j}&gt;}\)</span>—the univariate estimates. In other words, <font color="red">when the inputs are orthogonal, they have no eﬀect on each other’s parameter estimates in the model.</font></p>
+<h3 id="orthogonalization">Orthogonalization</h3>
+<p><span class="math display">\[\begin{align}
+\hat{\beta}_1&amp;=\frac{&lt;\mathbf{x}-\bar{x}\mathbf{1},\mathbf{y}&gt;}{&lt;\mathbf{x}-\bar{x}\mathbf{1},\mathbf{x}-\bar{x}\mathbf{1}&gt;} \\
+\end{align}\]</span></p>
+<ul>
+<li><span class="math inline">\(\bar{x}=\sum_ix_i/N\)</span>;</li>
+<li><span class="math inline">\(\mathbf{1}\)</span>, the vector of N ones;</li>
+</ul>
+<p><strong>Steps:</strong> 1. regress <span class="math inline">\(\mathbf{x}\)</span> on <span class="math inline">\(\mathbf{1}\)</span> to produce the residual <span class="math inline">\(\mathbf{z}=\mathbf{x}-\bar{x}\mathbf{1}\)</span>; 2. regress <span class="math inline">\(\mathbf{y}\)</span> on the residual <span class="math inline">\(\mathbf{z}\)</span> to give the coeﬃcient <span class="math inline">\(\hat{\beta}_1\)</span></p>
+<blockquote>
+<p>regress <span class="math inline">\(\mathbf{a}\)</span> on <span class="math inline">\(\mathbf{b}\)</span>: (<span class="math inline">\(\mathbf{b}\)</span> is adjusted for <span class="math inline">\(\mathbf{a}\)</span>),(or <span class="math inline">\(\mathbf{b}\)</span> is <strong>“orthogonalized”</strong> with respect to <span class="math inline">\(\mathbf{a}\)</span>); a simple univariate regression of <span class="math inline">\(\mathbf{b}\)</span> on a with no intercept, producing coeﬃcient <span class="math inline">\(\hat{\lambda}=\frac{&lt;\mathbf{a},\mathbf{b}&gt;}{&lt;\mathbf{a},\mathbf{a}&gt;}\)</span> and residual vector $ - $.</p>
+</blockquote>
+<p>The orthogonalization does not change the subspace spanned by x1 and x2, it simply produces an <strong>orthogonal basis</strong> for representing it.</p>
+<h3 id="gramschmidt-procedure-for-multiple-regression">Gram–Schmidt procedure for multiple regression</h3>
+<p><strong>ALGORITHM 3.1 Regression by Successive Orthogonalization</strong></p>
+<ol type="1">
+<li>Initialize <span class="math inline">\(\mathbf{z_0}=\mathbf{x_0}=\mathbf{1}\)</span>.</li>
+<li>For j=1,2,...,1,,...,p,<br> Regress <span class="math inline">\(\mathbf{x_j}\)</span> on <span class="math inline">\(\mathbf{z_0},\mathbf{z_1},...,\mathbf{z_{j-1}}\)</span> to produce coeﬃcients <span class="math inline">\(\hat{\lambda}_{l,j}=\frac{&lt;\mathbf{z_l},\mathbf{x_j}&gt;}{&lt;\mathbf{z_l},\mathbf{z_l}&gt;}\)</span>, l=0,1,...,j-1, and residual vector <span class="math inline">\(\mathbf{z_j}=\mathbf{x_j}-\sum_{k=0}^{j-1}\hat{\lambda_{kj}}\mathbf{z_k}\)</span></li>
+<li>Regress <span class="math inline">\(\mathbf{y}\)</span> on the residual <span class="math inline">\(\mathbf{z_p}\)</span> to give the estimate <span class="math inline">\(\hat{\beta_p}=\frac{&lt;\mathbf{z_p},\mathbf{y}&gt;}{&lt;\mathbf{z_p},\mathbf{z_p}&gt;}\)</span>.</li>
+</ol>
+<p>Note: - Each of the <span class="math inline">\(\mathbf{x}_j\)</span> is a linear combination of the <span class="math inline">\(\mathbf{z}_k\)</span>,k ≤ j. - Since th e<span class="math inline">\(\mathbf{z}_j\)</span> are all orthogonal, they form a basis for the column space of <span class="math inline">\(\mathbf{X}\)</span>, and hence the least squares projection onto this subspace is <span class="math inline">\(\mathbf{\hat{y}}\)</span>. - By rearranging the xj , any one of them could be in the last position, and a similar results holds. - The multiple regression coeﬃcient <span class="math inline">\(\mathbf{x}_j\)</span> represents the additional contribution of <span class="math inline">\(\mathbf{x}_j\)</span> on <span class="math inline">\(\mathbf{y}\)</span>, after <span class="math inline">\(\mathbf{x}_j\)</span> has been adjusted for x0, x1,..., xj−1,xj+1,..., xp.</p>
+<h3 id="precision-of-coefficient-estimation">Precision of Coefficient Estimation</h3>
+<p>If <span class="math inline">\(\mathbf{x}_p\)</span> is highly correlated with some of the other <span class="math inline">\(\mathbf{x}_k\)</span>’s, the residual vector <span class="math inline">\(\mathbf{z}_p\)</span> will be close to zero, and the coeﬃcient <span class="math inline">\(\mathbf{x}_j\)</span> will be very unstable.</p>
+<p>From <span class="math inline">\(\hat{\beta_p}=\frac{&lt;\mathbf{z_p},\mathbf{y}&gt;}{&lt;\mathbf{z_p},\mathbf{z_p}&gt;}\)</span>, we also obtain an alternate formula for the variance estimates:</p>
+<p><span class="math display">\[\begin{align}Var(\hat{\beta}_p)=\frac{\sigma^2}{&lt;\mathbf{z_p},\mathbf{z_p}&gt;}=\frac{\sigma^2}{||\mathbf{z_p}||^2} \end{align}\]</span></p>
+<p>The precision with which we can estimate <span class="math inline">\(\hat{\beta_p}\)</span> depends on the length of the residual vector <span class="math inline">\(\mathbf{z_p}\)</span>; this represents how much of <span class="math inline">\(\mathbf{x_p}\)</span> is unexplained by the other <span class="math inline">\(\mathbf{x_k}\)</span>’s</p>
+<h3 id="qr-decomposition">QR decomposition</h3>
+<p>We can represent step 2 of Algorithm 3.1 in matrix form:</p>
+<p><span class="math display">\[\begin{align}
+\mathbf{X}=\mathbf{Z}\mathbf{Γ}
+\end{align}\]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbf{Z}\)</span> has as columns the <span class="math inline">\(\mathbf{z_j}\)</span> (in order)</li>
+<li><span class="math inline">\(\mathbf{Γ}\)</span> is the upper triangular matrix with entries <span class="math inline">\(\hat{\lambda}_{kj}\)</span></li>
+</ul>
+<p>Introducing the diagonal matrix D with jth diagonal entry <span class="math inline">\(D_{jj} = ||\mathbf{z_j}||\)</span>, we get</p>
+<p><strong>QR decomposition of X</strong>:</p>
+<p><span class="math display">\[\begin{align}
+\mathbf{X}=\mathbf{Z}\mathbf{D}^{-1}\mathbf{D}\mathbf{Γ}=\mathbf{Q}\mathbf{R}
+\end{align}\]</span></p>
+<ul>
+<li>Q is an N ×(p+1) orthogonal matrix, <span class="math inline">\(Q^TQ=I\)</span>;</li>
+<li>R is a (p +1) × (p + 1) upper triangular matrix.</li>
+</ul>
+<p>least squares solution:</p>
+<p><span class="math display">\[\begin{align}
+\hat{\beta}&amp;=R^{-1}Q^T\mathbf{y} \\
+\mathbf{\hat{y}}&amp;=QQ^T\mathbf{y}
+\end{align}\]</span></p>
+<h2 id="multiple-outputs">3.2.4 Multiple Outputs</h2>
+<p>Suppose we have multiple outputs Y1,Y2,...,YK that we wish to predict from our inputs X0,X1,X2,...,Xp. We assume a linear model for each output:</p>
+<p><span class="math display">\[\begin{align}
+Y_k&amp;=\beta_{0k}+\sum_{j=1}^pX_j\beta_{jk}+\epsilon_k \\
+&amp;=f_k(X)+\epsilon_k
+\end{align}\]</span></p>
+<p>With N training cases we can write the model in matrix notation:</p>
+<p><span class="math display">\[\begin{align}
+Y=XB+E
+\end{align}\]</span></p>
+<ul>
+<li>Y: N×K response matrix</li>
+<li>X: N×(p+1) input matrix</li>
+<li>B: (p+1)× K matrix of parameters</li>
+<li>E: N×K matrix of errors</li>
+</ul>
+<p>A straightforward generalization of the univariate loss function:</p>
+<p><span class="math display">\[\begin{align}
+RSS(B)&amp;=\sum_{k=1}^K\sum_{i=1}^N(y_{ik}-f_k(x_i))^2 \\
+&amp;=tr[(Y-XB)^T(Y-XB)]
+\end{align}\]</span></p>
+<p>The least squares estimates have exactly the same form as before: <span class="math display">\[\begin{align}
+\hat{B}=(X^TX)^{-1}X^Ty
+\end{align}\]</span></p>
+<p>If the errors <span class="math inline">\(\epsilon =(\epsilon_1,...,\epsilon_K)\)</span> in are correlated, suppose <span class="math inline">\(Cov(\epsilon)= Σ\)</span>, then the multivariate weighted criterion: <span class="math display">\[\begin{align}
+RSS(B;Σ)&amp;=\sum_{i=1}^N(y_{ik}-f_k(x_i))^TΣ^{-1}(y_{ik}-f_k(x_i)) 
+\end{align}\]</span></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/2019/06/08/ISLR-Potential_Problems/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1379,7 +2690,7 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1656,6 +2967,10 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
     
       
         
+      
+    
+      
+    
       
     
       

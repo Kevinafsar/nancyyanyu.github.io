@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Linear_Regression_Models_and_Least_Squares/</loc>
+    
+    <lastmod>2019-06-09T04:24:16.119Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Example-Prostate%20Cancer/</loc>
+    
+    <lastmod>2019-06-09T04:21:28.924Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Potential_Problems/</loc>
     
     <lastmod>2019-06-09T04:07:47.967Z</lastmod>
