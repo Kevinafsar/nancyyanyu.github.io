@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/journal/index.html</loc>
+    
+    <lastmod>2019-06-09T08:57:37.954Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/resume/index.html</loc>
+    
+    <lastmod>2019-06-09T08:41:29.346Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2019-06-09T06:58:06.044Z</lastmod>
@@ -180,13 +194,6 @@
     <loc>https://nancyyanyu.github.io/2019/06/09/ESL-Bias,%20Variance/</loc>
     
     <lastmod>2019-06-09T06:14:17.498Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/resume/index.html</loc>
-    
-    <lastmod>2019-06-09T06:07:14.555Z</lastmod>
     
   </url>
   
