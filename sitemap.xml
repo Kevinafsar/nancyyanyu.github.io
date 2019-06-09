@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Potential_Problems/</loc>
+    
+    <lastmod>2019-06-09T04:07:47.967Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Comparison_of_Linear_Regression_with_K-Nearest_Neighbors/</loc>
+    
+    <lastmod>2019-06-09T04:05:05.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Multiple%20Linear%20Regression/</loc>
+    
+    <lastmod>2019-06-09T04:04:27.773Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/2019/06/08/ISLR-Simple_Linear_Regression/</loc>
     
-    <lastmod>2019-06-09T03:47:08.843Z</lastmod>
+    <lastmod>2019-06-09T04:04:20.335Z</lastmod>
     
   </url>
   
