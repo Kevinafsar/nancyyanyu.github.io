@@ -270,7 +270,7 @@
         
         
           
-          <li class="menu-item menu-item-categories">
+          <li class="menu-item menu-item-machine-learning">
 
     
     
@@ -280,7 +280,7 @@
 
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+    <a href="/categories/Machine-Learning" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Machine Learning</a>
 
   </li>
         
@@ -314,7 +314,7 @@
 
     
 
-    <a href="/categories/Machine-Learning/" rel="section"><i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>Journal</a>
+    <a href="/categories/Journal/" rel="section"><i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>Journal</a>
 
   </li>
         
@@ -367,6 +367,434 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/2ce36d51/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/undefined/2ce36d51/" class="post-title-link" itemprop="url">ESL Note - Linear Regression Example Prostate Cancer</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-08 23:11:36" itemprop="dateCreated datePublished" datetime="2019-06-08T23:11:36-05:00">2019-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-09 14:22:31" itemprop="dateModified" datetime="2019-06-09T14:22:31-05:00">2019-06-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">8.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">7 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy</span><br><span class="line"><span class="keyword">import</span> scipy.stats</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data=pd.read_csv(<span class="string">'./data/prostate.data'</span>,delimiter=<span class="string">'\t'</span>,index_col=<span class="number">0</span>)</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/undefined/2ce36d51/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/9b5af8e1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/undefined/9b5af8e1/" class="post-title-link" itemprop="url">ISLR Note - Comparison of Classification Methods</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-08 23:11:26" itemprop="dateCreated datePublished" datetime="2019-06-08T23:11:26-05:00">2019-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-11 11:55:17" itemprop="dateModified" datetime="2019-06-11T11:55:17-05:00">2019-06-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">14k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">13 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="linear-regression-models-and-least-squares">Linear Regression Models and Least Squares</h1>
+<h3 id="linear-regression-model">Linear Regression Model</h3>
+<ul>
+<li><p>Form of the linear regression model: <em><span class="math inline">\(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\)</span></em>.</p></li>
+<li><p>Training data: (x1,y1) ... (xN,yN). Each <span class="math inline">\(x_{i} =(x_{i1},x_{i2},...,x_{ip})^{T}\)</span> is a vector of feature measurements for the ith case.</p></li>
+<li><p>Goal: estimate the parameters β</p></li>
+<li><p>Estimation method: <strong>Least Squares</strong>, we pick the coeﬃcients <span class="math inline">\(β =(β0,β1,...,βp)^{T}\)</span> to minimize the <strong>residual sum of squares</strong></p></li>
+</ul>
+<p><strong>Assumptions:</strong></p>
+<ul>
+<li>Observations <span class="math inline">\(y_i\)</span> are uncorrelated and have constant variance <span class="math inline">\(\sigma^2\)</span>;</li>
+<li><span class="math inline">\(x_i\)</span> are ﬁxed (non random)</li>
+<li>The regression function E(Y |X) is linear, or the linear model is a reasonable approximation.</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/undefined/9b5af8e1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -445,7 +873,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-09 14:22:31" itemprop="dateModified" datetime="2019-06-09T14:22:31-05:00">2019-06-09</time>
+                <time title="Modified: 2019-06-11 11:57:31" itemprop="dateModified" datetime="2019-06-11T11:57:31-05:00">2019-06-11</time>
               
             
           </span>
@@ -656,7 +1084,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-09 14:22:31" itemprop="dateModified" datetime="2019-06-09T14:22:31-05:00">2019-06-09</time>
+                <time title="Modified: 2019-06-11 12:02:27" itemprop="dateModified" datetime="2019-06-11T12:02:27-05:00">2019-06-11</time>
               
             
           </span>
@@ -865,7 +1293,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-09 14:22:31" itemprop="dateModified" datetime="2019-06-09T14:22:31-05:00">2019-06-09</time>
+                <time title="Modified: 2019-06-11 11:57:36" itemprop="dateModified" datetime="2019-06-11T11:57:36-05:00">2019-06-11</time>
               
             
           </span>
@@ -1081,7 +1509,7 @@ RSS&amp;=\sum_{i=1}^n(y_i-\hat{y}_i)^2 \\
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-09 14:22:31" itemprop="dateModified" datetime="2019-06-09T14:22:31-05:00">2019-06-09</time>
+                <time title="Modified: 2019-06-11 11:56:31" itemprop="dateModified" datetime="2019-06-11T11:56:31-05:00">2019-06-11</time>
               
             
           </span>
@@ -1261,7 +1689,7 @@ Y=\beta_0+\beta_1X
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1286,6 +1714,63 @@ Y=\beta_0+\beta_1X
                 </div>
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -1568,6 +2053,10 @@ Y=\beta_0+\beta_1X
     
       
         
+      
+    
+      
+    
       
     
       
