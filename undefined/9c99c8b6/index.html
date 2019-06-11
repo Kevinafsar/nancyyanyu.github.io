@@ -127,18 +127,18 @@
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Clustering Methods Clustering refers to a very broad set of techniques for finding subgroups, or clusters, in a data set.  When we cluster the observations of a data set, we seek to partition them int">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C1.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C2.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C4.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C3.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C5.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C4.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C3.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/ISLR-Clustering_/C5.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C6.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C7.png">
-<meta property="og:updated_time" content="2019-06-11T19:49:26.729Z">
+<meta property="og:updated_time" content="2019-06-11T20:02:39.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Clustering">
 <meta name="twitter:description" content="Clustering Methods Clustering refers to a very broad set of techniques for finding subgroups, or clusters, in a data set.  When we cluster the observations of a data set, we seek to partition them int">
-<meta name="twitter:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C1.png">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C1.png">
 
 
 
@@ -438,7 +438,7 @@
                 
               
 
-              <time title="Created: 2019-06-11 12:52:06 / Modified: 14:49:26" itemprop="dateCreated datePublished" datetime="2019-06-11T12:52:06-05:00">2019-06-11</time>
+              <time title="Created: 2019-06-11 12:52:06 / Modified: 15:02:39" itemprop="dateCreated datePublished" datetime="2019-06-11T12:52:06-05:00">2019-06-11</time>
             
 
             
@@ -557,7 +557,7 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
 <h2 id="k-means-clustering-optimization-problem">K-means Clustering Optimization Problem</h2>
 <p><strong>Objective funtion</strong>: <span class="math display">\[
 \min_{C_1,...,C_K}\left\{ \sum_{i=1}^K\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2\right\}
-\]</span> <img src="/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C1.png"></p>
+\]</span> <img src="./C1.png"></p>
 <p>Algorithm 10.1 is guaranteed to decrease the value of the objective at each step: <span class="math display">\[
 \frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2=2\sum_{i\in C_k}\sum_{j=1}^p(x_{ij}-\bar{x}_{kj})^2, \quad (10.12)
 \]</span></p>
@@ -570,7 +570,7 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
 <ul>
 <li>It is important to run the algorithm multiple times from different random initial configurations, because the results obtained will depend on the initial (random) cluster assignmentof each observation in Step 1 of Algorithm 10.1</li>
 </ul>
-<p><img src="/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C2.png"></p>
+<p><img src="./C2.png"></p>
 <h1 id="hierarchical-clustering">Hierarchical Clustering</h1>
 <p><strong>Hierarchical clustering</strong> is an alternative approach which does not require that we commit to a particular choice of <span class="math inline">\(K\)</span>.</p>
 <ul>
@@ -578,8 +578,8 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
 </ul>
 <p><strong>Bottom-up</strong> or <strong>agglomerative</strong> clustering: the most common type of hierarchical clustering.</p>
 <h2 id="interpreting-a-dendrogram">Interpreting a Dendrogram</h2>
-<p><img src="/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C4.png"></p>
-<p><img src="/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C3.png"></p>
+<p><img src="./C4.png"></p>
+<p><img src="./C3.png"></p>
 <p>In the left-hand panel of Figure 10.9, each <em>leaf</em> of the dendrogram representsone of the 45 observations in Figure 10.8.</p>
 <ul>
 <li><p>As we move up the tree, some leaves begin to <strong>fuse</strong> into branches: observations that are similar to each other.</p></li>
@@ -598,7 +598,7 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
 <p><strong><em>Hierarchical</em></strong> refers to the fact that clusters obtained by cutting the dendrogram at a given height are necessarily <em>nested</em> within the clusters obtained by cutting the <em>dendrogram</em> at any greater height.</p>
 <p><strong>Disadvantage</strong>: hierarchical clustering can sometimes yield worse results than <em>K-means clustering</em> when the assumption of hierarchical structure unrealistic.</p>
 <h2 id="the-hierarchical-clustering-algorithm">The Hierarchical Clustering Algorithm</h2>
-<p><img src="/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C5.png"></p>
+<p><img src="./ISLR-Clustering_/C5.png" width="600"></p>
 <p><strong>Explanation:</strong></p>
 <p>The two clusters that are most similar to each other are then fused so that there now are n−1 clusters. Next the two clusters that are most similar to each other arefused again, so that there now are n − 2 clusters. The algorithm proceeds in this fashion until all of the observations belong to one single cluster, and the dendrogram is complete.</p>
 <p><img src="/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C6.png"></p>
@@ -1100,7 +1100,74 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
   
 
 
-  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1119,34 +1186,7 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 
