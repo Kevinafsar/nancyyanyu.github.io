@@ -585,9 +585,9 @@ Err_\tau=E[L(Y,\hat{f}(X))|\tau]
       <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
     
     
-      <category term="Model Selection" scheme="https://nancyyanyu.github.io/tags/Model-Selection/"/>
-    
       <category term="Model Assessment" scheme="https://nancyyanyu.github.io/tags/Model-Assessment/"/>
+    
+      <category term="Model Selection" scheme="https://nancyyanyu.github.io/tags/Model-Selection/"/>
     
   </entry>
   
