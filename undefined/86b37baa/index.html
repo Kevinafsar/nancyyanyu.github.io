@@ -1122,24 +1122,31 @@ Pr(Y=j|X=x_0)=\frac{1}{K}\sum_{i\in N_0} I(y_i=j)
 <!-- END LOCAL -->
 
 
-<script type="text/javascript">
-  function renderGitment(){
+
+<script>
+  function renderGitment() {
     var gitment = new Gitmint({
-        id: window.location.pathname,
-        owner: 'nancyyanyu',
-        repo: 'nancyyanyu.github.io',
-        
-        lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-        
-        oauth: {
-        
-        
-            client_secret: '75adc257166813deff478053f3f05133285d6cf0',
-        
-            client_id: '90ddd3d00d8930cb0d84'
-        }});
+      id: window.location.pathname,
+      owner: 'nancyyanyu',
+      repo: 'nancyyanyu.github.io',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '75adc257166813deff478053f3f05133285d6cf0',
+      
+        client_id: '90ddd3d00d8930cb0d84'
+      }
+    });
     gitment.render('gitment-container');
   }
+
+  
+    renderGitment();
+  
+</script>
 
   
 
