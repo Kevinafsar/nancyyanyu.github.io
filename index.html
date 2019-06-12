@@ -383,6 +383,756 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/a1139410/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/undefined/a1139410/" class="post-title-link" itemprop="url">ISLR Note - SVM: Support Vector Machines</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-11 18:03:07 / Modified: 21:27:13" itemprop="dateCreated datePublished" datetime="2019-06-11T18:03:07-05:00">2019-06-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">5.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">5 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="svms-with-kernel">SVMs with Kernel</h1>
+<p>The <strong><em>support vector machine (SVM)</em></strong> is an extension of the support vector classifier that results from enlarging the feature space using <strong>kernels</strong>.</p>
+<p>The <strong><em>solution to the support vector classifier problem</em></strong> involves only the <strong><em>inner products</em></strong> of the observations: <span class="math display">\[
+\langle x_i,x_{i^{&#39;}} \rangle =\sum_{j=1}^px_{ij}x_{i^{&#39;}j}
+\]</span> (Details won't be discussed in this note)</p>
+<p>The <strong>linear support vector classifier</strong> can be represented as <span class="math display">\[
+f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle
+\]</span></p>
+<ul>
+<li><span class="math inline">\(α_i\)</span> is nonzero only for the support vectors in the solution—that is, if a training observation is not a support vector, then its <span class="math inline">\(α_i\)</span>equals zero.</li>
+</ul>
+<p>So if <span class="math inline">\(S\)</span> is the collection of indices of these support points: <span class="math display">\[
+f(x)=\beta_0+\sum_{i \in S}^n \alpha_i \langle x,x_i \rangle
+\]</span> <strong>Generalization</strong>: <em>Kernel</em> <span class="math display">\[
+K(x_i,x_{i^{&#39;}})
+\]</span> <strong>Kernel</strong>: Kernel is a function that quantifies the similarity of two observations.</p>
+<ul>
+<li><strong><em>Linear kernel</em></strong>: <span class="math inline">\(K(x_i,x_{i^{&#39;}})=\sum_{j=1}^px_{ij}x_{i^{&#39;}j}\)</span>
+<ul>
+<li>Linear kernel essentially quantifies the similarity of a pair of observations using <strong>Pearson</strong> (standard) correlation.</li>
+</ul></li>
+<li><strong><em>Polynomial kernel</em></strong> of degree d: <span class="math inline">\(K(x_i,x_{i^{&#39;}})=(1+\sum_{j=1}^px_{ij}x_{i^{&#39;}j})^d\)</span>
+<ul>
+<li>fitting a support vector classifier in a higher-dimensional space involving polynomials of degree <span class="math inline">\(d\)</span>.</li>
+</ul></li>
+<li><strong><em>Radial kernel</em></strong>: <span class="math inline">\(K(x_i,x_{i^{&#39;}})=\exp(-\gamma \sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2)\)</span>
+<ul>
+<li>Radial kernel has very <em>local</em> behavior: only nearby training observations have an effect on the class label of a test observation
+<ul>
+<li>If a given test observation <span class="math inline">\(x^∗ = (x^∗_1 . . .x^∗_p)^T\)</span> is far from a training observation <span class="math inline">\(x_i\)</span> in terms of <strong><em>Euclidean distance</em></strong>; <span class="math inline">\(\Rightarrow\)</span> $ _{j=1}<sup>p(x_{ij}-x_{i</sup>{'}j})^2 $ will be large <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(K(x_i,x_{i^{&#39;}})=\exp(-\gamma \sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2)\)</span> will be very tiny. <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(x_i\)</span> will play virtually no role in <span class="math inline">\(f(x^∗)\)</span>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong><em>Support Vector Machine</em></strong>: When the support vector classifieris combined with a non-linear kernel, the resulting classifier isknown as a support vector machine. <span class="math display">\[
+f(x)=\beta_0+\sum_{i \in S}^n \alpha_i K(x,x_i)
+\]</span> <img src="./SVM1.png"></p>
+<p><strong>Advantage of Kernel over enlarging the feature space using functions of the original features: </strong></p>
+<ul>
+<li><strong><em>Computational</em></strong>: one need only compute <span class="math inline">\(K(x_i,x_{i^{&#39;}})\)</span> for all <span class="math inline">\(\left(\begin{array}{c}n\\ 2\end{array}\right)\)</span> distinct pairs <span class="math inline">\(i, i^{&#39;}\)</span>. This can bedone without explicitly working in the <em>enlarged feature space.</em>
+<ul>
+<li><strong>Curse of dimensionality</strong>: for some kernels, such as the radial kernel, the feature space is implicit and infinite-dimensional.</li>
+</ul></li>
+</ul>
+<h1 id="svms-with-more-than-two-classes">SVMs with More than Two Classes</h1>
+<h2 id="one-versus-one-classification">One-Versus-One Classification</h2>
+<p>A <strong><em>one-versus-one</em></strong> or <strong><em>all-pairs</em></strong> approach constructs <span class="math inline">\(\left(\begin{array}{c}K\\ 2\end{array}\right)\)</span> SVMs, each of which compares a pair of classes</p>
+<ol type="1">
+<li>One such SVM might compare the <span class="math inline">\(k\)</span>-th class, coded as +1, to the <span class="math inline">\(k^{&#39;}\)</span>-th class, codedas −1.</li>
+<li>We classify a test observation using each of the <span class="math inline">\(\left(\begin{array}{c}K\\ 2\end{array}\right)\)</span> classifiers.</li>
+<li>We tally the number of times that the test observation is assigned to each of the K classes.</li>
+<li>The final classification is performed by assigning the test observation to the class to which it was most frequently assigned in these <span class="math inline">\(\left(\begin{array}{c}K\\ 2\end{array}\right)\)</span> pairwise classifications.</li>
+</ol>
+<h2 id="one-versus-all-classification">One-Versus-All Classification</h2>
+<p>The <strong><em>one-versus-all</em></strong> approach:</p>
+<ol type="1">
+<li>We fit <span class="math inline">\(K\)</span> SVMs, each time comparing one of all the K classes to the remaining K − 1 classes.</li>
+<li>Let <span class="math inline">\(β_{0k}, β_{1k}, . . . , β_{pk}\)</span> denote the parameters that result from fitting an SVM comparing the kth class(coded as +1) to the others (coded as −1).</li>
+<li>Let $ x^∗$ denote a test observation. We assign the observation to the class for which <span class="math inline">\(β_{0k}x_1^*+β_{1k}x_2^*+, . . . ,+ β_{pk}x_p^*\)</span> is largest, as this amounts to a high level of confidence that the test observation belongs to the kth class rather than to any of the other classes.</li>
+</ol>
+<h1 id="relationship-to-logistic-regression">Relationship to Logistic Regression</h1>
+<p>Rewrite the criterion (9.12)–(9.15) for fitting the support vector classifier <span class="math inline">\(f(X) = β_0 + β_1X_1 + . . . + β_pX_p\)</span> as</p>
+<p><span class="math display">\[
+\min_{\beta_0,...,\beta_p}\left\{ \sum_{i=1}^n\max[0,1-y_If(x_i)]+\lambda\sum_{j=1}^p\beta_j^2 \right\}
+\]</span></p>
+<ul>
+<li>λ is small: few violations to the margin ; high-variance, low-bias; <span class="math inline">\(\Leftrightarrow\)</span> small <span class="math inline">\(C\)</span>;</li>
+</ul>
+<p><strong>“Loss + Penalty” form</strong>: <span class="math display">\[
+\min_{\beta_0,...,\beta_p}\left\{ L(\mathbf{X},\mathbf{y},\beta)+\lambda P(\beta) \right\}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(L(\mathbf{X},\mathbf{y},\beta)\)</span> : loss function</li>
+<li><span class="math inline">\(P(\beta)\)</span>: penalty function</li>
+</ul>
+<p><strong>Ridge regression and the lasso</strong>: <span class="math display">\[
+L(\mathbf{X},\mathbf{y},\beta)=\sum_{i=1}^n \left( y_i-\beta_0-\sum_{j=1}^p x_{ij}\beta_j \right)^2 \\
+P(\beta) = \sum_{j=1}^p \beta_j^2 \quad ridge \, regression \\
+P(\beta) = \sum_{j=1}^p |\beta_j| \quad lasso
+\]</span> <strong>SVM</strong>:<strong><em>hidge loss</em></strong> <span class="math display">\[
+L(\mathbf{X},\mathbf{y},\beta)=\sum_{i=1}^n \max[0,1-y_i(\beta_0+\beta_1x_{i1}+,,,+\beta_px_{ip})]
+\]</span> <img src="SVM2.png"></p>
+<ul>
+<li>Due to thesimilarities between their loss functions, logistic regression and the supportvector classifier often give very similar results.</li>
+<li>When the classes are wellseparated, SVMs tend to behave better than logistic regression</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/e6eddd64/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/undefined/e6eddd64/" class="post-title-link" itemprop="url">ISLR Note - SVM: Support Vector Classifiers</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-11 17:29:11 / Modified: 17:01:38" itemprop="dateCreated datePublished" datetime="2019-06-11T17:29:11-05:00">2019-06-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">2.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">3 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="overview-of-the-support-vector-classifier">Overview of the Support Vector Classifier</h1>
+<p><strong>Maximal margin hyperplane</strong> is extremely sensitive to a change in a single observation suggests that it may have <strong><em>overfit</em></strong> the training data.</p>
+<p>In this case, we might be willing to consider a classifier based on a hyperplane that does not perfectly separate the two classes, in the interest of</p>
+<ul>
+<li>Greater <em>robustness</em> to individual observations, and</li>
+<li>Better classification of most of the training observations.</li>
+</ul>
+<p><strong><em>Support Vector Classifier (Soft Margin Classifier)</em></strong>: Rather than seeking the largest possible margin that every observation is not only on the correct side of the hyperplane but also on the correct side of the margin, we instead allow some observationsto be on the incorrect side of the margin, or even the incorrect side ofthe hyperplane.</p>
+<p><img src="SVC1.png"></p>
+<h1 id="details-of-the-support-vector-classifier">Details of the Support Vector Classifier</h1>
+<p><strong>Optimization problem</strong>: <span class="math display">\[
+\max_{\beta_0,...\beta_p,\epsilon_1,..,\epsilon_n} M \\
+s.t.  \sum_{j=1}^p \beta_j^2=1,  \quad (9.13) \\
+ y_i(\beta_0+\beta_1x_{i1}+\beta_2x_{i2},...+\beta_px_{ip})&gt;M(1-\epsilon_i) \quad \forall i=1,..,n.  \quad (9.14) \\
+ \epsilon_i\geq0,\sum_{i=1}^p\epsilon_i \leq C, \quad (9.15)
+\]</span></p>
+<ul>
+<li><strong><em>Slack variables</em></strong>: <span class="math inline">\(\epsilon_1,..,\epsilon_n\)</span> - allow individual observations to be on the wrong side of the margin or the hyperplane
+<ul>
+<li><span class="math inline">\(\epsilon_i=0\)</span>: the i-th observation is on the correct side of the <em>margin</em></li>
+<li><span class="math inline">\(\epsilon_i &gt;0\)</span>: the i-th observation is on the wrong side of the <em>margin</em> <span class="math inline">\(\Rightarrow\)</span> i-th observation <strong><em>violated</em></strong> the margin.</li>
+<li><span class="math inline">\(\epsilon_i &gt;1\)</span>: the i-th observation is on the wrong side of the <em>hyperplane</em></li>
+</ul></li>
+<li>Classify the test observation based on the sign of <span class="math inline">\(f(x^∗) = \beta_0+\beta_1x_{1}^*+\beta_2x_{2}^*,...+\beta_px_{p}^*\)</span>.</li>
+<li><strong><em>Tuning parameter C</em></strong>: <span class="math inline">\(C\)</span> bounds the sum of the <span class="math inline">\(\epsilon_i\)</span>'s, and so it determines the number and severity of the violationsto the margin(and to the hyperplane) that we will tolerate. $
+<ul>
+<li><strong><em>budget</em></strong> for the amount that the margin can be violated by the <span class="math inline">\(n\)</span> observations.</li>
+<li>Generally chosen via <em>cross-validation</em>.</li>
+<li><span class="math inline">\(C\)</span> controls the <strong>bias-variance trade-off</strong> of the support vector classifier.
+<ul>
+<li>C is small: a classifier highly fit to the data, fewersupport vectors <span class="math inline">\(\Rightarrow\)</span> low bias , high variance;</li>
+<li>C is large: margin wider, many support vectors <span class="math inline">\(\Rightarrow\)</span> high bias , low variance;</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="SVC2.png"></p>
+<p><strong>Properties</strong>:</p>
+<ul>
+<li>Only observations that either <em>lie on the margin or that violate the margin</em> (<strong>support vectors</strong>) will affect the hyperplane, and hence the classifier obtained.</li>
+<li>The fact that the support vector classifier’s decision rule is based only on a potentially small subset of the training observations (the <strong><em>support vectors</em></strong>) means that it is quite <strong>robust</strong> to the behavior of observations that are far away from the hyperplane.
+<ul>
+<li>Different from LDA which depends on the mean of <em>all</em> of the observations within each class, as well as the <em>within-class covariance matrix</em> computed using all of the observations</li>
+</ul></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/bc53b72b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/undefined/bc53b72b/" class="post-title-link" itemprop="url">ISLR Note - SVM: Maximal Margin Classifier</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-11 16:48:50 / Modified: 16:40:06" itemprop="dateCreated datePublished" datetime="2019-06-11T16:48:50-05:00">2019-06-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">3 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="what-is-a-hyperplane">What Is a Hyperplane?</h1>
+<p><strong><em>Hyperplane </em></strong>: In a p-dimensional space, a hyperplane is a flat affine subspace of dimension <span class="math inline">\(p − 1\)</span>.</p>
+<ul>
+<li>e.g. in two dimensions, a hyperplane is a flat one-dimensional subspace—in other words, a line.</li>
+</ul>
+<p><strong>Mathematical definition of a hyperplane</strong>: <span class="math display">\[
+\beta_0+\beta_1X_1+\beta_2X_2,...+\beta_pX_p=0, \quad (9.1)
+\]</span></p>
+<ul>
+<li>Any <span class="math inline">\(X = (X1,X2,…X_p)^T\)</span> for which (9.1) holds is a point on the hyperplane.</li>
+</ul>
+<h1 id="classification-using-a-separating-hyperplane">Classification Using a Separating Hyperplane</h1>
+<p><strong>Setting</strong>:</p>
+<ul>
+<li><span class="math inline">\(n \times p\)</span> data matrix <span class="math inline">\(X\)</span> that consists of <span class="math inline">\(n\)</span> training observations in p-dimensional space</li>
+<li>These observations fall into two classes—that is, $y_1, . . . , y_n {−1, 1} $.</li>
+<li>Test observation: a p-vector of observed features <span class="math inline">\(x^∗ =\{x^∗_1 . . . x^∗_p\}^T\)</span>.</li>
+</ul>
+<p><strong>Separating hyperplane</strong> has the property that: <span class="math display">\[
+y_i(\beta_0+\beta_1x_{i1}+\beta_2x_{i2},...+\beta_px_{ip})&gt;0, \quad (9.8)
+\]</span></p>
+<ul>
+<li>for all i=1,…,n</li>
+</ul>
+<p>We classify the test observation <span class="math inline">\(x^*\)</span> based on the sign of <span class="math inline">\(f(x^∗) = \beta_0+\beta_1x_{1}^*+\beta_2x_{2}^*,...+\beta_px_{p}^*\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(f(x^∗)\)</span> is positive, then we assign the test observation to class 1, and if f(x∗) is negative, then we assign it to class −1.</li>
+<li><strong>Magnitude</strong> of <span class="math inline">\(f(x^∗)\)</span>. If <span class="math inline">\(f(x^∗)\)</span>is far from zero, then this means that <span class="math inline">\(x^∗\)</span> lies far from the hyperplane,and so we can be confident about our class assignment for <span class="math inline">\(x^∗\)</span>.</li>
+</ul>
+<p><img src="./S1.png" width="600" aign="middle"></p>
+<h1 id="the-maximal-margin-classifier">The Maximal Margin Classifier</h1>
+<p><strong><em>Margin</em></strong>: the smallest (perpendicular) distance from each training observation to a given separating hyperplane <span class="math inline">\(\Rightarrow\)</span> the minimal distance from the observations to the hyperplane.</p>
+<p><strong><em>Maximal margin hyperplane</em></strong>: the separating hyperplane that is farthest from the training observations.</p>
+<ul>
+<li>The maximal margin hyperplane is the separating hyperplane for which the <em>margin</em> is <strong>largest</strong></li>
+<li>Overfitting when <span class="math inline">\(p\)</span> is large.</li>
+</ul>
+<p><strong><em>Maximal margin classifier</em></strong>: classify a test observation based on which side of the maximal margin hyperplane it lies.</p>
+<p><strong><em>Support vectors</em></strong>: training observations that are equidistant from the maximal margin hyperplane that indicate <em>the width of the margin</em>.</p>
+<ul>
+<li>They “support” the maximal margin hyperplane in the sense vector that if these points were moved slightly then the maximal margin hyperplanewould move as well.</li>
+<li><em>The maximal margin hyperplane depends directly on the support vectors, but not on the other observations</em></li>
+</ul>
+<p><img src="./S2.png" width="600"></p>
+<h1 id="construction-of-the-maximal-margin-classifier">Construction of the Maximal Margin Classifier</h1>
+<p>The maximal margin hyperplane is the solution to the optimization problem <span class="math display">\[
+\max_{\beta_0,...\beta_p} M \\
+s.t.  \sum_{j=1}^p \beta_j^2=1,  \quad (9.10) \\
+ y_i(\beta_0+\beta_1x_{i1}+\beta_2x_{i2},...+\beta_px_{ip})&gt;M \quad \forall i=1,..,n.  \quad (9.11)
+\]</span></p>
+<ul>
+<li>The constraint in (9.11) in fact requires that each observation be on the correct side of the hyperplane, with some cushion, provided that <strong>margin</strong> <span class="math inline">\(M\)</span> is positive.)</li>
+<li>The constraint in (9.10) makes sure the perpendicular distance from the i-th observation to the hyperplane is given by</li>
+</ul>
+<p><span class="math display">\[
+y_i(\beta_0+\beta_1x_{i1}+\beta_2x_{i2},...+\beta_px_{ip})
+\]</span></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/267da764/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -818,7 +1568,7 @@
                 
               
 
-              <time title="Created: 2019-06-11 12:52:06 / Modified: 15:02:39" itemprop="dateCreated datePublished" datetime="2019-06-11T12:52:06-05:00">2019-06-11</time>
+              <time title="Created: 2019-06-11 12:52:06 / Modified: 15:44:23" itemprop="dateCreated datePublished" datetime="2019-06-11T12:52:06-05:00">2019-06-11</time>
             
 
             
@@ -869,7 +1619,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">5.9k</span>
+                <span title="Symbols count in article">6.8k</span>
               
 
               
@@ -883,7 +1633,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">5 mins.</span>
+                <span title="Reading time">6 mins.</span>
               
             </div>
           
@@ -1250,7 +2000,7 @@ Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 11:59:55" itemprop="dateModified" datetime="2019-06-11T11:59:55-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-11 15:51:08" itemprop="dateModified" datetime="2019-06-11T15:51:08-05:00">2019-06-11</time>
               
             
           </span>
@@ -1459,7 +2209,7 @@ Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 11:56:10" itemprop="dateModified" datetime="2019-06-11T11:56:10-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-11 15:51:12" itemprop="dateModified" datetime="2019-06-11T15:51:12-05:00">2019-06-11</time>
               
             
           </span>
@@ -1802,650 +2552,6 @@ Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/5c16c99c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/undefined/5c16c99c/" class="post-title-link" itemprop="url">ESL Note - Subset Selection.</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-09 00:21:13" itemprop="dateCreated datePublished" datetime="2019-06-09T00:21:13-05:00">2019-06-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-11 11:54:26" itemprop="dateModified" datetime="2019-06-11T11:54:26-05:00">2019-06-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">2.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="subset-selection">3.3 Subset Selection</h1>
-<h4 id="drawbacks-of-least-squares-estimates">Drawbacks of least squares estimates:</h4>
-<ul>
-<li><em>prediction accuracy</em>: the least squares estimates often have low bias but large variance. Prediction accuracy can sometimes be improved by shrinking or setting some coeﬃcients to zero.By doing so we sacriﬁce a little bit of bias to reduce the variance of the predicted values, and hence may improve the overall prediction accuracy.</li>
-<li><em>interpretation</em>: With a large number of predictors, we often would like to determine a smaller subset that exhibit the strongest eﬀects. In order to get the “big picture,” we are willing to sacriﬁce some of the small details.</li>
-</ul>
-<h2 id="best-subset-selection">3.3.1 Best-Subset Selection</h2>
-<p>Best subset regression ﬁnds for each k ∈{0, 1, 2,...,p} the subset of size k that gives smallest residual sum of squares.</p>
-<p>We choose the smallest model that minimizes an estimate of the expected prediction error.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/undefined/5c16c99c/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/afb70442/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/undefined/afb70442/" class="post-title-link" itemprop="url">ESL Note - Shrinkage Methods</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-09 00:21:02" itemprop="dateCreated datePublished" datetime="2019-06-09T00:21:02-05:00">2019-06-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-11 11:54:48" itemprop="dateModified" datetime="2019-06-11T11:54:48-05:00">2019-06-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">6.9k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">6 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="shrinkage-methods">3.4 Shrinkage Methods</h1>
-<blockquote>
-<p><em>Subset selection methods</em> are discrete process—variables are either retained or discarded—it often exhibits high variance,and so doesn’t reduce the prediction error of the full model. <em>Shrinkage methods</em> are more continuous, and don’t suﬀer as much from high variability.</p>
-</blockquote>
-<h2 id="ridge-regression">3.4.1 Ridge Regression</h2>
-<p><strong>Ridge regression</strong> shrinks the regression coeﬃcients by imposing a penalty on their size.The ridge coeﬃcients minimize a penalized residual sum of squares:</p>
-<p><span class="math display">\[\begin{align}
-\hat{\beta}^{ridge}=argmin_\beta {\sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2+\lambda\sum_{j=1}^p\beta_j^2}
-\end{align}\]</span></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/undefined/afb70442/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/cac93a23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/undefined/cac93a23/" class="post-title-link" itemprop="url">ISLR Note - Dimension Reduction-PCA</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-09 00:20:51" itemprop="dateCreated datePublished" datetime="2019-06-09T00:20:51-05:00">2019-06-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-11 11:58:24" itemprop="dateModified" datetime="2019-06-11T11:58:24-05:00">2019-06-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">6.8k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">6 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="intro-to-dimension-reduction-methods">Intro to Dimension Reduction Methods</h1>
-<p>Subset selection and shrinkage methods all use the original predictors, X1,X2, . . . , Xp.</p>
-<p>Dimension Reduction Methods <strong><em>transform</em></strong> the predictors and then fit a least squares model using the transformed variables.</p>
-<h2 id="approach">Approach</h2>
-<p>Let Z1,Z2, . . . ,ZM represent M &lt; p linear combinations of our original p predictors. That is,</p>
-<p><span class="math display">\[\begin{align}
-Z_m=\sum_{j=1}^p\phi_{jm}X_j
-\end{align}\]</span></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/undefined/cac93a23/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2492,7 +2598,7 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2574,7 +2680,9 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -2675,7 +2783,7 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">152k</span>
+    <span title="Symbols count total">164k</span>
   
 
   
@@ -2859,11 +2967,11 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
   
     
       
-    
-      
-    
-      
         
+      
+    
+      
+    
       
     
       

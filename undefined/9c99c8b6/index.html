@@ -131,10 +131,10 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C4.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C3.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/ISLR-Clustering_/C5.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C6.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C7.png">
-<meta property="og:updated_time" content="2019-06-11T20:02:39.025Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C5.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C6.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/9c99c8b6/C7.png">
+<meta property="og:updated_time" content="2019-06-11T20:44:23.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Clustering">
 <meta name="twitter:description" content="Clustering Methods Clustering refers to a very broad set of techniques for finding subgroups, or clusters, in a data set.  When we cluster the observations of a data set, we seek to partition them int">
@@ -438,7 +438,7 @@
                 
               
 
-              <time title="Created: 2019-06-11 12:52:06 / Modified: 15:02:39" itemprop="dateCreated datePublished" datetime="2019-06-11T12:52:06-05:00">2019-06-11</time>
+              <time title="Created: 2019-06-11 12:52:06 / Modified: 15:44:23" itemprop="dateCreated datePublished" datetime="2019-06-11T12:52:06-05:00">2019-06-11</time>
             
 
             
@@ -489,7 +489,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">5.9k</span>
+                <span title="Symbols count in article">6.8k</span>
               
 
               
@@ -503,7 +503,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">5 mins.</span>
+                <span title="Reading time">6 mins.</span>
               
             </div>
           
@@ -598,10 +598,10 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
 <p><strong><em>Hierarchical</em></strong> refers to the fact that clusters obtained by cutting the dendrogram at a given height are necessarily <em>nested</em> within the clusters obtained by cutting the <em>dendrogram</em> at any greater height.</p>
 <p><strong>Disadvantage</strong>: hierarchical clustering can sometimes yield worse results than <em>K-means clustering</em> when the assumption of hierarchical structure unrealistic.</p>
 <h2 id="the-hierarchical-clustering-algorithm">The Hierarchical Clustering Algorithm</h2>
-<p><img src="./ISLR-Clustering_/C5.png" width="600"></p>
+<p><img src="C5.png"></p>
 <p><strong>Explanation:</strong></p>
 <p>The two clusters that are most similar to each other are then fused so that there now are n−1 clusters. Next the two clusters that are most similar to each other arefused again, so that there now are n − 2 clusters. The algorithm proceeds in this fashion until all of the observations belong to one single cluster, and the dendrogram is complete.</p>
-<p><img src="/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C6.png"></p>
+<p><img src="C6.png"></p>
 <blockquote>
 <p>How did we determine that the cluster {5, 7} should be fused with the cluster {8}? - linkage</p>
 </blockquote>
@@ -610,15 +610,29 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
 <li>Complete, average, single, and centroid</li>
 <li>The dissimilarities computed in Step 2(b)of the hierarchical clustering algorithm will depend on the type of linkage used, as well as on the choice of dissimilarity measure.</li>
 </ul>
-<p><img src="/Users/yanyanyu/Google_Drive/Python/nancyyanyu.github.io/source/_posts/ISLR-Clustering/C7.png"></p>
+<p><img src="C7.png"></p>
 <h2 id="choice-of-dissimilarity-measure">Choice of Dissimilarity Measure</h2>
 <p><strong>Dissimilarity Measure</strong>:</p>
 <ul>
 <li><strong><em>Euclidean distance</em></strong></li>
 <li><strong><em>Correlation-based distance</em></strong>: considers two observationsto be similar if their features are highly correlated</li>
 </ul>
+<p>In general, careful attention should be paid to the <em>type</em> of data being clustered and the scientific question at hand which determines what type of dissimilarity measureis used for hierarchical clustering.</p>
+<p><strong>Note:</strong> variables should be <strong><em>scaled</em></strong> to have standarddeviation one before the dissimilarity between the observations iscomputed.</p>
 <h1 id="practical-issues-in-clustering">Practical Issues in Clustering</h1>
 <h2 id="small-decisions-with-big-consequences">Small Decisions with Big Consequences</h2>
+<p>In order to perform clustering, some decisions must be made.</p>
+<ul>
+<li>Should the observations or features first be standardized to have mean zero and scaled to have standard deviation one.</li>
+<li>In the case of hierarchical clustering,
+<ul>
+<li>What dissimilarity measure should be used?</li>
+<li>What type of linkage should be used?</li>
+<li>Where should we cut the dendrogramin order to obtain clusters?</li>
+</ul></li>
+<li>In the case of K-means clustering, how many clusters should we lookfor in the data?\</li>
+</ul>
+<p>We try several different choices, and look for the one withthe most useful or interpretable solution.</p>
 
       
     </div>
@@ -741,7 +755,7 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -823,7 +837,9 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -941,7 +957,7 @@ W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">152k</span>
+    <span title="Symbols count total">164k</span>
   
 
   
