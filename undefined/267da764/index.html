@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="最大标题：command + 1 或者：# 大标题：command + 2 或者：## 标准标题：command + 3 或者：### 中标题：command + 4 或者：#### 小标题：command + 5 或者：##### 插入表格：command + OPTION+T 插入代码：command + alt +c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T18:34:21.268Z">
+<meta property="og:updated_time" content="2019-06-12T03:01:25.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Typora Shortcuts 快捷键">
 <meta name="twitter:description" content="最大标题：command + 1 或者：# 大标题：command + 2 或者：## 标准标题：command + 3 或者：### 中标题：command + 4 或者：#### 小标题：command + 5 或者：##### 插入表格：command + OPTION+T 插入代码：command + alt +c">
@@ -429,7 +429,7 @@
                 
               
 
-              <time title="Created: 2019-06-11 13:33:27 / Modified: 13:34:21" itemprop="dateCreated datePublished" datetime="2019-06-11T13:33:27-05:00">2019-06-11</time>
+              <time title="Created: 2019-06-11 13:33:27 / Modified: 22:01:25" itemprop="dateCreated datePublished" datetime="2019-06-11T13:33:27-05:00">2019-06-11</time>
             
 
             
@@ -461,6 +461,19 @@
 
           
             
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/undefined/267da764/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/undefined/267da764/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -601,6 +614,13 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -984,7 +1004,51 @@
   
 
 
-  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'nancyyanyu',
+      repo: 'nancyyanyu.github.io',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '75adc257166813deff478053f3f05133285d6cf0',
+      
+        client_id: '90ddd3d00d8930cb0d84'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1002,16 +1066,6 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-  
-
-  
-
-  
-
-  
-
 
   
 
