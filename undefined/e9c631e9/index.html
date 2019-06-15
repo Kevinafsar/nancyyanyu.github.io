@@ -129,7 +129,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/e9c631e9/11.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/e9c631e9/12.png">
-<meta property="og:updated_time" content="2019-06-12T03:02:10.206Z">
+<meta property="og:updated_time" content="2019-06-15T09:18:37.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Bagging,Random_Forest,Boosting">
 <meta name="twitter:description" content="Bagging Bootstrap aggregation, or bagging, is a general-purpose procedure for reducing the variance of a statistical learning method, frequently used in the context of decision trees. Averaging a set">
@@ -450,7 +450,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:02:10" itemprop="dateModified" datetime="2019-06-11T22:02:10-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 04:18:37" itemprop="dateModified" datetime="2019-06-15T04:18:37-05:00">2019-06-15</time>
               
             
           </span>
@@ -536,9 +536,11 @@
 <a id="more"></a>
 <p><strong>Bootstrap</strong> taking repeated samples from the (single) training data set</p>
 <p><strong>Bagging</strong> - Generate B different bootstrapped training data sets. - Train our method on the bth bootstrapped training set in order to get <span class="math inline">\(\hat{f}^{*b}(x)\)</span> - Finally average all the predictions, to obtain</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \hat{f}_{bag}(x)=\frac{1}{B}\sum_{b=1}^B\hat{f}^{*b}(x)
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <p><strong>Apply bagging to regression trees</strong> - Construct B regression trees using B bootstrapped training sets - Average the resulting predictions. These trees are grown deep, and are not pruned. Hence each individual tree has high variance, but low bias. Averaging these B trees reduces the variance.</p>
 <p><strong>Bagging on Classification Tree</strong> - For a given test observation, we can record the class predicted by each of the B trees, and take a <strong>majority vote</strong>: the overall prediction is the most commonly occurring class among the B predictions.</p>
 <p><strong>B</strong> - In practice we use a value of B sufficiently large that the error has settled down, like B=100.</p>
@@ -711,7 +713,7 @@ RSS=\sum_{j=1}^J\sum_{i \in R_j} (y_i-\hat{y}_{R_j})^2
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -793,7 +795,9 @@ RSS=\sum_{j=1}^J\sum_{i \in R_j} (y_i-\hat{y}_{R_j})^2
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -911,7 +915,7 @@ RSS=\sum_{j=1}^J\sum_{i \in R_j} (y_i-\hat{y}_{R_j})^2
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

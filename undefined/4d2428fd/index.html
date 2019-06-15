@@ -137,7 +137,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/4d2428fd/14.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/4d2428fd/15.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/4d2428fd/16.png">
-<meta property="og:updated_time" content="2019-06-12T03:01:51.625Z">
+<meta property="og:updated_time" content="2019-06-15T09:20:46.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Linear Discriminant Analysis">
 <meta name="twitter:description" content="LDA V.S. Logistic Regression:  When the classes are well-separated, the parameter estimates for the logistic regression model are surprisingly unstable. Linear discriminant analysis does not suffer fr">
@@ -458,7 +458,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:01:51" itemprop="dateModified" datetime="2019-06-11T22:01:51-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 04:20:46" itemprop="dateModified" datetime="2019-06-15T04:20:46-05:00">2019-06-15</time>
               
             
           </span>
@@ -549,11 +549,11 @@
 <a id="more"></a>
 <p><strong>Prior</strong>:Let <span class="math inline">\(\pi_k=Pr(Y=k)\)</span> represent the overall or <strong><em>prior</em></strong> probability that a randomly chosen observation comes from the kth class. This is the probability that a given observation is associated with the kth category of the response variable Y .</p>
 <p>Let <span class="math inline">\(f_k(X) ≡ Pr(X = x|Y = k)\)</span> denote the <strong><em>density function</em></strong> of X for an observation that comes from the kth class. In other words, fk(x) is relatively large if there is a high probability that an observation in the kth class has X ≈ x.</p>
-<p><strong>Bayes’ theorem</strong> states that</p>
-<p><span class="math display">\[\begin{align}
+<p><strong>Bayes’ theorem</strong> states that <span class="math display">\[
+\begin{align}
 Pr(Y=k|X=x)=\frac{\pi_k f_k(x)}{\sum_{l=1}^K\pi_lf_l(x)} 
-\end{align}\]</span></p>
-<p><strong>Posterior</strong>:<span class="math inline">\(p_k(X) = Pr(Y = k|X)\)</span> an observation X = x belongs to the kth class, given the predictor value for that observation</p>
+\end{align}
+\]</span> <strong>Posterior</strong>:<span class="math inline">\(p_k(X) = Pr(Y = k|X)\)</span> an observation X = x belongs to the kth class, given the predictor value for that observation</p>
 <p><strong>Estimating <span class="math inline">\(π_k\)</span>:</strong> simply compute the fraction of the training observations that belong to the kth class.</p>
 <p><strong>Estimating <span class="math inline">\(f_k(X)\)</span>:</strong> more challenging</p>
 <h1 id="linear-discriminant-analysis-for-p-1">Linear Discriminant Analysis for p = 1</h1>
@@ -561,9 +561,11 @@ Pr(Y=k|X=x)=\frac{\pi_k f_k(x)}{\sum_{l=1}^K\pi_lf_l(x)}
 <h2 id="assumptions">Assumptions</h2>
 <p>In order to estimate <span class="math inline">\(f_k(x)\)</span>, we will first make some assumptions about its form:</p>
 <ol type="1">
-<li>Assume that <span class="math inline">\(f_k(x)\)</span> is normal or Gaussian. <span class="math display">\[\begin{align}
-f_k(x)=\frac{1}{\sqrt{2\pi}\sigma_k}\exp{\left( -\frac{1}{2\sigma_k^2}(x-\mu_k)^2 \right)}
-\end{align}\]</span></li>
+<li>Assume that <span class="math inline">\(f_k(x)\)</span> is normal or Gaussian. <span class="math display">\[
+  \begin{align}
+  f_k(x)=\frac{1}{\sqrt{2\pi}\sigma_k}\exp{\left( -\frac{1}{2\sigma_k^2}(x-\mu_k)^2 \right)}
+  \end{align}
+  \]</span></li>
 </ol>
 <p>where <span class="math inline">\(μ_k\)</span> and <span class="math inline">\(σ_k^2\)</span> are the mean and variance parameters for the kth class.</p>
 <ol start="2" type="1">
@@ -573,36 +575,41 @@ f_k(x)=\frac{1}{\sqrt{2\pi}\sigma_k}\exp{\left( -\frac{1}{2\sigma_k^2}(x-\mu_k)^
 </dd>
 </dl></li>
 </ol>
-<p>So <span class="math display">\[\begin{align}
+<p>So <span class="math display">\[
+\begin{align}
 p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_k)^2 \right)}}{\sum_{l=1}^K\pi_l\frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_l)^2 \right)}}
-\end{align}\]</span></p>
-<p>The <strong>Bayes classifier</strong> involves assigning an observation X = x to the class for which <span class="math inline">\(p_k(x)\)</span> is largest. Taking the log of <span class="math inline">\(p_k(x)\)</span> and rearranging the terms, it is not hard to show that this is equivalent to assigning the observation to the class for which</p>
-<p><span class="math display">\[\begin{align}
+\end{align}
+\]</span> The <strong>Bayes classifier</strong> involves assigning an observation X = x to the class for which <span class="math inline">\(p_k(x)\)</span> is largest. Taking the log of <span class="math inline">\(p_k(x)\)</span> and rearranging the terms, it is not hard to show that this is equivalent to assigning the observation to the class for which <span class="math display">\[
+\begin{align}
 \delta_k(x)=x\frac{\mu_k}{\sigma^2}-\frac{\mu_k^2}{2\sigma^2}+\log(\pi_k) \quad\quad (4.13)
-\end{align}\]</span></p>
-<p>is largest.</p>
-<p>For instance, if K = 2 and π1 = π2, then the Bayes classifier assigns an observation to class 1 if <span class="math inline">\(2x (μ_1 − μ_2) &gt; μ^2_1 − μ^2_2\)</span>, and to class 2 otherwise. In this case, the Bayes decision boundary corresponds to the point where</p>
-<p><span class="math display">\[\begin{align}
+\end{align}
+\]</span> is largest.</p>
+<p>For instance, if K = 2 and π1 = π2, then the Bayes classifier assigns an observation to class 1 if <span class="math inline">\(2x (μ_1 − μ_2) &gt; μ^2_1 − μ^2_2\)</span>, and to class 2 otherwise. In this case, the Bayes decision boundary corresponds to the point where <span class="math display">\[
+\begin{align}
 x=\frac{\mu_1^2-\mu_2^2}{2(\mu_1-\mu_2)}=\frac{\mu_1+\mu_2}{2}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <h2 id="parameters-estimation">Parameters Estimation</h2>
 <p>In practice, even if we are quite certain of our assumption that X is drawn from a Gaussian distribution within each class, we still have to estimate the parameters <span class="math inline">\(μ_1, . . . , μ_K, π_1, . . . , π_K\)</span>, and <span class="math inline">\(σ^2\)</span>.</p>
 <p><strong>Linear discriminant analysis (LDA)</strong> method approximates the Bayes classifier by plugging estimates for <span class="math inline">\(μ_1, . . . , μ_K, π_1, . . . , π_K\)</span>, and <span class="math inline">\(σ^2\)</span> into (4.13)</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \hat{\mu}_k=\frac{1}{n_k}\sum_{i:y_i=k}x_i  \quad (4.15) \\
 \hat{\sigma}^2=\frac{1}{n-K}\sum_{k=1}^K\sum_{i:y_i=k}(x_i-\hat{\mu_k})^2 \quad (4.16)\\
 \hat{\pi_k}=\frac{n_k}{n}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <p>where n is the total number of training observations, and <span class="math inline">\(n_k\)</span> is the number of training observations in the kth class.</p>
 <p><span class="math inline">\(\hat{\mu}_k\)</span>: average of all the training observations from the kth class;</p>
 <p><span class="math inline">\(\hat{\sigma}^2\)</span>: a weighted average of the sample variances for each of the K classes.</p>
 <p><span class="math inline">\(\hat{\pi_k}\)</span>: the proportion of the training observations that belong to the kth class</p>
 <h2 id="lda-classifier">LDA classifier</h2>
 <p>The LDA classifier assigns an observation X = x to the class for which</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \hat{\delta}_k(x)=x\frac{\hat{\mu}_k}{\hat{\sigma}^2}-\frac{\hat{\mu}_k^2}{2\hat{\sigma}^2}+\log(\hat{\pi}_k)
-\end{align}\]</span></p>
-<p>is largest.</p>
+\end{align}
+\]</span> is largest.</p>
 <p>The word <strong><em>linear</em></strong> in the classifier’s name stems from the fact that the <strong><em>discriminant functions</em></strong> <span class="math inline">\(\hat{\delta}_k(x)\)</span> are linear functions of x.</p>
 <p><img src="./6.png" width="600"></p>
 <p>The right-hand panel of Figure 4.4 displays a histogram of a random sample of 20 observations from each class.</p>
@@ -617,16 +624,16 @@ x=\frac{\mu_1^2-\mu_2^2}{2(\mu_1-\mu_2)}=\frac{\mu_1+\mu_2}{2}
 <h2 id="multivariate-gaussian-distribution">Multivariate Gaussian Distribution</h2>
 <p>Assumes that each individual predictor follows a one-dimensional normal distribution with some correlation between each pair of predictors.</p>
 <p><img src="./7.png" width="600"></p>
-<p>To indicate that a p-dimensional random variable X has a multivariate Gaussian distribution, we write X ∼ N(μ,Σ). Here E(X) = μ is the mean of X (a vector with p components), and Cov(X) = Σ is the p × p <strong>covariance matrix</strong> of X. Formally, the <strong>multivariate Gaussian density</strong> is defined as</p>
-<p><span class="math display">\[\begin{align}
+<p>To indicate that a p-dimensional random variable X has a multivariate Gaussian distribution, we write X ∼ N(μ,Σ). Here E(X) = μ is the mean of X (a vector with p components), and Cov(X) = Σ is the p × p <strong>covariance matrix</strong> of X. Formally, the <strong>multivariate Gaussian density</strong> is defined as <span class="math display">\[
+\begin{align}
 f(x)=\frac{1}{\sqrt{(2\pi)^{p}|Σ|}}\exp{\left( \frac{1}{2}(x-\mu)^TΣ^{-1}(x-\mu) \right)}
-\end{align}\]</span></p>
-<p>In the case of p &gt; 1 predictors, the <strong>LDA classifier</strong> assumes that the observations in the kth class are drawn from a multivariate Gaussian distribution <span class="math inline">\(N(μ_k,Σ)\)</span>, where <span class="math inline">\(μ_k\)</span> is a class-specific mean vector, and Σ is a covariance matrix that is common to all K classes.</p>
-<p>Plugging the density function for the kth class, <span class="math inline">\(f_k(X = x)\)</span>, into <span class="math inline">\(Pr(Y = k|X = x)\)</span>, the Bayes classifier assigns an observation X = x to the class for which</p>
-<p><span class="math display">\[\begin{align}
+\end{align}
+\]</span> In the case of p &gt; 1 predictors, the <strong>LDA classifier</strong> assumes that the observations in the kth class are drawn from a multivariate Gaussian distribution <span class="math inline">\(N(μ_k,Σ)\)</span>, where <span class="math inline">\(μ_k\)</span> is a class-specific mean vector, and Σ is a covariance matrix that is common to all K classes.</p>
+<p>Plugging the density function for the kth class, <span class="math inline">\(f_k(X = x)\)</span>, into <span class="math inline">\(Pr(Y = k|X = x)\)</span>, the Bayes classifier assigns an observation X = x to the class for which <span class="math display">\[
+\begin{align}
 \delta_k(x)=x^TΣ^{-1}\mu_k-\frac{1}{2}\mu_k^TΣ^{-1}\mu_k+\log{\pi_k}  \quad \quad (4.19)
-\end{align}\]</span></p>
-<p>is largest.</p>
+\end{align}
+\]</span> is largest.</p>
 <p><img src="./8.png" width="600"></p>
 <p>Once again, we need to estimate the unknown parameters <span class="math inline">\(μ_1, . . . , μ_K\)</span>, <span class="math inline">\(π_1, . . . , π_K\)</span>, and Σ; the formulas are similar to those used in the one dimensional case, given in (4.15). To assign a new observation X = x, <strong>LDA</strong> plugs these estimates into (4.19) and classifies to the class for which <span class="math inline">\(\hat{\delta}_k(x)\)</span> is largest.</p>
 <blockquote>
@@ -660,7 +667,7 @@ f(x)=\frac{1}{\sqrt{(2\pi)^{p}|Σ|}}\exp{\left( \frac{1}{2}(x-\mu)^TΣ^{-1}(x-\m
 <p>Thus, the Bayes classifier, and by extension LDA, uses a threshold of 50% for the posterior probability of default in order to assign an observation to the default class.</p>
 <p><strong>Modify LDA</strong></p>
 <p>If we are concerned about incorrectly predicting the default status for individuals who default, then we can consider lowering this threshold.</p>
-<p><span class="math inline">\(P(default = Yes|X = x) &gt; 0.2\)</span></p>
+<p><span class="math display">\[P(default = Yes|X = x) &gt; 0.2\]</span></p>
 <p>Figure 4.7 illustrates the trade-off that results from modifying the threshold value for the posterior probability of default</p>
 <p><img src="./12.png" width="700"></p>
 <p>How can we decide which threshold value is best? Such a decision must be based on <strong>domain knowledge</strong>, such as detailed information about the costs associated with default.</p>
@@ -677,10 +684,12 @@ f(x)=\frac{1}{\sqrt{(2\pi)^{p}|Σ|}}\exp{\left( \frac{1}{2}(x-\mu)^TΣ^{-1}(x-\m
 <h1 id="quadratic-discriminant-analysis">Quadratic Discriminant Analysis</h1>
 <p><strong>Quadratic discriminant analysis (QDA)</strong> classifier results from assuming that the observations from each class are drawn from a Gaussian distribution, and plugging estimates for the parameters into Bayes’ theorem in order to perform prediction.</p>
 <p>However, unlike LDA, <strong>QDA assumes that each class has its own covariance matrix</strong>. That is, it assumes that an observation from the kth class is of the form <span class="math inline">\(X ∼ N(μ_k,Σ_k)\)</span>, where <span class="math inline">\(Σ_k\)</span> is a covariance matrix for the kth class. Under this assumption, the Bayes classifier assigns an observation <span class="math inline">\(X = x\)</span> to the class for which</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \delta_k(x)&amp;=-\frac{1}{2}(x-\mu_k)^TΣ_k^{-1}(x-\mu_k)-\frac{1}{2}\log{|Σ_k|}+\log{\pi_k} \\
 &amp;=-\frac{1}{2}x^TΣ_k^{-1}x+x^TΣ_k^{-1}\mu_k-\frac{1}{2}\mu_k^TΣ_k^{-1}\mu_k-\frac{1}{2}\log{|Σ_k|}+\log{\pi_k}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <p>is largest.</p>
 <p>So the QDA classifier involves plugging estimates for <span class="math inline">\(Σ_k, μ_k, π_k\)</span> into <span class="math inline">\(\delta_k(x)\)</span>, and then assigning an observation <span class="math inline">\(X = x\)</span> to the class for which this quantity is largest. Unlike LDA, the quantity <span class="math inline">\(x\)</span> appears as a quadratic function.</p>
 <h2 id="why-does-it-matter-whether-or-not-we-assume-that-the-k-classes-share-a-common-covariance-matrix">Why does it matter whether or not we assume that the K classes share a common covariance matrix?</h2>
@@ -820,7 +829,7 @@ f(x)=\frac{1}{\sqrt{(2\pi)^{p}|Σ|}}\exp{\left( \frac{1}{2}(x-\mu)^TΣ^{-1}(x-\m
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -902,7 +911,9 @@ f(x)=\frac{1}{\sqrt{(2\pi)^{p}|Σ|}}\exp{\left( \frac{1}{2}(x-\mu)^TΣ^{-1}(x-\m
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1020,7 +1031,7 @@ f(x)=\frac{1}{\sqrt{(2\pi)^{p}|Σ|}}\exp{\left( \frac{1}{2}(x-\mu)^TΣ^{-1}(x-\m
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

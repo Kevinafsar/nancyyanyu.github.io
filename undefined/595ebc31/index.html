@@ -131,7 +131,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/595ebc31/2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/595ebc31/3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/595ebc31/4.png">
-<meta property="og:updated_time" content="2019-06-12T03:01:33.703Z">
+<meta property="og:updated_time" content="2019-06-15T09:25:17.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Simple Linear Regression">
 <meta name="twitter:description" content="Simple linear regression: approach for predicting a quantitative response Y on the basis of a single predictor variable X. It assumes that there is approximately a linear relationship between X and Y:">
@@ -452,7 +452,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:01:33" itemprop="dateModified" datetime="2019-06-11T22:01:33-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 04:25:17" itemprop="dateModified" datetime="2019-06-15T04:25:17-05:00">2019-06-15</time>
               
             
           </span>
@@ -498,7 +498,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">9.1k</span>
+                <span title="Symbols count in article">9.6k</span>
               
 
               
@@ -512,7 +512,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">8 mins.</span>
+                <span title="Reading time">9 mins.</span>
               
             </div>
           
@@ -544,30 +544,34 @@ Y=\beta_0+\beta_1X
 <li><strong>Residual</strong>: <span class="math inline">\(e_i = y_i−\hat{y_i}\)</span> represents the ith residual—this is the difference between residual the ith observed response value and the ith response value that is predicted by our linear model.</li>
 </ul>
 <p><strong>residual sum of squares (RSS)</strong></p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 RSS&amp;=e_1^2+e_2^2+e_3^2+...e_n^2 \\
 RSS&amp;=(y_1−\hat{β_0} - \hat{β_1}x_1)^2+(y_2−\hat{β_0} - \hat{β_1}x_2)^2,..., (y_n−\hat{β_0} - \hat{β_1}x_n)^2
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <p>The least squares approach chooses <span class="math inline">\(\hat{β_1}\)</span> and <span class="math inline">\(\hat{β_0}\)</span> to minimize the <strong>RSS</strong>:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \hat{\beta_1}&amp;=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2} \\
 \hat{\beta_0}&amp;=\bar{y}-\hat{\beta_1}\bar{x}  \quad \quad (3.4)
-\end{align}\]</span></p>
-<p>where <span class="math inline">\(\bar{y}=\sum_{i=1}^ny_i/n\)</span>, <span class="math inline">\(\bar{x}=\sum_{i=1}^nx_i/n\)</span> are the <strong>sample means</strong>.</p>
+\end{align}
+\]</span> where <span class="math inline">\(\bar{y}=\sum_{i=1}^ny_i/n\)</span>, <span class="math inline">\(\bar{x}=\sum_{i=1}^nx_i/n\)</span> are the <strong>sample means</strong>.</p>
 <blockquote>
 <p><strong>least squares coefficient</strong> estimates for <strong>simple linear regression</strong>.</p>
 </blockquote>
 <h1 id="assessing-the-accuracy-of-the-coefficient-estimates">Assessing the Accuracy of the Coefficient Estimates</h1>
 <p>Assume that the true relationship between X and Y takes the form <span class="math inline">\(Y = f(X) + \epsilon\)</span> for some unknown function f, where <span class="math inline">\(\epsilon\)</span> is a mean-zero random error term.</p>
-<p><strong>least squares line</strong>:</p>
-<p><span class="math display">\[\begin{align}
+<p><strong>least squares line</strong>: <span class="math display">\[
+\begin{align}
 \hat{y_i} = \hat{β_0} + \hat{β_1}x_i
-\end{align}\]</span></p>
-<p><strong>population regression line</strong>:</p>
-<p><span class="math display">\[\begin{align}
+\end{align}
+\]</span> <strong>population regression line</strong>:</p>
+<p><span class="math display">\[
+\begin{align}
 Y=\beta_0+\beta_1X+\epsilon
-\end{align}\]</span></p>
-<p>The <strong>error term</strong> is a catch-all for what we miss with this simple model: the true relationship is probably not linear, there may be other variables that cause variation in Y , and there may be measurement error. We typically assume that the error term is independent of X.</p>
+\end{align}
+\]</span> The <strong>error term</strong> is a catch-all for what we miss with this simple model: the true relationship is probably not linear, there may be other variables that cause variation in Y , and there may be measurement error. We typically assume that the error term is independent of X.</p>
 <p><img src="./1.png" width="600"></p>
 <h2 id="population-v.s.-sample">Population V.S. Sample</h2>
 <p>The true relationship is generally not known for real data, but the least squares line can always be computed using the coefficient estimates given in (3.4).</p>
@@ -577,25 +581,45 @@ Y=\beta_0+\beta_1X+\epsilon
 </ul>
 <p><strong>Unbiased</strong> - If we use the sample mean <span class="math inline">\(\hat{\mu}\)</span> to estimate μ, this estimate is <strong>unbiased</strong>, in the sense that on average, we expect <span class="math inline">\(\hat{\mu}\)</span> to equal μ. - an unbiased estimator does not systematically over- or under-estimate the true parameter.</p>
 <h3 id="standard-error">Standard Error</h3>
-<p><strong>How accurate is the sample mean <span class="math inline">\(\hat{\mu}\)</span> as an estimate of μ?</strong> - <strong>standard error of <span class="math inline">\(\hat{\mu}\)</span>(SE(<span class="math inline">\(\hat{\mu}\)</span>)</strong>): average amount that this estimate <span class="math inline">\(\hat{\mu}\)</span> differs from the actual value of μ. <span class="math display">\[\begin{align}
-Var(\hat{\mu})=SE(\hat{\mu})^2=\frac{\sigma^2}{n}
-\end{align}\]</span> where σ is the standard deviation of each of the realizations yi of Y provided that the n observations are <strong>uncorrelated</strong>.</p>
+<p><strong>How accurate is the sample mean <span class="math inline">\(\hat{\mu}\)</span> as an estimate of μ?</strong> - <strong>standard error of <span class="math inline">\(\hat{\mu}\)</span>(SE(<span class="math inline">\(\hat{\mu}\)</span>)</strong>): average amount that this estimate <span class="math inline">\(\hat{\mu}\)</span> differs from the actual value of μ. <span class="math display">\[
+  \begin{align}
+  Var(\hat{\mu})=SE(\hat{\mu})^2=\frac{\sigma^2}{n}
+  \end{align}
+  \]</span> where σ is the standard deviation of each of the realizations yi of Y provided that the n observations are <strong>uncorrelated</strong>.</p>
+<p>where σ is the standard deviation of each of the realizations yi of Y provided that the n observations are <strong>uncorrelated</strong>.</p>
 <p><strong>Standard Deviation V.S. Standard Error</strong></p>
 <ul>
 <li><p>The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean</p></li>
 <li><p>The standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean.</p></li>
 </ul>
 <p><img src="./2.png" width="300"></p>
-<p><strong>How close <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> are to the true values <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>?</strong> - <span class="math display">\[\begin{align}
-SE(\hat{\beta_0})^2&amp;=\sigma^2\left[\frac{1}{n}+\frac{\bar{x}^2}{\sum_{i=1}^n(x_i-\bar{x})^2}  \right]  \\
-SE(\hat{\beta_1})^2&amp;=\frac{\sigma^2}{\sum_{i=1}^n(x_i-\bar{x})^2} 
-\end{align}\]</span> where <span class="math inline">\(\sigma^2 = Var(\epsilon)\)</span> - For these formulas to be strictly valid, we need to assume that the errors <span class="math inline">\(\epsilon_i\)</span> for each observation are uncorrelated with common variance σ2.</p>
-<p><strong>Estimate <span class="math inline">\(\sigma^2\)</span></strong> - <strong>residual standard error(RSE)</strong>: <span class="math inline">\(\sigma^2\)</span> is not known, but can be estimated from the data. This estimate is known as the <strong>residual standard error</strong> - <span class="math display">\[\begin{align}
+<p><strong>How close <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> are to the true values <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>?</strong> - <span class="math display">\[
+  \begin{align}
+  SE(\hat{\beta_0})^2&amp;=\sigma^2\left[\frac{1}{n}+\frac{\bar{x}^2}{\sum_{i=1}^n(x_i-\bar{x})^2}  \right]  \\
+  SE(\hat{\beta_1})^2&amp;=\frac{\sigma^2}{\sum_{i=1}^n(x_i-\bar{x})^2} 
+  \end{align}
+  \]</span></p>
+<p>where <span class="math inline">\(\sigma^2 = Var(\epsilon)\)</span></p>
+<ul>
+<li>For these formulas to be strictly valid, we need to assume that the errors <span class="math inline">\(\epsilon_i\)</span> for each observation are uncorrelated with common variance σ2.</li>
+</ul>
+<p><strong>Estimate <span class="math inline">\(\sigma^2\)</span></strong> - <strong>residual standard error(RSE)</strong>: <span class="math inline">\(\sigma^2\)</span> is not known, but can be estimated from the data. This estimate is known as the <strong>residual standard error</strong></p>
+<ul>
+<li><span class="math display">\[
+\begin{align}
 RSE=\sqrt{RSS/(n-2)}
-\end{align}\]</span></p>
-<p><strong>Confidence Intervals</strong> - <strong>A 95% confidence confidence interval</strong>: is defined as a range of values such that with 95% interval probability, the range will contain the true unknown value of the parameter. - For linear regression, the 95% confidence interval for β1 approximately takes the form <span class="math display">\[\begin{align}
+\end{align}
+\]</span></li>
+</ul>
+<p><strong>Confidence Intervals</strong> - <strong>A 95% confidence confidence interval</strong>: is defined as a range of values such that with 95% interval probability, the range will contain the true unknown value of the parameter.</p>
+<ul>
+<li><p>For linear regression, the 95% confidence interval for β1 approximately takes the form <span class="math display">\[
+\begin{align}
 \hat{\beta_1} \pm 2 \cdot SE(\hat{\beta_1})     
-\end{align}\]</span> (which relies on the assumption that the errors are Gaussian. Also, the factor of 2 in front of the <span class="math inline">\(SE(\hat{\beta_1})\)</span> term will vary slightly depending on the number of observations n in the linear regression. To be precise, rather than the number 2, it should contain the 97.5% quantile of a t-distribution with n−2 degrees of freedom.)</p>
+\end{align}
+\]</span> (which relies on the assumption that the errors are Gaussian. Also, the factor of 2 in front of the <span class="math inline">\(SE(\hat{\beta_1})\)</span> term will vary slightly depending on the number of observations n in the linear regression. To be precise, rather than the number 2, it should contain the 97.5% quantile of a t-distribution with n−2 degrees of freedom.)</p>
+<p>(which relies on the assumption that the errors are Gaussian. Also, the factor of 2 in front of the <span class="math inline">\(SE(\hat{\beta_1})\)</span> term will vary slightly depending on the number of observations n in the linear regression. To be precise, rather than the number 2, it should contain the 97.5% quantile of a t-distribution with n−2 degrees of freedom.)</p></li>
+</ul>
 <h3 id="hypothesis-tests">Hypothesis Tests</h3>
 <p>The most common hypothesis test involves testing the <strong>null test hypothesis</strong> of</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H_0: There is no relationship between X and Y or β1=0</span><br></pre></td></tr></table></figure>
@@ -603,9 +627,12 @@ RSE=\sqrt{RSS/(n-2)}
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H_a : There is some relationship between X and Y or β1≠0</span><br></pre></td></tr></table></figure>
 <p>To test the null hypothesis, we need to determine whether <span class="math inline">\(\hat{\beta_1}\)</span>, our estimate for <span class="math inline">\(\beta_1\)</span>, is sufficiently far from zero that we can be confident that <span class="math inline">\(\beta_1\)</span> is non-zero <span class="math inline">\(\Rightarrow\)</span> it depends on SE( <span class="math inline">\(\hat{\beta_1}\)</span>) - If SE( <span class="math inline">\(\hat{\beta_1}\)</span>) is small, then even relatively small values of <span class="math inline">\(\hat{\beta_1}\)</span> may provide strong evidence that <span class="math inline">\(\beta_1 \neq 0\)</span>, and hence that there is a relationship between X and Y</p>
 <p><strong>t-statistic</strong></p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 t=\frac{\hat{\beta_1}-0}{SE(\hat{\beta_1})} 
-\end{align}\]</span> which measures the number of standard deviations that <span class="math inline">\(\hat{\beta_1}\)</span> is away from 0.If there really is no relationship between X and Y , then we expect it will have a t-distribution with n−2 degrees of freedom.</p>
+\end{align}
+\]</span></p>
+<p>which measures the number of standard deviations that <span class="math inline">\(\hat{\beta_1}\)</span> is away from 0.If there really is no relationship between X and Y , then we expect it will have a t-distribution with n−2 degrees of freedom.</p>
 <p><strong>p-value</strong> - The probability of observing any value ≥ t or ≤ -t, assuming β1 = 0.</p>
 <p><img src="./3.png" width="300"> (Here |t|=2.17, p-value=0.015.The area in red is 0.015 + 0.015 = 0.030, 3%. If we had chosen a significance level of 5%, this would mean that we had achieved statistical significance. We would reject the null hypothesis in favor of the alternative hypothesis.)</p>
 <ul>
@@ -630,19 +657,21 @@ RSE&amp;=\sqrt{\frac{1}{n-2}RSS}=\sqrt{\frac{1}{n-2}\sum_{i=1}^n(y_i-\hat{y})^2}
 </blockquote>
 <h2 id="r2-statistic">R2 Statistic</h2>
 <p>The RSE is measured in the units of Y , it is not always clear what constitutes a good RSE.</p>
-<p>The <span class="math inline">\(R^2\)</span> statistic takes the form of a proportion—the proportion of variance explained—and so it always takes on a value between 0 and 1, and is independent of the scale of Y . <span class="math display">\[\begin{align}
+<p>The <span class="math inline">\(R^2\)</span> statistic takes the form of a proportion—the proportion of variance explained—and so it always takes on a value between 0 and 1, and is independent of the scale of Y . <span class="math display">\[
+\begin{align}
 R2 = (TSS − RSS)/TSS= 1− RSS/TSS
-\end{align}\]</span></p>
-<p><strong>TSS(total sum of squares)</strong>: <span class="math inline">\(\sum(y_i-\bar{y})\)</span> - the amount of variability inherent in the response before the regression is performed</p>
+\end{align}
+\]</span> <strong>TSS(total sum of squares)</strong>: <span class="math inline">\(\sum(y_i-\bar{y})\)</span> - the amount of variability inherent in the response before the regression is performed</p>
 <p><strong>RSS</strong>: <span class="math inline">\(\sum_{i=1}^n(y_i-\hat{y})^2\)</span> - the amount of variability that is left unexplained after performing the regression</p>
 <p><strong>TSS−RSS</strong>: measures the amount of variability in the response that is explained (or removed) by performing the regression, and R2 measures the proportion of variability in Y that can be explained using X.</p>
 <p><strong>Interpretation</strong>： - close to 1 : a large proportion of the variability in the response has been explained by the regression. - close to 0 : the regression did not explain much of the variability in the response - the linear model is wrong - the inherent error σ2 is high, or both.</p>
 <h2 id="squared-correlation-v.s.-r2-statistic">Squared Correlation V.S. R2 Statistic</h2>
 <p><strong>Correlation</strong>:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^n(y_i-\bar{y})^2}}
-\end{align}\]</span></p>
-<p>is also a measure of the linear relationship between X and Y.</p>
+\end{align}
+\]</span> is also a measure of the linear relationship between X and Y.</p>
 <blockquote>
 <p>In the simple linear regression setting, <span class="math inline">\(R^2 = [Cor]^2\)</span>. In other words, the squared correlation and the R2 statistic are identical</p>
 </blockquote>
@@ -693,8 +722,8 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/undefined/85819d65/" rel="prev" title="ISLR Note - Multiple Linear Regression">
-                ISLR Note - Multiple Linear Regression <i class="fa fa-chevron-right"></i>
+              <a href="/undefined/85819d65/" rel="prev" title="ISLR Note - Multiple Linear Regression, Hypothesis Test, R2">
+                ISLR Note - Multiple Linear Regression, Hypothesis Test, R2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -771,7 +800,7 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -853,7 +882,9 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -971,7 +1002,7 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

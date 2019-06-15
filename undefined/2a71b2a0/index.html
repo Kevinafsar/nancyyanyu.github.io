@@ -119,20 +119,20 @@
 
 
 
-  <meta name="description" content="Bias, Variance and Model Complexity Test error (generalization error): the prediction error over an independent test sample \[\begin{align} Err_\tau=E[L(Y,\hat{f}(X))|\tau] \end{align}\] Here the trai">
+  <meta name="description" content="Bias, Variance and Model Complexity Test error (generalization error): the prediction error over an independent test sample \[ 𝐸𝑟𝑟𝜏=𝐸[𝐿(𝑌,\hat{f} (𝑋))|𝜏] \] Here the training set \(\tau\) is">
 <meta name="keywords" content="Model Assessment,Model Selection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ESL Note - Bias, Variance">
 <meta property="og:url" content="https://nancyyanyu.github.io/undefined/2a71b2a0/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Bias, Variance and Model Complexity Test error (generalization error): the prediction error over an independent test sample \[\begin{align} Err_\tau=E[L(Y,\hat{f}(X))|\tau] \end{align}\] Here the trai">
+<meta property="og:description" content="Bias, Variance and Model Complexity Test error (generalization error): the prediction error over an independent test sample \[ 𝐸𝑟𝑟𝜏=𝐸[𝐿(𝑌,\hat{f} (𝑋))|𝜏] \] Here the training set \(\tau\) is">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/2a71b2a0/bv.PNG">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/2a71b2a0/bv2.PNG">
-<meta property="og:updated_time" content="2019-06-12T03:02:29.082Z">
+<meta property="og:updated_time" content="2019-06-15T03:11:28.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ESL Note - Bias, Variance">
-<meta name="twitter:description" content="Bias, Variance and Model Complexity Test error (generalization error): the prediction error over an independent test sample \[\begin{align} Err_\tau=E[L(Y,\hat{f}(X))|\tau] \end{align}\] Here the trai">
+<meta name="twitter:description" content="Bias, Variance and Model Complexity Test error (generalization error): the prediction error over an independent test sample \[ 𝐸𝑟𝑟𝜏=𝐸[𝐿(𝑌,\hat{f} (𝑋))|𝜏] \] Here the training set \(\tau\) is">
 <meta name="twitter:image" content="https://nancyyanyu.github.io/undefined/2a71b2a0/bv.PNG">
 
 
@@ -450,7 +450,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:02:29" itemprop="dateModified" datetime="2019-06-11T22:02:29-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-14 22:11:28" itemprop="dateModified" datetime="2019-06-14T22:11:28-05:00">2019-06-14</time>
               
             
           </span>
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">2.8k</span>
+                <span title="Symbols count in article">2.7k</span>
               
 
               
@@ -510,7 +510,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">3 mins.</span>
+                <span title="Reading time">2 mins.</span>
               
             </div>
           
@@ -531,16 +531,17 @@
 
       
         <h1 id="bias-variance-and-model-complexity">Bias, Variance and Model Complexity</h1>
-<p><strong>Test error</strong> (generalization error): the prediction error over an independent test sample <span class="math display">\[\begin{align}
-Err_\tau=E[L(Y,\hat{f}(X))|\tau]
-\end{align}\]</span> Here the training set <span class="math inline">\(\tau\)</span> is fixed, and test error refers to the error for this specific training set.</p>
+<p><strong>Test error</strong> (generalization error): the prediction error over an independent test sample <span class="math display">\[
+𝐸𝑟𝑟𝜏=𝐸[𝐿(𝑌,\hat{f} (𝑋))|𝜏]
+\]</span> Here the training set <span class="math inline">\(\tau\)</span> is fixed, and test error refers to the error for this specific training set.</p>
 <a id="more"></a>
-<p><strong>Expected test error: </strong> <span class="math display">\[\begin{align}
+<p><strong>Expected test error: </strong> <span class="math display">\[
 Err=E[L(Y,\hat{f}(X)]=E[Err_\tau]
-\end{align}\]</span> This expectation averages over everything that is random, including the randomness in the training set that produced <span class="math inline">\(\hat{f}\)</span></p>
-<p><strong>Training error</strong>: the average loss over the training sample <span class="math display">\[\begin{align}
+\]</span></p>
+<p>This expectation averages over everything that is random, including the randomness in the training set that produced <span class="math inline">\(\hat{f}\)</span></p>
+<p><strong>Training error</strong>: the average loss over the training sample <span class="math display">\[
 \bar{err}=\frac{1}{N}\sum_{i=1}^NL(y_i,\hat{f}(x_i))
-\end{align}\]</span></p>
+\]</span></p>
 <p><img src="./bv.PNG" width="370"></p>
 <p><strong>Model selection:</strong> estimating the performance of different models in order to choose the best one.</p>
 <p><strong>Model assessment:</strong> having chosen a final model, estimating its prediction error (generalization error) on new data.</p>
@@ -569,10 +570,11 @@ Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
 <p>Typically the more complex we make the model <span class="math inline">\(\hat{f}\)</span>, the lower the (squared) bias but the higher the variance.</p>
 </blockquote>
 <h2 id="knn-regression">KNN regression</h2>
-<p>For the k-nearest-neighbor regression t, these expressions have the sim- ple form <span class="math display">\[\begin{align}
+<p>For the k-nearest-neighbor regression t, these expressions have the sim- ple form <span class="math display">\[
+\begin{align}
 Err(x_0)&amp;=E[(Y-\hat{f}_k(x_0))^2|X=x_0] \\
-\end{align}\]</span></p>
-<p><img src="./bv2.PNG" width="470"></p>
+\end{align}
+\]</span> <img src="./bv2.PNG" width="470"></p>
 
       
     </div>
@@ -702,7 +704,7 @@ Err(x_0)&amp;=E[(Y-\hat{f}_k(x_0))^2|X=x_0] \\
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -784,7 +786,9 @@ Err(x_0)&amp;=E[(Y-\hat{f}_k(x_0))^2|X=x_0] \\
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -902,7 +906,7 @@ Err(x_0)&amp;=E[(Y-\hat{f}_k(x_0))^2|X=x_0] \\
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

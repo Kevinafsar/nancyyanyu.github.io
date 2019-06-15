@@ -132,7 +132,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/b358d10f/3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/b358d10f/4.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/b358d10f/5.png">
-<meta property="og:updated_time" content="2019-06-12T03:01:49.229Z">
+<meta property="og:updated_time" content="2019-06-15T09:21:01.298Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Logistic Regressio">
 <meta name="twitter:description" content="Why Not Linear Regression? Linear regression is not appropriate in the case of a qualitative response. Reason: there is no natural way to convert a qualitative response variable with more than two lev">
@@ -453,7 +453,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:01:49" itemprop="dateModified" datetime="2019-06-11T22:01:49-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 04:21:01" itemprop="dateModified" datetime="2019-06-15T04:21:01-05:00">2019-06-15</time>
               
             
           </span>
@@ -499,7 +499,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">3.9k</span>
+                <span title="Symbols count in article">4k</span>
               
 
               
@@ -542,17 +542,19 @@
 <h1 id="the-logistic-model">The Logistic Model</h1>
 <p>Logistic regression involves directly modeling Pr(Y = k|X = x) using the logistic function for the case of two response classes</p>
 <p><strong>Logistic function:</strong></p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 p(X)=\frac{e^{\beta_0+\beta_1X}}{1+e^{\beta_0+\beta_1X}} \\
 \frac{p(X)}{1-p(X)}=e^{\beta_0+\beta_1X}
-\end{align}\]</span></p>
-<p><strong>Odds</strong></p>
+\end{align}
+\]</span> <strong>Odds</strong></p>
 <p>The quantity p(X)/[1−p(X)] is called the <strong>odds</strong>, and can take on any value odds between 0 and ∞. Values</p>
 <p><strong>Log-odds (Logit)</strong></p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \log{\frac{p(X)}{1-p(X)}}=\beta_0+\beta_1X
-\end{align}\]</span></p>
-<p>We see that the logistic model (4.2) has a logit that is linear in X.</p>
+\end{align}
+\]</span> We see that the logistic model (4.2) has a logit that is linear in X.</p>
 <ul>
 <li><p>There is not a straight-line relationship between p(X) and X,</p></li>
 <li><p>The rate of change in p(X) per unit change in X depends on the current value of X,</p></li>
@@ -560,30 +562,35 @@ p(X)=\frac{e^{\beta_0+\beta_1X}}{1+e^{\beta_0+\beta_1X}} \\
 <h1 id="estimating-the-regression-coefficients">Estimating the Regression Coefficients</h1>
 <p>The basic intuition behind using <strong>maximum likelihood</strong> to fit a logistic regression model is as follows: - We seek estimates for β0 and β1 such that the predicted probability $(x_i) of class &quot;default&quot; for each individual, using (4.2), corresponds as closely as possible to the individual’s observed &quot;default&quot; status. In other words, we try to find ˆ β0 and ˆ β1 such that plugging these estimates into the model for p(X), given in (4.2), yields a number close to one for all individuals who &quot;defaulted&quot;, and a number close to zero for all individuals who did not.</p>
 <p><strong>Likelihood function</strong>:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 l(\beta_0,\beta_1)=\prod_{i:y_i=1}p(x_i) \prod_{i^{&#39;}:y_{i^{&#39;}}}(1-p(x_{i^{&#39;}}))
-\end{align}\]</span></p>
-<p>The estimates <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> are chosen to maximize this <strong><em>likelihood function.</em></strong></p>
+\end{align}
+\]</span> The estimates <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> are chosen to maximize this <strong><em>likelihood function.</em></strong></p>
 <p>In the linear regression setting, the least squares approach is in fact a special case of maximum likelihood.</p>
 <h1 id="making-predictions">Making Predictions</h1>
 <p>Once the coefficients have been estimated, it is a simple matter to compute the probability of default for any given credit card balance.</p>
 <p><img src="./2.png" width="600"></p>
-<p>For example, using the coefficient estimates given in Table 4.1, we predict that the default probability for an individual with a balance of $1, 000 is</p>
-<p><span class="math display">\[\begin{align}
+<p>For example, using the coefficient estimates given in Table 4.1, we predict that the default probability for an individual with a balance of $1, 000 is <span class="math display">\[
+\begin{align}
 \hat{p}(X)=\frac{e^{\hat{\beta_0}+\hat{\beta_1}X}}{1+e^{\hat{\beta_0}+\hat{\beta_1}X}}=\frac{e^{−10.6513+0.0055×1,000}}{1+e^{−10.6513+0.0055×1,000}}=0.00576
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <h1 id="multiple-logistic-regression">Multiple Logistic Regression</h1>
 <p>We now consider the problem of predicting a binary response using multiple predictors</p>
 <p><strong>Log-odds (Logit)</strong></p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \log{\frac{p(X)}{1-p(X)}}=\beta_0+\sum_{i=1}^p\beta_iX
-\end{align}\]</span></p>
-<p>where X = (X1, . . .,Xp) are p predictors</p>
+\end{align}
+\]</span> where X = (X1, . . .,Xp) are p predictors</p>
 <p><strong>Logistic function:</strong></p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}} \\
 \frac{p(X)}{1-p(X)}=e^{\beta_0+\sum_{i=1}^p\beta_iX}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <h2 id="confounding">Confounding</h2>
 <p>In single variable setting: <img src="./3.png" width="600"></p>
 <p>In multiple variables setting: <img src="./4.png" width="600"></p>
@@ -726,7 +733,7 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -808,7 +815,9 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -926,7 +935,7 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

@@ -127,10 +127,12 @@
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="3.4 Shrinkage Methods  Subset selection methods are discrete process—variables are either retained or discarded—it often exhibits high variance,and so doesn’t reduce the prediction error of the full m">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-12T03:02:17.171Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/afb70442/images/lass_ridge.png">
+<meta property="og:updated_time" content="2019-06-15T22:22:13.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ESL Note - Shrinkage Methods">
 <meta name="twitter:description" content="3.4 Shrinkage Methods  Subset selection methods are discrete process—variables are either retained or discarded—it often exhibits high variance,and so doesn’t reduce the prediction error of the full m">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/undefined/afb70442/images/lass_ridge.png">
 
 
 
@@ -447,7 +449,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:02:17" itemprop="dateModified" datetime="2019-06-11T22:02:17-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 17:22:13" itemprop="dateModified" datetime="2019-06-15T17:22:13-05:00">2019-06-15</time>
               
             
           </span>
@@ -532,49 +534,57 @@
 <p><em>Subset selection methods</em> are discrete process—variables are either retained or discarded—it often exhibits high variance,and so doesn’t reduce the prediction error of the full model. <em>Shrinkage methods</em> are more continuous, and don’t suﬀer as much from high variability.</p>
 </blockquote>
 <h2 id="ridge-regression">3.4.1 Ridge Regression</h2>
-<p><strong>Ridge regression</strong> shrinks the regression coeﬃcients by imposing a penalty on their size.The ridge coeﬃcients minimize a penalized residual sum of squares:</p>
-<p><span class="math display">\[\begin{align}
+<p><strong>Ridge regression</strong> shrinks the regression coeﬃcients by imposing a penalty on their size.The ridge coeﬃcients minimize a penalized residual sum of squares: <span class="math display">\[
+\begin{align}
 \hat{\beta}^{ridge}=argmin_\beta {\sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2+\lambda\sum_{j=1}^p\beta_j^2}
-\end{align}\]</span></p>
-<a id="more"></a>
+\end{align}
+\]</span> <a id="more"></a></p>
 <ul>
 <li>λ ≥ 0 is a complexity parameter that controls the amount of shrinkage</li>
 </ul>
 <p>Writing the criterion in matrix form:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 RSS(\lambda)=(\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta)+\lambda\beta^T\beta
-\end{align}\]</span></p>
-<p>The ridge regression solutions: <span class="math display">\[\begin{align}
+\end{align}
+\]</span> The ridge regression solutions: <span class="math display">\[
+\begin{align}
 \hat{\beta}^{ridge}=(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <ul>
 <li><span class="math inline">\(\mathbf{I}\)</span> is the p×p identity matrix</li>
 </ul>
 <p>Note: - the ridge regression solution is again a linear function of <span class="math inline">\(\mathbf{y}\)</span>; - The solution adds a positive constant to the diagonal of <span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span> before inversion, which makes the problem nonsingular.</p>
 <h3 id="singular-value-decomposition-svd">Singular value decomposition (SVD)</h3>
 <p>The <strong>singular value decomposition (SVD)</strong> of the centered input matrix X gives us some additional insight into the nature of ridge regression. The SVD of the N × p matrix X has the form:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 X=UDV^T
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <ul>
 <li>U: N×p orthogonal matrices, with the columns of U spanning the column space of X</li>
 <li>V: p×p orthogonal matrices, the columns of V spanning the row space of X</li>
 <li>D: p×p diagonal matrix, with diagonal entries d1 ≥ d2 ≥···≥ dp ≥ 0 called the singular values of X. If one or more values dj =0,X is singular</li>
 </ul>
 <p>least squares ﬁtted vector:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \mathbf{X}\hat{\beta}^{ls}&amp;=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y} \\
 &amp;=UDV^T (VD^TU^TUDV^T)^{-1}VD^TU^Ty \\
 &amp;=UDV^T (VD^TDV^T)^{-1}VD^TU^Ty \\
 &amp;=UDV^T (V^T)^{-1}D^{-1}(D^T)^{-1}V^{-1}VD^TU^Ty \\
 &amp;=\mathbf{U}\mathbf{U}^T\mathbf{y}
-\end{align}\]</span></p>
-<p>Note: <span class="math inline">\(\mathbf{U}^T\mathbf{y}\)</span> are the coordinates of y with respect to the orthonormal basis U.</p>
-<p>The ridge solutions: <span class="math display">\[\begin{align}
+\end{align}
+\]</span> Note: <span class="math inline">\(\mathbf{U}^T\mathbf{y}\)</span> are the coordinates of y with respect to the orthonormal basis U.</p>
+<p>The ridge solutions: <span class="math display">\[
+\begin{align}
 \mathbf{X}\hat{\beta}^{ridge}&amp;=\mathbf{X}(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y} \\
 &amp;=UD(D^2+\lambda\mathbf{I})^{-1}D^TU^Ty \\
 &amp;=\sum_{j=1}^p\mathbf{u}_j\frac{d^2_j}{d^2_j+\lambda}\mathbf{u}^T_j\mathbf{y}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <ul>
 <li><span class="math inline">\(\mathbf{u}_j\)</span> are the columns of U</li>
 </ul>
@@ -582,21 +592,25 @@ X=UDV^T
 <h4 id="what-does-a-small-value-of-d2_j-mean">What does a small value of <span class="math inline">\(d^2_j\)</span> mean?</h4>
 <p>The SVD of the centered matrix X is another way of expressing the <strong>principal components</strong> of the variables in X. The sample covariance matrix is given by <span class="math inline">\(S=X^TX/N\)</span>, we have</p>
 <p><strong>Eigen decomposition of <span class="math inline">\(X^TX\)</span>:</strong></p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \mathbf{X}^T\mathbf{X}=VD^TU^TUDV^T=VD^2V^T
-\end{align}\]</span></p>
-<p>The eigenvectors <span class="math inline">\(v_j\)</span> (columns of V) are also called the <strong>principal components</strong> (or Karhunen–Loeve) directions of X. The ﬁrst principal component direction <span class="math inline">\(v_1\)</span> has the property that <span class="math inline">\(z_1=Xv_1\)</span> has the largest sample variance amongst all normalized linear combinations of the columns of X, which is:</p>
-<p><span class="math display">\[\begin{align}
+\end{align}
+\]</span> The eigenvectors <span class="math inline">\(v_j\)</span> (columns of V) are also called the <strong>principal components</strong> (or Karhunen–Loeve) directions of X. The ﬁrst principal component direction <span class="math inline">\(v_1\)</span> has the property that <span class="math inline">\(z_1=Xv_1\)</span> has the largest sample variance amongst all normalized linear combinations of the columns of X, which is:</p>
+<p><span class="math display">\[
+\begin{align}
 Var(z_1)=Var(Xv_1)=\frac{d^2_1}{N}
-\end{align}\]</span></p>
-<p>and in fact <span class="math inline">\(z_1=Xv_1=u_1d_1\)</span>. The derived variable <span class="math inline">\(z_1\)</span> is called the ﬁrst principal component of X, and hence <span class="math inline">\(u_1\)</span> is the normalized ﬁrst principal component.Subsequent principal components <span class="math inline">\(z_j\)</span> have maximum variance <span class="math inline">\(\frac{d^2_j}{N}\)</span>, subject to being orthogonal to the earlier ones.</p>
+\end{align}
+\]</span> and in fact <span class="math inline">\(z_1=Xv_1=u_1d_1\)</span>. The derived variable <span class="math inline">\(z_1\)</span> is called the ﬁrst principal component of X, and hence <span class="math inline">\(u_1\)</span> is the normalized ﬁrst principal component.Subsequent principal components <span class="math inline">\(z_j\)</span> have maximum variance <span class="math inline">\(\frac{d^2_j}{N}\)</span>, subject to being orthogonal to the earlier ones.</p>
 <p>Hence the small singular values <span class="math inline">\(d_j\)</span> correspond to directions in the column space of X having small variance, and ridge regression shrinks these directions the most.</p>
 <h3 id="eﬀective-degrees-of-freedom">Eﬀective degrees of freedom</h3>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 df(\lambda)&amp;=tr[\mathbf{X}(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T] \\
 &amp;=tr[\mathbf{H}\lambda] \\
 &amp;=\sum^p_{j=1}\frac{d^2_j}{d^2_j+\lambda}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <p>This monotone decreasing function of λ is the eﬀective degrees of freedom of the ridge regression ﬁt. Usually in a linear-regression ﬁt with p variables,the degrees-of-freedom of the ﬁt is p, the number of free parameters.</p>
 <p>Note that &gt; df(λ)= p as λ = 0 (no regularization)</p>
 <blockquote>
@@ -604,13 +618,16 @@ df(\lambda)&amp;=tr[\mathbf{X}(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\ma
 </blockquote>
 <h2 id="the-lasso">3.4.2 The Lasso</h2>
 <p>The lasso is a shrinkage method like ridge, with subtle but important differences.The lasso estimate is deﬁned by:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \hat{\beta}^{lasso}&amp;=argmin_\beta\sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2 \\
 &amp; s.t. \sum_{j=1}^p|\beta_j|\leq t
-\end{align}\]</span></p>
-<p>Lasso problem in <em>Lagrangian form</em>: <span class="math display">\[\begin{align}
+\end{align}
+\]</span> Lasso problem in <em>Lagrangian form</em>: <span class="math display">\[
+\begin{align}
 \hat{\beta}^{lasso}&amp;=argmin_\beta\{ \sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2+\lambda\sum_{j=1}^p|\beta_j| \}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <h4 id="difference-with-ridge">Difference with ridge:</h4>
 <p>The L2 ridge penalty <span class="math inline">\(\sum_{j=1}^p\beta_j^2\)</span> is replaced by the L1 lasso penalty <span class="math inline">\(\sum_{j=1}^p|\beta_j|\)</span>. This latter constraint makes the solutions nonlinear in the <span class="math inline">\(y_i\)</span>, and there is no closed form expression as in ridge regression.</p>
 <blockquote>
@@ -629,21 +646,21 @@ df(\lambda)&amp;=tr[\mathbf{X}(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\ma
 <ul>
 <li>Ridge regression: does a proportional shrinkage</li>
 <li>Lasso: translates each coeﬃcient by a constant factor λ, truncating at zero --“soft thresholding,”</li>
-<li>Best-subset selection: drops all variables with coeﬃcients smaller than the Mth largest --“hard-thresholding.” &lt;img src=&quot;./images/lass_ridge.png&quot;,width=550&gt;</li>
+<li>Best-subset selection: drops all variables with coeﬃcients smaller than the Mth largest --“hard-thresholding.” <img src="./images/lass_ridge.png" width="550"></li>
 </ul>
 <h3 id="bayes-view">Bayes View</h3>
 <p>Consider the criterion</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \tilde{\beta}&amp;=argmin_\beta\{ \sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2+\lambda\sum_{j=1}^p|\beta_j|^q \}
-\end{align}\]</span></p>
-<p>for q ≥ 0. The contours of constant value of <span class="math inline">\(\sum_{j=1}^p|\beta_j|^q\)</span> are shown in Figure 3.12, for the case of two inputs. &lt;img src=&quot;./images/q.png&quot;,width=550&gt;</p>
+\end{align}
+\]</span> for q ≥ 0. The contours of constant value of <span class="math inline">\(\sum_{j=1}^p|\beta_j|^q\)</span> are shown in Figure 3.12, for the case of two inputs. &lt;img src=&quot;./images/q.png&quot;,width=550&gt;</p>
 <p><font color="red">The lasso, ridge regression and best subset selection are Bayes estimates with diﬀerent priors:</font>Thinking of <span class="math inline">\(\sum_{j=1}^p|\beta_j|^q\)</span> as the log-prior density for βj , these are also the equi-contours of the prior distribution of the parameters.</p>
 <ul>
 <li>q = 0 :variable subset selection, as the penalty simply counts the number of nonzero parameters;</li>
 <li><p>q = 1 :the lasso, also Laplace distribution for each input, with density <span class="math inline">\(\frac{1}{2\tau}exp(-|\beta|/\tau)\)</span>, where <span class="math inline">\(\tau=1/\lambda\)</span></p></li>
 <li><p>q = 2 :the ridge</p></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -773,7 +790,7 @@ df(\lambda)&amp;=tr[\mathbf{X}(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\ma
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -855,7 +872,9 @@ df(\lambda)&amp;=tr[\mathbf{X}(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\ma
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -973,7 +992,7 @@ df(\lambda)&amp;=tr[\mathbf{X}(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\ma
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

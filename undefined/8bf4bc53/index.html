@@ -122,7 +122,7 @@
   <meta name="description" content="Best Subset Selection Approach  fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one p">
 <meta name="keywords" content="Model Selection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ISLR Note - Subset Selection">
+<meta property="og:title" content="ISLR Note - Subset Selection, AIC, BIC">
 <meta property="og:url" content="https://nancyyanyu.github.io/undefined/8bf4bc53/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Best Subset Selection Approach  fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one p">
@@ -130,9 +130,9 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/8bf4bc53/1.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/8bf4bc53/2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/8bf4bc53/3.png">
-<meta property="og:updated_time" content="2019-06-12T03:01:31.434Z">
+<meta property="og:updated_time" content="2019-06-15T05:55:22.547Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ISLR Note - Subset Selection">
+<meta name="twitter:title" content="ISLR Note - Subset Selection, AIC, BIC">
 <meta name="twitter:description" content="Best Subset Selection Approach  fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one p">
 <meta name="twitter:image" content="https://nancyyanyu.github.io/undefined/8bf4bc53/1.png">
 
@@ -154,7 +154,7 @@
   };
 </script>
 
-  <title>ISLR Note - Subset Selection | Nancy's Notes</title>
+  <title>ISLR Note - Subset Selection, AIC, BIC | Nancy's Notes</title>
   
 
 
@@ -408,7 +408,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ISLR Note - Subset Selection
+          <h1 class="post-title" itemprop="name headline">ISLR Note - Subset Selection, AIC, BIC
 
               
             
@@ -451,7 +451,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:01:31" itemprop="dateModified" datetime="2019-06-11T22:01:31-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 00:55:22" itemprop="dateModified" datetime="2019-06-15T00:55:22-05:00">2019-06-15</time>
               
             
           </span>
@@ -592,34 +592,35 @@
 </ul>
 <h3 id="c_p"><span class="math inline">\(C_p\)</span></h3>
 <p><span class="math inline">\(C_p\)</span> estimate of test MSE:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 C_p=\frac{1}{n}(RSS+2d\hat{\sigma}^2)
-\end{align}\]</span></p>
-<p>where <span class="math inline">\(\hat{\sigma}^2\)</span> is an estimate of the variance of the error <span class="math inline">\(\epsilon\)</span></p>
+\end{align}
+\]</span> where <span class="math inline">\(\hat{\sigma}^2\)</span> is an estimate of the variance of the error <span class="math inline">\(\epsilon\)</span></p>
 <p><strong>Note</strong>: - The <span class="math inline">\(C_p\)</span> statistic adds a penalty of <span class="math inline">\(2d\hat{\sigma}^2\)</span> to the training RSS in order to adjust for the fact that the training error tends to underestimate the test error. - The penalty increases as the number of predictors in the model increases; this is intended to adjust for the corresponding decrease in training RSS. - If <span class="math inline">\(\hat{\sigma}^2\)</span> is an unbiased estimate of <span class="math inline">\(\sigma^2\)</span> in, then <span class="math inline">\(C_p\)</span> is an unbiased estimate of test MSE - When determining which of a set of models is best, we choose the model with the lowest <span class="math inline">\(C_p\)</span> value.</p>
 <h3 id="aic">AIC</h3>
 <p>The AIC criterion is defined for a large class of models fit by maximum likelihood. In the case of the model <span class="math inline">\(Y = β_0 + β_1X_1 + · · · + β_pX_p + \epsilon\)</span> with Gaussian errors, maximum likelihood and least squares are the same thing.</p>
 <p>In this case AIC is given by</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 AIC=\frac{1}{n\hat{\sigma}^2}(RSS+2d\hat{\sigma}^2)
-\end{align}\]</span></p>
-<p>For least squares models, Cp and AIC are proportional to each other</p>
+\end{align}
+\]</span> For least squares models, Cp and AIC are proportional to each other</p>
 <h3 id="bic">BIC</h3>
-<p>For the least squares model with d predictors, the BIC is, up to irrelevant constants, given by</p>
-<p><span class="math display">\[\begin{align}
+<p>For the least squares model with d predictors, the BIC is, up to irrelevant constants, given by <span class="math display">\[
+\begin{align}
 BIC=\frac{1}{n}(RSS+\log(n)d\hat{\sigma}^2)
-\end{align}\]</span></p>
-<p>Since log(n) &gt; 2 for any n &gt; 7, the BIC statistic generally places a heavier penalty on models with many variables, and hence results in the selection of smaller models than Cp.</p>
+\end{align}
+\]</span> Since log(n) &gt; 2 for any n &gt; 7, the BIC statistic generally places a heavier penalty on models with many variables, and hence results in the selection of smaller models than Cp.</p>
 <h3 id="adjusted-r2">Adjusted <span class="math inline">\(R^2\)</span></h3>
-<p>Recall: <span class="math display">\[\begin{align}
+<p>Recall: <span class="math display">\[
+\begin{align}
 R^2=1 − RSS/TSS=1-\frac{RSS}{\sum(y_i-\bar{y})^2}
-\end{align}\]</span></p>
-<p><strong>TSS</strong>: total sum of squares for the response</p>
-<p>For a least squares model with d variables, <strong>the adjusted R2</strong> statistic is calculated as</p>
-<p><span class="math display">\[\begin{align}
+\end{align}
+\]</span> <strong>TSS</strong>: total sum of squares for the response</p>
+<p>For a least squares model with d variables, <strong>the adjusted R2</strong> statistic is calculated as <span class="math display">\[
 Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
-\end{align}\]</span></p>
-<p><strong>Note</strong>:</p>
+\]</span> <strong>Note</strong>:</p>
 <ul>
 <li>a large value of adjusted R2 indicates a model with a small test error. Maximizing the adjusted R2 is equivalent to minimizing <span class="math inline">\(RSS/(n−d−1)\)</span></li>
 <li><span class="math inline">\(RSS/(n−d−1)\)</span> may increase or decrease, due to the presence of d in the denominator.</li>
@@ -627,8 +628,15 @@ Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
 <p><strong>Intuition</strong>: - once all of the correct variables have been included in the model, adding additional noise variables will lead to only a very small decrease in RSS - Unlike the R2 statistic, the adjusted R2 statistic pays a price for the inclusion of unnecessary variables in the model</p>
 <h2 id="validation-and-cross-validation">Validation and Cross-Validation</h2>
 <p>As an alternative to the approaches just discussed, we can compute the validation set error or the cross-validation error for each model under consideration, and then select the model for which the resulting estimated test error is smallest.</p>
-<p><strong>Advantage over <span class="math inline">\(C_p, AIC, BIC\)</span></strong>: - Direct estimate of the test error, and makes fewer assumptions about the true underlying model. - Used in a wider range of model selection tasks, even in cases where it is hard to pinpoint the model degrees of freedom or hard to estimate the error variance σ2.</p>
-<p><strong>One-standard-error rule</strong>: We first calculate the standard error of the estimated test MSE for each model size, and then select the smallest model for which the estimated test error is within one standard error of the lowest point on the curve. - <strong>Rationale</strong>: if a set of models appear to be more or less equally good, then we might as well choose the simplest model</p>
+<p><strong>Advantage over <span class="math inline">\(C_p, AIC, BIC\)</span></strong>:</p>
+<ul>
+<li>Direct estimate of the test error, and makes fewer assumptions about the true underlying model.</li>
+<li>Used in a wider range of model selection tasks, even in cases where it is hard to pinpoint the model degrees of freedom or hard to estimate the error variance σ2.</li>
+</ul>
+<p><strong>One-standard-error rule</strong>: We first calculate the standard error of the estimated test MSE for each model size, and then select the smallest model for which the estimated test error is within one standard error of the lowest point on the curve.</p>
+<ul>
+<li><strong>Rationale</strong>: if a set of models appear to be more or less equally good, then we might as well choose the simplest model</li>
+</ul>
 
       
     </div>
@@ -756,7 +764,7 @@ Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -838,7 +846,9 @@ Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -956,7 +966,7 @@ Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

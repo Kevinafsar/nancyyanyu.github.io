@@ -128,7 +128,7 @@
 <meta property="og:description" content="Approach:  A data set, which we call Z, that contains n observations. We randomly select n observations from the data set in order to produce a bootstrap data set, \(Z^{∗1}\). The sampling is performe">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/56253a8a/1.png">
-<meta property="og:updated_time" content="2019-06-12T03:01:28.814Z">
+<meta property="og:updated_time" content="2019-06-15T09:26:43.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - The Bootstrap">
 <meta name="twitter:description" content="Approach:  A data set, which we call Z, that contains n observations. We randomly select n observations from the data set in order to produce a bootstrap data set, \(Z^{∗1}\). The sampling is performe">
@@ -449,7 +449,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:01:28" itemprop="dateModified" datetime="2019-06-11T22:01:28-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 04:26:43" itemprop="dateModified" datetime="2019-06-15T04:26:43-05:00">2019-06-15</time>
               
             
           </span>
@@ -495,7 +495,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.3k</span>
+                <span title="Symbols count in article">1.4k</span>
               
 
               
@@ -541,10 +541,13 @@
 <a id="more"></a>
 <ol start="3" type="1">
 <li><p>We can use <span class="math inline">\(Z^{∗1}\)</span> to produce a new bootstrap estimate for α, which we call <span class="math inline">\(\alpha^{∗1}\)</span>. This procedure is repeated B times for some large value of B, in order to produce B different bootstrap data sets, <span class="math inline">\(Z^{∗1}\)</span>,<span class="math inline">\(Z^{∗2}\)</span>, . . . , <span class="math inline">\(Z^{∗B}\)</span>, and B corresponding α estimates, <span class="math inline">\(\alpha^{∗1}\)</span>, <span class="math inline">\(\alpha^{∗2}\)</span>, . . . , <span class="math inline">\(\alpha^{∗B}\)</span>.</p></li>
-<li><p>We can compute the standard error of these bootstrap estimates using the formula <span class="math display">\[\begin{align}
-SE_B(\hat{\alpha})=\sqrt{\frac{1}{B-1}\sum_{i=1}^B\left( \hat{\alpha}^{*i}-\frac{1}{B}\sum^{B}_{j=1}\hat{\alpha}^{*j} \right)}
-\end{align}\]</span> This serves as an estimate of the standard error of <span class="math inline">\(\hat{\alpha}\)</span> estimated from the original data set.</p></li>
+<li><p>We can compute the standard error of these bootstrap estimates using the formula <span class="math display">\[
+  \begin{align}
+  SE_B(\hat{\alpha})=\sqrt{\frac{1}{B-1}\sum_{i=1}^B\left( \hat{\alpha}^{*i}-\frac{1}{B}\sum^{B}_{j=1}\hat{\alpha}^{*j} \right)}
+  \end{align}
+  \]</span> This serves as an estimate of the standard error of <span class="math inline">\(\hat{\alpha}\)</span> estimated from the original data set.</p></li>
 </ol>
+<p>This serves as an estimate of the standard error of <span class="math inline">\(\hat{\alpha}\)</span> estimated from the original data set.</p>
 <p><img src="./1.png" width="600"></p>
 
       
@@ -664,7 +667,7 @@ SE_B(\hat{\alpha})=\sqrt{\frac{1}{B-1}\sum_{i=1}^B\left( \hat{\alpha}^{*i}-\frac
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -746,7 +749,9 @@ SE_B(\hat{\alpha})=\sqrt{\frac{1}{B-1}\sum_{i=1}^B\left( \hat{\alpha}^{*i}-\frac
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -847,7 +852,7 @@ SE_B(\hat{\alpha})=\sqrt{\frac{1}{B-1}\sum_{i=1}^B\left( \hat{\alpha}^{*i}-\frac
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

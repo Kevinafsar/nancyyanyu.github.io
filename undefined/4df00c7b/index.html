@@ -122,7 +122,7 @@
   <meta name="description" content="Qualitative Predictors Predictors with Only Two Levels Suppose that we wish to investigate differences in credit card balance between males and females, ignoring the other variables for the moment. If">
 <meta name="keywords" content="Linear Regression,Regression">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ISLR Note - Potential Problems">
+<meta property="og:title" content="ISLR Note - Potential Problems of Linear Regression">
 <meta property="og:url" content="https://nancyyanyu.github.io/undefined/4df00c7b/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Qualitative Predictors Predictors with Only Two Levels Suppose that we wish to investigate differences in credit card balance between males and females, ignoring the other variables for the moment. If">
@@ -144,9 +144,9 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/4df00c7b/23.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/4df00c7b/22.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/4df00c7b/24.png">
-<meta property="og:updated_time" content="2019-06-12T03:01:41.729Z">
+<meta property="og:updated_time" content="2019-06-15T09:24:09.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ISLR Note - Potential Problems">
+<meta name="twitter:title" content="ISLR Note - Potential Problems of Linear Regression">
 <meta name="twitter:description" content="Qualitative Predictors Predictors with Only Two Levels Suppose that we wish to investigate differences in credit card balance between males and females, ignoring the other variables for the moment. If">
 <meta name="twitter:image" content="https://nancyyanyu.github.io/undefined/4df00c7b/8.png">
 
@@ -168,7 +168,7 @@
   };
 </script>
 
-  <title>ISLR Note - Potential Problems | Nancy's Notes</title>
+  <title>ISLR Note - Potential Problems of Linear Regression | Nancy's Notes</title>
   
 
 
@@ -422,7 +422,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ISLR Note - Potential Problems
+          <h1 class="post-title" itemprop="name headline">ISLR Note - Potential Problems of Linear Regression
 
               
             
@@ -465,7 +465,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:01:41" itemprop="dateModified" datetime="2019-06-11T22:01:41-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 04:24:09" itemprop="dateModified" datetime="2019-06-15T04:24:09-05:00">2019-06-15</time>
               
             
           </span>
@@ -622,9 +622,11 @@ Y &amp;= β_0 + (β_1+β_3X_2)X_1 + β_2X_2 + \epsilon  \\
 <p><strong>High Leverage</strong>:Observations with high leverage have an unusual value for xi - removing the high leverage observation has a much more substantial impact on the least squares line than removing the outlier. <img src="./23.png" width="600"></p>
 <p><strong>Leverage Statistic</strong>: quantify an observation’s leverage</p>
 <p>For a simple linear regression</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 h_i=\frac{1}{n}+\frac{(x_i-\bar{x})^2}{\sum_{i^{&#39;}=1}^n (x_{i^{&#39;}}-\bar{x})^2}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <ul>
 <li><span class="math inline">\(h_i\)</span> increases with the distance of <span class="math inline">\(x_i\)</span> from <span class="math inline">\(\bar{x}\)</span>.</li>
 <li><span class="math inline">\(h_i\)</span> is always between 1/n and 1, and the <strong>average leverage</strong> for all the observations is always equal to <span class="math inline">\((p+1)/n\)</span>.</li>
@@ -651,9 +653,8 @@ h_i=\frac{1}{n}+\frac{(x_i-\bar{x})^2}{\sum_{i^{&#39;}=1}^n (x_{i^{&#39;}}-\bar{
 <li>The ratio of the variance of <span class="math inline">\(\hat{β_j}\)</span> when fitting the full model divided by the variance of <span class="math inline">\(\hat{β_j}\)</span> if fit on its own. The smallest possible value for VIF is 1, which indicates the complete absence of collinearity.</li>
 <li>A VIF value that exceeds 5 or 10 indicates a problematic amount of collinearity.</li>
 </ul>
-<p>The VIF for each variable, <span class="math display">\[\begin{align}
-VIF(\hat{β_j})=\frac{1}{1-R^2_{X_j|X_{-j}}}
-\end{align}\]</span> where <span class="math inline">\(R^2_{X_j|X_{-j}}\)</span> is the <span class="math inline">\(R^2\)</span> from a regression of <span class="math inline">\(X_j\)</span> onto all of the other predictors. If <span class="math inline">\(R^2_{X_j|X_{-j}}\)</span> is close to one, then collinearity is present, and so the VIF will be large.</p>
+<p>The VIF for each variable,</p>
+<p>where <span class="math inline">\(R^2_{X_j|X_{-j}}\)</span> is the <span class="math inline">\(R^2\)</span> from a regression of <span class="math inline">\(X_j\)</span> onto all of the other predictors. If <span class="math inline">\(R^2_{X_j|X_{-j}}\)</span> is close to one, then collinearity is present, and so the VIF will be large.</p>
 <p><strong>Solution of Collinearity</strong></p>
 <ul>
 <li>Drop one of the problematic variables from the regression.</li>
@@ -711,8 +712,8 @@ VIF(\hat{β_j})=\frac{1}{1-R^2_{X_j|X_{-j}}}
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/undefined/9b5af8e1/" rel="prev" title="ISLR Note - Comparison of Classification Methods">
-                ISLR Note - Comparison of Classification Methods <i class="fa fa-chevron-right"></i>
+              <a href="/undefined/9b5af8e1/" rel="prev" title="ESL Note - Linear Regression Models and Least Squares">
+                ESL Note - Linear Regression Models and Least Squares <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -789,7 +790,7 @@ VIF(\hat{β_j})=\frac{1}{1-R^2_{X_j|X_{-j}}}
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -871,7 +872,9 @@ VIF(\hat{β_j})=\frac{1}{1-R^2_{X_j|X_{-j}}}
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -989,7 +992,7 @@ VIF(\hat{β_j})=\frac{1}{1-R^2_{X_j|X_{-j}}}
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

@@ -134,7 +134,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/6b588a86/5.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/6b588a86/6.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/6b588a86/9.png">
-<meta property="og:updated_time" content="2019-06-12T03:01:19.640Z">
+<meta property="og:updated_time" content="2019-06-15T09:26:35.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - The Basics of Decision Trees">
 <meta name="twitter:description" content="Regression Trees Predicting Baseball Players’ Salaries Using Regression Trees Terminal nodes: The regions R1, R2, and R3 are known as terminal nodes or leaves of the tree. Internal nodes: The points a">
@@ -455,7 +455,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:01:19" itemprop="dateModified" datetime="2019-06-11T22:01:19-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 04:26:35" itemprop="dateModified" datetime="2019-06-15T04:26:35-05:00">2019-06-15</time>
               
             
           </span>
@@ -501,7 +501,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">8.7k</span>
+                <span title="Symbols count in article">9.3k</span>
               
 
               
@@ -549,17 +549,31 @@
 <h3 id="step-1">Step 1</h3>
 <p><strong>How do we construct the regions R1, . . .,RJ?</strong> - We choose to divide the predictor space into high-dimensional rectangles, or <strong>boxes</strong>, for ease of interpretation of the resulting predictive model.</p>
 <ul>
-<li>The goal is to find boxes R1, . . . , RJ that <strong>minimize the RSS</strong>, given by <span class="math display">\[\begin{align}
+<li><p>The goal is to find boxes R1, . . . , RJ that <strong>minimize the RSS</strong>, given by <span class="math display">\[
+\begin{align}
 \sum_{j=1}^J\sum_{i \in R_j} (y_i-\hat{y}_{R_j})^2
-\end{align}\]</span> where <span class="math inline">\(\hat{y}_{R_j}\)</span> is the mean response for the training observations within the jth box.</li>
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(\hat{y}_{R_j}\)</span> is the mean response for the training observations within the jth box.</p></li>
 </ul>
 <h4 id="recursive-binary-splitting">Recursive Binary Splitting</h4>
 <p><strong>Recursive Binary Splitting</strong>: a <em>top-down, greedy</em> approach - <strong>Top-down</strong>: begins at the top of the tree (at which point all observations belong to a single region) and then successively splits the predictor space; each split is indicated via two new branches further down on the tree. - <strong>Greedy</strong>: at each step of the tree-building process, the best split is made at that particular step, rather than looking ahead and picking a split that will lead to a better tree in some future step.</p>
-<p><strong>Methods</strong>: 1. Select the predictor <span class="math inline">\(X_j\)</span> and the cutpoint <span class="math inline">\(s\)</span> such that splitting the predictor space into the regions <span class="math inline">\({X|X_j &lt; s}\)</span> and <span class="math inline">\({X|X_j ≥ s}\)</span> leads to the greatest possible reduction in RSS - In greater detail, for any <span class="math inline">\(j\)</span> and <span class="math inline">\(s\)</span>, we define the pair of half-planes <span class="math display">\[\begin{align}
-R_1(j, s) = {X|X_j &lt; s} ,\quad R_2(j, s) = {X|X_j ≥ s}
-\end{align}\]</span> and we seek the value of <span class="math inline">\(j\)</span> and <span class="math inline">\(s\)</span> that <strong>minimize</strong> the equation <span class="math display">\[\begin{align}
-\sum_{:x_i \in R_1(j,s)}(y_i-\hat{y}_{R_1})^2+\sum_{:x_i \in R_2(j,s)}(y_i-\hat{y}_{R_2})^2
-\end{align}\]</span> where <span class="math inline">\(\hat{y}_{R_1}\)</span>is the mean response for the training observations in <span class="math inline">\(R_1(j, s)\)</span>,</p>
+<p><strong>Methods</strong>: 1. Select the predictor <span class="math inline">\(X_j\)</span> and the cutpoint <span class="math inline">\(s\)</span> such that splitting the predictor space into the regions <span class="math inline">\({X|X_j &lt; s}\)</span> and <span class="math inline">\({X|X_j ≥ s}\)</span> leads to the greatest possible reduction in RSS - In greater detail, for any <span class="math inline">\(j\)</span> and <span class="math inline">\(s\)</span>, we define the pair of half-planes <span class="math display">\[
+  \begin{align}
+  R_1(j, s) = {X|X_j &lt; s} ,\quad R_2(j, s) = {X|X_j ≥ s}
+  \end{align}
+  \]</span> and we seek the value of <span class="math inline">\(j\)</span> and <span class="math inline">\(s\)</span> that <strong>minimize</strong> the equation <span class="math display">\[
+  \begin{align}
+  \sum_{:x_i \in R_1(j,s)}(y_i-\hat{y}_{R_1})^2+\sum_{:x_i \in R_2(j,s)}(y_i-\hat{y}_{R_2})^2
+  \end{align}
+  \]</span> where <span class="math inline">\(\hat{y}_{R_1}\)</span>is the mean response for the training observations in <span class="math inline">\(R_1(j, s)\)</span>,</p>
+<p>where <span class="math inline">\(\hat{y}_{R_1}\)</span>is the mean response for the training observations in <span class="math inline">\(R_1(j, s)\)</span>,</p>
+<p>and we seek the value of <span class="math inline">\(j\)</span> and <span class="math inline">\(s\)</span> that <strong>minimize</strong> the equation <span class="math display">\[
+  \begin{align}
+  \sum_{:x_i \in R_1(j,s)}(y_i-\hat{y}_{R_1})^2+\sum_{:x_i \in R_2(j,s)}(y_i-\hat{y}_{R_2})^2
+  \end{align}
+  \]</span> where <span class="math inline">\(\hat{y}_{R_1}\)</span>is the mean response for the training observations in <span class="math inline">\(R_1(j, s)\)</span>,</p>
+<p>where <span class="math inline">\(\hat{y}_{R_1}\)</span>is the mean response for the training observations in <span class="math inline">\(R_1(j, s)\)</span>,</p>
 <ol start="2" type="1">
 <li>Repeat the process, looking for the best predictor and best cutpoint in order to split the data further so as to minimize the RSS within each of the resulting regions.</li>
 </ol>
@@ -580,10 +594,11 @@ R_1(j, s) = {X|X_j &lt; s} ,\quad R_2(j, s) = {X|X_j ≥ s}
 <p>Consider a sequence of trees indexed by a nonnegative tuning parameter α</p>
 <p><img src="./4.png" width="600"></p>
 <p>For each value of α there corresponds a subtree <span class="math inline">\(T ⊂ T_0\)</span> such that</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \sum_{m=1}^T\sum_{i:x_i \in R_m}(y_i − \hat{y}_{R_m})^2 + \alpha|T|  \quad \quad (8.4)
-\end{align}\]</span></p>
-<p>is as small as possible.</p>
+\end{align}
+\]</span> is as small as possible.</p>
 <ul>
 <li><span class="math inline">\(|T|\)</span>: the number of terminal nodes of the tree T ,</li>
 <li><span class="math inline">\(R_m\)</span>: the rectangle (i.e. the subset of predictor space) corresponding to the m-th <strong>terminal node</strong>,</li>
@@ -598,25 +613,31 @@ R_1(j, s) = {X|X_j &lt; s} ,\quad R_2(j, s) = {X|X_j ≥ s}
 <ul>
 <li>Since we plan to assign an observation in a given region to the most commonly occurring class of training observations in that region, the classification error rate is simply the <strong>fraction of the training observations in that region that do not belong to the most common class</strong>:</li>
 </ul>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 E=1-\max_k(\hat{p}_{mk})
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <ul>
 <li><span class="math inline">\(\hat{p}_{mk}\)</span> : the proportion of training observations in the mth region that are from the kth class.</li>
 <li>classification error is not sufficiently sensitive for tree-growing, and in practice two other measures are preferable: <strong>Gini index, cross-entropy.</strong></li>
 </ul>
 <h2 id="gini-index">Gini index</h2>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 G=\sum_{k=1}^K\hat{p}_{mk}(1-\hat{p}_{mk})
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <ul>
 <li>A measure of total variance across the K classes. It is not hard to see that the Gini index takes on a small value if all of the <span class="math inline">\(\hat{p}_{mk}\)</span>’s are close to zero or one.</li>
 <li>For this reason the Gini index is referred to as a measure of node <strong>purity</strong>—a small value indicates that a node contains predominantly observations from a single class.</li>
 </ul>
 <h2 id="cross-entropy">Cross-Entropy</h2>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 D=-\sum_{k=1}^K\hat{p}_{mk}\log{\hat{p}_{mk}}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <ul>
 <li>Since 0 ≤ <span class="math inline">\(\hat{p}_{mk}\)</span> ≤ 1, it follows that <span class="math inline">\(0 ≤ −\hat{p}_{mk}\log{\hat{p}_{mk}}\)</span>.</li>
 <li>Cross-entropy will take on a value near zero if the <span class="math inline">\(\hat{p}_{mk}\)</span>’s are all near zero or near one. Therefore, like the Gini index, the cross-entropy will take on a small value if the mth node is <strong>pure</strong>.</li>
@@ -630,12 +651,16 @@ D=-\sum_{k=1}^K\hat{p}_{mk}\log{\hat{p}_{mk}}
 <li><strong>Why is node purity important?</strong> Suppose that we have a test observation that belongs to the region given by that right-hand leaf. Then we can be pretty certain that its response value is Yes. In contrast, if a test observation belongs to the region given by the left-hand leaf, then its response value is probably Yes, but we are much less certain. Even though the split RestECG&lt;1 does not reduce the classification error, it improves the <strong>Gini index and the cross-entropy</strong>, which are more sensitive to node purity.</li>
 </ul>
 <h1 id="trees-versus-linear-models">Trees Versus Linear Models</h1>
-<p>Linear regression assumes a model of the form <span class="math display">\[\begin{align}
+<p>Linear regression assumes a model of the form <span class="math display">\[
+\begin{align}
 f(X)=\beta_0+\sum_{i=1}^p\beta_iX_i
-\end{align}\]</span></p>
-<p>Regression trees assume a model of the form <span class="math display">\[\begin{align}
+\end{align}
+\]</span> Regression trees assume a model of the form <span class="math display">\[
+\begin{align}
 f(X)=\sum_{m=1}^Mc_m \cdot I_{X \in R_m}
-\end{align}\]</span> where R1, . . .,RM represent a partition of feature space</p>
+\end{align}
+\]</span> where R1, . . .,RM represent a partition of feature space</p>
+<p>where R1, . . .,RM represent a partition of feature space</p>
 <p><strong>Linear regression works better</strong>: If the relationship between the features and the response is well approximated by a linear model; regression tree does not exploit this linear structure.</p>
 <p><strong>Regression tree works better</strong>: If instead there is a highly non-linear and complex relationship between the features and the response.</p>
 <h1 id="advantages-and-disadvantages-of-trees">Advantages and Disadvantages of Trees</h1>
@@ -773,7 +798,7 @@ f(X)=\sum_{m=1}^Mc_m \cdot I_{X \in R_m}
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -855,7 +880,9 @@ f(X)=\sum_{m=1}^Mc_m \cdot I_{X \in R_m}
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -973,7 +1000,7 @@ f(X)=\sum_{m=1}^Mc_m \cdot I_{X \in R_m}
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   

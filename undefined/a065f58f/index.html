@@ -127,7 +127,7 @@
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Setting: - In the regression setting, the standard linear model \(Y = β_0 + β_1X_1 + · · · + β_pX_p + \epsilon\)  In the chapters that follow, we consider some approaches for extending the linear mode">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-12T03:01:54.130Z">
+<meta property="og:updated_time" content="2019-06-15T05:33:12.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Intro to Model Selection">
 <meta name="twitter:description" content="Setting: - In the regression setting, the standard linear model \(Y = β_0 + β_1X_1 + · · · + β_pX_p + \epsilon\)  In the chapters that follow, we consider some approaches for extending the linear mode">
@@ -447,7 +447,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-11 22:01:54" itemprop="dateModified" datetime="2019-06-11T22:01:54-05:00">2019-06-11</time>
+                <time title="Modified: 2019-06-15 00:33:12" itemprop="dateModified" datetime="2019-06-15T00:33:12-05:00">2019-06-15</time>
               
             
           </span>
@@ -532,12 +532,14 @@
 <li>In the chapters that follow, we consider some approaches for extending the linear model framework.</li>
 </ul>
 <p><strong>Reason of using other fitting procedure than lease squares</strong>: - <strong><em>Prediction Accuracy:</em></strong> - Provided that the true relationship between the response and the predictors is approximately linear, the least squares estimates will have low bias. - If n <span class="math inline">\(\gg\)</span> p, least squares estimates tend to also have low variance <span class="math inline">\(\Rightarrow\)</span> perform well on test data. - If n is not much larger than p, least squares fit has large variance <span class="math inline">\(\Rightarrow\)</span> overfitting <span class="math inline">\(\Rightarrow\)</span> consequently poor predictions on test data - If p &gt; n, no more unique least squares coefficient estimate: the <strong>variance is infinite</strong> so the method cannot be used at all</p>
-<p>By <strong>constraining</strong> or <strong>shrinking</strong> the estimated coefficients, we can often substantially reduce the variance at the cost of a negligible increase in bias.</p>
+<pre><code>By **constraining** or **shrinking** the estimated coefficients, we can often substantially reduce the variance at the cost of a negligible increase in bias.</code></pre>
 <a id="more"></a>
 <ul>
-<li><strong><em>Model Interpretability</em></strong>：</li>
+<li><strong><em>Model Interpretability</em></strong>：
+<ul>
 <li>irrelevant variables leads to unnecessary complexity in the resulting model. By removing these variables—that is, by setting the corresponding coefficient estimates to zero—we can obtain a model that is more easily interpreted.</li>
 <li>least squares is extremely unlikely to yield any coefficient estimates that are exactly zero <span class="math inline">\(\Rightarrow\)</span> <strong>feature selection</strong></li>
+</ul></li>
 </ul>
 <p><strong>Alternatives of lease squares:</strong></p>
 <ol type="1">
@@ -594,8 +596,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/undefined/8bf4bc53/" rel="prev" title="ISLR Note - Subset Selection">
-                ISLR Note - Subset Selection <i class="fa fa-chevron-right"></i>
+              <a href="/undefined/8bf4bc53/" rel="prev" title="ISLR Note - Subset Selection, AIC, BIC">
+                ISLR Note - Subset Selection, AIC, BIC <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -663,7 +665,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -745,7 +747,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -846,7 +850,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">189k</span>
   
 
   
