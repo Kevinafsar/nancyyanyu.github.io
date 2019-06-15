@@ -110,32 +110,6 @@ f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle
   </entry>
   
   <entry>
-    <title>Typora Shortcuts 快捷键</title>
-    <link href="https://nancyyanyu.github.io/undefined/267da764/"/>
-    <id>https://nancyyanyu.github.io/undefined/267da764/</id>
-    <published>2019-06-11T18:33:27.000Z</published>
-    <updated>2019-06-12T03:01:25.653Z</updated>
-    
-    <content type="html"><![CDATA[<p>最大标题：command + 1 或者：#</p><p>大标题：command + 2 或者：##</p><p>标准标题：command + 3 或者：###</p><p>中标题：command + 4 或者：####</p><p>小标题：command + 5 或者：#####</p><p>插入表格：command + OPTION+T</p><p>插入代码：command + alt +c</p><a id="more"></a><p>行间公式 command + Alt + b</p><p>段落：command + 0</p><blockquote><p>竖线 ： command + Alt +q</p></blockquote><p>有序列表（1. 2.） ：输入数字+“.”之后输入空格 或者：command + Alt + o</p><ul><li>黑点标记：command + Alt + u</li></ul><p>隔离线shift + command + -</p><p><a href>插入链接</a>：command +k</p><p><u>下划线</u>：command +u</p><p><strong>加粗</strong>：command +b</p><p>搜索：command +f</p><p>Ref: <a href="https://www.cnblogs.com/hongdada/p/9776547.html#mac中的快捷键" target="_blank" rel="noopener">https://www.cnblogs.com/hongdada/p/9776547.html#mac%E4%B8%AD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE</a></p><p>https://support.typora.io/Shortcut-Keys/</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最大标题：command + 1 或者：#&lt;/p&gt;
-&lt;p&gt;大标题：command + 2 或者：##&lt;/p&gt;
-&lt;p&gt;标准标题：command + 3 或者：###&lt;/p&gt;
-&lt;p&gt;中标题：command + 4 或者：####&lt;/p&gt;
-&lt;p&gt;小标题：command + 5 或者：#####&lt;/p&gt;
-&lt;p&gt;插入表格：command + OPTION+T&lt;/p&gt;
-&lt;p&gt;插入代码：command + alt +c&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Others" scheme="https://nancyyanyu.github.io/categories/Others/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>离开纽约前的一些想法</title>
     <link href="https://nancyyanyu.github.io/undefined/babf682e/"/>
     <id>https://nancyyanyu.github.io/undefined/babf682e/</id>
@@ -588,6 +562,32 @@ Err_\tau=E[L(Y,\hat{f}(X))|\tau]
       <category term="Model Assessment" scheme="https://nancyyanyu.github.io/tags/Model-Assessment/"/>
     
       <category term="Model Selection" scheme="https://nancyyanyu.github.io/tags/Model-Selection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ESL Note - Logistic Regression</title>
+    <link href="https://nancyyanyu.github.io/undefined/c759e252/"/>
+    <id>https://nancyyanyu.github.io/undefined/c759e252/</id>
+    <published>2019-06-09T05:07:28.846Z</published>
+    <updated>2019-06-12T03:02:20.299Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="logistic-regression">Logistic Regression</h1><p>Reference: Trevor Hastie, Robert Tibshirani, Jerome Friedman The elements of statistical learning Data mining, inference, and prediction</p><p>The logistic regression model arises from the desire to model the posterior probabilities of the K classes via linear functions in x, while at the same time ensuring that they sum to one and remain in [0, 1]. The model has the form:</p><a id="more"></a><p><span class="math display">\[\begin{align}\log\frac{\text{Pr}(G=1|X=x)}{\text{Pr}(G=K|X=x)} &amp;= \beta_{10} + \beta_1^Tx \\\log\frac{\text{Pr}(G=2|X=x)}{\text{Pr}(G=K|X=x)} &amp;= \beta_{20} + \beta_2^Tx \\&amp;\vdots \\\log\frac{\text{Pr}(G=K-1|X=x)}{\text{Pr}(G=K|X=x)} &amp;= \beta_{(K-1)0} + \beta_{K-1}^Tx \\\end{align}\]</span></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;logistic-regression&quot;&gt;Logistic Regression&lt;/h1&gt;
+&lt;p&gt;Reference: Trevor Hastie, Robert Tibshirani, Jerome Friedman The elements of statistical learning Data mining, inference, and prediction&lt;/p&gt;
+&lt;p&gt;The logistic regression model arises from the desire to model the posterior probabilities of the K classes via linear functions in x, while at the same time ensuring that they sum to one and remain in [0, 1]. The model has the form:&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
+    
+      <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
     
   </entry>
   
