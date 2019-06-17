@@ -131,7 +131,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/595ebc31/2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/595ebc31/3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/595ebc31/4.png">
-<meta property="og:updated_time" content="2019-06-15T09:25:17.989Z">
+<meta property="og:updated_time" content="2019-06-15T22:32:26.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Simple Linear Regression">
 <meta name="twitter:description" content="Simple linear regression: approach for predicting a quantitative response Y on the basis of a single predictor variable X. It assumes that there is approximately a linear relationship between X and Y:">
@@ -452,7 +452,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-15 04:25:17" itemprop="dateModified" datetime="2019-06-15T04:25:17-05:00">2019-06-15</time>
+                <time title="Modified: 2019-06-15 17:32:26" itemprop="dateModified" datetime="2019-06-15T17:32:26-05:00">2019-06-15</time>
               
             
           </span>
@@ -645,11 +645,12 @@ t=\frac{\hat{\beta_1}-0}{SE(\hat{\beta_1})}
 <p>The quality of a linear regression fit is typically assessed using two related quantities: <strong>the residual standard error (RSE)</strong> and the <strong>R2</strong> statistic.</p>
 <h2 id="residual-standard-error">Residual Standard Error</h2>
 <p>The RSE is an estimate of the standard deviation of <span class="math inline">\(\epsilon\)</span>: the average amount that the response will deviate from the true regression line</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 RSS&amp;=\sum_{i=1}^n(y_i-\hat{y})^2  \\
 RSE&amp;=\sqrt{\frac{1}{n-2}RSS}=\sqrt{\frac{1}{n-2}\sum_{i=1}^n(y_i-\hat{y})^2}
-\end{align}\]</span></p>
-<p><img src="./4.png" width="600"></p>
+\end{align}
+\]</span> <img src="./4.png" width="600"></p>
 <p>In the case of the advertising data, we see from the linear regression output in Table 3.2 that the RSE is 3.26. In other words, actual sales in each market deviate from the true regression line by approximately 3,260 units, on average.</p>
 <p>The mean value of sales over all markets is approximately 14,000 units, and so the percentage error is 3,260/14,000 = 23%.</p>
 <blockquote>
@@ -884,7 +885,9 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1002,7 +1005,7 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">189k</span>
+    <span title="Symbols count total">193k</span>
   
 
   

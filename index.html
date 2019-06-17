@@ -428,7 +428,7 @@
                 
               
 
-              <time title="Created: 2019-06-15 05:53:38 / Modified: 17:30:41" itemprop="dateCreated datePublished" datetime="2019-06-15T05:53:38-05:00">2019-06-15</time>
+              <time title="Created: 2019-06-15 05:53:38 / Modified: 18:41:58" itemprop="dateCreated datePublished" datetime="2019-06-15T05:53:38-05:00">2019-06-15</time>
             
 
             
@@ -479,7 +479,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">4.8k</span>
+                <span title="Symbols count in article">8.4k</span>
               
 
               
@@ -493,7 +493,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">4 mins.</span>
+                <span title="Reading time">8 mins.</span>
               
             </div>
           
@@ -564,18 +564,61 @@ f^*(x)\approx f^*(x+\epsilon)
 </blockquote>
 <p><img src="./1.png" width="600"></p>
 <h2 id="evaluation-of-machine-learning-systems">Evaluation of Machine Learning systems</h2>
-<h3 id="what-are-accuracy-sensitivity-specificity-roc">1. What are accuracy, sensitivity, specificity, ROC?</h3>
-<h3 id="what-are-precision-and-recall">2. What are precision and recall?</h3>
-<h3 id="describe-t-test-in-the-context-of-machine-learning.">3. Describe t-test in the context of Machine Learning.</h3>
+<h3 id="what-are-accuracy-sensitivity-specificity-roc-auc-confusion-matrix">1. What are accuracy, sensitivity, specificity, ROC, AUC, Confusion matrix?</h3>
+<p>(see ISLR Note - Linear Discriminant Analysis, ROC &amp; AUC, Confusion Matrix)</p>
+<p><strong><em>Confusion matrix</em></strong>: An NxN table that summarizes how successful a <a href="https://developers.google.com/machine-learning/glossary/#classification_model" target="_blank" rel="noopener"><strong>classification model's</strong></a> predictions were</p>
+<p><img src="./2.png"></p>
+<p><strong><em>Accuracy</em></strong>: The fraction of predictions that a classification model got right.</p>
+<ul>
+<li>In multi-class classification, accuracy is defined as follows: <span class="math display">\[
+Accuracy=\frac{Correct Predictions}{Total Number Of Observations}
+\]</span></li>
+</ul>
+<p>In binary classification, accuracy has the following definition: <span class="math display">\[
+Accuracy=\frac{TruePositives+TrueNegatives}{Total Number Of Observations}
+\]</span> <strong><em>Sensitivity/ Recall/ TPR</em></strong>: A metric for classification models that answers the following question: Out of all the possible <em>positive labels</em>(positive under true condition), how many did the model correctly identify? <span class="math display">\[
+Sensitivity=\frac{TruePositives}{TruePositives+FalseNegatives}
+\]</span> <strong><em>Specificity/ Selectivity/ TNR</em></strong>: Out of all the possible <em>negative labels</em> (negative under true condition), how many did the model correctly identify? <span class="math display">\[
+Specificity=\frac{TrueNegatives}{TrueNegatives+FalsePositives}
+\]</span> <strong><em>Precision/ PPV</em></strong>: <span class="math display">\[
+Precision=\frac{TruePositives}{TruePositives+FalsePositives}
+\]</span> <strong><em>Type I and Type II Errors</em></strong>:</p>
+<p>According to me, the null hypothesis in this case is that this call is a hoax. As a matter of fact, if Jack would have believed the stranger and provided his bank details, and the call was in fact a hoax, he would have committed a type I error, also known as a false positive. On the other hand, had he ignored the stranger’s request, but later found out that he actually had won the lottery and the call was not a hoax, he would have committed a Type II error, or a false negative.</p>
+<p><img src width="600"></p>
+<p><strong>Recall v.s. Precision</strong>:</p>
+<ul>
+<li>Recall refers to the percentage of total relevant results correctly classified by your algorithm</li>
+<li>Precision means the percentage of your results which are relevant.</li>
+</ul>
+<p><img src="./3.png" width="800"></p>
+<blockquote>
+<p><em>…Feeling a bit panicky, Jack called up his bank to ensure his existing accounts were safe and all his credits were secure. After listening to Jack’s story, the bank executive informed Jack that all his accounts were safe. However, in order to ensure that there is no future risk, the bank manager asked Jack to recall all instances in the last six months wherein he might have shared his account details with another person for any kind of transaction, or may have accessed his online account from a public system, etc…</em></p>
+</blockquote>
+<p>What are the chances that Jack will be able to <em>recall</em> all such instances <em>precisely</em>?</p>
+<ul>
+<li><p>If Jack had let’s say 10 such instances in reality, and he narrated 20 instances to finally spell out the 10 correct instances, then his <em>recall</em> will be a 100%, but his <em>precision</em> will only be 50%.</p></li>
+<li><p><strong>Trade-off</strong>: If you have to <em>recall</em> everything, you will have to keep generating results which are not accurate, hence lowering your <em>precision</em>.</p></li>
+</ul>
+<p><strong><em>AUC - ROC curve</em></strong> is a performance measurement for classification problem at <strong>various thresholds settings</strong>.</p>
+<p><strong><em>ROC</em></strong> is a probability curve and <strong><em>AUC</em></strong> represents degree or measure of separability. It tells how much model is capable of distinguishing between classes. Higher the AUC, better the model is at predicting 0s as 0s and 1s as 1s. By analogy, Higher the AUC, better the model is at distinguishing between patients with disease and no disease. <span class="math display">\[
+Recall=\frac{TP}{TP+FN} \\
+Specificity=\frac{TN}{FP+TN} \\
+FPR=1-Specificity=\frac{FP}{FP+TN}
+\]</span></p>
+<ul>
+<li>An ideal ROC curve will hug the top left corner, so the larger the AUC the better the classifier. We expect a classifier that performs no better than chance to <em>have an AUC of 0.5</em></li>
+<li>ROC curves are useful for comparing different classifiers, since they take into account all possible thresholds.</li>
+</ul>
+<p><img src="./5.png" width="600"></p>
+<h3 id="describe-t-test-in-the-context-of-machine-learning.">2. Describe t-test in the context of Machine Learning.</h3>
 <h2 id="dimensionality-reduction">Dimensionality Reduction</h2>
-<ol type="1">
-<li>Why do we need dimensionality reduction techniques? (data compression, speeds up learning algorithm and visualizing data)</li>
-<li>What do we need PCA and what does it do? (PCA tries to find a lower dimensional surface such the sum of the squared projection error is minimized)</li>
-<li>What is the difference between logistic regression and PCA?</li>
-<li>What are the two pre-processing steps that should be applied before doing PCA? (mean normalization and feature scaling)</li>
-</ol>
+<h3 id="why-do-we-need-dimensionality-reduction-techniques-data-compression-speeds-up-learning-algorithm-and-visualizing-data">1. Why do we need dimensionality reduction techniques? (data compression, speeds up learning algorithm and visualizing data)</h3>
+<h3 id="what-do-we-need-pca-and-what-does-it-do-pca-tries-to-find-a-lower-dimensional-surface-such-the-sum-of-the-squared-projection-error-is-minimized">2. What do we need PCA and what does it do? (PCA tries to find a lower dimensional surface such the sum of the squared projection error is minimized)</h3>
+<h3 id="what-is-the-difference-between-logistic-regression-and-pca">3. What is the difference between logistic regression and PCA?</h3>
+<h3 id="what-are-the-two-pre-processing-steps-that-should-be-applied-before-doing-pca-mean-normalization-and-feature-scaling">4. What are the two pre-processing steps that should be applied before doing PCA? (mean normalization and feature scaling)</h3>
 <p><strong>Ref</strong>:</p>
 <p><a href="https://github.com/Sroy20/machine-learning-interview-questions" target="_blank" rel="noopener">machine-learning-interview-questions</a></p>
+<p><a href="https://towardsdatascience.com/precision-vs-recall-386cf9f89488" target="_blank" rel="noopener">Precision vs Recall</a></p>
 
           
         
@@ -2844,7 +2887,9 @@ Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -2945,7 +2990,7 @@ Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">189k</span>
+    <span title="Symbols count total">193k</span>
   
 
   

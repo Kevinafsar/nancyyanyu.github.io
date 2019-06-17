@@ -132,7 +132,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/cac93a23/9.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/cac93a23/10.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/cac93a23/11.png">
-<meta property="og:updated_time" content="2019-06-15T06:18:11.188Z">
+<meta property="og:updated_time" content="2019-06-15T22:35:24.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Dimension Reduction-PCA">
 <meta name="twitter:description" content="Intro to Dimension Reduction Methods Subset selection and shrinkage methods all use the original predictors, X1,X2, . . . , Xp. Dimension Reduction Methods transform the predictors and then fit a leas">
@@ -453,7 +453,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-15 01:18:11" itemprop="dateModified" datetime="2019-06-15T01:18:11-05:00">2019-06-15</time>
+                <time title="Modified: 2019-06-15 17:35:24" itemprop="dateModified" datetime="2019-06-15T17:35:24-05:00">2019-06-15</time>
               
             
           </span>
@@ -569,16 +569,16 @@ y_i=\theta_0+\sum_{m=1}^M\theta_m z_{im}+\epsilon_i  \quad  i=1,2,3,4,...,n
 <p>The first principal component direction is the direction along which there is the greatest variability in the data. That is, if we projected the 100 observations onto this line (as shown in the left-hand panel of Figure 6.15), then the resulting projected observations would have the largest possible variance</p>
 <p><img src="./8.png" width="600"></p>
 <p>The first principal component is given by the formula</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 Z_1 = 0.839 × (pop − \bar{pop}) + 0.544 × (ad − \bar{ad})
-\end{align}\]</span></p>
-<p>Here φ11 = 0.839 and φ21 = 0.544 are the <strong>principal component loadings</strong>, which define the direction referred to above.</p>
+\end{align}
+\]</span> Here φ11 = 0.839 and φ21 = 0.544 are the <strong>principal component loadings</strong>, which define the direction referred to above.</p>
 <blockquote>
 <p>The idea is that out of every possible linear combination of pop and ad such that <span class="math inline">\(\phi_{11}^2+\phi_{21}^2=1\)</span>, this particular linear combination yields the highest variance: i.e. this is the linear combination for which <span class="math inline">\(Var(φ_{11} × (pop − \bar{pop}) + φ_{21} × (ad − \bar{ad}))\)</span> is maximized.</p>
 </blockquote>
 <p><strong>Principal Component Scores</strong></p>
-<p>The values of <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> are known as the <strong>principal component scores</strong>, and can be seen in the right-hand panel of Figure 6.15. For example,</p>
-<p><span class="math display">\[
+<p>The values of <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> are known as the <strong>principal component scores</strong>, and can be seen in the right-hand panel of Figure 6.15. For example, <span class="math display">\[
 \begin{align}
 z_{i1} = 0.839 × (pop_i − \bar{pop}) + 0.544 × (ad_i − \bar{ad})
 \end{align}
@@ -602,15 +602,17 @@ Z_2 = 0.544 × (pop − \bar{pop}) − 0.839 × (ad − \bar{ad}).
 \end{align}
 \]</span> Figure 6.15. The fact that the second principal component scores are much closer to zero indicates that this component captures far less information.</p>
 <h2 id="the-principal-components-regression-approach">The Principal Components Regression Approach</h2>
-<p>The principal components regression (PCR) approach involves constructing principal components regression the first M principal components, Z1, . . ., ZM, and then using these components as the predictors in a linear regression model that is fit using least squares</p>
+<p>The principal components regression (PCR) approach involves constructing the first M principal components, Z1, . . ., ZM, and then using these components as the predictors in a linear regression model that is fit using least squares</p>
 <p><strong>The key idea</strong></p>
 <p>Often a small number of principal components suffice to explain most of the variability in the data, as well as the relationship with the response. In other words, we assume that <strong><em>the directions in which X1, . . .,Xp show the most variation are the directions that are associated with Y</em></strong></p>
-<p><strong>Example</strong></p>
+<p><strong>Example</strong>:</p>
 <p><img src="./10.png" width="650"></p>
 <ul>
 <li>Performing PCR with an appropriate choice of M can result in a substantial improvement over least squares</li>
-<li>PCR does not perform as well as the two shrinkage methods</li>
+<li>PCR does not perform as well as the two shrinkage methods
+<ul>
 <li><strong>Reason</strong>: The data were generated in such a way that many principal components are required in order to adequately model the response. In contrast, PCR will tend to do well in cases when the first few principal components are sufficient to capture most of the variation in the predictors as well as the relationship with the response.</li>
+</ul></li>
 </ul>
 <p><strong>Note</strong>: even though PCR provides a simple way to perform regression using M &lt; p predictors, it is not a <em>feature selection</em> method!</p>
 <ul>
@@ -835,7 +837,9 @@ Z_2 = 0.544 × (pop − \bar{pop}) − 0.839 × (ad − \bar{ad}).
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -953,7 +957,7 @@ Z_2 = 0.544 × (pop − \bar{pop}) − 0.839 × (ad − \bar{ad}).
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">189k</span>
+    <span title="Symbols count total">193k</span>
   
 
   
