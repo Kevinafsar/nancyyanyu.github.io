@@ -129,7 +129,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/a1139410/SVM1.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/a1139410/SVM2.png">
-<meta property="og:updated_time" content="2019-06-15T04:27:11.385Z">
+<meta property="og:updated_time" content="2019-06-17T21:03:48.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - SVM: Support Vector Machines">
 <meta name="twitter:description" content="SVMs with Kernel The support vector machine (SVM) is an extension of the support vector classifier that results from enlarging the feature space using kernels. The solution to the support vector class">
@@ -450,7 +450,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-14 23:27:11" itemprop="dateModified" datetime="2019-06-14T23:27:11-05:00">2019-06-14</time>
+                <time title="Modified: 2019-06-17 16:03:48" itemprop="dateModified" datetime="2019-06-17T16:03:48-05:00">2019-06-17</time>
               
             
           </span>
@@ -564,7 +564,7 @@ K(x_i,x_{i^{&#39;}})
 </ul></li>
 </ul></li>
 </ul>
-<p><strong><em>Support Vector Machine</em></strong>: When the support vector classifieris combined with a non-linear kernel, the resulting classifier isknown as a support vector machine. <span class="math display">\[
+<p><strong><em>Support Vector Machine</em></strong>: When the support vector classifieris combined with a non-linear kernel, the resulting classifier is known as a support vector machine. <span class="math display">\[
 f(x)=\beta_0+\sum_{i \in S}^n \alpha_i K(x,x_i)
 \]</span> <img src="./SVM1.png"></p>
 <p><strong>Advantage of Kernel over enlarging the feature space using functions of the original features: </strong></p>
@@ -591,7 +591,7 @@ f(x)=\beta_0+\sum_{i \in S}^n \alpha_i K(x,x_i)
 <li>Let $ x^∗$ denote a test observation. We assign the observation to the class for which <span class="math inline">\(β_{0k}x_1^*+β_{1k}x_2^*+, . . . ,+ β_{pk}x_p^*\)</span> is largest, as this amounts to a high level of confidence that the test observation belongs to the kth class rather than to any of the other classes.</li>
 </ol>
 <h1 id="relationship-to-logistic-regression">Relationship to Logistic Regression</h1>
-<p>Rewrite the criterion (9.12)–(9.15) for fitting the support vector classifier <span class="math inline">\(f(X) = β_0 + β_1X_1 + . . . + β_pX_p\)</span> as</p>
+<p>Rewrite the criterion (9.12)–(9.15) [look at last post] for fitting the support vector classifier <span class="math inline">\(f(X) = β_0 + β_1X_1 + . . . + β_pX_p\)</span> as</p>
 <p><span class="math display">\[
 \min_{\beta_0,...,\beta_p}\left\{ \sum_{i=1}^n\max[0,1-y_If(x_i)]+\lambda\sum_{j=1}^p\beta_j^2 \right\}
 \]</span></p>
@@ -614,7 +614,7 @@ L(\mathbf{X},\mathbf{y},\beta)=\sum_{i=1}^n \max[0,1-y_i(\beta_0+\beta_1x_{i1}+,
 \]</span> <img src="SVM2.png"></p>
 <ul>
 <li>Due to thesimilarities between their loss functions, logistic regression and the supportvector classifier often give very similar results.</li>
-<li>When the classes are wellseparated, SVMs tend to behave better than logistic regression</li>
+<li>When the classes are well separated, SVMs tend to behave better than logistic regression</li>
 </ul>
 
       
@@ -743,7 +743,7 @@ L(\mathbf{X},\mathbf{y},\beta)=\sum_{i=1}^n \max[0,1-y_i(\beta_0+\beta_1x_{i1}+,
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -947,7 +947,7 @@ L(\mathbf{X},\mathbf{y},\beta)=\sum_{i=1}^n \max[0,1-y_i(\beta_0+\beta_1x_{i1}+,
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">201k</span>
+    <span title="Symbols count total">214k</span>
   
 
   
