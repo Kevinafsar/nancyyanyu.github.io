@@ -120,7 +120,7 @@
 
 
   <meta name="description" content="Simple linear regression: approach for predicting a quantitative response Y on the basis of a single predictor variable X. It assumes that there is approximately a linear relationship between X and Y:">
-<meta name="keywords" content="Linear Regression,Regression">
+<meta name="keywords" content="Model Assessment,Linear Regression,Regression">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ISLR Note - Simple Linear Regression">
 <meta property="og:url" content="https://nancyyanyu.github.io/undefined/595ebc31/index.html">
@@ -131,7 +131,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/595ebc31/2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/595ebc31/3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/595ebc31/4.png">
-<meta property="og:updated_time" content="2019-06-15T22:32:26.501Z">
+<meta property="og:updated_time" content="2019-06-17T19:29:40.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Simple Linear Regression">
 <meta name="twitter:description" content="Simple linear regression: approach for predicting a quantitative response Y on the basis of a single predictor variable X. It assumes that there is approximately a linear relationship between X and Y:">
@@ -452,7 +452,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-15 17:32:26" itemprop="dateModified" datetime="2019-06-15T17:32:26-05:00">2019-06-15</time>
+                <time title="Modified: 2019-06-17 14:29:40" itemprop="dateModified" datetime="2019-06-17T14:29:40-05:00">2019-06-17</time>
               
             
           </span>
@@ -498,7 +498,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">9.6k</span>
+                <span title="Symbols count in article">9.5k</span>
               
 
               
@@ -581,27 +581,30 @@ Y=\beta_0+\beta_1X+\epsilon
 </ul>
 <p><strong>Unbiased</strong> - If we use the sample mean <span class="math inline">\(\hat{\mu}\)</span> to estimate μ, this estimate is <strong>unbiased</strong>, in the sense that on average, we expect <span class="math inline">\(\hat{\mu}\)</span> to equal μ. - an unbiased estimator does not systematically over- or under-estimate the true parameter.</p>
 <h3 id="standard-error">Standard Error</h3>
-<p><strong>How accurate is the sample mean <span class="math inline">\(\hat{\mu}\)</span> as an estimate of μ?</strong> - <strong>standard error of <span class="math inline">\(\hat{\mu}\)</span>(SE(<span class="math inline">\(\hat{\mu}\)</span>)</strong>): average amount that this estimate <span class="math inline">\(\hat{\mu}\)</span> differs from the actual value of μ. <span class="math display">\[
-  \begin{align}
-  Var(\hat{\mu})=SE(\hat{\mu})^2=\frac{\sigma^2}{n}
-  \end{align}
-  \]</span> where σ is the standard deviation of each of the realizations yi of Y provided that the n observations are <strong>uncorrelated</strong>.</p>
-<p>where σ is the standard deviation of each of the realizations yi of Y provided that the n observations are <strong>uncorrelated</strong>.</p>
+<p><strong>How accurate is the sample mean <span class="math inline">\(\hat{\mu}\)</span> as an estimate of μ?</strong></p>
+<ul>
+<li><strong>Standard error of <span class="math inline">\(\hat{\mu}\)</span>(SE(<span class="math inline">\(\hat{\mu}\)</span>)</strong>): average amount that this estimate <span class="math inline">\(\hat{\mu}\)</span> differs from the actual value of μ. <span class="math display">\[
+\begin{align}
+Var(\hat{\mu})=SE(\hat{\mu})^2=\frac{\sigma^2}{n}
+\end{align}
+\]</span> where σ is the standard deviation of each of the realizations yi of Y provided that the n observations are <strong>uncorrelated</strong>.</li>
+</ul>
 <p><strong>Standard Deviation V.S. Standard Error</strong></p>
 <ul>
 <li><p>The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean</p></li>
 <li><p>The standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean.</p></li>
 </ul>
 <p><img src="./2.png" width="300"></p>
-<p><strong>How close <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> are to the true values <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>?</strong> - <span class="math display">\[
-  \begin{align}
-  SE(\hat{\beta_0})^2&amp;=\sigma^2\left[\frac{1}{n}+\frac{\bar{x}^2}{\sum_{i=1}^n(x_i-\bar{x})^2}  \right]  \\
-  SE(\hat{\beta_1})^2&amp;=\frac{\sigma^2}{\sum_{i=1}^n(x_i-\bar{x})^2} 
-  \end{align}
-  \]</span></p>
-<p>where <span class="math inline">\(\sigma^2 = Var(\epsilon)\)</span></p>
+<p><strong>How close <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> are to the true values <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>?</strong></p>
 <ul>
-<li>For these formulas to be strictly valid, we need to assume that the errors <span class="math inline">\(\epsilon_i\)</span> for each observation are uncorrelated with common variance σ2.</li>
+<li><p><span class="math display">\[
+\begin{align}
+SE(\hat{\beta_0})^2&amp;=\sigma^2\left[\frac{1}{n}+\frac{\bar{x}^2}{\sum_{i=1}^n(x_i-\bar{x})^2}  \right]  \\
+SE(\hat{\beta_1})^2&amp;=\frac{\sigma^2}{\sum_{i=1}^n(x_i-\bar{x})^2} 
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(\sigma^2 = Var(\epsilon)\)</span></p></li>
+<li><p>For these formulas to be strictly valid, we need to assume that the errors <span class="math inline">\(\epsilon_i\)</span> for each observation are uncorrelated with common variance σ2.</p></li>
 </ul>
 <p><strong>Estimate <span class="math inline">\(\sigma^2\)</span></strong> - <strong>residual standard error(RSE)</strong>: <span class="math inline">\(\sigma^2\)</span> is not known, but can be estimated from the data. This estimate is known as the <strong>residual standard error</strong></p>
 <ul>
@@ -702,6 +705,8 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
         
         <div class="post-tags">
           
+            <a href="/tags/Model-Assessment/" rel="tag"># Model Assessment</a>
+          
             <a href="/tags/Linear-Regression/" rel="tag"># Linear Regression</a>
           
             <a href="/tags/Regression/" rel="tag"># Regression</a>
@@ -801,7 +806,7 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1005,7 +1010,7 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">193k</span>
+    <span title="Symbols count total">201k</span>
   
 
   

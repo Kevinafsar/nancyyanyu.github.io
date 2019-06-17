@@ -131,7 +131,11 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/a2f8a358/2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/a2f8a358/3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/a2f8a358/5.png">
-<meta property="og:updated_time" content="2019-06-15T23:41:58.083Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/a2f8a358/6.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/a2f8a358/7.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/a2f8a358/8.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/undefined/a2f8a358/9.png">
+<meta property="og:updated_time" content="2019-06-17T20:06:48.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning Questions - Part II">
 <meta name="twitter:description" content="Curse of dimensionality 1. Describe the curse of dimensionality with examples. Curse of dimensionality: as the dimensionality of the features space increases, the number configurations can grow expone">
@@ -435,12 +439,24 @@
                 
               
 
-              <time title="Created: 2019-06-15 05:53:38 / Modified: 18:41:58" itemprop="dateCreated datePublished" datetime="2019-06-15T05:53:38-05:00">2019-06-15</time>
+              <time title="Created: 2019-06-15 05:53:38" itemprop="dateCreated datePublished" datetime="2019-06-15T05:53:38-05:00">2019-06-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-17 15:06:48" itemprop="dateModified" datetime="2019-06-17T15:06:48-05:00">2019-06-17</time>
               
             
           </span>
@@ -486,7 +502,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">8.4k</span>
+                <span title="Symbols count in article">16k</span>
               
 
               
@@ -500,7 +516,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">8 mins.</span>
+                <span title="Reading time">15 mins.</span>
               
             </div>
           
@@ -525,6 +541,7 @@
 <p><strong><em>Curse of dimensionality:</em></strong> as the dimensionality of the features space increases, the number configurations can grow exponentially, and thus the number of configurations covered by an observation decreases.</p>
 <p><strong>As the number of feature or dimensions grows, the amount of data we need to generalise accurately grows exponentially.</strong></p>
 <p>（fun example: It's easy to hunt a dog and maybe catch it if it were running around on the plain (two dimensions). It's much harder to hunt birds, which now have an extra dimension they can move in. If we pretend that ghosts are higher-dimensional beings ）</p>
+<a id="more"></a>
 <h3 id="what-is-local-constancy-or-smoothness-prior-or-regularization">2. What is local constancy or smoothness prior or regularization?</h3>
 <p>(See DL Book 5.11.2)</p>
 <p><strong>Smoothness prior</strong> or <strong>local constancy prior</strong>: This prior states that the function we learn should not change very much within a small region.</p>
@@ -569,7 +586,7 @@ f^*(x)\approx f^*(x+\epsilon)
 </blockquote>
 <p><img src="./1.png" width="600"></p>
 <h2 id="evaluation-of-machine-learning-systems">Evaluation of Machine Learning systems</h2>
-<h3 id="what-are-accuracy-sensitivity-specificity-roc-auc-confusion-matrix">1. What are accuracy, sensitivity, specificity, ROC, AUC, Confusion matrix?</h3>
+<h3 id="what-are-accuracy-sensitivity-specificity-roc-auc-confusion-matrix-f1-score">1. What are accuracy, sensitivity, specificity, ROC, AUC, Confusion matrix, F1-Score?</h3>
 <p>(see ISLR Note - Linear Discriminant Analysis, ROC &amp; AUC, Confusion Matrix)</p>
 <p><strong><em>Confusion matrix</em></strong>: An NxN table that summarizes how successful a <a href="https://developers.google.com/machine-learning/glossary/#classification_model" target="_blank" rel="noopener"><strong>classification model's</strong></a> predictions were</p>
 <p><img src="./2.png"></p>
@@ -589,7 +606,6 @@ Specificity=\frac{TrueNegatives}{TrueNegatives+FalsePositives}
 Precision=\frac{TruePositives}{TruePositives+FalsePositives}
 \]</span> <strong><em>Type I and Type II Errors</em></strong>:</p>
 <p>According to me, the null hypothesis in this case is that this call is a hoax. As a matter of fact, if Jack would have believed the stranger and provided his bank details, and the call was in fact a hoax, he would have committed a type I error, also known as a false positive. On the other hand, had he ignored the stranger’s request, but later found out that he actually had won the lottery and the call was not a hoax, he would have committed a Type II error, or a false negative.</p>
-<p><img src width="600"></p>
 <p><strong>Recall v.s. Precision</strong>:</p>
 <ul>
 <li>Recall refers to the percentage of total relevant results correctly classified by your algorithm</li>
@@ -615,15 +631,125 @@ FPR=1-Specificity=\frac{FP}{FP+TN}
 <li>ROC curves are useful for comparing different classifiers, since they take into account all possible thresholds.</li>
 </ul>
 <p><img src="./5.png" width="600"></p>
+<p><strong><em>F1-Score</em></strong>: <span class="math display">\[
+Recall=\frac{2 \cdot Recall \cdot Precision}{Recall+Precision}
+\]</span></p>
+<ul>
+<li><strong>F1 Score</strong> : the weighted average of Precision and Recall. Therefore, this score takes both false positives and false negatives into account.
+<ul>
+<li>needed when you want to <em>seek a balance between Precision and Recall</em>, and there is an <strong>uneven class distribution</strong> <em>(large number of Actual Negatives</em>)</li>
+</ul></li>
+<li><strong>Difference between F1 Score and Accuracy</strong> : Accuracy can be largely contributed by a large number of <em>True Negatives</em> which in most business circumstances, we do not focus on much whereas False Negative and False Positive usually has business costs (tangible &amp; intangible) .Accuracy works best if false positives and false negatives have similar cost. If the cost of false positives and false negatives are very different, it’s better to look at both Precision and Recall.</li>
+</ul>
 <h3 id="describe-t-test-in-the-context-of-machine-learning.">2. Describe t-test in the context of Machine Learning.</h3>
+<p><strong>Hypothesis Tests</strong>:</p>
+<p>The most common hypothesis test involves testing the <strong>null test hypothesis</strong> of</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H_0: There is no relationship between X and Y or β1=0</span><br></pre></td></tr></table></figure>
+<p>versus the <strong>alternative hypothesis</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H_a : There is some relationship between X and Y or β1≠0</span><br></pre></td></tr></table></figure>
+<p>To test the null hypothesis, we need to determine whether <span class="math inline">\(\hat{\beta_1}\)</span>, our estimate for <span class="math inline">\(\beta_1\)</span>, is sufficiently far from zero that we can be confident that <span class="math inline">\(\beta_1\)</span> is non-zero <span class="math inline">\(\Rightarrow\)</span> it depends on SE( <span class="math inline">\(\hat{\beta_1}\)</span>)</p>
+<ul>
+<li>If SE( <span class="math inline">\(\hat{\beta_1}\)</span>) is small, then even relatively small values of <span class="math inline">\(\hat{\beta_1}\)</span> may provide strong evidence that <span class="math inline">\(\beta_1 \neq 0\)</span>, and hence that there is a relationship between X and Y</li>
+</ul>
+<p><strong>t-statistic</strong> <span class="math display">\[
+\begin{align}
+t=\frac{\hat{\beta_1}-0}{SE(\hat{\beta_1})} 
+\end{align}
+\]</span> which measures <strong>the number of standard deviations that <span class="math inline">\(\hat{\beta_1}\)</span> is away from 0.</strong>If there really is no relationship between X and Y , then we expect it will have a t-distribution with n−2 degrees of freedom.</p>
+<p><strong>Standard error of <span class="math inline">\(\hat{\mu}\)</span> (SE(<span class="math inline">\(\hat{\mu}\)</span>)</strong>): average amount that this estimate <span class="math inline">\(\hat{\mu}\)</span> differs from the actual value of μ. <span class="math display">\[
+\begin{align}
+Var(\hat{\mu})=SE(\hat{\mu})^2=\frac{\sigma^2}{n}
+\end{align}
+\]</span> where σ is the standard deviation of each of the realizations <span class="math inline">\(y_i\)</span> of <span class="math inline">\(Y\)</span> provided that the <span class="math inline">\(n\)</span> observations are <strong>uncorrelated</strong>.</p>
+<p><strong>Standard Deviation V.S. Standard Error</strong></p>
+<ul>
+<li>The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean</li>
+<li>The standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean.</li>
+</ul>
+<p><img src="./6.png" width="300"></p>
+<p><strong>P-value</strong></p>
+<ul>
+<li>The probability of observing any value <span class="math inline">\(≥ t\)</span> or <span class="math inline">\(≤ -t\)</span>, assuming <span class="math inline">\(β_1 = 0\)</span>.</li>
+</ul>
+<p><img src="./7.png" width="300"> (Here <span class="math inline">\(|t|=2.17\)</span>, p-value<span class="math inline">\(=0.015\)</span>.The area in red is <span class="math inline">\(0.015 + 0.015 = 0.030\)</span>, <span class="math inline">\(3\%\)</span>. If we had chosen a significance level of <span class="math inline">\(5\%\)</span>, this would mean that we had achieved statistical significance. We would reject the null hypothesis in favor of the alternative hypothesis.)</p>
+<ul>
+<li><strong>Interpretation</strong>:a small p-value indicates
+<ul>
+<li>It is unlikely to observe such a substantial association between the predictor and the response due to LUCK, in the absence of any real association between the predictor and the response.</li>
+<li>There is an association between the predictor and the response.</li>
+<li>We reject the null hypothesis—that is, we declare a relationship to exist between X and Y</li>
+</ul></li>
+</ul>
 <h2 id="dimensionality-reduction">Dimensionality Reduction</h2>
-<h3 id="why-do-we-need-dimensionality-reduction-techniques-data-compression-speeds-up-learning-algorithm-and-visualizing-data">1. Why do we need dimensionality reduction techniques? (data compression, speeds up learning algorithm and visualizing data)</h3>
-<h3 id="what-do-we-need-pca-and-what-does-it-do-pca-tries-to-find-a-lower-dimensional-surface-such-the-sum-of-the-squared-projection-error-is-minimized">2. What do we need PCA and what does it do? (PCA tries to find a lower dimensional surface such the sum of the squared projection error is minimized)</h3>
+<h3 id="why-do-we-need-dimensionality-reduction-techniques">1. Why do we need dimensionality reduction techniques?</h3>
+<p>Because the <strong>curse of dimensionality</strong> demands that we do.</p>
+<ol type="1">
+<li>Less misleading data means <em>model accuracy</em> improves.</li>
+<li>Less dimensions mean <em>less computing</em>. Less data means that <em>algorithms train faster</em>.</li>
+<li>Less data means <em>less storage space</em> required.</li>
+<li>Less dimensions allow usage of algorithms unfit for a large number of dimensions</li>
+<li><p>Removes redundant features and noise.</p></li>
+<li><p>PCA also serves as a tool for data visualization (visualization of the observations or visualization of the variables).</p></li>
+</ol>
+<h3 id="what-do-we-need-pca-and-what-does-it-do">2. What do we need PCA and what does it do?</h3>
+<p><strong><em>PCA</em></strong> : find a lower dimensional surface such the <strong>sum of the squared projection error</strong> is minimized</p>
+<p><strong>PCA</strong> :finds a low-dimensional representation of a data set that contains as much as possible of the <strong>variation</strong></p>
+<p>Each of the dimensions found by PCA is a linear combination of the <span class="math inline">\(p\)</span> features.</p>
+<p><strong><em>The first principal component</em></strong> of a set of features <span class="math inline">\(X_1,X_2, . . . , X_p\)</span> is the <strong>normalized</strong> linear combination of the features <span class="math display">\[
+\begin{align}
+Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
+\end{align}
+\]</span> that has the <strong>largest variance</strong>.</p>
+<!--more-->
+<p><strong>Normalized</strong>: <span class="math inline">\(\sum_{j=1}^p \phi_{j1}^2=1\)</span></p>
+<p><strong>Loadings</strong>: <span class="math inline">\(\phi_{11}, . . . , \phi_{p1}\)</span> the loadings of the first principal component;</p>
+<ul>
+<li>Together, the loadings make up the principal component loading vector, <span class="math inline">\(\phi_1=(\phi_{11},\phi_{21},...,\phi_{p1})^T\)</span></li>
+</ul>
+<h4 id="compute-the-first-principal-component">Compute the first principal component</h4>
+<ul>
+<li><p>Assume that each of the variables in <span class="math inline">\(X\)</span> has been centered to have mean zero. We then look for the linear combination of the sample feature values of the form <span class="math display">\[
+\begin{align}
+z_{i1}=\phi_{11}x_{i1}+\phi_{21}x_{i2}+,,,+\phi_{p1}x_{ip} \quad \quad i=1,2,...,n
+\end{align}
+\]</span> that has largest sample variance, subject to the constraint that <span class="math inline">\(\sum_{j=1}^p \phi_{j1}^2=1\)</span></p></li>
+<li><p>The first principal component loading vector solves the optimization problem <span class="math display">\[
+\begin{align}
+\max_{\phi_{11},...,\phi_{p1}}{\left\{ \frac{1}{n} \sum_{i=1}^n \left( \sum_{j=1}^p \phi_{j1}x_{ij}   \right)^2 \right\}} \, subject \, to \, \sum_{j=1}^p \phi_{j1}^2=1
+\end{align}
+\]</span></p></li>
+<li><p>Since <span class="math inline">\(\sum_{i=1}^nx_{ij}/n=1\)</span>, the average of the <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> will be zero as well. Hence the objective that we are maximizing is just the <strong>sample variance</strong> of the <span class="math inline">\(n\)</span> values of zi1</p></li>
+<li><p><strong>Scores</strong>: We refer to <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> as the scores of the first principal component.</p></li>
+</ul>
+<p><strong>Geometric interpretation</strong>: for the first principal component: The loading vector <span class="math inline">\(\phi_1\)</span> with elements <span class="math inline">\(\phi_{11},\phi_{21},...,\phi_{p1}\)</span> defines a direction in feature space along which the data <strong>vary the most</strong>. If we project the <span class="math inline">\(n\)</span> data points <span class="math inline">\(x_1, . . . , x_n\)</span> onto this direction, the projected values are the principal component scores <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> themselves.</p>
+<h4 id="compute-the-second-principal-component">Compute the second principal component</h4>
+<p><strong>The second principal component <span class="math inline">\(Z_2\)</span></strong>: the linear combination of <span class="math inline">\(X_1,X_2, . . . , X_p\)</span> that has maximal variance out of all linear combinations that are <strong>uncorrelated with <span class="math inline">\(Z_1\)</span></strong>.</p>
+<p>The second principal component scores <span class="math inline">\(z_{12}, . . . , z_{n2}\)</span> take the form <span class="math display">\[
+\begin{align}
+z_{i2}=\phi_{12}x_{i1}+\phi_{22}x_{i2}+,,,+\phi_{p2}x_{ip} \quad \quad i=1,2,...,n
+\end{align}
+\]</span> where <span class="math inline">\(\phi_2\)</span> is the second principal component <strong>loading</strong> vector, with elements <span class="math inline">\(\phi_{12},\phi_{22},...,\phi_{p2}\)</span>.</p>
+<p>It turns out that constraining <span class="math inline">\(Z_2\)</span> to be uncorrelated with <span class="math inline">\(Z_1\)</span> is equivalent to constraining the direction <span class="math inline">\(\phi_2\)</span> to be <strong>orthogonal</strong> (perpendicular) to the direction <span class="math inline">\(\phi_1\)</span>.</p>
+<p>To find <span class="math inline">\(\phi_2\)</span>, we solve a problem similar to (10.3) with <span class="math inline">\(\phi_2\)</span> replacing <span class="math inline">\(\phi_1\)</span>, and with the additional constraint that <span class="math inline">\(\phi_2\)</span> is orthogonal to <span class="math inline">\(\phi_1\)</span></p>
+<p><img src="./8.png" width="600"></p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>1st loading vector places approximately equal weight on Assault, Murder, and Rape, with much less weight UrbanPop. Hence this component roughly corresponds to a measure of overall rates of serious crimes.</li>
+<li>Overall, we see that the crime-related variables (Murder, Assault, and Rape) are located close to each other, and that the UrbanPop variable is far from the other three.</li>
+<li>This indicates that the crime-related variables are correlated with each other—states with high murder rates tend to have high assault and rape rates—and that the UrbanPop variable is less correlated with the other three.</li>
+</ul>
 <h3 id="what-is-the-difference-between-logistic-regression-and-pca">3. What is the difference between logistic regression and PCA?</h3>
-<h3 id="what-are-the-two-pre-processing-steps-that-should-be-applied-before-doing-pca-mean-normalization-and-feature-scaling">4. What are the two pre-processing steps that should be applied before doing PCA? (mean normalization and feature scaling)</h3>
+<ul>
+<li>PCA will <strong>NOT consider</strong> the response variable but only the variance of the independent variables.</li>
+<li>Logistic Regression will <strong>consider</strong> how each independent variable impact on response variable.</li>
+</ul>
+<h3 id="what-are-the-two-pre-processing-steps-that-should-be-applied-before-doing-pca">4. What are the two pre-processing steps that should be applied before doing PCA?</h3>
+<p>Mean normalization, feature scaling: Before PCA is performed, the variables should be <strong>centered to have mean zero</strong>. Furthermore, the results obtained when we perform PCA will also depend on whether the variables have been <strong>individually scaled</strong> to have standard deviation one. (each multiplied by a different constant)</p>
+<p><img src="./9.png" width="600"></p>
 <p><strong>Ref</strong>:</p>
 <p><a href="https://github.com/Sroy20/machine-learning-interview-questions" target="_blank" rel="noopener">machine-learning-interview-questions</a></p>
 <p><a href="https://towardsdatascience.com/precision-vs-recall-386cf9f89488" target="_blank" rel="noopener">Precision vs Recall</a></p>
+<p><a href="https://towardsdatascience.com/dimensionality-reduction-for-machine-learning-80a46c2ebb7e" target="_blank" rel="noopener">A beginner’s guide to dimensionality reduction in Machine Learning</a></p>
 
       
     </div>
@@ -672,6 +798,10 @@ FPR=1-Specificity=\frac{FP}{FP+TN}
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/undefined/c8f688ba/" rel="prev" title="Machine Learning Questions - Part III">
+                Machine Learning Questions - Part III <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -747,7 +877,7 @@ FPR=1-Specificity=\frac{FP}{FP+TN}
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -918,7 +1048,7 @@ FPR=1-Specificity=\frac{FP}{FP+TN}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#curse-of-dimensionality"><span class="nav-number">1.</span> <span class="nav-text">Curse of dimensionality</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#describe-the-curse-of-dimensionality-with-examples."><span class="nav-number">1.1.</span> <span class="nav-text">1. Describe the curse of dimensionality with examples.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-local-constancy-or-smoothness-prior-or-regularization"><span class="nav-number">1.2.</span> <span class="nav-text">2. What is local constancy or smoothness prior or regularization?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#regularization"><span class="nav-number">2.</span> <span class="nav-text">Regularization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-l1-regularization"><span class="nav-number">2.1.</span> <span class="nav-text">1. What is L1 regularization?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-l2-regularization"><span class="nav-number">2.2.</span> <span class="nav-text">2. What is L2 regularization?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compare-l1-and-l2-regularization."><span class="nav-number">2.3.</span> <span class="nav-text">3. Compare L1 and L2 regularization.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-does-l1-regularization-result-in-sparse-models"><span class="nav-number">2.4.</span> <span class="nav-text">4. Why does L1 regularization result in sparse models?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#evaluation-of-machine-learning-systems"><span class="nav-number">3.</span> <span class="nav-text">Evaluation of Machine Learning systems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-are-accuracy-sensitivity-specificity-roc-auc-confusion-matrix"><span class="nav-number">3.1.</span> <span class="nav-text">1. What are accuracy, sensitivity, specificity, ROC, AUC, Confusion matrix?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#describe-t-test-in-the-context-of-machine-learning."><span class="nav-number">3.2.</span> <span class="nav-text">2. Describe t-test in the context of Machine Learning.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dimensionality-reduction"><span class="nav-number">4.</span> <span class="nav-text">Dimensionality Reduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#why-do-we-need-dimensionality-reduction-techniques-data-compression-speeds-up-learning-algorithm-and-visualizing-data"><span class="nav-number">4.1.</span> <span class="nav-text">1. Why do we need dimensionality reduction techniques? (data compression, speeds up learning algorithm and visualizing data)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-do-we-need-pca-and-what-does-it-do-pca-tries-to-find-a-lower-dimensional-surface-such-the-sum-of-the-squared-projection-error-is-minimized"><span class="nav-number">4.2.</span> <span class="nav-text">2. What do we need PCA and what does it do? (PCA tries to find a lower dimensional surface such the sum of the squared projection error is minimized)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-the-difference-between-logistic-regression-and-pca"><span class="nav-number">4.3.</span> <span class="nav-text">3. What is the difference between logistic regression and PCA?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-are-the-two-pre-processing-steps-that-should-be-applied-before-doing-pca-mean-normalization-and-feature-scaling"><span class="nav-number">4.4.</span> <span class="nav-text">4. What are the two pre-processing steps that should be applied before doing PCA? (mean normalization and feature scaling)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#curse-of-dimensionality"><span class="nav-number">1.</span> <span class="nav-text">Curse of dimensionality</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#describe-the-curse-of-dimensionality-with-examples."><span class="nav-number">1.1.</span> <span class="nav-text">1. Describe the curse of dimensionality with examples.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-local-constancy-or-smoothness-prior-or-regularization"><span class="nav-number">1.2.</span> <span class="nav-text">2. What is local constancy or smoothness prior or regularization?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#regularization"><span class="nav-number">2.</span> <span class="nav-text">Regularization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-l1-regularization"><span class="nav-number">2.1.</span> <span class="nav-text">1. What is L1 regularization?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-l2-regularization"><span class="nav-number">2.2.</span> <span class="nav-text">2. What is L2 regularization?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compare-l1-and-l2-regularization."><span class="nav-number">2.3.</span> <span class="nav-text">3. Compare L1 and L2 regularization.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-does-l1-regularization-result-in-sparse-models"><span class="nav-number">2.4.</span> <span class="nav-text">4. Why does L1 regularization result in sparse models?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#evaluation-of-machine-learning-systems"><span class="nav-number">3.</span> <span class="nav-text">Evaluation of Machine Learning systems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-are-accuracy-sensitivity-specificity-roc-auc-confusion-matrix-f1-score"><span class="nav-number">3.1.</span> <span class="nav-text">1. What are accuracy, sensitivity, specificity, ROC, AUC, Confusion matrix, F1-Score?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#describe-t-test-in-the-context-of-machine-learning."><span class="nav-number">3.2.</span> <span class="nav-text">2. Describe t-test in the context of Machine Learning.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dimensionality-reduction"><span class="nav-number">4.</span> <span class="nav-text">Dimensionality Reduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#why-do-we-need-dimensionality-reduction-techniques"><span class="nav-number">4.1.</span> <span class="nav-text">1. Why do we need dimensionality reduction techniques?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-do-we-need-pca-and-what-does-it-do"><span class="nav-number">4.2.</span> <span class="nav-text">2. What do we need PCA and what does it do?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#compute-the-first-principal-component"><span class="nav-number">4.2.1.</span> <span class="nav-text">Compute the first principal component</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compute-the-second-principal-component"><span class="nav-number">4.2.2.</span> <span class="nav-text">Compute the second principal component</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-the-difference-between-logistic-regression-and-pca"><span class="nav-number">4.3.</span> <span class="nav-text">3. What is the difference between logistic regression and PCA?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-are-the-two-pre-processing-steps-that-should-be-applied-before-doing-pca"><span class="nav-number">4.4.</span> <span class="nav-text">4. What are the two pre-processing steps that should be applied before doing PCA?</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -951,7 +1081,7 @@ FPR=1-Specificity=\frac{FP}{FP+TN}
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">193k</span>
+    <span title="Symbols count total">201k</span>
   
 
   

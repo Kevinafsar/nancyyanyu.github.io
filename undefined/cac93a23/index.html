@@ -122,7 +122,7 @@
   <meta name="description" content="Intro to Dimension Reduction Methods Subset selection and shrinkage methods all use the original predictors, X1,X2, . . . , Xp. Dimension Reduction Methods transform the predictors and then fit a leas">
 <meta name="keywords" content="Model Selection,PCA,Dimension Reduction">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ISLR Note - Dimension Reduction-PCA">
+<meta property="og:title" content="ISLR Note - Dimension Reduction-PCA, PCR">
 <meta property="og:url" content="https://nancyyanyu.github.io/undefined/cac93a23/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Intro to Dimension Reduction Methods Subset selection and shrinkage methods all use the original predictors, X1,X2, . . . , Xp. Dimension Reduction Methods transform the predictors and then fit a leas">
@@ -132,9 +132,9 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/cac93a23/9.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/cac93a23/10.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/cac93a23/11.png">
-<meta property="og:updated_time" content="2019-06-15T22:35:24.067Z">
+<meta property="og:updated_time" content="2019-06-17T20:04:09.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ISLR Note - Dimension Reduction-PCA">
+<meta name="twitter:title" content="ISLR Note - Dimension Reduction-PCA, PCR">
 <meta name="twitter:description" content="Intro to Dimension Reduction Methods Subset selection and shrinkage methods all use the original predictors, X1,X2, . . . , Xp. Dimension Reduction Methods transform the predictors and then fit a leas">
 <meta name="twitter:image" content="https://nancyyanyu.github.io/undefined/cac93a23/7.png">
 
@@ -156,7 +156,7 @@
   };
 </script>
 
-  <title>ISLR Note - Dimension Reduction-PCA | Nancy's Notes</title>
+  <title>ISLR Note - Dimension Reduction-PCA, PCR | Nancy's Notes</title>
   
 
 
@@ -410,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ISLR Note - Dimension Reduction-PCA
+          <h1 class="post-title" itemprop="name headline">ISLR Note - Dimension Reduction-PCA, PCR
 
               
             
@@ -453,7 +453,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-15 17:35:24" itemprop="dateModified" datetime="2019-06-15T17:35:24-05:00">2019-06-15</time>
+                <time title="Modified: 2019-06-17 15:04:09" itemprop="dateModified" datetime="2019-06-17T15:04:09-05:00">2019-06-17</time>
               
             
           </span>
@@ -499,7 +499,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">6.8k</span>
+                <span title="Symbols count in article">7k</span>
               
 
               
@@ -537,31 +537,29 @@
 <p>Subset selection and shrinkage methods all use the original predictors, X1,X2, . . . , Xp.</p>
 <p>Dimension Reduction Methods <strong><em>transform</em></strong> the predictors and then fit a least squares model using the transformed variables.</p>
 <h2 id="approach">Approach</h2>
-<p>Let Z1,Z2, . . . ,ZM represent M &lt; p linear combinations of our original p predictors. That is,</p>
+<p>Let <span class="math inline">\(Z_1,Z_2, . . . ,Z_M\)</span> represent <span class="math inline">\(M &lt; p\)</span> linear combinations of our original <span class="math inline">\(p\)</span> predictors. That is,</p>
 <p><span class="math display">\[
 \begin{align}
 Z_m=\sum_{j=1}^p\phi_{jm}X_j
 \end{align}
 \]</span> <a id="more"></a></p>
-<p>for some constants φ1m, φ2m . . . , φpm, m = 1, . . .,M. We can then fit the linear regression model</p>
-<p><span class="math display">\[
+<p>for some constants <span class="math inline">\(φ_{1m}, φ_{2m} . . . , φ_{pm}, m = 1, . . .,M.\)</span> We can then fit the linear regression model <span class="math display">\[
 \begin{align}
 y_i=\theta_0+\sum_{m=1}^M\theta_m z_{im}+\epsilon_i  \quad  i=1,2,3,4,...,n
 \end{align}
-\]</span> <strong>Dimension reduction</strong>: reduces the problem of estimating the p+1 coefficients β0, β1, . . . , βp to the simpler problem of estimating the M + 1 coefficients θ0, θ1, . . . , θM, where M &lt; p. In other words, the dimension of the problem has been reduced from p + 1 to M + 1.</p>
-<p><span class="math display">\[
+\]</span> <strong>Dimension reduction</strong>: reduces the problem of estimating the <span class="math inline">\(p+1\)</span> coefficients <span class="math inline">\(β_0, β_1, . . . , β_p\)</span> to the simpler problem of estimating the <span class="math inline">\(M + 1\)</span> coefficients <span class="math inline">\(θ_0, θ_1, . . . , θ_M\)</span>, where M &lt; p. In other words, the dimension of the problem has been reduced from <span class="math inline">\(p + 1\)</span> to <span class="math inline">\(M + 1\)</span>. <span class="math display">\[
 \begin{align}
 \sum_{m=1}^M\theta_m z_{im}&amp;=\sum_{m=1}^M\theta_m \sum_{j=1}^p\phi_{jm}x_{ij}=\sum_{m=1}^M\sum_{j=1}^p\theta_m \phi_{jm}x_{ij}=\sum_{j=1}^p \beta_jx_{ij}  \\
 \beta_j&amp;=\sum_{m=1}^M\theta_m \phi_{jm}
 \end{align}
 \]</span> <strong>All dimension reduction methods work in two steps:</strong></p>
 <ol type="1">
-<li>the transformed predictors Z1, Z2, . . . , ZM are obtained.</li>
-<li>the model is fit using these M predictors. However, the choice of Z1, Z2, . . . , ZM, or equivalently, the selection of the φjm’s, can be achieved in different ways.</li>
+<li>the transformed predictors <span class="math inline">\(Z_1,Z_2, . . . ,Z_M\)</span>are obtained.</li>
+<li>the model is fit using these M predictors. However, the choice of <span class="math inline">\(Z_1,Z_2, . . . ,Z_M\)</span>, or equivalently, the selection of the <span class="math inline">\(φ_{jm}\)</span>’s, can be achieved in different ways.</li>
 </ol>
 <h1 id="principal-components-regression">Principal Components Regression</h1>
 <h2 id="an-overview-of-principal-components-analysis">An Overview of Principal Components Analysis</h2>
-<p><strong>PCA</strong>: is a technique for reducing the dimension of a n × p data matrix X.</p>
+<p><strong>PCA</strong>: is a technique for reducing the dimension of a <span class="math inline">\(n × p\)</span> data matrix <span class="math inline">\(X\)</span>.</p>
 <h3 id="st-principal-component">1st Principal Component</h3>
 <h4 id="interpretation-1-greatest-variability">Interpretation 1: greatest variability</h4>
 <p><strong>The first principal component</strong> direction of the data: is that along which the observations <strong>vary the most</strong>.</p>
@@ -573,7 +571,7 @@ y_i=\theta_0+\sum_{m=1}^M\theta_m z_{im}+\epsilon_i  \quad  i=1,2,3,4,...,n
 \begin{align}
 Z_1 = 0.839 × (pop − \bar{pop}) + 0.544 × (ad − \bar{ad})
 \end{align}
-\]</span> Here φ11 = 0.839 and φ21 = 0.544 are the <strong>principal component loadings</strong>, which define the direction referred to above.</p>
+\]</span> Here <span class="math inline">\(φ_{11} = 0.839\)</span> and <span class="math inline">\(φ_{21} = 0.544\)</span> are the <strong>principal component loadings</strong>, which define the direction referred to above.</p>
 <blockquote>
 <p>The idea is that out of every possible linear combination of pop and ad such that <span class="math inline">\(\phi_{11}^2+\phi_{21}^2=1\)</span>, this particular linear combination yields the highest variance: i.e. this is the linear combination for which <span class="math inline">\(Var(φ_{11} × (pop − \bar{pop}) + φ_{21} × (ad − \bar{ad}))\)</span> is maximized.</p>
 </blockquote>
@@ -586,15 +584,15 @@ z_{i1} = 0.839 × (pop_i − \bar{pop}) + 0.544 × (ad_i − \bar{ad})
 <h4 id="interpretation-2-closest-to-data">Interpretation 2: closest to data</h4>
 <p>There is also another interpretation for PCA: the first principal component vector defines the line that is as close as possible to the data.</p>
 <p>In Figure 6.14, the first principal component line minimizes the sum of the squared perpendicular distances between each point and the line.</p>
-<p>In the right-hand panel of Figure 6.15, the left-hand panel has been rotated so that the first principal component direction coincides with the x-axis. It is possible to show that the <strong><em>first principal component score</em></strong> for the ith observation is the distance in the x-direction of the ith cross from zero.</p>
+<p>In the right-hand panel of Figure 6.15, the left-hand panel has been rotated so that the first principal component direction coincides with the x-axis. It is possible to show that the <strong><em>first principal component score</em></strong> for the ith observation is the distance in the <span class="math inline">\(x\)</span>-direction of the ith cross from zero.</p>
 <h4 id="interpretation-3-single-number-summarization">Interpretation 3: single number summarization</h4>
-<p>We can think of the values of the principal component Z1 as single number summaries of the joint pop and ad budgets for each location.</p>
+<p>We can think of the values of the principal component <span class="math inline">\(Z_1\)</span> as single number summaries of the joint pop and ad budgets for each location.</p>
 <p>In this example, if <span class="math inline">\(z_{i1} = 0.839 × (pop_i − pop) + 0.544 × (ad_i − ad) &lt; 0\)</span>, then this indicates a city with below-average population size and belowaverage ad spending.</p>
 <p><img src="./9.png" width="650"></p>
 <p>Figure 6.16 displays <span class="math inline">\(z_{i1}\)</span> versus both pop and ad. The plots show a strong relationship between the first principal component and the two features. In other words, the first principal component appears to <em>capture most of the information</em> contained in the pop and ad predictors.</p>
 <h3 id="nd-principal-component">2nd Principal Component</h3>
-<p>The second principal component Z2 is a linear combination of the variables that is uncorrelated with Z1, and has largest variance subject to this constraint.</p>
-<p>It turns out that the zero correlation condition of Z1 with Z2 is equivalent to the condition that the direction must be perpendicular, or orthogonal, to the first principal component direction.</p>
+<p>The second principal component <span class="math inline">\(Z_2\)</span> is a linear combination of the variables that is uncorrelated with <span class="math inline">\(Z_1\)</span>, and has largest variance subject to this constraint.</p>
+<p>It turns out that the zero correlation condition of <span class="math inline">\(Z_1\)</span> with <span class="math inline">\(Z_2\)</span> is equivalent to the condition that the direction must be perpendicular, or orthogonal, to the first principal component direction.</p>
 <p>The second principal component is given by the formula:</p>
 <p><span class="math display">\[
 \begin{align}
@@ -602,9 +600,9 @@ Z_2 = 0.544 × (pop − \bar{pop}) − 0.839 × (ad − \bar{ad}).
 \end{align}
 \]</span> Figure 6.15. The fact that the second principal component scores are much closer to zero indicates that this component captures far less information.</p>
 <h2 id="the-principal-components-regression-approach">The Principal Components Regression Approach</h2>
-<p>The principal components regression (PCR) approach involves constructing the first M principal components, Z1, . . ., ZM, and then using these components as the predictors in a linear regression model that is fit using least squares</p>
+<p>The principal components regression (PCR) approach involves constructing the first M principal components, <span class="math inline">\(Z_1,Z_2, . . . ,Z_M\)</span>, and then using these components as the predictors in a linear regression model that is fit using least squares</p>
 <p><strong>The key idea</strong></p>
-<p>Often a small number of principal components suffice to explain most of the variability in the data, as well as the relationship with the response. In other words, we assume that <strong><em>the directions in which X1, . . .,Xp show the most variation are the directions that are associated with Y</em></strong></p>
+<p>Often a small number of principal components suffice to explain most of the variability in the data, as well as the relationship with the response. In other words, we assume that <strong><em>the directions in which <span class="math inline">\(X_1, . . .,X_p\)</span> show the most variation are the directions that are associated with <span class="math inline">\(Y\)</span></em></strong></p>
 <p><strong>Example</strong>:</p>
 <p><img src="./10.png" width="650"></p>
 <ul>
@@ -614,12 +612,12 @@ Z_2 = 0.544 × (pop − \bar{pop}) − 0.839 × (ad − \bar{ad}).
 <li><strong>Reason</strong>: The data were generated in such a way that many principal components are required in order to adequately model the response. In contrast, PCR will tend to do well in cases when the first few principal components are sufficient to capture most of the variation in the predictors as well as the relationship with the response.</li>
 </ul></li>
 </ul>
-<p><strong>Note</strong>: even though PCR provides a simple way to perform regression using M &lt; p predictors, it is not a <em>feature selection</em> method!</p>
+<p><strong>Note</strong>: even though PCR provides a simple way to perform regression using <span class="math inline">\(M &lt; p\)</span> predictors, it is not a <em>feature selection</em> method!</p>
 <ul>
-<li>This is because each of the M principal components used in the regression is a linear combination of all p of the original features.</li>
+<li>This is because each of the <span class="math inline">\(M\)</span> principal components used in the regression is a linear combination of all p of the original features.</li>
 <li>PCR is more closely related to ridge regression than to the lasso. One can even think of ridge regression as a continuous version of PCR!</li>
 </ul>
-<p><strong>Cross-validation</strong>: In PCR, the number of principal components, M, is typically chosen by cross-validation.</p>
+<p><strong>Cross-validation</strong>: In PCR, the number of principal components, <span class="math inline">\(M\)</span>, is typically chosen by cross-validation.</p>
 <p><img src="./11.png" width="650"></p>
 <p><strong>Standardisation</strong>: When performing PCR, we generally recommend standardizing each predictor, prior to generating the principal components. - In the absence of standardization, the <em>high-variance variables</em> will tend to play a larger role in the principal components obtained, and the scale on which the variables are measured will ultimately have an effect on the final PCR model.</p>
 
@@ -753,7 +751,7 @@ Z_2 = 0.544 × (pop − \bar{pop}) − 0.839 × (ad − \bar{ad}).
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -957,7 +955,7 @@ Z_2 = 0.544 × (pop − \bar{pop}) − 0.839 × (ad − \bar{ad}).
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">193k</span>
+    <span title="Symbols count total">201k</span>
   
 
   
