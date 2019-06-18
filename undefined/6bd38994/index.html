@@ -133,7 +133,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/6bd38994/5.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/6bd38994/6.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/undefined/6bd38994/7.png">
-<meta property="og:updated_time" content="2019-06-18T00:53:55.301Z">
+<meta property="og:updated_time" content="2019-06-18T20:55:59.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning Questions Part I: Learning Theory &amp; Model Selection">
 <meta name="twitter:description" content="Learning Theory 1. Describe bias and variance with examples. Variance: refers to the amount by which \(\hat{f}\) would change if we estimated it using a different training data set. more flexible stat">
@@ -454,7 +454,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 19:53:55" itemprop="dateModified" datetime="2019-06-17T19:53:55-05:00">2019-06-17</time>
+                <time title="Modified: 2019-06-18 15:55:59" itemprop="dateModified" datetime="2019-06-18T15:55:59-05:00">2019-06-18</time>
               
             
           </span>
@@ -500,7 +500,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">20k</span>
+                <span title="Symbols count in article">21k</span>
               
 
               
@@ -514,7 +514,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">18 mins.</span>
+                <span title="Reading time">19 mins.</span>
               
             </div>
           
@@ -776,6 +776,19 @@ H(p,q)&amp; =H(p)+D_{KL}(p||q) \\
 &amp;= -\sum_{i=1}^n p(x_i)\log q(x_i)
 \end{align}
 \]</span></p>
+<blockquote>
+<p>From DL Book</p>
+</blockquote>
+<p>If we have two separate probability distributions <span class="math inline">\(P(x)\)</span> and <span class="math inline">\(Q(x)\)</span> over the same random variable <span class="math inline">\(x\)</span>, we can measure how different these two distributions are using the <strong>Kullback-Leibler (KL) divergence</strong>: <span class="math display">\[
+D_{KL}(P||Q)=E_{x \sim P}[\log \frac{P(x)}{Q(x)}]=E_{x \sim P}[\log P(x)- \log Q(x)]
+\]</span> The <strong>KL divergence</strong> has many useful properties</p>
+<ul>
+<li><strong>Nonnegative</strong>. The KL divergence is 0 if and only if P and Q are the same distribution in the case of discrete variables, or equal “almost everywhere” in the case of continuous variables.</li>
+<li><strong>Asymmetric</strong>: <span class="math inline">\(D_{KL}(P||Q) \neq D_{KL}(Q||P)\)</span>, this asymmetry means that there are important consequences to the choice of whether to use $D_{KL}(P||Q) $ or <span class="math inline">\(D_{KL}(Q||P)\)</span>.</li>
+</ul>
+<p><strong><em>Cross-entropy:</em></strong> $H(P, Q) = H(P) +D_{KL}(P||Q) $ <span class="math display">\[
+H(P,Q)=-E_{x \sim P} \log Q(x)
+\]</span> Minimizing the <strong>cross-entropy</strong> with respect to <span class="math inline">\(Q\)</span> is equivalent to minimizing the <strong>KL divergenc</strong>e, because <span class="math inline">\(Q\)</span> does not participate in the omitted term.</p>
 <p><strong>Ref:</strong></p>
 <p><a href="https://github.com/Sroy20/machine-learning-interview-questions" target="_blank" rel="noopener">machine-learning-interview-questions</a></p>
 <p><a href="https://towardsdatascience.com/common-loss-functions-in-machine-learning-46af0ffc4d23" target="_blank" rel="noopener">Common Loss functions in machine learning</a></p>
@@ -909,7 +922,7 @@ H(p,q)&amp; =H(p)+D_{KL}(p||q) \\
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -995,7 +1008,9 @@ H(p,q)&amp; =H(p)+D_{KL}(p||q) \\
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1113,7 +1128,7 @@ H(p,q)&amp; =H(p)+D_{KL}(p||q) \\
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">226k</span>
+    <span title="Symbols count total">243k</span>
   
 
   
