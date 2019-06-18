@@ -119,15 +119,18 @@
 
 
 
-  <meta name="keywords" content="Interview">
+  <meta name="description" content="Universal Approximation of neural networks  State the universal approximation theorem? What is the technique used to prove that? What is a Borel measurable function? Given the universal approximation">
+<meta name="keywords" content="Interview">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning Questions - Part V">
+<meta property="og:title" content="Deep Learning Questions Part I: UAT, Motivation">
 <meta property="og:url" content="https://nancyyanyu.github.io/undefined/c7bd9d66/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
+<meta property="og:description" content="Universal Approximation of neural networks  State the universal approximation theorem? What is the technique used to prove that? What is a Borel measurable function? Given the universal approximation">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-17T22:22:52.899Z">
+<meta property="og:updated_time" content="2019-06-18T00:49:21.247Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machine Learning Questions - Part V">
+<meta name="twitter:title" content="Deep Learning Questions Part I: UAT, Motivation">
+<meta name="twitter:description" content="Universal Approximation of neural networks  State the universal approximation theorem? What is the technique used to prove that? What is a Borel measurable function? Given the universal approximation">
 
 
 
@@ -147,7 +150,7 @@
   };
 </script>
 
-  <title>Machine Learning Questions - Part V | Nancy's Notes</title>
+  <title>Deep Learning Questions Part I: UAT, Motivation | Nancy's Notes</title>
   
 
 
@@ -401,7 +404,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Machine Learning Questions - Part V
+          <h1 class="post-title" itemprop="name headline">Deep Learning Questions Part I: UAT, Motivation
 
               
             
@@ -427,7 +430,7 @@
                 
               
 
-              <time title="Created: 2019-06-17 15:22:02 / Modified: 17:22:52" itemprop="dateCreated datePublished" datetime="2019-06-17T15:22:02-05:00">2019-06-17</time>
+              <time title="Created: 2019-06-17 15:22:02 / Modified: 19:49:21" itemprop="dateCreated datePublished" datetime="2019-06-17T15:22:02-05:00">2019-06-17</time>
             
 
             
@@ -478,7 +481,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1</span>
+                <span title="Symbols count in article">2.3k</span>
               
 
               
@@ -492,7 +495,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">2 mins.</span>
               
             </div>
           
@@ -512,7 +515,34 @@
       
 
       
-        
+        <h2 id="universal-approximation-of-neural-networks">Universal Approximation of neural networks</h2>
+<ol type="1">
+<li>State the universal approximation theorem? What is the technique used to prove that?</li>
+<li>What is a Borel measurable function?</li>
+<li>Given the universal approximation theorem, why can't a MLP still reach a arbitrarily small positive error?</li>
+</ol>
+<h2 id="deep-learning-motivation">Deep Learning motivation</h2>
+<ol type="1">
+<li>What is the mathematical motivation of Deep Learning as opposed to standard Machine Learning techniques?</li>
+<li>In standard Machine Learning vs. Deep Learning, how is the order of number of samples related to the order of regions that can be recognized in the function space?</li>
+<li>What are the reasons for choosing a deep model as opposed to shallow model? (1. Number of regions O(2^k) vs O(k) where k is the number of training examples 2. # linear regions carved out in the function space depends exponentially on the depth. )</li>
+<li>How Deep Learning tackles the curse of dimensionality?</li>
+</ol>
+<h2 id="general-questions">General questions</h2>
+<ol type="1">
+<li>How will you implement dropout during forward and backward pass?</li>
+<li>What do you do if Neural network training loss/testing loss stays constant? (ask if there could be an error in your code, going deeper, going simpler…)</li>
+<li>Why do RNNs have a tendency to suffer from exploding/vanishing gradient? How to prevent this? (Talk about LSTM cell which helps the gradient from vanishing, but make sure you know why it does so. Talk about gradient clipping, and discuss whether to clip the gradient element wise, or clip the norm of the gradient.)</li>
+<li>Do you know GAN, VAE, and memory augmented neural network? Can you talk about it?</li>
+<li>Does using full batch means that the convergence is always better given unlimited power? (Beautiful explanation by Alex Seewald: https://www.quora.com/Is-full-batch-gradient-descent-with-unlimited-computer-power-always-better-than-mini-batch-gradient-descent)</li>
+<li>What is the problem with sigmoid during backpropagation? (Very small, between 0.25 and zero.)</li>
+<li>Given a black box machine learning algorithm that you can’t modify, how could you improve its error? (you can transform the input for example.)</li>
+<li>How to find the best hyper parameters? (Random search, grid search, Bayesian search (and what it is?))</li>
+<li>What is transfer learning?</li>
+<li>Compare and contrast L1-loss vs. L2-loss and L1-regularization vs. L2-regularization.</li>
+</ol>
+<p><strong>Ref</strong>:</p>
+<p><a href="https://github.com/Sroy20/machine-learning-interview-questions" target="_blank" rel="noopener">machine-learning-interview-questions</a></p>
 
       
     </div>
@@ -552,8 +582,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/undefined/25b6d1fa/" rel="next" title="Machine Learning Questions - Part IV: Clustering">
-                <i class="fa fa-chevron-left"></i> Machine Learning Questions - Part IV: Clustering
+              <a href="/undefined/25b6d1fa/" rel="next" title="Machine Learning Questions - Part IV: Clustering & Bayesian">
+                <i class="fa fa-chevron-left"></i> Machine Learning Questions - Part IV: Clustering & Bayesian
               </a>
             
           </div>
@@ -561,6 +591,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/undefined/b89c7c35/" rel="prev" title="Machine Learning Basic Questions">
+                Machine Learning Basic Questions <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -611,8 +645,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -627,7 +670,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -788,6 +831,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#universal-approximation-of-neural-networks"><span class="nav-number">1.</span> <span class="nav-text">Universal Approximation of neural networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deep-learning-motivation"><span class="nav-number">2.</span> <span class="nav-text">Deep Learning motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#general-questions"><span class="nav-number">3.</span> <span class="nav-text">General questions</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -814,7 +874,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">214k</span>
+    <span title="Symbols count total">226k</span>
   
 
   

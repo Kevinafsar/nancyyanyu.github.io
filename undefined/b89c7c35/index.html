@@ -119,22 +119,18 @@
 
 
 
-  <meta name="description" content="Best Subset Selection Approach  fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one p">
-<meta name="keywords" content="Model Selection">
+  <meta name="description" content="1. Can you state Tom Mitchell&apos;s definition of learning and discuss T, P and E? Mitchell (1997) provides the definition “A computer program is said to learn from experience E with respect to some class">
+<meta name="keywords" content="Interview">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ISLR Note - Subset Selection, AIC, BIC">
-<meta property="og:url" content="https://nancyyanyu.github.io/undefined/8bf4bc53/index.html">
+<meta property="og:title" content="Machine Learning Basic Questions">
+<meta property="og:url" content="https://nancyyanyu.github.io/undefined/b89c7c35/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Best Subset Selection Approach  fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one p">
+<meta property="og:description" content="1. Can you state Tom Mitchell&apos;s definition of learning and discuss T, P and E? Mitchell (1997) provides the definition “A computer program is said to learn from experience E with respect to some class">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://nancyyanyu.github.io/undefined/8bf4bc53/1.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/undefined/8bf4bc53/2.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/undefined/8bf4bc53/3.png">
-<meta property="og:updated_time" content="2019-06-15T05:55:22.547Z">
+<meta property="og:updated_time" content="2019-06-18T01:06:09.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ISLR Note - Subset Selection, AIC, BIC">
-<meta name="twitter:description" content="Best Subset Selection Approach  fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one p">
-<meta name="twitter:image" content="https://nancyyanyu.github.io/undefined/8bf4bc53/1.png">
+<meta name="twitter:title" content="Machine Learning Basic Questions">
+<meta name="twitter:description" content="1. Can you state Tom Mitchell&apos;s definition of learning and discuss T, P and E? Mitchell (1997) provides the definition “A computer program is said to learn from experience E with respect to some class">
 
 
 
@@ -144,7 +140,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/undefined/8bf4bc53/">
+  <link rel="canonical" href="https://nancyyanyu.github.io/undefined/b89c7c35/">
 
 
 
@@ -154,7 +150,7 @@
   };
 </script>
 
-  <title>ISLR Note - Subset Selection, AIC, BIC | Nancy's Notes</title>
+  <title>Machine Learning Basic Questions | Nancy's Notes</title>
   
 
 
@@ -391,7 +387,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/8bf4bc53/">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/b89c7c35/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Nancy Yan">
@@ -408,7 +404,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ISLR Note - Subset Selection, AIC, BIC
+          <h1 class="post-title" itemprop="name headline">Machine Learning Basic Questions
 
               
             
@@ -434,24 +430,12 @@
                 
               
 
-              <time title="Created: 2019-06-09 00:20:34" itemprop="dateCreated datePublished" datetime="2019-06-09T00:20:34-05:00">2019-06-09</time>
+              <time title="Created: 2019-06-17 17:49:31 / Modified: 20:06:09" itemprop="dateCreated datePublished" datetime="2019-06-17T17:49:31-05:00">2019-06-17</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-15 00:55:22" itemprop="dateModified" datetime="2019-06-15T00:55:22-05:00">2019-06-15</time>
               
             
           </span>
@@ -497,7 +481,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">6.9k</span>
+                <span title="Symbols count in article">3.2k</span>
               
 
               
@@ -511,7 +495,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">6 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -531,112 +515,40 @@
       
 
       
-        <h1 id="best-subset-selection">Best Subset Selection</h1>
-<p><strong>Approach</strong></p>
+        <h3 id="can-you-state-tom-mitchells-definition-of-learning-and-discuss-t-p-and-e">1. Can you state Tom Mitchell's definition of learning and discuss T, P and E?</h3>
+<p>Mitchell (1997) provides the definition “A computer program is said to learn from <strong>experience E</strong> with respect to some class of <strong>tasks T</strong> and <strong>performance measure P</strong>, if its performance at tasks in <strong>T</strong>, as measured by <strong>P</strong>, improves with experience <strong>E</strong>.</p>
+<h3 id="what-can-be-different-types-of-tasks-encountered-in-machine-learning">2. What can be different types of tasks encountered in Machine Learning?</h3>
+<p>Classification, regression, Machine translation, Anomaly detection, Density estimation or probability mass function estimation</p>
+<h3 id="consider-linear-regression.-what-are-t-p-and-e">3. Consider linear regression. What are T, P and E?</h3>
+<p>Task T : to predict y from <span class="math inline">\(x\)</span> by outputting <span class="math inline">\(\hat{y} = \mathbf{w}^T\mathbf{x}\)</span>.</p>
+<p>Performance P: compute the mean squared error of the model on the test set. <span class="math display">\[
+MSE_{test}=\frac{1}{m}||\hat{y}^{test}-y^{test}||^2_2
+\]</span> Experience E: training set <span class="math inline">\((X^{train}, y^{train})\)</span>.</p>
+<h3 id="what-are-supervised-unsupervised-semi-supervised-self-supervised-multi-instance-learning-and-reinforcement-learning">4. What are supervised, unsupervised, semi-supervised, self-supervised, multi-instance learning, and reinforcement learning?</h3>
+<p>Training a <a href="https://developers.google.com/machine-learning/glossary/#model" target="_blank" rel="noopener"><strong>model</strong></a> from input data and its corresponding <a href="https://developers.google.com/machine-learning/glossary/#label" target="_blank" rel="noopener"><strong>labels</strong></a>. Supervised machine learning is analogous to a student learning a subject by studying a set of questions and their corresponding answers. After mastering the mapping between questions and answers, the student can then provide answers to new (never-before-seen) questions on the same topic. Compare with <a href="https://developers.google.com/machine-learning/glossary/#unsupervised_machine_learning" target="_blank" rel="noopener"><strong>unsupervised machine learning</strong></a>.</p>
+<h3 id="loosely-how-can-supervised-learning-be-converted-into-unsupervised-learning-and-vice-versa">4. Loosely how can supervised learning be converted into unsupervised learning and vice-versa?</h3>
+<h3 id="section"></h3>
+<h3 id="derive-the-normal-equation-for-linear-regression.">6. Derive the normal equation for linear regression.</h3>
+<h3 id="what-do-you-mean-by-affine-transformation-discuss-affine-vs.-linear-transformation.">7. What do you mean by affine transformation? Discuss affine vs. linear transformation.</h3>
+<h3 id="discuss-training-error-test-error-generalization-error-overfitting-and-underfitting.">8. Discuss training error, test error, generalization error, overfitting, and underfitting.</h3>
+<p>Compare representational capacity vs. effective capacity of a model.</p>
 <ol type="1">
-<li><p>fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one predictor, all <span class="math inline">\(\left(\begin{array}{c}p\\ 2\end{array}\right)= p(p−1)/2\)</span> models that contain exactly two predictors, and so forth.</p></li>
-<li><p>We then look at all of the resulting models, with the goal of identifying the one that is best.</p></li>
+<li>Discuss VC dimension.</li>
+<li>What are nonparametric models? What is nonparametric learning?</li>
+<li>What is an ideal model? What is Bayes error? What is/are the source(s) of Bayes error occur?</li>
+<li>What is the no free lunch theorem in connection to Machine Learning?</li>
+<li>What is regularization? Intuitively, what does regularization do during the optimization procedure? (expresses preferences to certain solutions, implicitly and explicitly)</li>
+<li>What is weight decay? What is it added?</li>
+<li>What is a hyperparameter? How do you choose which settings are going to be hyperparameters and which are going to be learnt? (either difficult to optimize or not appropriate to learn - learning model capacity by learning the degree of a polynomial or coefficient of the weight decay term always results in choosing the largest capacity until it overfits on the training set)</li>
+<li>Why is a validation set necessary?</li>
+<li>What are the different types of cross-validation? When do you use which one?</li>
+<li>What are point estimation and function estimation in the context of Machine Learning? What is the relation between them?</li>
+<li>What is the maximal likelihood of a parameter vector <span class="math inline">\(theta\)</span>? Where does the log come from?</li>
+<li>Prove that for linear regression MSE can be derived from maximal likelihood by proper assumptions.</li>
+<li>Why is maximal likelihood the preferred estimator in ML? (consistency and efficiency)</li>
+<li>Under what conditions do the maximal likelihood estimator guarantee consistency?</li>
+<li>What is cross-entropy of loss? (trick question)</li>
 </ol>
-<a id="more"></a>
-<p><img src="./1.png" width="600"></p>
-<p><strong>Note</strong></p>
-<ul>
-<li><span class="math inline">\(RSS\)</span> of these p + 1 models decreases monotonically, and the <span class="math inline">\(R2\)</span> increases monotonically, as the number of features included in the models increases. Therefore, if we use these statistics to select the best model, then we will always end up with a model involving all of the variables</li>
-<li>The problem of selecting the best model from among the <span class="math inline">\(2^p\)</span> possibilities considered by best subset selection is not trivial.</li>
-</ul>
-<h1 id="stepwise-selection">Stepwise Selection</h1>
-<h2 id="forward-stepwise-selection">Forward Stepwise Selection</h2>
-<p><strong>Approach</strong></p>
-<ol type="1">
-<li><p><strong>Forward stepwise selection</strong> begins with a model containing no predictors, and then adds predictors to the model, one-at-a-time, until all of the predictors are in the model.</p></li>
-<li><p>In particular, at each step the variable that gives the greatest additional improvement to the fit is added to the model.</p></li>
-</ol>
-<p><img src="./2.png" width="600"></p>
-<p><strong>Forward Stepwise Selection V.S. Best Subset Selection</strong></p>
-<ul>
-<li>Forward stepwise selection’s computational advantage over best subset selection is clear.</li>
-<li>Forward stepwise is not guaranteed to find the best possible model out of all <span class="math inline">\(2^p\)</span> models containing subsets of the p predictors.</li>
-</ul>
-<h2 id="backward-stepwise-selection">Backward Stepwise Selection</h2>
-<p><strong>Approach</strong></p>
-<ol type="1">
-<li><strong>Backward Stepwise Selection</strong> begins with the full least squares model containing all p predictors, and then iteratively removes the least useful predictor, one-at-a-time</li>
-</ol>
-<p><img src="./3.png" width="600"></p>
-<p><strong>Backward Stepwise Selection V.S. Forward Stepwise Selection</strong>:</p>
-<ul>
-<li>Like forward stepwise selection, the backward selection approach searches through only 1+p(p+1)/2 models, and so can be applied in settings where p is too large to apply best subset selection.</li>
-<li>Like forward stepwise selection, backward stepwise selection is not guaranteed to yield the best model containing a subset of the p predictors.</li>
-<li>Backward selection requires that the number of samples n is larger than the number of variables p (so that the full model can be fit). In contrast, forward stepwise can be used even when n &lt; p, and so is the only viable subset method when p is very large.</li>
-</ul>
-<h2 id="hybrid-approaches">Hybrid Approaches</h2>
-<p><strong>Approach</strong></p>
-<ol type="1">
-<li>Variables are added to the model sequentially, in analogy to forward selection.</li>
-<li>However, after adding each new variable, the method may also remove any variables that no longer provide an improvement in the model fit.</li>
-</ol>
-<p><strong>Note</strong></p>
-<p>Such an approach attempts to more closely mimic best subset selection while retaining the computational advantages of forward and backward stepwise selection.</p>
-<h1 id="choosing-the-optimal-model">Choosing the Optimal Model</h1>
-<p>The training error can be a poor estimate of the test error. Therefore, RSS and R2 are not suitable for selecting the best model among a collection of models with different numbers of predictors.</p>
-<p><strong>2 Methods</strong>:</p>
-<ol type="1">
-<li><p><em>indirectly</em> estimate test error by making an adjustment to the training error to account for the bias due to overfitting.</p></li>
-<li><p><em>directly</em> estimate the test error, using either a validation set approach or a cross-validation approach</p></li>
-</ol>
-<h2 id="c_p-aic-bic-adjusted-r2"><span class="math inline">\(C_p\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span>, Adjusted <span class="math inline">\(R^2\)</span></h2>
-<ul>
-<li>the training set MSE is generally an underestimate of the test MSE. (Recall that MSE = RSS/n.)</li>
-<li>the training error will decrease as more variables are included in the model, but the test error may not.</li>
-<li>Therefore, training set RSS and training set R2 cannot be used to select from among a set of models with different numbers of variables.</li>
-</ul>
-<h3 id="c_p"><span class="math inline">\(C_p\)</span></h3>
-<p><span class="math inline">\(C_p\)</span> estimate of test MSE:</p>
-<p><span class="math display">\[
-\begin{align}
-C_p=\frac{1}{n}(RSS+2d\hat{\sigma}^2)
-\end{align}
-\]</span> where <span class="math inline">\(\hat{\sigma}^2\)</span> is an estimate of the variance of the error <span class="math inline">\(\epsilon\)</span></p>
-<p><strong>Note</strong>: - The <span class="math inline">\(C_p\)</span> statistic adds a penalty of <span class="math inline">\(2d\hat{\sigma}^2\)</span> to the training RSS in order to adjust for the fact that the training error tends to underestimate the test error. - The penalty increases as the number of predictors in the model increases; this is intended to adjust for the corresponding decrease in training RSS. - If <span class="math inline">\(\hat{\sigma}^2\)</span> is an unbiased estimate of <span class="math inline">\(\sigma^2\)</span> in, then <span class="math inline">\(C_p\)</span> is an unbiased estimate of test MSE - When determining which of a set of models is best, we choose the model with the lowest <span class="math inline">\(C_p\)</span> value.</p>
-<h3 id="aic">AIC</h3>
-<p>The AIC criterion is defined for a large class of models fit by maximum likelihood. In the case of the model <span class="math inline">\(Y = β_0 + β_1X_1 + · · · + β_pX_p + \epsilon\)</span> with Gaussian errors, maximum likelihood and least squares are the same thing.</p>
-<p>In this case AIC is given by</p>
-<p><span class="math display">\[
-\begin{align}
-AIC=\frac{1}{n\hat{\sigma}^2}(RSS+2d\hat{\sigma}^2)
-\end{align}
-\]</span> For least squares models, Cp and AIC are proportional to each other</p>
-<h3 id="bic">BIC</h3>
-<p>For the least squares model with d predictors, the BIC is, up to irrelevant constants, given by <span class="math display">\[
-\begin{align}
-BIC=\frac{1}{n}(RSS+\log(n)d\hat{\sigma}^2)
-\end{align}
-\]</span> Since log(n) &gt; 2 for any n &gt; 7, the BIC statistic generally places a heavier penalty on models with many variables, and hence results in the selection of smaller models than Cp.</p>
-<h3 id="adjusted-r2">Adjusted <span class="math inline">\(R^2\)</span></h3>
-<p>Recall: <span class="math display">\[
-\begin{align}
-R^2=1 − RSS/TSS=1-\frac{RSS}{\sum(y_i-\bar{y})^2}
-\end{align}
-\]</span> <strong>TSS</strong>: total sum of squares for the response</p>
-<p>For a least squares model with d variables, <strong>the adjusted R2</strong> statistic is calculated as <span class="math display">\[
-Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
-\]</span> <strong>Note</strong>:</p>
-<ul>
-<li>a large value of adjusted R2 indicates a model with a small test error. Maximizing the adjusted R2 is equivalent to minimizing <span class="math inline">\(RSS/(n−d−1)\)</span></li>
-<li><span class="math inline">\(RSS/(n−d−1)\)</span> may increase or decrease, due to the presence of d in the denominator.</li>
-</ul>
-<p><strong>Intuition</strong>: - once all of the correct variables have been included in the model, adding additional noise variables will lead to only a very small decrease in RSS - Unlike the R2 statistic, the adjusted R2 statistic pays a price for the inclusion of unnecessary variables in the model</p>
-<h2 id="validation-and-cross-validation">Validation and Cross-Validation</h2>
-<p>As an alternative to the approaches just discussed, we can compute the validation set error or the cross-validation error for each model under consideration, and then select the model for which the resulting estimated test error is smallest.</p>
-<p><strong>Advantage over <span class="math inline">\(C_p, AIC, BIC\)</span></strong>:</p>
-<ul>
-<li>Direct estimate of the test error, and makes fewer assumptions about the true underlying model.</li>
-<li>Used in a wider range of model selection tasks, even in cases where it is hard to pinpoint the model degrees of freedom or hard to estimate the error variance σ2.</li>
-</ul>
-<p><strong>One-standard-error rule</strong>: We first calculate the standard error of the estimated test MSE for each model size, and then select the smallest model for which the estimated test error is within one standard error of the lowest point on the curve.</p>
-<ul>
-<li><strong>Rationale</strong>: if a set of models appear to be more or less equally good, then we might as well choose the simplest model</li>
-</ul>
 
       
     </div>
@@ -663,7 +575,7 @@ Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
         
         <div class="post-tags">
           
-            <a href="/tags/Model-Selection/" rel="tag"># Model Selection</a>
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
           
         </div>
       
@@ -676,8 +588,8 @@ Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/undefined/a065f58f/" rel="next" title="ISLR Note - Intro to Model Selection">
-                <i class="fa fa-chevron-left"></i> ISLR Note - Intro to Model Selection
+              <a href="/undefined/c7bd9d66/" rel="next" title="Deep Learning Questions Part I: UAT, Motivation">
+                <i class="fa fa-chevron-left"></i> Deep Learning Questions Part I: UAT, Motivation
               </a>
             
           </div>
@@ -685,10 +597,6 @@ Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/undefined/f9cdb6e/" rel="prev" title="ISLR Note - Shrinkage Methods">
-                ISLR Note - Shrinkage Methods <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -935,7 +843,7 @@ Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#best-subset-selection"><span class="nav-number">1.</span> <span class="nav-text">Best Subset Selection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stepwise-selection"><span class="nav-number">2.</span> <span class="nav-text">Stepwise Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#forward-stepwise-selection"><span class="nav-number">2.1.</span> <span class="nav-text">Forward Stepwise Selection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward-stepwise-selection"><span class="nav-number">2.2.</span> <span class="nav-text">Backward Stepwise Selection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hybrid-approaches"><span class="nav-number">2.3.</span> <span class="nav-text">Hybrid Approaches</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#choosing-the-optimal-model"><span class="nav-number">3.</span> <span class="nav-text">Choosing the Optimal Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#c_p-aic-bic-adjusted-r2"><span class="nav-number">3.1.</span> <span class="nav-text">\(C_p\), \(AIC\), \(BIC\), Adjusted \(R^2\)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c_p"><span class="nav-number">3.1.1.</span> <span class="nav-text">\(C_p\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aic"><span class="nav-number">3.1.2.</span> <span class="nav-text">AIC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bic"><span class="nav-number">3.1.3.</span> <span class="nav-text">BIC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#adjusted-r2"><span class="nav-number">3.1.4.</span> <span class="nav-text">Adjusted \(R^2\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#validation-and-cross-validation"><span class="nav-number">3.2.</span> <span class="nav-text">Validation and Cross-Validation</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#can-you-state-tom-mitchells-definition-of-learning-and-discuss-t-p-and-e"><span class="nav-number">1.</span> <span class="nav-text">1. Can you state Tom Mitchell&#39;s definition of learning and discuss T, P and E?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-can-be-different-types-of-tasks-encountered-in-machine-learning"><span class="nav-number">2.</span> <span class="nav-text">2. What can be different types of tasks encountered in Machine Learning?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#consider-linear-regression.-what-are-t-p-and-e"><span class="nav-number">3.</span> <span class="nav-text">3. Consider linear regression. What are T, P and E?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-are-supervised-unsupervised-semi-supervised-self-supervised-multi-instance-learning-and-reinforcement-learning"><span class="nav-number">4.</span> <span class="nav-text">4. What are supervised, unsupervised, semi-supervised, self-supervised, multi-instance learning, and reinforcement learning?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loosely-how-can-supervised-learning-be-converted-into-unsupervised-learning-and-vice-versa"><span class="nav-number">5.</span> <span class="nav-text">4. Loosely how can supervised learning be converted into unsupervised learning and vice-versa?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#section"><span class="nav-number">6.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#derive-the-normal-equation-for-linear-regression."><span class="nav-number">7.</span> <span class="nav-text">6. Derive the normal equation for linear regression.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-do-you-mean-by-affine-transformation-discuss-affine-vs.-linear-transformation."><span class="nav-number">8.</span> <span class="nav-text">7. What do you mean by affine transformation? Discuss affine vs. linear transformation.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#discuss-training-error-test-error-generalization-error-overfitting-and-underfitting."><span class="nav-number">9.</span> <span class="nav-text">8. Discuss training error, test error, generalization error, overfitting, and underfitting.</span></a></li></ol></div>
             
 
           </div>

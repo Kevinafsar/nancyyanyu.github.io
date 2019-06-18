@@ -383,7 +383,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/c7bd9d66/">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/b89c7c35/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Nancy Yan">
@@ -403,7 +403,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/undefined/c7bd9d66/" class="post-title-link" itemprop="url">Machine Learning Questions - Part V</a>
+                <a href="/undefined/b89c7c35/" class="post-title-link" itemprop="url">Machine Learning Basic Questions</a>
               
             
           </h1>
@@ -428,7 +428,7 @@
                 
               
 
-              <time title="Created: 2019-06-17 15:22:02 / Modified: 17:22:52" itemprop="dateCreated datePublished" datetime="2019-06-17T15:22:02-05:00">2019-06-17</time>
+              <time title="Created: 2019-06-17 17:49:31 / Modified: 20:06:09" itemprop="dateCreated datePublished" datetime="2019-06-17T17:49:31-05:00">2019-06-17</time>
             
 
             
@@ -479,7 +479,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1</span>
+                <span title="Symbols count in article">3.2k</span>
               
 
               
@@ -493,7 +493,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -515,7 +515,256 @@
       
         
           
+            <h3 id="can-you-state-tom-mitchells-definition-of-learning-and-discuss-t-p-and-e">1. Can you state Tom Mitchell's definition of learning and discuss T, P and E?</h3>
+<p>Mitchell (1997) provides the definition “A computer program is said to learn from <strong>experience E</strong> with respect to some class of <strong>tasks T</strong> and <strong>performance measure P</strong>, if its performance at tasks in <strong>T</strong>, as measured by <strong>P</strong>, improves with experience <strong>E</strong>.</p>
+<h3 id="what-can-be-different-types-of-tasks-encountered-in-machine-learning">2. What can be different types of tasks encountered in Machine Learning?</h3>
+<p>Classification, regression, Machine translation, Anomaly detection, Density estimation or probability mass function estimation</p>
+<h3 id="consider-linear-regression.-what-are-t-p-and-e">3. Consider linear regression. What are T, P and E?</h3>
+<p>Task T : to predict y from <span class="math inline">\(x\)</span> by outputting <span class="math inline">\(\hat{y} = \mathbf{w}^T\mathbf{x}\)</span>.</p>
+<p>Performance P: compute the mean squared error of the model on the test set. <span class="math display">\[
+MSE_{test}=\frac{1}{m}||\hat{y}^{test}-y^{test}||^2_2
+\]</span> Experience E: training set <span class="math inline">\((X^{train}, y^{train})\)</span>.</p>
+<h3 id="what-are-supervised-unsupervised-semi-supervised-self-supervised-multi-instance-learning-and-reinforcement-learning">4. What are supervised, unsupervised, semi-supervised, self-supervised, multi-instance learning, and reinforcement learning?</h3>
+<p>Training a <a href="https://developers.google.com/machine-learning/glossary/#model" target="_blank" rel="noopener"><strong>model</strong></a> from input data and its corresponding <a href="https://developers.google.com/machine-learning/glossary/#label" target="_blank" rel="noopener"><strong>labels</strong></a>. Supervised machine learning is analogous to a student learning a subject by studying a set of questions and their corresponding answers. After mastering the mapping between questions and answers, the student can then provide answers to new (never-before-seen) questions on the same topic. Compare with <a href="https://developers.google.com/machine-learning/glossary/#unsupervised_machine_learning" target="_blank" rel="noopener"><strong>unsupervised machine learning</strong></a>.</p>
+<h3 id="loosely-how-can-supervised-learning-be-converted-into-unsupervised-learning-and-vice-versa">4. Loosely how can supervised learning be converted into unsupervised learning and vice-versa?</h3>
+<h3 id="section"></h3>
+<h3 id="derive-the-normal-equation-for-linear-regression.">6. Derive the normal equation for linear regression.</h3>
+<h3 id="what-do-you-mean-by-affine-transformation-discuss-affine-vs.-linear-transformation.">7. What do you mean by affine transformation? Discuss affine vs. linear transformation.</h3>
+<h3 id="discuss-training-error-test-error-generalization-error-overfitting-and-underfitting.">8. Discuss training error, test error, generalization error, overfitting, and underfitting.</h3>
+<p>Compare representational capacity vs. effective capacity of a model.</p>
+<ol type="1">
+<li>Discuss VC dimension.</li>
+<li>What are nonparametric models? What is nonparametric learning?</li>
+<li>What is an ideal model? What is Bayes error? What is/are the source(s) of Bayes error occur?</li>
+<li>What is the no free lunch theorem in connection to Machine Learning?</li>
+<li>What is regularization? Intuitively, what does regularization do during the optimization procedure? (expresses preferences to certain solutions, implicitly and explicitly)</li>
+<li>What is weight decay? What is it added?</li>
+<li>What is a hyperparameter? How do you choose which settings are going to be hyperparameters and which are going to be learnt? (either difficult to optimize or not appropriate to learn - learning model capacity by learning the degree of a polynomial or coefficient of the weight decay term always results in choosing the largest capacity until it overfits on the training set)</li>
+<li>Why is a validation set necessary?</li>
+<li>What are the different types of cross-validation? When do you use which one?</li>
+<li>What are point estimation and function estimation in the context of Machine Learning? What is the relation between them?</li>
+<li>What is the maximal likelihood of a parameter vector <span class="math inline">\(theta\)</span>? Where does the log come from?</li>
+<li>Prove that for linear regression MSE can be derived from maximal likelihood by proper assumptions.</li>
+<li>Why is maximal likelihood the preferred estimator in ML? (consistency and efficiency)</li>
+<li>Under what conditions do the maximal likelihood estimator guarantee consistency?</li>
+<li>What is cross-entropy of loss? (trick question)</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/c7bd9d66/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/undefined/c7bd9d66/" class="post-title-link" itemprop="url">Deep Learning Questions Part I: UAT, Motivation</a>
+              
             
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-17 15:22:02 / Modified: 19:49:21" itemprop="dateCreated datePublished" datetime="2019-06-17T15:22:02-05:00">2019-06-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">2.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="universal-approximation-of-neural-networks">Universal Approximation of neural networks</h2>
+<ol type="1">
+<li>State the universal approximation theorem? What is the technique used to prove that?</li>
+<li>What is a Borel measurable function?</li>
+<li>Given the universal approximation theorem, why can't a MLP still reach a arbitrarily small positive error?</li>
+</ol>
+<h2 id="deep-learning-motivation">Deep Learning motivation</h2>
+<ol type="1">
+<li>What is the mathematical motivation of Deep Learning as opposed to standard Machine Learning techniques?</li>
+<li>In standard Machine Learning vs. Deep Learning, how is the order of number of samples related to the order of regions that can be recognized in the function space?</li>
+<li>What are the reasons for choosing a deep model as opposed to shallow model? (1. Number of regions O(2^k) vs O(k) where k is the number of training examples 2. # linear regions carved out in the function space depends exponentially on the depth. )</li>
+<li>How Deep Learning tackles the curse of dimensionality?</li>
+</ol>
+<h2 id="general-questions">General questions</h2>
+<ol type="1">
+<li>How will you implement dropout during forward and backward pass?</li>
+<li>What do you do if Neural network training loss/testing loss stays constant? (ask if there could be an error in your code, going deeper, going simpler…)</li>
+<li>Why do RNNs have a tendency to suffer from exploding/vanishing gradient? How to prevent this? (Talk about LSTM cell which helps the gradient from vanishing, but make sure you know why it does so. Talk about gradient clipping, and discuss whether to clip the gradient element wise, or clip the norm of the gradient.)</li>
+<li>Do you know GAN, VAE, and memory augmented neural network? Can you talk about it?</li>
+<li>Does using full batch means that the convergence is always better given unlimited power? (Beautiful explanation by Alex Seewald: https://www.quora.com/Is-full-batch-gradient-descent-with-unlimited-computer-power-always-better-than-mini-batch-gradient-descent)</li>
+<li>What is the problem with sigmoid during backpropagation? (Very small, between 0.25 and zero.)</li>
+<li>Given a black box machine learning algorithm that you can’t modify, how could you improve its error? (you can transform the input for example.)</li>
+<li>How to find the best hyper parameters? (Random search, grid search, Bayesian search (and what it is?))</li>
+<li>What is transfer learning?</li>
+<li>Compare and contrast L1-loss vs. L2-loss and L1-regularization vs. L2-regularization.</li>
+</ol>
+<p><strong>Ref</strong>:</p>
+<p><a href="https://github.com/Sroy20/machine-learning-interview-questions" target="_blank" rel="noopener">machine-learning-interview-questions</a></p>
 
           
         
@@ -592,7 +841,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/undefined/25b6d1fa/" class="post-title-link" itemprop="url">Machine Learning Questions - Part IV: Clustering</a>
+                <a href="/undefined/25b6d1fa/" class="post-title-link" itemprop="url">Machine Learning Questions - Part IV: Clustering & Bayesian</a>
               
             
           </h1>
@@ -617,7 +866,7 @@
                 
               
 
-              <time title="Created: 2019-06-17 15:22:00 / Modified: 17:28:52" itemprop="dateCreated datePublished" datetime="2019-06-17T15:22:00-05:00">2019-06-17</time>
+              <time title="Created: 2019-06-17 15:22:00 / Modified: 19:33:27" itemprop="dateCreated datePublished" datetime="2019-06-17T15:22:00-05:00">2019-06-17</time>
             
 
             
@@ -668,7 +917,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">2.4k</span>
+                <span title="Symbols count in article">8.3k</span>
               
 
               
@@ -682,7 +931,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="Reading time">8 mins.</span>
               
             </div>
           
@@ -791,7 +1040,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/undefined/c8f688ba/" class="post-title-link" itemprop="url">Machine Learning Questions - Part III: SVM</a>
+                <a href="/undefined/c8f688ba/" class="post-title-link" itemprop="url">Machine Learning Questions Part III: SVM</a>
               
             
           </h1>
@@ -816,7 +1065,7 @@
                 
               
 
-              <time title="Created: 2019-06-17 13:07:59 / Modified: 17:28:37" itemprop="dateCreated datePublished" datetime="2019-06-17T13:07:59-05:00">2019-06-17</time>
+              <time title="Created: 2019-06-17 13:07:59 / Modified: 17:32:39" itemprop="dateCreated datePublished" datetime="2019-06-17T13:07:59-05:00">2019-06-17</time>
             
 
             
@@ -998,7 +1247,7 @@ s.t.  \sum_{j=1}^p \beta_j^2=1,  \quad (9.13) \\
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/undefined/a2f8a358/" class="post-title-link" itemprop="url">Machine Learning Questions - Part II</a>
+                <a href="/undefined/a2f8a358/" class="post-title-link" itemprop="url">Machine Learning Questions Part II: COD, Reg, Model Evaluation, Dimensionality Reduction</a>
               
             
           </h1>
@@ -1040,7 +1289,7 @@ s.t.  \sum_{j=1}^p \beta_j^2=1,  \quad (9.13) \\
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 15:06:48" itemprop="dateModified" datetime="2019-06-17T15:06:48-05:00">2019-06-17</time>
+                <time title="Modified: 2019-06-17 17:34:05" itemprop="dateModified" datetime="2019-06-17T17:34:05-05:00">2019-06-17</time>
               
             
           </span>
@@ -1209,7 +1458,7 @@ s.t.  \sum_{j=1}^p \beta_j^2=1,  \quad (9.13) \\
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/undefined/6bd38994/" class="post-title-link" itemprop="url">Machine Learning Questions - Part I</a>
+                <a href="/undefined/6bd38994/" class="post-title-link" itemprop="url">Machine Learning Questions Part I: Learning Theory & Model Selection</a>
               
             
           </h1>
@@ -1251,7 +1500,7 @@ s.t.  \sum_{j=1}^p \beta_j^2=1,  \quad (9.13) \\
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 13:22:43" itemprop="dateModified" datetime="2019-06-17T13:22:43-05:00">2019-06-17</time>
+                <time title="Modified: 2019-06-17 19:53:55" itemprop="dateModified" datetime="2019-06-17T19:53:55-05:00">2019-06-17</time>
               
             
           </span>
@@ -2232,218 +2481,6 @@ f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/undefined/9c99c8b6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/undefined/9c99c8b6/" class="post-title-link" itemprop="url">ISLR Note - Clustering</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-11 12:52:06" itemprop="dateCreated datePublished" datetime="2019-06-11T12:52:06-05:00">2019-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-17 17:23:43" itemprop="dateModified" datetime="2019-06-17T17:23:43-05:00">2019-06-17</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">6.8k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">6 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="clustering-methods">Clustering Methods</h1>
-<p><strong>Clustering</strong> refers to a very broad set of techniques for finding subgroups, or clusters, in a data set.</p>
-<ul>
-<li><p>When we cluster the observations of a data set, we seek to partition them into distinct groups so that the observations within each group are quite similar to each other</p></li>
-<li><p>This is an unsupervised problem because we are trying to discover structure</p></li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/undefined/9c99c8b6/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2490,7 +2527,7 @@ f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2677,7 +2714,7 @@ f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">214k</span>
+    <span title="Symbols count total">226k</span>
   
 
   
