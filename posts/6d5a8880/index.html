@@ -133,11 +133,12 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/exe4.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/exe5.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/exe6.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/exe7.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc1.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc4.png">
-<meta property="og:updated_time" content="2019-06-28T21:03:35.717Z">
+<meta property="og:updated_time" content="2019-06-28T21:21:32.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache Spark: Advanced Topics">
 <meta name="twitter:description" content="This is course note of Big Data Essentials: HDFS, MapReduce and Spark RDD  Execution &amp;amp; Scheduling SparkContext - When creating a Spark application, the first thing you do is create a SparkContext">
@@ -458,7 +459,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-28 16:03:35" itemprop="dateModified" datetime="2019-06-28T16:03:35-05:00">2019-06-28</time>
+                <time title="Modified: 2019-06-28 16:21:32" itemprop="dateModified" datetime="2019-06-28T16:21:32-05:00">2019-06-28</time>
               
             
           </span>
@@ -504,7 +505,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">8.7k</span>
+                <span title="Symbols count in article">8.6k</span>
               
 
               
@@ -607,7 +608,23 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cache the preloaded dump in the memory and reuse it until you end your session.</span><br></pre></td></tr></table></figure>
 <p>Spark allows you to hint which RDDs are better to be kept in memory or even on the disk. Spark does so by <strong><em>caching the blocks comprising your dataset. </em></strong></p>
 <h2 id="controlling-persistence-level">Controlling persistence level</h2>
-<figure class="highlight plain"><figcaption><span>mark the data set as cached by invoking a cache method on it</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> - The cache method is just a shortcut for the memory-only persistence. </span><br><span class="line"></span><br><span class="line">```persist```: allows you to set RDDs storage to persist across operations after the first time it is computed.</span><br><span class="line"> - parameterized by a storage level</span><br><span class="line">&lt;img src=&quot;./exe7.png&quot; width=&quot;600&quot; /&gt;</span><br><span class="line"></span><br><span class="line">## Best practices</span><br><span class="line"></span><br><span class="line">When running an **interactive shell**, cache your dataset after you&apos;ve done all the necessary preprocessing.</span><br><span class="line">- by keeping your work inside in the memory, you would get a more responsive experience. </span><br><span class="line"></span><br><span class="line">When running a **batch computation**, cache dictionaries that you join with your data. </span><br><span class="line">- Join dictionaries are often reshuffled, so it would be helpful to speed up their read times. </span><br><span class="line"></span><br><span class="line">When running an **iterative computation**, cache static data like dictionaries or input datasets</span><br><span class="line">- avoid reloading the data from the ground up on every iteration.</span><br><span class="line">- The static data tends to get evicted due to the memory pressure from the intermediate data.</span><br><span class="line"></span><br><span class="line">## Summary</span><br><span class="line">- Performance may be improved by persisting data across operations</span><br><span class="line"> - in interactive sessions, iterative computations and hot datasets</span><br><span class="line">- You can control the persistence of a dataset</span><br><span class="line"> - whether to store in the memory or on the disk</span><br><span class="line"> - how many replicas to create</span><br><span class="line"></span><br><span class="line"># Broadcast Variable </span><br><span class="line">**shared memory** is a powerful abstraction, but often misused.</span><br><span class="line">- It can make the developer&apos;s life easier</span><br><span class="line">- It can make the application performance deteriorate because of extra synchronization.</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">This is why in spark there are restricted forms of the shared memory.</span><br></pre></td></tr></table></figure>
+<p>Cache: mark the data set as cached by invoking a cache method on it - The cache method is just a shortcut for the memory-only persistence.</p>
+<p>Persist: allows you to set RDDs storage to persist across operations after the first time it is computed. - parameterized by a storage level <img src="./exe7.png" width="600"></p>
+<h2 id="best-practices">Best practices</h2>
+<p>When running an <strong>interactive shell</strong>, cache your dataset after you've done all the necessary preprocessing. - by keeping your work inside in the memory, you would get a more responsive experience.</p>
+<p>When running a <strong>batch computation</strong>, cache dictionaries that you join with your data. - Join dictionaries are often reshuffled, so it would be helpful to speed up their read times.</p>
+<p>When running an <strong>iterative computation</strong>, cache static data like dictionaries or input datasets - avoid reloading the data from the ground up on every iteration. - The static data tends to get evicted due to the memory pressure from the intermediate data.</p>
+<h2 id="summary-1">Summary</h2>
+<ul>
+<li>Performance may be improved by persisting data across operations</li>
+<li>in interactive sessions, iterative computations and hot datasets</li>
+<li>You can control the persistence of a dataset</li>
+<li>whether to store in the memory or on the disk</li>
+<li>how many replicas to create</li>
+</ul>
+<h1 id="broadcast-variable">Broadcast Variable</h1>
+<p><strong>shared memory</strong> is a powerful abstraction, but often misused. - It can make the developer's life easier - It can make the application performance deteriorate because of extra synchronization.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is why <span class="keyword">in</span> spark there are restricted forms of the shared memory.</span><br></pre></td></tr></table></figure>
 <p><strong>Broadcast variable</strong> is a read-only variable that is efficiently shared among tasks</p>
 <p><strong>one to many communication:</strong> When it captures a variable into the closure, it is sent to an executor together with a task specification.</p>
 <p><strong>many to many communication protocol</strong>: torrent</p>
@@ -665,7 +682,7 @@
 <ol start="4" type="1">
 <li>Profiling &amp; debugging</li>
 </ol>
-<h2 id="summary-1">Summary</h2>
+<h2 id="summary-2">Summary</h2>
 <ul>
 <li>Accumulators are shared read-write variables with de-coupled read and write sides</li>
 <li>could be updated from actions and transformations by using an increment.</li>
@@ -981,7 +998,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#execution-scheduling"><span class="nav-number">1.</span> <span class="nav-text">Execution &amp; Scheduling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jobs-stages-tasks"><span class="nav-number">1.1.</span> <span class="nav-text">Jobs, stages, tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">1.1.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">1.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#caching-persistence"><span class="nav-number">2.</span> <span class="nav-text">Caching &amp; Persistence</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-1"><span class="nav-number">2.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#controlling-persistence-level"><span class="nav-number">2.2.</span> <span class="nav-text">Controlling persistence level</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-2"><span class="nav-number">2.3.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-3"><span class="nav-number">2.4.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#guarantees-on-the-updates"><span class="nav-number">2.5.</span> <span class="nav-text">Guarantees on the updates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-cases"><span class="nav-number">2.6.</span> <span class="nav-text">Use cases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-1"><span class="nav-number">2.7.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#execution-scheduling"><span class="nav-number">1.</span> <span class="nav-text">Execution &amp; Scheduling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jobs-stages-tasks"><span class="nav-number">1.1.</span> <span class="nav-text">Jobs, stages, tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">1.1.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">1.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#caching-persistence"><span class="nav-number">2.</span> <span class="nav-text">Caching &amp; Persistence</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-1"><span class="nav-number">2.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#controlling-persistence-level"><span class="nav-number">2.2.</span> <span class="nav-text">Controlling persistence level</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#best-practices"><span class="nav-number">2.3.</span> <span class="nav-text">Best practices</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-1"><span class="nav-number">2.4.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#broadcast-variable"><span class="nav-number">3.</span> <span class="nav-text">Broadcast Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-2"><span class="nav-number">3.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-3"><span class="nav-number">3.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#guarantees-on-the-updates"><span class="nav-number">3.3.</span> <span class="nav-text">Guarantees on the updates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-cases"><span class="nav-number">3.4.</span> <span class="nav-text">Use cases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-2"><span class="nav-number">3.5.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1014,7 +1031,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">309k</span>
+    <span title="Symbols count total">308k</span>
   
 
   
