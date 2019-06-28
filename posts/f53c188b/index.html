@@ -159,7 +159,29 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/mrs11.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/mrs12.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/mrs13.png">
-<meta property="og:updated_time" content="2019-06-28T00:12:11.919Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/dc2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/dc3.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/dc4.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/dv6.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/dc7.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/dc8.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/dc10.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e3.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e4.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e5.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e6.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e7.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e8.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e9.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/e10.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/t1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/t2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/t3.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/t4.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/f53c188b/t5.png">
+<meta property="og:updated_time" content="2019-06-28T21:06:27.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop MapReduce Streaming Application in Python">
 <meta name="twitter:description" content="This is course note of Big Data Essentials: HDFS, MapReduce and Spark RDD  Streaming In a Hadoop MapReduce application:">
@@ -463,12 +485,24 @@
                 
               
 
-              <time title="Created: 2019-06-27 18:13:45 / Modified: 19:12:11" itemprop="dateCreated datePublished" datetime="2019-06-27T18:13:45-05:00">2019-06-27</time>
+              <time title="Created: 2019-06-27 18:13:45" itemprop="dateCreated datePublished" datetime="2019-06-27T18:13:45-05:00">2019-06-27</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-28 16:06:27" itemprop="dateModified" datetime="2019-06-28T16:06:27-05:00">2019-06-28</time>
               
             
           </span>
@@ -514,7 +548,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">11k</span>
+                <span title="Symbols count in article">9.2k</span>
               
 
               
@@ -528,7 +562,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">10 mins.</span>
+                <span title="Reading time">8 mins.</span>
               
             </div>
           
@@ -645,8 +679,76 @@
 <p><img src="./mrs13.png" width="350"></p>
 <h1 id="distributed-cache">Distributed Cache</h1>
 <p><strong>Distributed Cache</strong> is a facility provided by the Hadoop MapReduce framework. It cache files when needed by the applications. It can cache read only text files, archives, jar files etc. Once we have cached a file for our job, Hadoop will make it available on each datanodes where map/reduce tasks are running.</p>
-<p>When you call MapReduce application, NodeManagers provide containers for execution. And there can be several containers on each NodeManager. If you provide <figure class="highlight plain"><figcaption><span>then each of this files will be copied once by each node before any task execution. </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;./dc2.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">So each container can access this data locally via created synlinks. </span><br><span class="line">- distributed cache file should not be modified by the application while the job being executed.</span><br><span class="line">&lt;img src=&quot;./dc3.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">## 3 ways to distribute files</span><br><span class="line">&lt;img src=&quot;./dc4.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">- -files</span><br><span class="line">- -archives: provides the ability to better utilize network profile transmission</span><br><span class="line"> - all archives will be un-parked on worker nodes. So, you will be able to work with profiles from mapper or reducer&apos;s grid. </span><br><span class="line">- -libjars: distribute files in JARs(Java Archive). You will not pay attention to this option at all, as this course is about Python development, not Java.</span><br><span class="line"></span><br><span class="line">## Archives</span><br><span class="line"></span><br><span class="line">1. create two files - The text files will contain female and male names.</span><br><span class="line">2. create a tar archive with the following CLI comment.</span><br><span class="line">&lt;img src=&quot;./dv6.png&quot; width=&quot;200&quot; /&gt;</span><br><span class="line"></span><br><span class="line">3. execute the following MapReduce application</span><br><span class="line">&lt;img src=&quot;./dc7.png&quot; width=&quot;300&quot; /&gt;</span><br><span class="line"></span><br><span class="line">Python code:</span><br><span class="line"></span><br><span class="line">- mapper.py</span><br><span class="line">&lt;img src=&quot;./dc8.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">- reducer.py</span><br><span class="line">&lt;img src=&quot;./dc10.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line"># Environments, Counters</span><br><span class="line"></span><br><span class="line">You can get job configuration options through environment variables. When you launch MapReduce application, hadoop framework will assign splits of data to available workers. you can access this data from your scripts.</span><br><span class="line">&lt;img src=&quot;./e1.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line">&lt;img src=&quot;./e2.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line">You can also access task id within map, or reduce phase with the following environment variables. </span><br><span class="line">1. get an absolute task id, and is usually available as a task name on job tracker ui.</span><br><span class="line">2. access the relative order of the task within map or reduced pace. In this example, it would be 1 and 8.</span><br><span class="line">&lt;img src=&quot;./e3.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;./e4.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">In addition to the existing environment variables, you can provide your own:</span><br><span class="line">- Write a generic mapper for word cound problem</span><br><span class="line"> - use regular expression to parse words. </span><br><span class="line">&lt;img src=&quot;./e5.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line"> - use -D flag to provide arbitrary environment variables</span><br><span class="line"> - Here, I provided a regular expression to parse words ending with numbers</span><br><span class="line">&lt;img src=&quot;./e6.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">## Communication</span><br><span class="line">1. Reading environment variables is a one-way communication between Hadoop MapReduce and scripts.</span><br><span class="line">2. A backward communication channel between framework--provide information about your task progress</span><br><span class="line">&lt;img src=&quot;./e7.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">2 types of information:</span><br><span class="line">- status</span><br><span class="line"> - provide an aribtrary message in status for each task execution</span><br><span class="line"> - normally used to inform a user about the processing stage(startup, run, or cleanup)</span><br><span class="line">&lt;img src=&quot;./e8.png&quot; width=&quot;450&quot; /&gt;</span><br><span class="line"></span><br><span class="line">- **counters**</span><br><span class="line"> - accumulate statstics of a map and the reduced executions</span><br><span class="line"></span><br><span class="line">In word count example, you can easily count the number of words, providing </span><br><span class="line">1. a counter family name--&gt;group</span><br><span class="line">2. a counter name</span><br><span class="line">3. the value you&apos;d like to add to the counter</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;./e9.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line">&lt;img src=&quot;./e10.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line"># Testing</span><br><span class="line"></span><br><span class="line">## Unit Testing</span><br><span class="line"></span><br><span class="line">Python Testing Tools: Taxonomy, pytest </span><br><span class="line"></span><br><span class="line">### Example of unit testing</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;./t1.png&quot; width=&quot;450&quot; /&gt;</span><br><span class="line"></span><br><span class="line">Aim of testing: to validate your scripts in a reproducible environment as close as possible to the production of one.</span><br><span class="line"></span><br><span class="line">## Integration Testing</span><br><span class="line">You can validate the whole pipeline with mapper and reducer, or independent mapper or reducer with the hand-crafted input. This type of testing is referred to as an integration testing, because you validate how our mappers and reducers scripts are integrated with Hadoop MapReduce streaming API.</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;./t2.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Drawback: it will be working out of the box if your scripts rely on MapReduce job configuration options</span><br><span class="line"></span><br><span class="line">## System Testing</span><br><span class="line">System testing:  execute the whole pipeline end to end</span><br><span class="line"></span><br><span class="line">Hadoop MapReduce framework provides an empty config which you can use for HDFS, MapReduce and the Yarn clients.</span><br><span class="line"></span><br><span class="line">&gt; see *locate* CLI to *find* a path to an empty config on your Hadoop installation.</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;./t3.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">If you provide a Hadoop empty config, then you execute the whole MapReduce application in a **standalone mode**. </span><br><span class="line">- an HDFS client points out to a local file system</span><br><span class="line">- a node manager is working on the same node</span><br><span class="line">- your streaming scripts will be able to communicate with MapReduce framework via environment variables.</span><br><span class="line">- You will be able to read configuration of variables and validate counters correctness.</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;./t4.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line">## Acceptance Testing</span><br><span class="line"></span><br><span class="line">- Validation of your streaming scripts against a sample dataset to</span><br><span class="line"> - find bugs early without wasting your time and CPU cycles.</span><br><span class="line">- Validation against big datasets and measuring performance or efficiency of your solution</span><br><span class="line">&lt;img src=&quot;./t5.png&quot; width=&quot;350&quot; /&gt;</span><br><span class="line"></span><br><span class="line"># Summary</span><br><span class="line">- you know how to use Python unit testing</span><br><span class="line">- you know how to emulate MapReduce locally</span><br><span class="line">with ``` (cat | map | sort | reduce)</span><br></pre></td></tr></table></figure></p>
+<p>When you call MapReduce application, NodeManagers provide containers for execution. And there can be several containers on each NodeManager. If you provide files then each of this files will be copied once by each node before any task execution. <img src="./dc2.png" width="350"></p>
+<p>So each container can access this data locally via created synlinks. - distributed cache file should not be modified by the application while the job being executed. <img src="./dc3.png" width="350"></p>
+<h2 id="ways-to-distribute-files">3 ways to distribute files</h2>
+<p><img src="./dc4.png" width="350"></p>
 <ul>
+<li>-files</li>
+<li>-archives: provides the ability to better utilize network profile transmission</li>
+<li>all archives will be un-parked on worker nodes. So, you will be able to work with profiles from mapper or reducer's grid.</li>
+<li>-libjars: distribute files in JARs(Java Archive). You will not pay attention to this option at all, as this course is about Python development, not Java.</li>
+</ul>
+<h2 id="archives">Archives</h2>
+<ol type="1">
+<li>create two files - The text files will contain female and male names.</li>
+<li><p>create a tar archive with the following CLI comment. <img src="./dv6.png" width="200"></p></li>
+<li><p>execute the following MapReduce application <img src="./dc7.png" width="300"></p></li>
+</ol>
+<p>Python code:</p>
+<ul>
+<li><p>mapper.py <img src="./dc8.png" width="350"></p></li>
+<li><p>reducer.py <img src="./dc10.png" width="350"></p></li>
+</ul>
+<h1 id="environments-counters">Environments, Counters</h1>
+<p>You can get job configuration options through environment variables. When you launch MapReduce application, hadoop framework will assign splits of data to available workers. you can access this data from your scripts. <img src="./e1.png" width="350"> <img src="./e2.png" width="350"> You can also access task id within map, or reduce phase with the following environment variables. 1. get an absolute task id, and is usually available as a task name on job tracker ui. 2. access the relative order of the task within map or reduced pace. In this example, it would be 1 and 8. <img src="./e3.png" width="350"></p>
+<p><img src="./e4.png" width="350"></p>
+<p>In addition to the existing environment variables, you can provide your own: - Write a generic mapper for word cound problem - use regular expression to parse words. <img src="./e5.png" width="350"></p>
+<ul>
+<li>use -D flag to provide arbitrary environment variables</li>
+<li>Here, I provided a regular expression to parse words ending with numbers <img src="./e6.png" width="350"></li>
+</ul>
+<h2 id="communication">Communication</h2>
+<ol type="1">
+<li>Reading environment variables is a one-way communication between Hadoop MapReduce and scripts.</li>
+<li>A backward communication channel between framework--provide information about your task progress <img src="./e7.png" width="350"></li>
+</ol>
+<p>2 types of information: - status - provide an aribtrary message in status for each task execution - normally used to inform a user about the processing stage(startup, run, or cleanup) <img src="./e8.png" width="450"></p>
+<ul>
+<li><strong>counters</strong></li>
+<li>accumulate statstics of a map and the reduced executions</li>
+</ul>
+<p>In word count example, you can easily count the number of words, providing 1. a counter family name--&gt;group 2. a counter name 3. the value you'd like to add to the counter</p>
+<p><img src="./e9.png" width="350"> <img src="./e10.png" width="350"></p>
+<h1 id="testing">Testing</h1>
+<h2 id="unit-testing">Unit Testing</h2>
+<p>Python Testing Tools: Taxonomy, pytest</p>
+<h3 id="example-of-unit-testing">Example of unit testing</h3>
+<p><img src="./t1.png" width="450"></p>
+<p>Aim of testing: to validate your scripts in a reproducible environment as close as possible to the production of one.</p>
+<h2 id="integration-testing">Integration Testing</h2>
+<p>You can validate the whole pipeline with mapper and reducer, or independent mapper or reducer with the hand-crafted input. This type of testing is referred to as an integration testing, because you validate how our mappers and reducers scripts are integrated with Hadoop MapReduce streaming API.</p>
+<p><img src="./t2.png" width="350"></p>
+<p>Drawback: it will be working out of the box if your scripts rely on MapReduce job configuration options</p>
+<h2 id="system-testing">System Testing</h2>
+<p>System testing: execute the whole pipeline end to end</p>
+<p>Hadoop MapReduce framework provides an empty config which you can use for HDFS, MapReduce and the Yarn clients.</p>
+<blockquote>
+<p>see <em>locate</em> CLI to <em>find</em> a path to an empty config on your Hadoop installation.</p>
+</blockquote>
+<p><img src="./t3.png" width="350"></p>
+<p>If you provide a Hadoop empty config, then you execute the whole MapReduce application in a <strong>standalone mode</strong>. - an HDFS client points out to a local file system - a node manager is working on the same node - your streaming scripts will be able to communicate with MapReduce framework via environment variables. - You will be able to read configuration of variables and validate counters correctness.</p>
+<p><img src="./t4.png" width="350"></p>
+<h2 id="acceptance-testing">Acceptance Testing</h2>
+<ul>
+<li>Validation of your streaming scripts against a sample dataset to</li>
+<li>find bugs early without wasting your time and CPU cycles.</li>
+<li>Validation against big datasets and measuring performance or efficiency of your solution <img src="./t5.png" width="350"></li>
+</ul>
+<h1 id="summary">Summary</h1>
+<ul>
+<li>you know how to use Python unit testing</li>
+<li>you know how to emulate MapReduce locally with <code>(cat | map | sort | reduce)</code></li>
 <li>you know how to run MapReduce in a standalone mode ( <code>hadoop/conf.empty</code>)</li>
 <li>you know why you need to execute MapReduce against sample datasets</li>
 </ul>
@@ -958,7 +1060,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#streaming"><span class="nav-number">1.</span> <span class="nav-text">Streaming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-hadoop-streaming"><span class="nav-number">1.1.</span> <span class="nav-text">What is Hadoop Streaming?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cli-command"><span class="nav-number">1.2.</span> <span class="nav-text">CLI command</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#execute-the-map-phase"><span class="nav-number">1.2.1.</span> <span class="nav-text">Execute the map phase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#execute-the-reduce-phase"><span class="nav-number">1.2.2.</span> <span class="nav-text">Execute the reduce phase</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#streaming-in-python"><span class="nav-number">2.</span> <span class="nav-text">Streaming in Python</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wordcount-in-python"><span class="nav-number">3.</span> <span class="nav-text">WordCount in Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">3.1.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce"><span class="nav-number">3.2.</span> <span class="nav-text">Reduce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#code-snippet"><span class="nav-number">3.2.1.</span> <span class="nav-text">Code Snippet</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#distributed-cache"><span class="nav-number">4.</span> <span class="nav-text">Distributed Cache</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#streaming"><span class="nav-number">1.</span> <span class="nav-text">Streaming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-hadoop-streaming"><span class="nav-number">1.1.</span> <span class="nav-text">What is Hadoop Streaming?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cli-command"><span class="nav-number">1.2.</span> <span class="nav-text">CLI command</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#execute-the-map-phase"><span class="nav-number">1.2.1.</span> <span class="nav-text">Execute the map phase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#execute-the-reduce-phase"><span class="nav-number">1.2.2.</span> <span class="nav-text">Execute the reduce phase</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#streaming-in-python"><span class="nav-number">2.</span> <span class="nav-text">Streaming in Python</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wordcount-in-python"><span class="nav-number">3.</span> <span class="nav-text">WordCount in Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">3.1.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce"><span class="nav-number">3.2.</span> <span class="nav-text">Reduce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#code-snippet"><span class="nav-number">3.2.1.</span> <span class="nav-text">Code Snippet</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#distributed-cache"><span class="nav-number">4.</span> <span class="nav-text">Distributed Cache</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ways-to-distribute-files"><span class="nav-number">4.1.</span> <span class="nav-text">3 ways to distribute files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#archives"><span class="nav-number">4.2.</span> <span class="nav-text">Archives</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#environments-counters"><span class="nav-number">5.</span> <span class="nav-text">Environments, Counters</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#communication"><span class="nav-number">5.1.</span> <span class="nav-text">Communication</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#testing"><span class="nav-number">6.</span> <span class="nav-text">Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#unit-testing"><span class="nav-number">6.1.</span> <span class="nav-text">Unit Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example-of-unit-testing"><span class="nav-number">6.1.1.</span> <span class="nav-text">Example of unit testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#integration-testing"><span class="nav-number">6.2.</span> <span class="nav-text">Integration Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#system-testing"><span class="nav-number">6.3.</span> <span class="nav-text">System Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#acceptance-testing"><span class="nav-number">6.4.</span> <span class="nav-text">Acceptance Testing</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#summary"><span class="nav-number">7.</span> <span class="nav-text">Summary</span></a></li></ol></div>
             
 
           </div>
@@ -991,7 +1093,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">311k</span>
+    <span title="Symbols count total">309k</span>
   
 
   

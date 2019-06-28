@@ -137,7 +137,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc4.png">
-<meta property="og:updated_time" content="2019-06-28T00:01:07.749Z">
+<meta property="og:updated_time" content="2019-06-28T21:03:35.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache Spark: Advanced Topics">
 <meta name="twitter:description" content="This is course note of Big Data Essentials: HDFS, MapReduce and Spark RDD  Execution &amp;amp; Scheduling SparkContext - When creating a Spark application, the first thing you do is create a SparkContext">
@@ -441,12 +441,24 @@
                 
               
 
-              <time title="Created: 2019-06-27 18:09:33 / Modified: 19:01:07" itemprop="dateCreated datePublished" datetime="2019-06-27T18:09:33-05:00">2019-06-27</time>
+              <time title="Created: 2019-06-27 18:09:33" itemprop="dateCreated datePublished" datetime="2019-06-27T18:09:33-05:00">2019-06-27</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-28 16:03:35" itemprop="dateModified" datetime="2019-06-28T16:03:35-05:00">2019-06-28</time>
               
             
           </span>
@@ -532,7 +544,7 @@
 <h1 id="execution-scheduling">Execution &amp; Scheduling</h1>
 <p><strong>SparkContext</strong> - When creating a Spark application, the first thing you do is create a SparkContext object, which tells Sparks how to access a cluster. - The context, living in your driver program, coordinates sets of processes on the cluster to run your application.</p>
 <a id="more"></a>
-<p><img src="./exe1.png" width="400"></p>
+<p><img src="./exe1.png" width="600"></p>
 <ul>
 <li>The SparkContext object communicates the Cluster Manager to allocate executors.</li>
 <li>The Cluster Manager is an external service for acquiring resources on a cluster. For example, YARN, Mesos or a standalone Spark cluster.</li>
@@ -548,10 +560,10 @@
 <h3 id="example">Example</h3>
 <p>Z = X .map(lambda x: (x % 10, x / 10)) .reduceByKey(lambda x, y: x + y) .collect()</p>
 <ol type="1">
-<li><p>Whenever you invoke an action, the job gets spawned in the driver program. <img src="./exe2.png" width="400"></p></li>
-<li><p>Then the driver runs a job scheduler to divide the job into smaller stages. <img src="./exe3.png" width="400"></p></li>
+<li><p>Whenever you invoke an action, the job gets spawned in the driver program. <img src="./exe2.png" width="600"></p></li>
+<li><p>Then the driver runs a job scheduler to divide the job into smaller stages. <img src="./exe3.png" width="600"></p></li>
 <li>Then tasks are created for every job stage.</li>
-<li><p>tasks are delegated to the executors, which perform the actual work. <img src="./exe4.png" width="400"></p></li>
+<li><p>tasks are delegated to the executors, which perform the actual work. <img src="./exe4.png" width="600"></p></li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">All this machinery exists within the SparkContext object. It keeps track of the executors, it spawns jobs, and it runs the scheduler.</span><br></pre></td></tr></table></figure>
 <p><strong>Difference between job stage and task:</strong> - <strong>Job stage</strong> is a pipelined computation spanning between materialization boundaries - job stages are defined on RDD level, thus not immediately executable - <strong>Task</strong> is a job stage bound to particular partitions - bound to a particular partitions, thus immediately executable - <strong>Materialization</strong> happens when reading, shuffling or passing data to an action - narrow dependencies allow pipelining - wide dependencies forbid it</p>
@@ -582,11 +594,11 @@
 <blockquote>
 <p>Motivating example: load a wikipedia dump from HDFS and see how many articles there contain the words Spark</p>
 </blockquote>
-<p>You need to create the RDD, apply the filter transformation, and invoke the count action. <img src="./exe5.png" width="400"></p>
+<p>You need to create the RDD, apply the filter transformation, and invoke the count action. <img src="./exe5.png" width="600"></p>
 <blockquote>
 <p>Motivating example: among those articles with the Spark word, you would like to see how many of them contain the word, Hadoop and how many the word MapReduce.</p>
 </blockquote>
-<p><img src="./exe6.png" width="400"></p>
+<p><img src="./exe6.png" width="600"></p>
 <p><strong><em>Perform worse!</em></strong></p>
 <ul>
 <li><p>Reason: after completing the computation, Spark disposes intermediate data and those intermediate RDDs. That means, it will reload the Wikipedia dump two more times incurring extra input and output operations.</p></li>
@@ -595,7 +607,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cache the preloaded dump in the memory and reuse it until you end your session.</span><br></pre></td></tr></table></figure>
 <p>Spark allows you to hint which RDDs are better to be kept in memory or even on the disk. Spark does so by <strong><em>caching the blocks comprising your dataset. </em></strong></p>
 <h2 id="controlling-persistence-level">Controlling persistence level</h2>
-<figure class="highlight plain"><figcaption><span>mark the data set as cached by invoking a cache method on it</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> - The cache method is just a shortcut for the memory-only persistence. </span><br><span class="line"></span><br><span class="line">```persist```: allows you to set RDDs storage to persist across operations after the first time it is computed.</span><br><span class="line"> - parameterized by a storage level</span><br><span class="line">&lt;img src=&quot;./exe7.png&quot; width=&quot;400&quot; /&gt;</span><br><span class="line"></span><br><span class="line">## Best practices</span><br><span class="line"></span><br><span class="line">When running an **interactive shell**, cache your dataset after you&apos;ve done all the necessary preprocessing.</span><br><span class="line">- by keeping your work inside in the memory, you would get a more responsive experience. </span><br><span class="line"></span><br><span class="line">When running a **batch computation**, cache dictionaries that you join with your data. </span><br><span class="line">- Join dictionaries are often reshuffled, so it would be helpful to speed up their read times. </span><br><span class="line"></span><br><span class="line">When running an **iterative computation**, cache static data like dictionaries or input datasets</span><br><span class="line">- avoid reloading the data from the ground up on every iteration.</span><br><span class="line">- The static data tends to get evicted due to the memory pressure from the intermediate data.</span><br><span class="line"></span><br><span class="line">## Summary</span><br><span class="line">- Performance may be improved by persisting data across operations</span><br><span class="line"> - in interactive sessions, iterative computations and hot datasets</span><br><span class="line">- You can control the persistence of a dataset</span><br><span class="line"> - whether to store in the memory or on the disk</span><br><span class="line"> - how many replicas to create</span><br><span class="line"></span><br><span class="line"># Broadcast Variable </span><br><span class="line">**shared memory** is a powerful abstraction, but often misused.</span><br><span class="line">- It can make the developer&apos;s life easier</span><br><span class="line">- It can make the application performance deteriorate because of extra synchronization.</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">This is why in spark there are restricted forms of the shared memory.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>mark the data set as cached by invoking a cache method on it</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> - The cache method is just a shortcut for the memory-only persistence. </span><br><span class="line"></span><br><span class="line">```persist```: allows you to set RDDs storage to persist across operations after the first time it is computed.</span><br><span class="line"> - parameterized by a storage level</span><br><span class="line">&lt;img src=&quot;./exe7.png&quot; width=&quot;600&quot; /&gt;</span><br><span class="line"></span><br><span class="line">## Best practices</span><br><span class="line"></span><br><span class="line">When running an **interactive shell**, cache your dataset after you&apos;ve done all the necessary preprocessing.</span><br><span class="line">- by keeping your work inside in the memory, you would get a more responsive experience. </span><br><span class="line"></span><br><span class="line">When running a **batch computation**, cache dictionaries that you join with your data. </span><br><span class="line">- Join dictionaries are often reshuffled, so it would be helpful to speed up their read times. </span><br><span class="line"></span><br><span class="line">When running an **iterative computation**, cache static data like dictionaries or input datasets</span><br><span class="line">- avoid reloading the data from the ground up on every iteration.</span><br><span class="line">- The static data tends to get evicted due to the memory pressure from the intermediate data.</span><br><span class="line"></span><br><span class="line">## Summary</span><br><span class="line">- Performance may be improved by persisting data across operations</span><br><span class="line"> - in interactive sessions, iterative computations and hot datasets</span><br><span class="line">- You can control the persistence of a dataset</span><br><span class="line"> - whether to store in the memory or on the disk</span><br><span class="line"> - how many replicas to create</span><br><span class="line"></span><br><span class="line"># Broadcast Variable </span><br><span class="line">**shared memory** is a powerful abstraction, but often misused.</span><br><span class="line">- It can make the developer&apos;s life easier</span><br><span class="line">- It can make the application performance deteriorate because of extra synchronization.</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">This is why in spark there are restricted forms of the shared memory.</span><br></pre></td></tr></table></figure>
 <p><strong>Broadcast variable</strong> is a read-only variable that is efficiently shared among tasks</p>
 <p><strong>one to many communication:</strong> When it captures a variable into the closure, it is sent to an executor together with a task specification.</p>
 <p><strong>many to many communication protocol</strong>: torrent</p>
@@ -608,20 +620,21 @@
 <p>Motivating example: resolve IP addresses to countries from 1 terabyte access log for your website</p>
 </blockquote>
 <p>Idea: map-side join--distribute the database to every mapper and query it locally.</p>
-<p>Distributing the database via a broadcast variable, we take slightly more than 1 gigabyte of outgoing traffic at the driver node &lt;img src=&quot;./br1.png&quot; width=&quot;&quot;400&quot; /&gt;</p>
+<p>Distributing the database via a broadcast variable, we take slightly more than 1 gigabyte of outgoing traffic at the driver node</p>
+<p>&lt;img src=&quot;./br1.png&quot; width=&quot;&quot;600&quot; /&gt;</p>
 <blockquote>
 <p>Motivating example:</p>
 </blockquote>
 <ol type="1">
 <li>setup a transformation graph to compute a dictionary</li>
-<li>invoke the <figure class="highlight plain"><figcaption><span>action to load it into the driver's memory</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">3.  put it into the broadcast variable to use in further computations.</span><br><span class="line"></span><br><span class="line">Idea:  upload computations to spark executors and use the driver program as the coordinator.</span><br><span class="line">&lt;img src=&quot;./br2.png&quot; width=&quot;&quot;400&quot; /&gt;</span><br><span class="line"></span><br><span class="line">## Summary</span><br><span class="line"></span><br><span class="line">- Broadcast variables are read-only shared variables with effective sharing mechanism</span><br><span class="line">- Useful to share dictionaries, models</span><br><span class="line"></span><br><span class="line"># Accumulator Variable </span><br><span class="line"></span><br><span class="line">**Accumulator variable** is a read-write variable that is shared among tasks</span><br><span class="line">- Writes are restricted to increments!</span><br><span class="line"> - i. e.: var += delta</span><br><span class="line"> - addition may be replaced by any associate, commutative operation</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">Restricting the right operations allows the framework to avoid complex synchronization thus making the accumulators efficient.</span><br></pre></td></tr></table></figure></li>
+<li>invoke the <figure class="highlight plain"><figcaption><span>action to load it into the driver's memory</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">3.  put it into the broadcast variable to use in further computations.</span><br><span class="line"></span><br><span class="line">Idea:  upload computations to spark executors and use the driver program as the coordinator.</span><br><span class="line">&lt;img src=&quot;./br2.png&quot; width=&quot;&quot;600&quot; /&gt;</span><br><span class="line"></span><br><span class="line">## Summary</span><br><span class="line"></span><br><span class="line">- Broadcast variables are read-only shared variables with effective sharing mechanism</span><br><span class="line">- Useful to share dictionaries, models</span><br><span class="line"></span><br><span class="line"># Accumulator Variable </span><br><span class="line"></span><br><span class="line">**Accumulator variable** is a read-write variable that is shared among tasks</span><br><span class="line">- Writes are restricted to increments!</span><br><span class="line"> - i. e.: var += delta</span><br><span class="line"> - addition may be replaced by any associate, commutative operation</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">Restricting the right operations allows the framework to avoid complex synchronization thus making the accumulators efficient.</span><br></pre></td></tr></table></figure></li>
 </ol>
 <ul>
 <li>Accumulator variable could be read only by the <strong><em>driver</em></strong> program and not by the executors.</li>
 <li>cannot read the accumulated value from within a task</li>
 </ul>
 <h2 id="example-3">Example</h2>
-<p><img src="./acc1.png" width="400"> <img src="./acc2.png" width="200"> <img src="./acc3.png" width="200"> <img src="./acc4.png" width="200"></p>
+<p><img src="./acc1.png" width="600"> <img src="./acc2.png" width="200"> <img src="./acc3.png" width="200"> <img src="./acc4.png" width="200"></p>
 <h2 id="guarantees-on-the-updates">Guarantees on the updates</h2>
 <ul>
 <li>Updates generated in actions: guaranteed to be applied only once to the accumulator.</li>
@@ -1001,7 +1014,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">311k</span>
+    <span title="Symbols count total">309k</span>
   
 
   

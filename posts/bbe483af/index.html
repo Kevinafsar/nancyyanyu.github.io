@@ -152,7 +152,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/comp2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/comp3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/comp4.png">
-<meta property="og:updated_time" content="2019-06-28T20:58:08.136Z">
+<meta property="og:updated_time" content="2019-06-28T21:02:23.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop MapReduce Application Tuning">
 <meta name="twitter:description" content="This is course note of Big Data Essentials: HDFS, MapReduce and Spark RDD  The world of the efficient MapReduce is based on three whales. Combiner, Partitioner, and Comparator. Combiner To change the">
@@ -473,7 +473,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-28 15:58:08" itemprop="dateModified" datetime="2019-06-28T15:58:08-05:00">2019-06-28</time>
+                <time title="Modified: 2019-06-28 16:02:23" itemprop="dateModified" datetime="2019-06-28T16:02:23-05:00">2019-06-28</time>
               
             
           </span>
@@ -560,11 +560,11 @@
 <h1 id="combiner">Combiner</h1>
 <p>To change the usage of these IO operations and network bandwidth, you can use <strong>combiner</strong> to squash several items into one.</p>
 <a id="more"></a>
-<p><img src="./cb1.png" width="300"></p>
+<p><img src="./cb1.png" width="600"></p>
 <p>Combiner: - expects an input in the form of the reducer input and it has the same output signature as a mapper. - can be applied arbitrarily number of times between map and reduce phases. - A combiner should not change a type and format of a key and value</p>
-<p>&lt;img src=&quot;.width=&quot;/cb2.png&quot; width=&quot;350&quot; /&gt;</p>
+<p>&lt;img src=&quot;.width=&quot;/cb2.png&quot; width=&quot;600&quot; /&gt;</p>
 <p>In the word count application, there is no difference between the combiner and the reducer. So you can easily call it with the following arguments.</p>
-<p><img src="./cb3.png" width="300"></p>
+<p><img src="./cb3.png" width="600"></p>
 <h2 id="example-mean-value">Example: Mean Value</h2>
 <blockquote>
 <p>count how many times on average you see a word in an article</p>
@@ -572,17 +572,17 @@
 <ul>
 <li>Mapper.py: print a pair containing the number of articles processed and the cumulative amount of words</li>
 </ul>
-<p><img src="./cb4.png" width="300"></p>
+<p><img src="./cb4.png" width="600"></p>
 <ul>
 <li>Reducer: memorize not only the number of occurrences but also the number of articles.</li>
 </ul>
-<p>&lt;img src=&quot;.width=&quot;/cb5.png&quot; width=&quot;300&quot; /&gt;</p>
+<p>&lt;img src=&quot;.width=&quot;/cb5.png&quot; width=&quot;600&quot; /&gt;</p>
 <ul>
-<li>Combiner: It could help us to speed up calculations, for the whole MapReduce job, as you will use less IO resources <img src="./cb61.png" width="300"></li>
+<li>Combiner: It could help us to speed up calculations, for the whole MapReduce job, as you will use less IO resources <img src="./cb61.png" width="600"></li>
 </ul>
 <h2 id="example-median">Example: Median</h2>
 <p>you have to get the whole dataset in place. So, the combiner is out of help in this case.</p>
-<p>it's not always possible to speed up calculations with the combiner. <img src="./cb7.png" width="300"></p>
+<p>it's not always possible to speed up calculations with the combiner. <img src="./cb7.png" width="600"></p>
 <h1 id="partitioner">Partitioner</h1>
 <p>Partitioner is used to calculate a reducer index for each (key, value) pair</p>
 <p>Collocation 搭配字詞</p>
@@ -590,25 +590,25 @@
 <p>To find collocations of size two in a data sets, you need to count Bigrams.</p>
 </blockquote>
 <p><strong>Mapper:</strong> The following mapper will emit a sequence of bigrams followed aggregation during their use phase.</p>
-<p><img src="./pt1.png" width="300"></p>
+<p><img src="./pt1.png" width="600"></p>
 <p>Hadoop MapReduce frame work will distribute and sort data by the first word. Because everything before the first tab character is considered a key.</p>
-<p><strong>Reducer:</strong> To sort data by the second word, you can update reducer.py to count all bigrams for the first corresponding word in memory--&gt;memory consuming. <img src="./pt2.png" width="300"></p>
-<p>output of these MapReduce application which validates that New York bigram is a collocation <img src="./pt3.png" width="300"></p>
+<p><strong>Reducer:</strong> To sort data by the second word, you can update reducer.py to count all bigrams for the first corresponding word in memory--&gt;memory consuming. <img src="./pt2.png" width="600"></p>
+<p>output of these MapReduce application which validates that New York bigram is a collocation <img src="./pt3.png" width="600"></p>
 <p>In addition to the unnecessary memory consumption there would be uneven lot on the reducers.</p>
 <p>The benefit of MapReduce: it provides functionality to <strong>parallelized work.</strong></p>
-<p>e.g. In a default scenario you will have the far more lot on the reducer that will be busy processing this article <code>The</code>. But you have no need to send all of the bigrams starting with <code>The</code> to one reducer as you do calculations for each pair of words independently. <img src="./pt4.png" width="350"></p>
+<p>e.g. In a default scenario you will have the far more lot on the reducer that will be busy processing this article <code>The</code>. But you have no need to send all of the bigrams starting with <code>The</code> to one reducer as you do calculations for each pair of words independently. <img src="./pt4.png" width="600"></p>
 <p>** partitioner**: &gt; In this case you would like to split the line into key value pairs by the second tab character.</p>
-<p><img src="./pt5.png" width="350"></p>
+<p><img src="./pt5.png" width="600"></p>
 <ul>
 <li>complete this MapReduce job faster due to better parallelism.</li>
 <li>bigrams starting with any arbitrary word allocated in different files.</li>
 </ul>
 <h2 id="example-ipv4-network-addresses">Example: IPv4 network addresses</h2>
 <p>IPv4 address contains four numbers called Octets delimited by dots.</p>
-<p><img src="./pt6.png" width="350"></p>
+<p><img src="./pt6.png" width="600"></p>
 <p>You can specify what a delimiter is and set number of fields related to a key. MapReduce framework will substitute this particular delimiter between num and num+1 fields to a tab character without any changes in your streaming scripts.</p>
 <p>In this example, - I would like to split the output from the streaming mapper by the first dot. - And from the reducers stream and output, I substituted the next but one dot with a key value MapReduce delimiter, which is a tab character.</p>
-<p><img src="./pt7.png" width="350"></p>
+<p><img src="./pt7.png" width="600"></p>
 <blockquote>
 <p>To partition IPv4 addresses by the second character of a first octet</p>
 </blockquote>
@@ -616,7 +616,7 @@
 <li>specify the field index and the starting character index in the start position</li>
 <li>specify the field index and the character index in the end position.</li>
 </ul>
-<p><img src="./pt8.png" width="350"></p>
+<p><img src="./pt8.png" width="600"></p>
 <p>I have to set a special partitioner called KeyFieldBasedPartitioner.</p>
 <p><em>Bigger picture</em>: the whole pipeline of MapReduce application execution</p>
 <p><img src="./pt9.png" width="400"></p>
@@ -661,18 +661,18 @@
 <blockquote>
 <p>Data located in HDFS can be compressed. There is a shuffle and sort phase between map and the reduce where you can compress the <em>intermediate data.</em>--&gt;optimization</p>
 </blockquote>
-<p><img src="./comp1.png" width="350"></p>
+<p><img src="./comp1.png" width="600"></p>
 <ul>
 <li>Splittable column means that you can cut a file at any place and find the location for the next or the previous valid record.</li>
 <li>Native libraries that provide implementation of compression and decompression functionality, usually also support an option to choose a trade-off between speed or space optimization.</li>
 </ul>
 <p><strong>Pros &amp; Cons:</strong> - gzip file is a deflate file with extra headers and a footer. - bzip is more aggressive for space requirements, but consequently, it's slower during the compression. - lzo files can be used where you read data far more frequently than write. - You can provide index files for lzo files to make them splittable. - Snappy,even more faster decompression, but you will only be able to split this file records.</p>
 <p>A <strong>Hadoop codec</strong> is an implementation of a compression, decompression algorithm.</p>
-<p><img src="./comp2.png" width="350"></p>
+<p><img src="./comp2.png" width="600"></p>
 <p>You can specify the compression parameters for intermediate data for output or for both</p>
-<p><img src="./comp3.png" width="350"></p>
+<p><img src="./comp3.png" width="600"></p>
 <p><strong>Rules of thumb</strong>: 1. <em>gzip</em> or <em>bzip</em> are a good choice for <strong>cold data</strong>, which is accessed infrequently. 2. <em>bzip</em> produce more compression than <em>gzip</em> for some kinds of files at the cost of some speed when compressing and decompressing. 3. <em>Snappy</em> or <em>lzo</em> are a better choice for <strong>hot data</strong>, which is accessed frequently. 4. <em>Snappy</em> often performs better than <em>lzo</em>. 5. For MapReduce, we can use bzip and lzo formats, if you would like to have your data splittable. 6. <em>Snappy</em> and <em>gzip</em> formats are not splittable at file level compression. But you can use block level compression and splittable container formats such as <em>Avro</em> or <em>SequenceFile</em>--&gt; process the blocks in parallel using MapReduce</p>
-<p><img src="./comp4.png" width="350"></p>
+<p><img src="./comp4.png" width="600"></p>
 
       
     </div>
@@ -1014,7 +1014,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">311k</span>
+    <span title="Symbols count total">309k</span>
   
 
   
