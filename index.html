@@ -428,7 +428,7 @@
                 
               
 
-              <time title="Created: 2019-06-27 18:15:02 / Modified: 19:12:09" itemprop="dateCreated datePublished" datetime="2019-06-27T18:15:02-05:00">2019-06-27</time>
+              <time title="Created: 2019-06-27 18:15:02 / Modified: 19:30:35" itemprop="dateCreated datePublished" datetime="2019-06-27T18:15:02-05:00">2019-06-27</time>
             
 
             
@@ -479,7 +479,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">8.3k</span>
+                <span title="Symbols count in article">8.4k</span>
               
 
               
@@ -514,154 +514,21 @@
 
       
         
-          
-            <h1 id="unreliable-components">Unreliable Components</h1>
+          <blockquote>
+<p>This is course note of <a href="https://www.coursera.org/learn/big-data-essentials" target="_blank" rel="noopener">Big Data Essentials: HDFS, MapReduce and Spark RDD</a></p>
+</blockquote>
+<h1 id="unreliable-components">Unreliable Components</h1>
 <p>3 different unreliable components in distributed systemsnodes: nodes, links and clock. Distributed computational systems: - built from unreliable components - Cluster nodes can break any time because of power supply, disk damages, overheated CPUs, and so on</p>
 <p>3 different unreliable components in distributed systemsnodes: nodes, links and clock.</p>
-<h2 id="nodes">Nodes</h2>
-<p><strong>3 types of node failures:</strong></p>
-<ul>
-<li><strong>Fail-Stop</strong>: if machines get out of service during a computation then you have to have an external impact to bring system back to a working state. &gt; A system administrator should either</li>
-<li>fix the node and reboot the whole system or part of it. Or <img src="./week2_0.png" width="200"></li>
-<li>retire the broken machine and reconfigure the distributed system</li>
-</ul>
-<p><img src="./week2_1.png" width="200"></p>
-<ul>
-<li><strong>Fail-Recovery</strong>: during computations, notes can arbitrarily crash and return back to servers.</li>
-<li>doesn't influence correctness and success of computations</li>
-<li>no external impact necessary to reconfiguring the system at such events. &gt; if a hard drive was damaged, then a system administrator can physically change the hard drive.After reconnection, this node will be automatically picked up by a distributed system. And it will even be able to participate in current computations.</li>
-</ul>
-<p><img src="./week2_2.png" width="200"></p>
-<ul>
-<li><strong>Byzantine</strong>: A distributed system is robust Byzantine failures if it can correctly work despite some of the nodes behaving out of protocol. <img src="./week2_3.png" width="200"></li>
-</ul>
-<blockquote>
-<p>If you are developing a financial system, then you are likely required to deal with these types of failures to protect your customers and your business.</p>
-</blockquote>
-<h2 id="links">Links</h2>
-<p><strong>3 types of links:</strong></p>
-<ul>
-<li><p>perfect: all the sent messages must be delivered and received without any modification into the same portal. <img src="./week2_4.png" width="200"></p></li>
-<li><p>fail-loss: some part of the messages can be lost but the probability of message loss does not depend on contents of a message.</p></li>
-</ul>
-<blockquote>
-<p>the well-known TCP/IP protocol tries to solve this problem by re-transmitting messages if they were not received.</p>
-</blockquote>
-<p><img src="./week2_5.png" width="350"> - byzantine: some messages can be filtered according to some rule, some messages can be modified, and some messages could be created out of nowhere</p>
-<h2 id="clocks">Clocks</h2>
-<p><strong>clock synchronization problem: </strong></p>
-<ul>
-<li>clock skew: the time can be different on different machines</li>
-<li>clock drift: there can be a different clock rate <img src="./week2_6.png" width="300"></li>
-</ul>
-<p><strong>Logical clocks</strong> help to track happened before events and therefore, order events to build reliable protocols.</p>
-<h2 id="asynchronous-systems">[A]synchronous systems</h2>
-<p>Systems can be divided into synchronous and asynchronous.</p>
-<p><strong>synchronous</strong>: - every network packet should be delivered within a limited time bound. - Clock drift is limited in size - each CPU instruction is also limited in time.</p>
-<h3 id="examples-of-different-distributed-systems">Examples of different distributed systems</h3>
-<ol type="1">
-<li>fail-stop, perfect link, and synchronous model</li>
-</ol>
-<blockquote>
-<p>A parallel computational model and widely adopted by supercomputers where many processors connected by a local high speed computer bus.</p>
-</blockquote>
-<ol start="2" type="1">
-<li><p>fail-recovery, fair-loss link, and asynchronous model (this course focus)</p></li>
-<li><p>byzantine-failure, byzantine link, and asynchronous model</p></li>
-</ol>
-<blockquote>
-<p>computational components spread across the globe of unreliable and untrusted network connections. The common representative of this model is grid computing.</p>
-</blockquote>
-<h1 id="mapreduce">MapReduce</h1>
-<p>There are two phases during computation, map and reduce:</p>
-<p><strong>map</strong>:apply the same function to each element of your collection. <img src="./week2_8.png" width="200"></p>
-<p><strong>reduce</strong>:Reduce operator causes a sequence of elements by applying the following procedure iteratively. - As soon as you have more than one element in the sequence, then you get the first two and combine them to one element by applying the provided function. - Reduce function computes the value from left to right. &gt;Be careful about reducing functions that are not associative.</p>
-<p><img src="./week2_9.png" width="200"></p>
-<p><strong>MapReduce</strong>:the class of problems that you can solve with arbitrary map and reduce functions is quite big. <img src="./week2_10.png" width="200"></p>
-<h1 id="distributed-shell">Distributed Shell</h1>
-<ul>
-<li>run a distributed <strong>grep</strong> as a MapReduce job. <img src="./week2_12.png" width="270"></li>
-<li>Map will be equivalent to grep</li>
-<li>Reduce will be None.</li>
-</ul>
-<p>In MapReduce applications, you don't always need map or reduce function.</p>
-<ul>
-<li><p>run a distributed <strong>head</strong> as a MapReduce job. <img src="./week2_13.png" width="270"> You can just retrieve the necessary data with HDFS client. To get these data with MapReduce job, get actual information such as, block index and size in lines on map phase to complete the task correctly --&gt; <strong>head and tweaks</strong>.</p></li>
-<li>run a distributed <strong>wc</strong> as a MapReduce job. <img src="./week2_14.png" width="270"></li>
-<li>The output from the map will be a tuple of the size 3: number of lines, words, and bytes.</li>
-<li><p>Sum the items by components, so the reduced function will be an extended add operator.</p></li>
-</ul>
-<h2 id="wordcound-example">WordCound Example</h2>
-<p><em>find the most popular words in the Wikipedia with MapReduce</em></p>
-<ol type="1">
-<li>count how many times each word appear in a data set &gt; wikipedia.dump | tr ' ' '' | sort | uniq -c</li>
-</ol>
-<p>Map--&gt;Shuffle&amp;Sort--&gt;Reduce - Map: the text is split in two words - tr - Shuffle&amp;Sort: words are distributed to a reduce phase in a way that reduce functions can be executed independently on different machines - sort - Reduce: uniq</p>
-<p><img src="./mr2.png" width="370"> <strong>external sorting</strong>:If the data is sorted, and can be read as a stream, then uniq-c will be working correctly. To make data sorted, you only need to have enough disk space. The algorithm for this is called, external sorting.</p>
-<p>All input and output of map and reduce functions should be a key value pair.</p>
-<p><strong>MapReduce Formal Model</strong>:</p>
-<p>map: (key, value) → (key, value)</p>
-<p>reduce: (key, value) → (key, value)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat -n wikipedia.dump | tr <span class="string">' '</span> <span class="string">'\n'</span>| sort | uniq -c</span><br></pre></td></tr></table></figure>
-<ul>
-<li>read data and get pairs with a line number, and line content.</li>
-</ul>
-<blockquote>
-<p>cat -n wikipedia.dump: [(line_no, line), …]</p>
-</blockquote>
-<ul>
-<li><p>on a map phase,you ignore line numbers and split lines into words. &gt; tr ' ' '': (-, line) —&gt; [ (word, 1), … ]</p></li>
-<li><p>You can add value one to each output it worked. So, it means that you have seen this word once by reading a line from left to right.</p></li>
-<li><p>a shuffle and sort phase where you spread the words by the hashes.So, you can process them on independent reducers. &gt; sort: Shuffle &amp; Sort</p></li>
-<li><p>count how many figures of 1 you have for each word, and sum them up to get an answer. &gt; uniq -c: (word, [1, …]) —&gt; (word, count)</p></li>
-</ul>
-<p><img src="./mr4.png" width="370"></p>
-<p><strong>3 types of key value pairs</strong>: - Key value pairs for the input data <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat -n wikipedia.dump: [(line_no, line), …]</span><br><span class="line"><span class="built_in">read</span>: [(k_in, v_in), …]</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>key value pairs for the intermediate data <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tr ‘ ‘ ‘\n’: (-, line) —&gt; [ (word, 1), … ]</span><br><span class="line">map: (k_in, v_in) —&gt; [(k_interm, v_interm), …]</span><br></pre></td></tr></table></figure></p></li>
-<li><p>key value pairs for the output data <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Shuffle &amp; Sort: sort and group by k_interm</span><br><span class="line">uniq -c: (word, [1, …]) —&gt; (word, count)</span><br><span class="line">reduce: (k_interm, [(v_interm, …)] ) —&gt; [(k_out, v_out), …]</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-<p><img src="./mr6.png" width="370"></p>
-<h2 id="fault-tolerence">Fault Tolerence</h2>
-<p>In a distributed file system, you store information with duplication in order to overcome node failures. MapReduce framework should also provide robustness against node failures during the job execution.</p>
-<p>In a MapReduce job, you will have: 1. Master program: control the execution <img src="./ft1.png" width="370"></p>
-<ol start="2" type="1">
-<li><p>Master program will launch mappers to process input blocks or splits of data. <img src="./ft2.png" width="370"></p></li>
-<li><p>To overcome the issues of correction execution mappers, there is no harm in re-executing mapper against the same data because you expect map function to be deterministic. As soon as you work on top of HDFS, you have a replica of this data on other nodes. So, you could assign another worker to a execute mapper against these data, and application master will do all this magic for you. <img src="./ft3.png" width="370"></p></li>
-<li><p>If a worker running reducer dies, you can shuffle and sort data for this particular reducer to another worker. <img src="./ft4.png" width="370"></p></li>
-<li><p>Shuffled and sorted data are stored on local disks instead of the distributed file system <img src="./ft5.png" width="370"></p></li>
-</ol>
-<blockquote>
-<p><em>You only need to provide deterministic map and reduce function</em></p>
-</blockquote>
-<h2 id="hadoop-mapreduce-framework">Hadoop MapReduce framework</h2>
-<p><strong>Job</strong> One MapReduce application is a job.</p>
-<p><strong>Task</strong> a task can be either mapper or reducer.</p>
-<h3 id="first-version">First version</h3>
-<p><img src="./ft7.png" width="370"></p>
-<ul>
-<li>JobTracker: one global JobTracker to direct execution of MapReduce jobs.</li>
-<li>located on one high-cost and high-performance node with HDFS namenode.</li>
-<li>a single point failure</li>
-<li>TaskTrackers</li>
-<li>located once per every node where you store data, or where datanode daemon is working</li>
-<li>spawns workers from mapper or reducer</li>
-</ul>
-<h3 id="yarn">YARN</h3>
-<blockquote>
-<p>Yet Another Resource Negotiation</p>
-</blockquote>
-<p><img src="./ft8.png" width="370"></p>
-<ul>
-<li>TaskTracker is subtituted by NodeManagers who can provide a layer of CPU and RAM containers.</li>
-<li>ResourceManager overseas NodeManagers, and client request resources for execution</li>
-<li>MapReduce applications can work on top of this resource layer.</li>
-<li>There is no concept such as a global JobTracker because application master can start on any node.</li>
-<li>All of these enable Hadoop to share resources dynamically between MapReduce and other parallel processing frameworks.</li>
-</ul>
-<p><img src="./mrf.png" width="370"></p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/df5ae10a/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1514,7 +1381,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/2a71b2a0/">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/49a14c15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Nancy Yan">
@@ -1534,7 +1401,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/posts/2a71b2a0/" class="post-title-link" itemprop="url">DFS,HDFS,Architecture,Scaling problem</a>
+                <a href="/posts/49a14c15/" class="post-title-link" itemprop="url">DFS, HDFS, Architecture, Scaling problem</a>
               
             
           </h1>
@@ -1559,7 +1426,7 @@
                 
               
 
-              <time title="Created: 2019-06-27 18:04:59 / Modified: 19:14:04" itemprop="dateCreated datePublished" datetime="2019-06-27T18:04:59-05:00">2019-06-27</time>
+              <time title="Created: 2019-06-27 18:04:59 / Modified: 19:29:46" itemprop="dateCreated datePublished" datetime="2019-06-27T18:04:59-05:00">2019-06-27</time>
             
 
             
@@ -1645,8 +1512,9 @@
 
       
         
-          
-            <h1 id="section"></h1>
+          <blockquote>
+<p>This is course note of <a href="https://www.coursera.org/learn/big-data-essentials" target="_blank" rel="noopener">Big Data Essentials: HDFS, MapReduce and Spark RDD</a></p>
+</blockquote>
 <h1 id="scaling-dfs">Scaling DFS</h1>
 <h2 id="big-data-storage">Big data storage:</h2>
 <ul>
@@ -1656,259 +1524,16 @@
 <li>Higher latency</li>
 <li>Problem: one node get out of service 3 years averagely</li>
 </ul>
-<p>-&gt; Distributed file system <img src="./images/week_1.png" width="400"></p>
-<h2 id="google-file-system">Google File System:</h2>
-<p><strong>Keys:</strong> - components failures are a norm (→ replication) - even space utilisation: all files splited into blocks of fixed size, about 100mb - write-once-read-many: it's not allowed to modify in the middle, as it drastically simplifies API and internal implementation of a distributed file system.</p>
-<p><strong>Replication:</strong> <img src="./images/week_2.png" width="400"> &gt; S.txt and B.txt. They are both split into equal sized blocks, and then distributed over a different machine, with replications. Storage machines are called <em>channel servers</em>, or <em>data nodes</em>.</p>
-<p><strong>Metadata:</strong> include administrative information about creation time, access properties...</p>
-<p><strong>Master node:</strong> stores all metadata in memory; enable to request metadata with minimal latency</p>
-<h2 id="hadoop-distributed-file-system">Hadoop Distributed File System</h2>
-<blockquote>
-<p>an open source implementation of Google File System</p>
-</blockquote>
-<p><strong>Server roles</strong>: 1. Namenode: master node 2. Datanode</p>
-<p><img src="./images/week_3.png" width="500"></p>
-<p>HDFS client provides command line interface to communicate with that distributed file system -&gt;no need to write any code to access data.</p>
-<h3 id="how-to-read-files-from-hdfs">How to read files from HDFS?</h3>
-<p><img src="./images/week_4.png" width="400"></p>
-<ol type="1">
-<li><p>Request name node to get information about file blocks' locations. &gt;These blocks are distributed over different machines, but all of this complexity is hidden behind HDFS API.</p></li>
-<li><p>User only sees a continuous stream of data. &gt;If at some point a datanode you retrieve data from died you get this data from another replica without bothering users about it.</p></li>
-<li><p>You will get data from the closest machine.</p></li>
-</ol>
-<h4 id="closeness">Closeness</h4>
-<blockquote>
-<p>data center topology; it depends on the physical distance and unpredictable system load such as metric overutilization</p>
-</blockquote>
-<p><img src="./images/week_5.png" width="400"></p>
-<ul>
-<li>d=0: request data from HDFS, and this data is available on the same machine, then you can use data locality to read data directly from hard drive without any extra RPC codes.</li>
-<li>d=2: a datanode is located in the same rack</li>
-<li>d=4: read data from another rack</li>
-<li>d=6: the data is allocated in another data center</li>
-</ul>
-<h3 id="how-to-write-files-into-hdfs">How to write files into HDFS?</h3>
-<h4 id="redundancy-model">Redundancy model:</h4>
-<blockquote>
-<p>When you write a block of data into HDFS, Hadoop distributes replicas over the storage.</p>
-</blockquote>
-<p><strong>first replica</strong>: located on the same node if write data from a DataNode machin; otw, the first DataNode to put replica is chosen by random.</p>
-<p><strong>second replica</strong>: placed in a different rack. If this racks goes down (power supply problems), you will access data from another rack.</p>
-<p><strong>third replica</strong>: located on a different machine in the same rack as the second replica. You don't pay for extra between rack network utilization as the third replica is copied from the second data node.</p>
-<p><strong>further replicas</strong>: applies on the random nodes in the cluster</p>
-<p><img src="./images/week_6.png" width="150"></p>
-<h4 id="data-flow-of-writing-data">Data flow of writing data</h4>
-<p><img src="./images/week_7.png" width="500"></p>
-<ol type="1">
-<li><p>HDFS client request and name node via RPC protocol. &gt; The name node validates if you have rights to create a file and there are no naming conflicts.</p></li>
-<li><p>HDFS client requests a list of datanodes to put a fraction of blocks of the file. &gt; These datanodes form a pipeline as your first client sends packets of data to the closest datanode. The later one transfers copies of packets through a datanode pipeline. As soon as packet is on all of the datanodes, datanodes send acknowledgment packets back.</p></li>
-</ol>
-<p><strong>If something goes wrong</strong> - then if the client closes the datanode pipeline, marks the misbehaving datanode bad and requests a replacement for the bad datanodes from a name node. So a new data node pipeline will be organized, and the process of writing the file to HDFS will continue.</p>
-<h4 id="what-happens-with-failure-blocks">What happens with failure blocks?</h4>
-<p><img src="./images/week_8.png" width="400"> Datanode serves a state machine for each block. Whenever a datanode recovers from its own failure, or failures of other datanodes in a pipeline, you can be sure that all the necessary replicas will be recovered. And unnecessary ones will be removed.</p>
-<h1 id="block-and-replica-states">Block and Replica States</h1>
-<p><strong>Replica</strong> : a physical data storage on a data node.There are usually several replicas with the same content on different data nodes.</p>
-<p><strong>Block</strong>: a meta-information storage on a name node and provides information about replica's locations and their states.</p>
-<p>Both replica and block have their own states. <img src="./images/week_9.png" width="250"></p>
-<p><strong>Data node replica's states</strong>: Finalized, Replica Being Written to, Replica Under Recovery, Replica Waiting to be Recovered, Temporary</p>
-<p><strong>Name node replica's states</strong>:</p>
-<p><strong>Difference of Datanode &amp; Namenode</strong>: a block state is stored in memory, it doesn't persist on any disk.</p>
-<h2 id="datanode-state-finalized">Datanode State: Finalized</h2>
-<p><img src="./images/week_11.png" width="450"></p>
-<p><strong>Finalized state</strong>: the content of this replica is frozen - Meaning: meta-information for this block on name node is aligned with all the corresponding replica's states and data.</p>
-<ul>
-<li><p><strong>Read consistency</strong>: you can safely read data from any data node and you will get exactly the same content.</p></li>
-<li><strong>Generation Stamp(GS)</strong>: Each block of data has a version number called Generation Stamp. All of finalized replicas have the same GS number which can only increase over time. <img src="./images/week_10.png" width="300"></li>
-<li><p>It happens during error <em>recovery process</em> or during <em>data appending to a block</em>.</p></li>
-</ul>
-<h2 id="datanode-state-replica-being-written">Datanode State: Replica Being Written</h2>
-<p><img src="./images/week_12.png" width="450"></p>
-<p><strong>RBW</strong>:the state of the last block of an open file or a file which was reopened for appending.</p>
-<ul>
-<li>Different data nodes can return to use a different set of bytes. In short, bytes that are acknowledged by the downstream data nodes in a pipeline are visible for a reader of this replica.</li>
-<li>Data node on disk data and name node meta-information may not match during this state.</li>
-<li><strong>Data Durability</strong>: In case of any failure data node will try to preserve as many bytes as possible.</li>
-</ul>
-<h2 id="datanode-state-replica-waiting-to-be-recovered">Datanode State: Replica Waiting to be Recovered</h2>
-<p><img src="./images/week_13.png" width="450"></p>
-<p><strong>RWR</strong>: a state of all Being Written replicas after data node failure and recovery after a system reboot or after Pacer.sys or BSOD,</p>
-<ul>
-<li>RWR replicas will not be in any data node pipeline and therefore will not receive any new data packets.</li>
-<li>RWR either become <strong><em>outdated and should be discarded</em></strong>, or they will participate in a special recovery process called a <strong><em>lease recovery</em></strong> if the client also dies.</li>
-</ul>
-<p>HDFS client requests a <em>lease</em> from a name node to have an exclusive access to write or append data to a file. In case of HDFS client lease expiration, replica transition to a RUR state.</p>
-<h2 id="datanode-state-replica-under-recovery">Datanode State: Replica Under Recovery</h2>
-<p><img src="./images/week_14.png" width="450"></p>
-<p><strong>RUR</strong> (Replica Under Recovery): HDFS client requests a <strong><em>lease</em></strong> from a name node to have an exclusive access to write or append data to a file. In case of HDFS client <strong><em>lease expiration</em></strong>(usually happens during the client's site failure), replica transition to a RUR state.</p>
-<h2 id="datanode-state-temporary">Datanode State: Temporary</h2>
-<p><img src="./images/week_15.png" width="450"></p>
-<p><strong>Temporary</strong>: As data grows and different nodes are added or removed from a cluster, data can become unevenly distributed over the cluster nodes. A Hadoop administrator can spawn a process of data re-balancing or a data engineer can request increasing of the replication factor of data for the sake of durability. In these cases new generated replicas will be in a state called temporary.</p>
-<ul>
-<li>Similar to RBW except the fact that this data is not visible to user unless finalized.</li>
-<li>In case of failure, the whole chunk of data is removed without any intermediate recovery state.</li>
-</ul>
-<h2 id="namenode-state-under-construction">Namenode State: Under Construction</h2>
-<p><img src="./images/week_16.png" width="450"></p>
-<p><strong>Under Construction</strong>: opens a file for writing, name node creates the corresponding block with the <em>under_construction</em> state; opens a file for append name node also transition this block to the state <em>under_construction</em>.</p>
-<ul>
-<li>always the last block of a file</li>
-<li>it's length and generation stamp are mutable</li>
-</ul>
-<h2 id="namenode-state-under-recovery">Namenode State: Under Recovery</h2>
-<p><img src="./images/week_17.png" width="450"></p>
-<p>Name node block keeps track of write pipeline. It means that it contains information about all RBW and RWR replicas. Replicas transitions from RWR to recovery RUR state when the client dies. Even more generally it happens when a client's lease expires. Consequently, the corresponding block transitions from under_construction to under_recovery state. <img src="./images/week_18.png" width="450"></p>
-<h2 id="namenode-state-committed">Namenode State: Committed</h2>
-<p><img src="./images/week_19.png" width="450"> The under_construction block transitions to a committed state when a client successfully requests name node to close a file or to create a new consecutive block of data.</p>
-<p>The committed state means that there are already some finalized replicas but not all of them. For this reason in order to serve a read request, the committed block needs to keep track of RBW replicas, until all the replicas are transitioned to the finalized state and HDFS client will be able to close the file.</p>
-<h2 id="namenode-state-final-complete">Namenode State: Final Complete</h2>
-<p><img src="./images/week_20.png" width="500"></p>
-<p><strong>Final complete state</strong> of a block: a state where all the replicas are in the finalized state and therefore they have identical visible length and generation stamps.</p>
-<ul>
-<li>Only when all the blocks of a file are complete the file can be closed.</li>
-</ul>
-<h2 id="namenode-state-open-file">Namenode State: Open File</h2>
-<p><strong>Open File state</strong>: In case of name node restart, it has to restore the open file state. All the blocks of the un-closed file are loaded as complete except the last block which is loaded as under_construction.</p>
-<p>Then recovery procedures will start to work.</p>
-<p><strong>Recovery</strong>: replica recovery, block recovery, lease recovery, and pipeline recovery.</p>
-<h1 id="recovery-process">Recovery Process</h1>
-<h2 id="block-recovery">Block Recovery</h2>
-<p><strong>Goal</strong>: NameNode has to ensure that all of the corresponding replicas of a block will transition to a common state logically and physically.</p>
-<p><strong>physically</strong>: all the correspondent replicas should have the same on disk content.</p>
-<p>To accomplish it,</p>
-<ol type="1">
-<li><p><strong>primary datanode(PD)</strong>: NameNode chooses a primary datanode called PD in a design document. PD should contain a replica for the target block. <img src="./images/week_21.png" width="400"></p></li>
-<li><p>PD request from a NameNode, a new generation stamp, information and location of other replicas for recovery process.</p></li>
-</ol>
-<p><img src="./images/week_22.png" width="400"></p>
-<ol start="3" type="1">
-<li>PD connects each relevant DataNodes to participate in the <strong>replica recovery process</strong>.During this phase, all the necessary information or data is propagated through the pipeline.</li>
-</ol>
-<p><strong>Replica recover process</strong> includes: - Aborting active clients right into a replica. - Aborting the previous replica of block recovery process, and participating in final replica size agreement process. <img src="./images/week_23.png" width="400"></p>
-<ol start="4" type="1">
-<li>As the last step, PD notifies NameNode about the result, success or failure. In case of failure, NameNode could retry block recovery process. <img src="./images/week_24.png" width="400"></li>
-</ol>
-<h2 id="lease-recovery">Lease Recovery</h2>
-<blockquote>
-<p>Block recovery process could happen only as a part of the lease recovery process.</p>
-</blockquote>
-<p>Lease manager manages all the leases at the NameNode. HDFS clients request at least every time they would like to write, or append to a file. <img src="./images/week_25.png" width="400"></p>
-<h3 id="conditions-of-starting-lease-recovery-process">Conditions of starting lease recovery process</h3>
-<p>Lease manager maintains a soft and a hard limit. If a current lease holder doesn't renew his lease during the soft limit timeout, then another client will be able to take over this lease. In this case and in the case of reaching a hard limit, the process of lease recovery will begin. <img src="./images/week_26.png" width="400"> <img src="./images/week_28.png" width="400"></p>
-<p><strong>Necessity:</strong> to close open files for the sake of the client.</p>
-<p><strong>Gurantees to be reached</strong>:</p>
-<ul>
-<li><p><strong>concurrency control</strong>: Even if a client is still alive, it won't be able to write data to a file</p></li>
-<li><p><strong>consistency guarantee</strong>: All replicas should draw back to a consistence state to have the same on-disk data and generation stamp.</p></li>
-</ul>
-<p><img src="./images/week_29.png" width="400"></p>
-<h3 id="lease-recovery-process">Lease recovery process</h3>
-<p><img src="./images/week_30.png" width="400"></p>
-<ol type="1">
-<li>Lease recovery starts with a <strong>lease renew</strong>.</li>
-</ol>
-<p>New files lease holder should have the ability to take ownership of any other user's lease. The name of the super user is DFS. Therefore, all the other client request such as get new generation stamp, get new block, close file from other clients to this pass will be rejected.</p>
-<ol start="2" type="1">
-<li><p>NameNode gets the lease of DataNodes which contains the last block of a file, and sends a primary DataNode and starts a block recovery process. <img src="./images/week_30.png" width="400"></p></li>
-<li><p>As soon as block recovery process finishes, the NameNode is notified by PD about the outcome. Updates blocking for, and removes the lease for a file.</p></li>
-</ol>
-<p><img src="./images/week_31.png" width="400"></p>
-<h2 id="pipeline-recovery">Pipeline Recovery</h2>
-<h3 id="pipeline">Pipeline</h3>
-<p>When you write to an HDFS file, HDFS client writes data block by block. Each block is constructed through a <strong>write pipeline</strong>, as the first client breaks down block into pieces called <strong>packets</strong>. These packets are propagated to the DataNodes through the pipeline.</p>
-<blockquote>
-<p>Three stages: Pipeline setup, data streaming, and close</p>
-</blockquote>
-<ul>
-<li>bold lines: data packets</li>
-<li>doted lines: acknowledge messages</li>
-<li>regular lines: control messages.</li>
-</ul>
-<p><img src="./images/week_32.png" width="400"></p>
-<h4 id="setup">Setup</h4>
-<p>a clients sends a setup message down to the pipeline. Each DataNode opens a replica for writing and sends ack message back upstream with the pipeline. <img src="./images/week_33.png" width="400"></p>
-<h4 id="data-streaming">Data streaming</h4>
-<p>Data streaming stage is defined by time range from t1 to t2, where t1 is the time when a client to receives the acknowledgement message for the top stage. And t2 is the time when the client receives the acknowledgement message for all the block packets. <img src="./images/week_34.png" width="400"></p>
-<ul>
-<li><p>data is buffered on the client site to form a packet, then propagated through the DataNode pipeline.</p></li>
-<li><p>Next packet can be sent even before the acknowledgment of the previous packet is received.</p></li>
-</ul>
-<p><strong>flush</strong>: synchronous packets and used as synchronization points for the DataNode right.</p>
-<p><img src="./images/week_35.png" width="400"></p>
-<h4 id="close">Close</h4>
-<p>Finalize replicas and shut down the pipeline.</p>
-<p><img src="./images/week_36.png" width="400"></p>
-<ul>
-<li>All of the DataNodes in the pipeline change the replica state to the finalized.</li>
-<li>Report the state to a NameNode and send the acknowledgement message upstream.</li>
-</ul>
-<h3 id="pipeline-recovery-process">Pipeline recovery process</h3>
-<p>Pipeline recovery can be initiated during each of these stages.</p>
-<h4 id="setup-failure">Setup failure</h4>
-<p>A failure happens during writing to a new file, abandon DataNode pipeline and request a new one from scratch <img src="./images/week_37.png" width="400"></p>
-<p>In this case, some packets can be resent but they will not be extra disk IO overhead for DataNodes that already saved this packet on disk. Once the client detects a failure during close stage, it rebuilds a pipeline with good DataNodes. Bumps generation stamp and requests to finalize replicas.</p>
-<h4 id="data-streaming-failure">Data streaming failure</h4>
-<p>If DataNode is not able to continue process packets appropriately,then it allots the DataNode pipeline about it, by closing all the connections.</p>
-<p>When HDFS client detects a fire, it stops sending new packets to the existing pipeline, request a new generation stamp from a NameNode, and rebuilds a pipeline from good DataNodes. &gt; In this case, some packets can be resent but there will not be extra disk IO overhead for DataNodes that already saved this packet on disk.</p>
-<p>All DataNodes keep track of bytes received, bytes written to a disk and bytes acknowledged. <img src="./images/week_38.png" width="400"></p>
-<h4 id="close-failure">Close failure</h4>
-<p>Once the client detects a failure during close stage, it rebuilds a pipeline with good DataNodes. Bumps generation stamp and requests to finalize replicas. <img src="./images/week_39.png" width="400"></p>
-<h1 id="hdfs-client">HDFS Client</h1>
-<h1 id="namenode-architecture">Namenode Architecture</h1>
-<p><strong>NameNode</strong>: a service responsible for keeping hierarchy of folders and files.</p>
-<ul>
-<li>NameNode stores all of this data in memory.</li>
-</ul>
-<p><img src="./images/week40.png" width="300"></p>
-<h2 id="capacity">Capacity</h2>
-<p>For example: 10 petabytes of data.</p>
-<p><strong>Capacity for data nodes:</strong> - In HDFS, all data is usually stored with replication factor three. &gt; So, you can request to buy approximately 15,000 of two terabyte hard drives.</p>
-<ul>
-<li>On average, 15 hard drives will die every day. &gt;So, you should request at least 1000 extra hard drives for several months of research.</li>
-</ul>
-<p><strong>Capacity for meta information in memory:</strong></p>
-<ul>
-<li><p><strong>Small files problem:</strong> Storing lot of small files which are extremely smaller than the block size cannot be efficiently handled by HDFS. Reading through small files involve lots of seeks and lots of hopping between data node to data node, which is inturn inefficient data processing.</p></li>
-<li><p><strong>128 megabyte</strong> of data was once chosen as a default block size.</p></li>
-</ul>
-<blockquote>
-<p>WHY? It is one choice to have less than one percent overhead for reading the random block of data from a hard drive, and keeping block size small at the same time.</p>
-</blockquote>
-<p><img src="./images/week_41.png" width="400"></p>
-<p>10 petabytes data will consume at least 35 gigabyte of RAM on the NameNode.</p>
-<h2 id="failure">Failure</h2>
-<p><strong>NameNode server is a single point of failure.</strong> &gt; In case this service goes down, the whole HDFS storage becomes unavailable, even for read-only operations.</p>
-<p>Technical tricks to make NameNode decisions durable and to speed up NameNode recovery process: - write-ahead log (WAL): strategy to persist matter information modifications. This log is called the edit log. It can be replicated to different hard drives. It is also usually replicated to an NFS storage.</p>
-<ul>
-<li><p>NFS storage:you will be able to tolerate full NameNode crash</p></li>
-<li><p><strong>fsimage</strong>: have a snapshot of memory at some point in time from which you can replay transaction stored in the edit log.</p></li>
-</ul>
-<p><img src="./images/week41.png" width="400"></p>
-<p><strong>secondary NameNode</strong></p>
-<blockquote>
-<p>tackle the problem that edit log grows fast, replay of one week of transactions from edit log will take several hours to boot a NameNode</p>
-</blockquote>
-<p>Secondary NameNode, or better to say, checkpoint NameNodes, compacts the edit log by creating a new fsimage.</p>
-<p>New fsimage is made of all the fsimage by applying all stored transactions in edit log.</p>
-<ul>
-<li>secondary NameNode consumes the same amount of RAM to build a new fsimage.</li>
-<li>secondary NameNode was considered a badly named service.</li>
-<li>secondary NameNode <span class="math inline">\(\neq\)</span> backup NameNode</li>
-</ul>
-<p><img src="./images/week42.png" width="400"></p>
-<h2 id="evaluate">Evaluate</h2>
-<p>Evaluate how long it takes to read 10 petabytes of data from a hard drive with similar reading speed:</p>
-<p><img src="./images/week43.png" width="300"></p>
-<p>The amount of drives in your cluster has a linear relation to the speed of data processing</p>
-<h2 id="summary">Summary</h2>
-<ol type="1">
-<li>explain and reason about HDFS Namenode architecture: (RAM; fsimage + edit log; block size)</li>
-<li>estimate required resources for a Hadoop cluster</li>
-<li>explain what small files problem is and where a bottleneck is</li>
-<li>list differences between different types of Namenodes (Secondary / Checkpoint / Backup</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<p>-&gt; Distributed file system</p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/49a14c15/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
