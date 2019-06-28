@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('Show me your password') !== ''){
+                alert('Blah, wrong.');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Best Subset Selection Approach  fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one p">
+<meta name="keywords" content="Model Selection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ISLR Note - Subset Selection, AIC, BIC">
+<meta property="og:url" content="https://nancyyanyu.github.io/posts/8bf4bc53/index.html">
+<meta property="og:site_name" content="Nancy&#39;s Notes">
+<meta property="og:description" content="Best Subset Selection Approach  fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one p">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/8bf4bc53/1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/8bf4bc53/2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/8bf4bc53/3.png">
+<meta property="og:updated_time" content="2019-06-15T05:55:22.547Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ISLR Note - Subset Selection, AIC, BIC">
+<meta name="twitter:description" content="Best Subset Selection Approach  fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one p">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/8bf4bc53/1.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Nancy's Notes" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://nancyyanyu.github.io/posts/8bf4bc53/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ISLR Note - Subset Selection, AIC, BIC | Nancy's Notes</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nancy's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Code changes world!</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-resumé">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Resumé</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-machine-learning">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/Machine-Learning" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Machine Learning</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-journal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/Journal/" rel="section"><i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>Journal</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-手帳">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/techou/" rel="section"><i class="menu-item-icon fa fa-fw fa-heart"></i> <br>手帳</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/8bf4bc53/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ISLR Note - Subset Selection, AIC, BIC
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-09 00:20:34" itemprop="dateCreated datePublished" datetime="2019-06-09T00:20:34-05:00">2019-06-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-15 00:55:22" itemprop="dateModified" datetime="2019-06-15T00:55:22-05:00">2019-06-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">6.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">6 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="best-subset-selection">Best Subset Selection</h1>
+<p><strong>Approach</strong></p>
+<ol type="1">
+<li><p>fit a separate least squares regression best subset for each possible combination of the p predictors. That is, we fit all p models selection that contain exactly one predictor, all <span class="math inline">\(\left(\begin{array}{c}p\\ 2\end{array}\right)= p(p−1)/2\)</span> models that contain exactly two predictors, and so forth.</p></li>
+<li><p>We then look at all of the resulting models, with the goal of identifying the one that is best.</p></li>
+</ol>
+<a id="more"></a>
+<p><img src="./1.png" width="600"></p>
+<p><strong>Note</strong></p>
+<ul>
+<li><span class="math inline">\(RSS\)</span> of these p + 1 models decreases monotonically, and the <span class="math inline">\(R2\)</span> increases monotonically, as the number of features included in the models increases. Therefore, if we use these statistics to select the best model, then we will always end up with a model involving all of the variables</li>
+<li>The problem of selecting the best model from among the <span class="math inline">\(2^p\)</span> possibilities considered by best subset selection is not trivial.</li>
+</ul>
+<h1 id="stepwise-selection">Stepwise Selection</h1>
+<h2 id="forward-stepwise-selection">Forward Stepwise Selection</h2>
+<p><strong>Approach</strong></p>
+<ol type="1">
+<li><p><strong>Forward stepwise selection</strong> begins with a model containing no predictors, and then adds predictors to the model, one-at-a-time, until all of the predictors are in the model.</p></li>
+<li><p>In particular, at each step the variable that gives the greatest additional improvement to the fit is added to the model.</p></li>
+</ol>
+<p><img src="./2.png" width="600"></p>
+<p><strong>Forward Stepwise Selection V.S. Best Subset Selection</strong></p>
+<ul>
+<li>Forward stepwise selection’s computational advantage over best subset selection is clear.</li>
+<li>Forward stepwise is not guaranteed to find the best possible model out of all <span class="math inline">\(2^p\)</span> models containing subsets of the p predictors.</li>
+</ul>
+<h2 id="backward-stepwise-selection">Backward Stepwise Selection</h2>
+<p><strong>Approach</strong></p>
+<ol type="1">
+<li><strong>Backward Stepwise Selection</strong> begins with the full least squares model containing all p predictors, and then iteratively removes the least useful predictor, one-at-a-time</li>
+</ol>
+<p><img src="./3.png" width="600"></p>
+<p><strong>Backward Stepwise Selection V.S. Forward Stepwise Selection</strong>:</p>
+<ul>
+<li>Like forward stepwise selection, the backward selection approach searches through only 1+p(p+1)/2 models, and so can be applied in settings where p is too large to apply best subset selection.</li>
+<li>Like forward stepwise selection, backward stepwise selection is not guaranteed to yield the best model containing a subset of the p predictors.</li>
+<li>Backward selection requires that the number of samples n is larger than the number of variables p (so that the full model can be fit). In contrast, forward stepwise can be used even when n &lt; p, and so is the only viable subset method when p is very large.</li>
+</ul>
+<h2 id="hybrid-approaches">Hybrid Approaches</h2>
+<p><strong>Approach</strong></p>
+<ol type="1">
+<li>Variables are added to the model sequentially, in analogy to forward selection.</li>
+<li>However, after adding each new variable, the method may also remove any variables that no longer provide an improvement in the model fit.</li>
+</ol>
+<p><strong>Note</strong></p>
+<p>Such an approach attempts to more closely mimic best subset selection while retaining the computational advantages of forward and backward stepwise selection.</p>
+<h1 id="choosing-the-optimal-model">Choosing the Optimal Model</h1>
+<p>The training error can be a poor estimate of the test error. Therefore, RSS and R2 are not suitable for selecting the best model among a collection of models with different numbers of predictors.</p>
+<p><strong>2 Methods</strong>:</p>
+<ol type="1">
+<li><p><em>indirectly</em> estimate test error by making an adjustment to the training error to account for the bias due to overfitting.</p></li>
+<li><p><em>directly</em> estimate the test error, using either a validation set approach or a cross-validation approach</p></li>
+</ol>
+<h2 id="c_p-aic-bic-adjusted-r2"><span class="math inline">\(C_p\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span>, Adjusted <span class="math inline">\(R^2\)</span></h2>
+<ul>
+<li>the training set MSE is generally an underestimate of the test MSE. (Recall that MSE = RSS/n.)</li>
+<li>the training error will decrease as more variables are included in the model, but the test error may not.</li>
+<li>Therefore, training set RSS and training set R2 cannot be used to select from among a set of models with different numbers of variables.</li>
+</ul>
+<h3 id="c_p"><span class="math inline">\(C_p\)</span></h3>
+<p><span class="math inline">\(C_p\)</span> estimate of test MSE:</p>
+<p><span class="math display">\[
+\begin{align}
+C_p=\frac{1}{n}(RSS+2d\hat{\sigma}^2)
+\end{align}
+\]</span> where <span class="math inline">\(\hat{\sigma}^2\)</span> is an estimate of the variance of the error <span class="math inline">\(\epsilon\)</span></p>
+<p><strong>Note</strong>: - The <span class="math inline">\(C_p\)</span> statistic adds a penalty of <span class="math inline">\(2d\hat{\sigma}^2\)</span> to the training RSS in order to adjust for the fact that the training error tends to underestimate the test error. - The penalty increases as the number of predictors in the model increases; this is intended to adjust for the corresponding decrease in training RSS. - If <span class="math inline">\(\hat{\sigma}^2\)</span> is an unbiased estimate of <span class="math inline">\(\sigma^2\)</span> in, then <span class="math inline">\(C_p\)</span> is an unbiased estimate of test MSE - When determining which of a set of models is best, we choose the model with the lowest <span class="math inline">\(C_p\)</span> value.</p>
+<h3 id="aic">AIC</h3>
+<p>The AIC criterion is defined for a large class of models fit by maximum likelihood. In the case of the model <span class="math inline">\(Y = β_0 + β_1X_1 + · · · + β_pX_p + \epsilon\)</span> with Gaussian errors, maximum likelihood and least squares are the same thing.</p>
+<p>In this case AIC is given by</p>
+<p><span class="math display">\[
+\begin{align}
+AIC=\frac{1}{n\hat{\sigma}^2}(RSS+2d\hat{\sigma}^2)
+\end{align}
+\]</span> For least squares models, Cp and AIC are proportional to each other</p>
+<h3 id="bic">BIC</h3>
+<p>For the least squares model with d predictors, the BIC is, up to irrelevant constants, given by <span class="math display">\[
+\begin{align}
+BIC=\frac{1}{n}(RSS+\log(n)d\hat{\sigma}^2)
+\end{align}
+\]</span> Since log(n) &gt; 2 for any n &gt; 7, the BIC statistic generally places a heavier penalty on models with many variables, and hence results in the selection of smaller models than Cp.</p>
+<h3 id="adjusted-r2">Adjusted <span class="math inline">\(R^2\)</span></h3>
+<p>Recall: <span class="math display">\[
+\begin{align}
+R^2=1 − RSS/TSS=1-\frac{RSS}{\sum(y_i-\bar{y})^2}
+\end{align}
+\]</span> <strong>TSS</strong>: total sum of squares for the response</p>
+<p>For a least squares model with d variables, <strong>the adjusted R2</strong> statistic is calculated as <span class="math display">\[
+Adjusted  \, R^2=1 − \frac{RSS/(n-d-1)}{TSS/(n-1)}
+\]</span> <strong>Note</strong>:</p>
+<ul>
+<li>a large value of adjusted R2 indicates a model with a small test error. Maximizing the adjusted R2 is equivalent to minimizing <span class="math inline">\(RSS/(n−d−1)\)</span></li>
+<li><span class="math inline">\(RSS/(n−d−1)\)</span> may increase or decrease, due to the presence of d in the denominator.</li>
+</ul>
+<p><strong>Intuition</strong>: - once all of the correct variables have been included in the model, adding additional noise variables will lead to only a very small decrease in RSS - Unlike the R2 statistic, the adjusted R2 statistic pays a price for the inclusion of unnecessary variables in the model</p>
+<h2 id="validation-and-cross-validation">Validation and Cross-Validation</h2>
+<p>As an alternative to the approaches just discussed, we can compute the validation set error or the cross-validation error for each model under consideration, and then select the model for which the resulting estimated test error is smallest.</p>
+<p><strong>Advantage over <span class="math inline">\(C_p, AIC, BIC\)</span></strong>:</p>
+<ul>
+<li>Direct estimate of the test error, and makes fewer assumptions about the true underlying model.</li>
+<li>Used in a wider range of model selection tasks, even in cases where it is hard to pinpoint the model degrees of freedom or hard to estimate the error variance σ2.</li>
+</ul>
+<p><strong>One-standard-error rule</strong>: We first calculate the standard error of the estimated test MSE for each model size, and then select the smallest model for which the estimated test error is within one standard error of the lowest point on the curve.</p>
+<ul>
+<li><strong>Rationale</strong>: if a set of models appear to be more or less equally good, then we might as well choose the simplest model</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Model-Selection/" rel="tag"># Model Selection</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/a065f58f/" rel="next" title="ISLR Note - Intro to Model Selection">
+                <i class="fa fa-chevron-left"></i> ISLR Note - Intro to Model Selection
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/f9cdb6e/" rel="prev" title="ISLR Note - Shrinkage Methods">
+                ISLR Note - Shrinkage Methods <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Nancy Yan</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/nancyyanyu" title="GitHub &rarr; https://github.com/nancyyanyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:yy2799@columbia.edu" title="E-Mail &rarr; mailto:yy2799@columbia.edu" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://www.linkedin.com/in/nancy-yanyu-yan" title="LinkedIn &rarr; https://www.linkedin.com/in/nancy-yanyu-yan" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/nancy_yanyu_yan" title="Instagram &rarr; https://instagram.com/nancy_yanyu_yan" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#best-subset-selection"><span class="nav-number">1.</span> <span class="nav-text">Best Subset Selection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stepwise-selection"><span class="nav-number">2.</span> <span class="nav-text">Stepwise Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#forward-stepwise-selection"><span class="nav-number">2.1.</span> <span class="nav-text">Forward Stepwise Selection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward-stepwise-selection"><span class="nav-number">2.2.</span> <span class="nav-text">Backward Stepwise Selection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hybrid-approaches"><span class="nav-number">2.3.</span> <span class="nav-text">Hybrid Approaches</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#choosing-the-optimal-model"><span class="nav-number">3.</span> <span class="nav-text">Choosing the Optimal Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#c_p-aic-bic-adjusted-r2"><span class="nav-number">3.1.</span> <span class="nav-text">\(C_p\), \(AIC\), \(BIC\), Adjusted \(R^2\)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c_p"><span class="nav-number">3.1.1.</span> <span class="nav-text">\(C_p\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aic"><span class="nav-number">3.1.2.</span> <span class="nav-text">AIC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bic"><span class="nav-number">3.1.3.</span> <span class="nav-text">BIC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#adjusted-r2"><span class="nav-number">3.1.4.</span> <span class="nav-text">Adjusted \(R^2\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#validation-and-cross-validation"><span class="nav-number">3.2.</span> <span class="nav-text">Validation and Cross-Validation</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nancy Yan</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total">311k</span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+
+
+  
+  <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/jquery-lazyload@1/jquery.lazyload.min.js"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_lines.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+<!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
+
+<link rel="stylesheet" href="https://www.wenjunjiang.win/css/gitment.css">
+<!-- END LOCAL -->
+
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'nancyyanyu',
+      repo: 'nancyyanyu.github.io',
+      
+      oauth: {
+      
+      
+        client_secret: '75adc257166813deff478053f3f05133285d6cf0',
+      
+        client_id: '90ddd3d00d8930cb0d84'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script>
+

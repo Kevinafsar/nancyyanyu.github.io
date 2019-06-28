@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('Show me your password') !== ''){
+                alert('Blah, wrong.');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="3.4 Shrinkage Methods  Subset selection methods are discrete process—variables are either retained or discarded—it often exhibits high variance,and so doesn’t reduce the prediction error of the full m">
+<meta name="keywords" content="Ridge,Lasso">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESL Note - Shrinkage Methods">
+<meta property="og:url" content="https://nancyyanyu.github.io/posts/afb70442/index.html">
+<meta property="og:site_name" content="Nancy&#39;s Notes">
+<meta property="og:description" content="3.4 Shrinkage Methods  Subset selection methods are discrete process—variables are either retained or discarded—it often exhibits high variance,and so doesn’t reduce the prediction error of the full m">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/afb70442/images/lass_ridge.png">
+<meta property="og:updated_time" content="2019-06-15T22:22:13.989Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ESL Note - Shrinkage Methods">
+<meta name="twitter:description" content="3.4 Shrinkage Methods  Subset selection methods are discrete process—variables are either retained or discarded—it often exhibits high variance,and so doesn’t reduce the prediction error of the full m">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/afb70442/images/lass_ridge.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Nancy's Notes" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://nancyyanyu.github.io/posts/afb70442/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ESL Note - Shrinkage Methods | Nancy's Notes</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nancy's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Code changes world!</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-resumé">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Resumé</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-machine-learning">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/Machine-Learning" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Machine Learning</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-journal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/Journal/" rel="section"><i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>Journal</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-手帳">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/techou/" rel="section"><i class="menu-item-icon fa fa-fw fa-heart"></i> <br>手帳</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/afb70442/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ESL Note - Shrinkage Methods
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-09 00:21:02" itemprop="dateCreated datePublished" datetime="2019-06-09T00:21:02-05:00">2019-06-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-15 17:22:13" itemprop="dateModified" datetime="2019-06-15T17:22:13-05:00">2019-06-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">6.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">6 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="shrinkage-methods">3.4 Shrinkage Methods</h1>
+<blockquote>
+<p><em>Subset selection methods</em> are discrete process—variables are either retained or discarded—it often exhibits high variance,and so doesn’t reduce the prediction error of the full model. <em>Shrinkage methods</em> are more continuous, and don’t suﬀer as much from high variability.</p>
+</blockquote>
+<h2 id="ridge-regression">3.4.1 Ridge Regression</h2>
+<p><strong>Ridge regression</strong> shrinks the regression coeﬃcients by imposing a penalty on their size.The ridge coeﬃcients minimize a penalized residual sum of squares: <span class="math display">\[
+\begin{align}
+\hat{\beta}^{ridge}=argmin_\beta {\sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2+\lambda\sum_{j=1}^p\beta_j^2}
+\end{align}
+\]</span> <a id="more"></a></p>
+<ul>
+<li>λ ≥ 0 is a complexity parameter that controls the amount of shrinkage</li>
+</ul>
+<p>Writing the criterion in matrix form:</p>
+<p><span class="math display">\[
+\begin{align}
+RSS(\lambda)=(\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta)+\lambda\beta^T\beta
+\end{align}
+\]</span> The ridge regression solutions: <span class="math display">\[
+\begin{align}
+\hat{\beta}^{ridge}=(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}
+\end{align}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbf{I}\)</span> is the p×p identity matrix</li>
+</ul>
+<p>Note: - the ridge regression solution is again a linear function of <span class="math inline">\(\mathbf{y}\)</span>; - The solution adds a positive constant to the diagonal of <span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span> before inversion, which makes the problem nonsingular.</p>
+<h3 id="singular-value-decomposition-svd">Singular value decomposition (SVD)</h3>
+<p>The <strong>singular value decomposition (SVD)</strong> of the centered input matrix X gives us some additional insight into the nature of ridge regression. The SVD of the N × p matrix X has the form:</p>
+<p><span class="math display">\[
+\begin{align}
+X=UDV^T
+\end{align}
+\]</span></p>
+<ul>
+<li>U: N×p orthogonal matrices, with the columns of U spanning the column space of X</li>
+<li>V: p×p orthogonal matrices, the columns of V spanning the row space of X</li>
+<li>D: p×p diagonal matrix, with diagonal entries d1 ≥ d2 ≥···≥ dp ≥ 0 called the singular values of X. If one or more values dj =0,X is singular</li>
+</ul>
+<p>least squares ﬁtted vector:</p>
+<p><span class="math display">\[
+\begin{align}
+\mathbf{X}\hat{\beta}^{ls}&amp;=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y} \\
+&amp;=UDV^T (VD^TU^TUDV^T)^{-1}VD^TU^Ty \\
+&amp;=UDV^T (VD^TDV^T)^{-1}VD^TU^Ty \\
+&amp;=UDV^T (V^T)^{-1}D^{-1}(D^T)^{-1}V^{-1}VD^TU^Ty \\
+&amp;=\mathbf{U}\mathbf{U}^T\mathbf{y}
+\end{align}
+\]</span> Note: <span class="math inline">\(\mathbf{U}^T\mathbf{y}\)</span> are the coordinates of y with respect to the orthonormal basis U.</p>
+<p>The ridge solutions: <span class="math display">\[
+\begin{align}
+\mathbf{X}\hat{\beta}^{ridge}&amp;=\mathbf{X}(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y} \\
+&amp;=UD(D^2+\lambda\mathbf{I})^{-1}D^TU^Ty \\
+&amp;=\sum_{j=1}^p\mathbf{u}_j\frac{d^2_j}{d^2_j+\lambda}\mathbf{u}^T_j\mathbf{y}
+\end{align}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbf{u}_j\)</span> are the columns of U</li>
+</ul>
+<p>Note: ridge regression computes the coordinates of y with respect to the orthonormal basis U. It then shrinks these coordinates by the factors <span class="math inline">\(\frac{d^2_j}{d^2_j+\lambda}\)</span></p>
+<h4 id="what-does-a-small-value-of-d2_j-mean">What does a small value of <span class="math inline">\(d^2_j\)</span> mean?</h4>
+<p>The SVD of the centered matrix X is another way of expressing the <strong>principal components</strong> of the variables in X. The sample covariance matrix is given by <span class="math inline">\(S=X^TX/N\)</span>, we have</p>
+<p><strong>Eigen decomposition of <span class="math inline">\(X^TX\)</span>:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+\mathbf{X}^T\mathbf{X}=VD^TU^TUDV^T=VD^2V^T
+\end{align}
+\]</span> The eigenvectors <span class="math inline">\(v_j\)</span> (columns of V) are also called the <strong>principal components</strong> (or Karhunen–Loeve) directions of X. The ﬁrst principal component direction <span class="math inline">\(v_1\)</span> has the property that <span class="math inline">\(z_1=Xv_1\)</span> has the largest sample variance amongst all normalized linear combinations of the columns of X, which is:</p>
+<p><span class="math display">\[
+\begin{align}
+Var(z_1)=Var(Xv_1)=\frac{d^2_1}{N}
+\end{align}
+\]</span> and in fact <span class="math inline">\(z_1=Xv_1=u_1d_1\)</span>. The derived variable <span class="math inline">\(z_1\)</span> is called the ﬁrst principal component of X, and hence <span class="math inline">\(u_1\)</span> is the normalized ﬁrst principal component.Subsequent principal components <span class="math inline">\(z_j\)</span> have maximum variance <span class="math inline">\(\frac{d^2_j}{N}\)</span>, subject to being orthogonal to the earlier ones.</p>
+<p>Hence the small singular values <span class="math inline">\(d_j\)</span> correspond to directions in the column space of X having small variance, and ridge regression shrinks these directions the most.</p>
+<h3 id="eﬀective-degrees-of-freedom">Eﬀective degrees of freedom</h3>
+<p><span class="math display">\[
+\begin{align}
+df(\lambda)&amp;=tr[\mathbf{X}(\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T] \\
+&amp;=tr[\mathbf{H}\lambda] \\
+&amp;=\sum^p_{j=1}\frac{d^2_j}{d^2_j+\lambda}
+\end{align}
+\]</span></p>
+<p>This monotone decreasing function of λ is the eﬀective degrees of freedom of the ridge regression ﬁt. Usually in a linear-regression ﬁt with p variables,the degrees-of-freedom of the ﬁt is p, the number of free parameters.</p>
+<p>Note that &gt; df(λ)= p as λ = 0 (no regularization)</p>
+<blockquote>
+<p>df(λ) → 0 as λ →∞.</p>
+</blockquote>
+<h2 id="the-lasso">3.4.2 The Lasso</h2>
+<p>The lasso is a shrinkage method like ridge, with subtle but important differences.The lasso estimate is deﬁned by:</p>
+<p><span class="math display">\[
+\begin{align}
+\hat{\beta}^{lasso}&amp;=argmin_\beta\sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2 \\
+&amp; s.t. \sum_{j=1}^p|\beta_j|\leq t
+\end{align}
+\]</span> Lasso problem in <em>Lagrangian form</em>: <span class="math display">\[
+\begin{align}
+\hat{\beta}^{lasso}&amp;=argmin_\beta\{ \sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2+\lambda\sum_{j=1}^p|\beta_j| \}
+\end{align}
+\]</span></p>
+<h4 id="difference-with-ridge">Difference with ridge:</h4>
+<p>The L2 ridge penalty <span class="math inline">\(\sum_{j=1}^p\beta_j^2\)</span> is replaced by the L1 lasso penalty <span class="math inline">\(\sum_{j=1}^p|\beta_j|\)</span>. This latter constraint makes the solutions nonlinear in the <span class="math inline">\(y_i\)</span>, and there is no closed form expression as in ridge regression.</p>
+<blockquote>
+<p>t should be adaptively chosen to minimize an estimate of expected prediction error.</p>
+</blockquote>
+<ul>
+<li>if <span class="math inline">\(t&gt;t_0=\sum_{j=1}^p|\hat{\beta_j^{ls}}|\)</span>, then the lasso estimates are the <span class="math inline">\(\hat{\beta_j^{ls}}\)</span></li>
+<li>if <span class="math inline">\(t&gt;t_0/2\)</span>, the least squares coeﬃcients are shrunk by about 50% on average</li>
+</ul>
+<p>The standardized parameter: <span class="math inline">\(s=t/\sum_1^p|\hat{\beta_j}|\)</span></p>
+<ul>
+<li>s=1.0, the lasso coeﬃcients are the least squares estimates</li>
+<li>s-&gt;0, as the lasso coeﬃcients -&gt;0</li>
+</ul>
+<h2 id="discussion-subset-selection-ridge-regression-and-the-lasso">3.4.3 Discussion: Subset Selection, Ridge Regression and the Lasso</h2>
+<ul>
+<li>Ridge regression: does a proportional shrinkage</li>
+<li>Lasso: translates each coeﬃcient by a constant factor λ, truncating at zero --“soft thresholding,”</li>
+<li>Best-subset selection: drops all variables with coeﬃcients smaller than the Mth largest --“hard-thresholding.” <img src="./images/lass_ridge.png" width="550"></li>
+</ul>
+<h3 id="bayes-view">Bayes View</h3>
+<p>Consider the criterion</p>
+<p><span class="math display">\[
+\begin{align}
+\tilde{\beta}&amp;=argmin_\beta\{ \sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2+\lambda\sum_{j=1}^p|\beta_j|^q \}
+\end{align}
+\]</span> for q ≥ 0. The contours of constant value of <span class="math inline">\(\sum_{j=1}^p|\beta_j|^q\)</span> are shown in Figure 3.12, for the case of two inputs. &lt;img src=&quot;./images/q.png&quot;,width=550&gt;</p>
+<p><font color="red">The lasso, ridge regression and best subset selection are Bayes estimates with diﬀerent priors:</font>Thinking of <span class="math inline">\(\sum_{j=1}^p|\beta_j|^q\)</span> as the log-prior density for βj , these are also the equi-contours of the prior distribution of the parameters.</p>
+<ul>
+<li>q = 0 :variable subset selection, as the penalty simply counts the number of nonzero parameters;</li>
+<li><p>q = 1 :the lasso, also Laplace distribution for each input, with density <span class="math inline">\(\frac{1}{2\tau}exp(-|\beta|/\tau)\)</span>, where <span class="math inline">\(\tau=1/\lambda\)</span></p></li>
+<li><p>q = 2 :the ridge</p></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Ridge/" rel="tag"># Ridge</a>
+          
+            <a href="/tags/Lasso/" rel="tag"># Lasso</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/cac93a23/" rel="next" title="ISLR Note - Dimension Reduction-PCA, PCR">
+                <i class="fa fa-chevron-left"></i> ISLR Note - Dimension Reduction-PCA, PCR
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/5c16c99c/" rel="prev" title="ESL Note - Subset Selection.">
+                ESL Note - Subset Selection. <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Nancy Yan</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/nancyyanyu" title="GitHub &rarr; https://github.com/nancyyanyu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:yy2799@columbia.edu" title="E-Mail &rarr; mailto:yy2799@columbia.edu" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://www.linkedin.com/in/nancy-yanyu-yan" title="LinkedIn &rarr; https://www.linkedin.com/in/nancy-yanyu-yan" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/nancy_yanyu_yan" title="Instagram &rarr; https://instagram.com/nancy_yanyu_yan" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shrinkage-methods"><span class="nav-number">1.</span> <span class="nav-text">3.4 Shrinkage Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ridge-regression"><span class="nav-number">1.1.</span> <span class="nav-text">3.4.1 Ridge Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#singular-value-decomposition-svd"><span class="nav-number">1.1.1.</span> <span class="nav-text">Singular value decomposition (SVD)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#what-does-a-small-value-of-d2_j-mean"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">What does a small value of \(d^2_j\) mean?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eﬀective-degrees-of-freedom"><span class="nav-number">1.1.2.</span> <span class="nav-text">Eﬀective degrees of freedom</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-lasso"><span class="nav-number">1.2.</span> <span class="nav-text">3.4.2 The Lasso</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#difference-with-ridge"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">Difference with ridge:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#discussion-subset-selection-ridge-regression-and-the-lasso"><span class="nav-number">1.3.</span> <span class="nav-text">3.4.3 Discussion: Subset Selection, Ridge Regression and the Lasso</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bayes-view"><span class="nav-number">1.3.1.</span> <span class="nav-text">Bayes View</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nancy Yan</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total">311k</span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+
+
+  
+  <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/jquery-lazyload@1/jquery.lazyload.min.js"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_lines.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+<!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
+
+<link rel="stylesheet" href="https://www.wenjunjiang.win/css/gitment.css">
+<!-- END LOCAL -->
+
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'nancyyanyu',
+      repo: 'nancyyanyu.github.io',
+      
+      oauth: {
+      
+      
+        client_secret: '75adc257166813deff478053f3f05133285d6cf0',
+      
+        client_id: '90ddd3d00d8930cb0d84'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script>
+
