@@ -148,7 +148,11 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/se4.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/se5.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/se7.png">
-<meta property="og:updated_time" content="2019-06-28T00:02:41.918Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/comp1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/comp2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/comp3.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/bbe483af/comp4.png">
+<meta property="og:updated_time" content="2019-06-28T20:58:08.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop MapReduce Application Tuning">
 <meta name="twitter:description" content="This is course note of Big Data Essentials: HDFS, MapReduce and Spark RDD  The world of the efficient MapReduce is based on three whales. Combiner, Partitioner, and Comparator. Combiner To change the">
@@ -452,12 +456,24 @@
                 
               
 
-              <time title="Created: 2019-06-27 18:12:33 / Modified: 19:02:41" itemprop="dateCreated datePublished" datetime="2019-06-27T18:12:33-05:00">2019-06-27</time>
+              <time title="Created: 2019-06-27 18:12:33" itemprop="dateCreated datePublished" datetime="2019-06-27T18:12:33-05:00">2019-06-27</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-28 15:58:08" itemprop="dateModified" datetime="2019-06-28T15:58:08-05:00">2019-06-28</time>
               
             
           </span>
@@ -503,7 +519,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">8.4k</span>
+                <span title="Symbols count in article">8.1k</span>
               
 
               
@@ -517,7 +533,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">8 mins.</span>
+                <span title="Reading time">7 mins.</span>
               
             </div>
           
@@ -645,18 +661,18 @@
 <blockquote>
 <p>Data located in HDFS can be compressed. There is a shuffle and sort phase between map and the reduce where you can compress the <em>intermediate data.</em>--&gt;optimization</p>
 </blockquote>
-<p>&lt;img src=&quot;.width=&quot;/comp1.png&quot; width=&quot;350&quot; /&gt;</p>
+<p><img src="./comp1.png" width="350"></p>
 <ul>
 <li>Splittable column means that you can cut a file at any place and find the location for the next or the previous valid record.</li>
 <li>Native libraries that provide implementation of compression and decompression functionality, usually also support an option to choose a trade-off between speed or space optimization.</li>
 </ul>
 <p><strong>Pros &amp; Cons:</strong> - gzip file is a deflate file with extra headers and a footer. - bzip is more aggressive for space requirements, but consequently, it's slower during the compression. - lzo files can be used where you read data far more frequently than write. - You can provide index files for lzo files to make them splittable. - Snappy,even more faster decompression, but you will only be able to split this file records.</p>
 <p>A <strong>Hadoop codec</strong> is an implementation of a compression, decompression algorithm.</p>
-<p>&lt;img src=&quot;.width=&quot;/comp2.png&quot; width=&quot;350&quot; /&gt;</p>
+<p><img src="./comp2.png" width="350"></p>
 <p>You can specify the compression parameters for intermediate data for output or for both</p>
-<p>&lt;img src=&quot;.width=&quot;/comp3.png&quot; width=&quot;350&quot; /&gt;</p>
+<p><img src="./comp3.png" width="350"></p>
 <p><strong>Rules of thumb</strong>: 1. <em>gzip</em> or <em>bzip</em> are a good choice for <strong>cold data</strong>, which is accessed infrequently. 2. <em>bzip</em> produce more compression than <em>gzip</em> for some kinds of files at the cost of some speed when compressing and decompressing. 3. <em>Snappy</em> or <em>lzo</em> are a better choice for <strong>hot data</strong>, which is accessed frequently. 4. <em>Snappy</em> often performs better than <em>lzo</em>. 5. For MapReduce, we can use bzip and lzo formats, if you would like to have your data splittable. 6. <em>Snappy</em> and <em>gzip</em> formats are not splittable at file level compression. But you can use block level compression and splittable container formats such as <em>Avro</em> or <em>SequenceFile</em>--&gt; process the blocks in parallel using MapReduce</p>
-<p>&lt;img src=&quot;.width=&quot;/comp4.png&quot; width=&quot;350&quot; /&gt;</p>
+<p><img src="./comp4.png" width="350"></p>
 
       
     </div>
@@ -784,7 +800,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
