@@ -138,7 +138,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/6d5a8880/acc4.png">
-<meta property="og:updated_time" content="2019-06-28T21:21:32.488Z">
+<meta property="og:updated_time" content="2019-06-28T21:37:11.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache Spark: Advanced Topics">
 <meta name="twitter:description" content="This is course note of Big Data Essentials: HDFS, MapReduce and Spark RDD  Execution &amp;amp; Scheduling SparkContext - When creating a Spark application, the first thing you do is create a SparkContext">
@@ -459,7 +459,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-28 16:21:32" itemprop="dateModified" datetime="2019-06-28T16:21:32-05:00">2019-06-28</time>
+                <time title="Modified: 2019-06-28 16:37:11" itemprop="dateModified" datetime="2019-06-28T16:37:11-05:00">2019-06-28</time>
               
             
           </span>
@@ -644,8 +644,18 @@
 </blockquote>
 <ol type="1">
 <li>setup a transformation graph to compute a dictionary</li>
-<li>invoke the <figure class="highlight plain"><figcaption><span>action to load it into the driver's memory</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">3.  put it into the broadcast variable to use in further computations.</span><br><span class="line"></span><br><span class="line">Idea:  upload computations to spark executors and use the driver program as the coordinator.</span><br><span class="line">&lt;img src=&quot;./br2.png&quot; width=&quot;&quot;600&quot; /&gt;</span><br><span class="line"></span><br><span class="line">## Summary</span><br><span class="line"></span><br><span class="line">- Broadcast variables are read-only shared variables with effective sharing mechanism</span><br><span class="line">- Useful to share dictionaries, models</span><br><span class="line"></span><br><span class="line"># Accumulator Variable </span><br><span class="line"></span><br><span class="line">**Accumulator variable** is a read-write variable that is shared among tasks</span><br><span class="line">- Writes are restricted to increments!</span><br><span class="line"> - i. e.: var += delta</span><br><span class="line"> - addition may be replaced by any associate, commutative operation</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">Restricting the right operations allows the framework to avoid complex synchronization thus making the accumulators efficient.</span><br></pre></td></tr></table></figure></li>
+<li>invoke the <em>collect</em> action to load it into the driver's memory</li>
+<li>put it into the broadcast variable to use in further computations.</li>
 </ol>
+<p>Idea: upload computations to spark executors and use the driver program as the coordinator. &lt;img src=&quot;./br2.png&quot; width=&quot;&quot;600&quot; /&gt;</p>
+<h2 id="summary-2">Summary</h2>
+<ul>
+<li>Broadcast variables are read-only shared variables with effective sharing mechanism</li>
+<li>Useful to share dictionaries, models</li>
+</ul>
+<h1 id="accumulator-variable">Accumulator Variable</h1>
+<p><strong>Accumulator variable</strong> is a read-write variable that is shared among tasks - Writes are restricted to increments! - i. e.: var += delta - addition may be replaced by any associate, commutative operation</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Restricting the right operations allows the framework to avoid complex synchronization thus making the accumulators efficient.</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Accumulator variable could be read only by the <strong><em>driver</em></strong> program and not by the executors.</li>
 <li>cannot read the accumulated value from within a task</li>
@@ -682,7 +692,7 @@
 <ol start="4" type="1">
 <li>Profiling &amp; debugging</li>
 </ol>
-<h2 id="summary-2">Summary</h2>
+<h2 id="summary-3">Summary</h2>
 <ul>
 <li>Accumulators are shared read-write variables with de-coupled read and write sides</li>
 <li>could be updated from actions and transformations by using an increment.</li>
@@ -998,7 +1008,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#execution-scheduling"><span class="nav-number">1.</span> <span class="nav-text">Execution &amp; Scheduling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jobs-stages-tasks"><span class="nav-number">1.1.</span> <span class="nav-text">Jobs, stages, tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">1.1.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">1.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#caching-persistence"><span class="nav-number">2.</span> <span class="nav-text">Caching &amp; Persistence</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-1"><span class="nav-number">2.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#controlling-persistence-level"><span class="nav-number">2.2.</span> <span class="nav-text">Controlling persistence level</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#best-practices"><span class="nav-number">2.3.</span> <span class="nav-text">Best practices</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-1"><span class="nav-number">2.4.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#broadcast-variable"><span class="nav-number">3.</span> <span class="nav-text">Broadcast Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-2"><span class="nav-number">3.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-3"><span class="nav-number">3.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#guarantees-on-the-updates"><span class="nav-number">3.3.</span> <span class="nav-text">Guarantees on the updates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-cases"><span class="nav-number">3.4.</span> <span class="nav-text">Use cases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-2"><span class="nav-number">3.5.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#execution-scheduling"><span class="nav-number">1.</span> <span class="nav-text">Execution &amp; Scheduling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jobs-stages-tasks"><span class="nav-number">1.1.</span> <span class="nav-text">Jobs, stages, tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">1.1.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">1.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#caching-persistence"><span class="nav-number">2.</span> <span class="nav-text">Caching &amp; Persistence</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-1"><span class="nav-number">2.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#controlling-persistence-level"><span class="nav-number">2.2.</span> <span class="nav-text">Controlling persistence level</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#best-practices"><span class="nav-number">2.3.</span> <span class="nav-text">Best practices</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-1"><span class="nav-number">2.4.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#broadcast-variable"><span class="nav-number">3.</span> <span class="nav-text">Broadcast Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-2"><span class="nav-number">3.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-2"><span class="nav-number">3.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#accumulator-variable"><span class="nav-number">4.</span> <span class="nav-text">Accumulator Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-3"><span class="nav-number">4.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#guarantees-on-the-updates"><span class="nav-number">4.2.</span> <span class="nav-text">Guarantees on the updates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-cases"><span class="nav-number">4.3.</span> <span class="nav-text">Use cases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-3"><span class="nav-number">4.4.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></div>
             
 
           </div>
