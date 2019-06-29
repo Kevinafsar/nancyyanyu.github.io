@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancyyanyu.github.io/"/>
-  <updated>2019-06-29T03:36:50.426Z</updated>
+  <updated>2019-06-29T03:47:30.401Z</updated>
   <id>https://nancyyanyu.github.io/</id>
   
   <author>
@@ -21,17 +21,17 @@
     <link href="https://nancyyanyu.github.io/posts/8b70757d/"/>
     <id>https://nancyyanyu.github.io/posts/8b70757d/</id>
     <published>2019-06-28T18:54:55.000Z</published>
-    <updated>2019-06-29T03:36:50.426Z</updated>
+    <updated>2019-06-29T03:47:30.401Z</updated>
     
-    <content type="html"><![CDATA[<div id="viz1561779380841" class="tableauPlaceholder" style="position: relative"><noscript><a href="#"><img alt=" " src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_15617792960190&#47;Sheet2&#47;1_rss.png" style="border: none"></a></noscript><object class="tableauViz" style="display:none;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F"> <param name="embed_code_version" value="3"> <param name="path" value="views&#47;Book1_15617792960190&#47;Sheet2?:embed=y&amp;:display_count=y&amp;publish=yes"> <param name="toolbar" value="yes"><param name="static_image" value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_15617792960190&#47;Sheet2&#47;1.png"> <param name="animate_transition" value="yes"><param name="display_static_image" value="yes"><param name="display_spinner" value="yes"><param name="display_overlay" value="yes"><param name="display_count" value="yes"><param name="filter" value="publish=yes"></object></div><pre><code>            &lt;script type=&#39;text/javascript&#39;&gt;                    var divElement = document.getElementById(&#39;viz1561779380841&#39;);                    var vizElement = divElement.getElementsByTagName(&#39;object&#39;)[0];                    vizElement.style.width=&#39;100%&#39;;vizElement.style.height=(divElement.offsetWidth*0.75)+&#39;px&#39;;                    var scriptElement = document.createElement(&#39;script&#39;);                    scriptElement.src = &#39;https://public.tableau.com/javascripts/api/viz_v1.js&#39;;                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                &lt;/script&gt;</code></pre>]]></content>
+    <content type="html"><![CDATA[<iframe src="https://public.tableau.com/shared/W9HRZTH5R?:display_count=yes&amp;:origin=viz_share_link"></iframe>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;div id=&quot;viz1561779380841&quot; class=&quot;tableauPlaceholder&quot; style=&quot;position: relative&quot;&gt;
-&lt;noscript&gt;
-&lt;a href=&quot;#&quot;&gt;&lt;img alt=&quot; &quot; src=&quot;https:&amp;#47;&amp;#47;p
+        &lt;iframe src=&quot;https://public.tableau.com/shared/W9HRZTH5R?:display_count=yes&amp;amp;:origin=viz_share_link&quot;&gt;
+&lt;/iframe&gt;
+
       
     
     </summary>
