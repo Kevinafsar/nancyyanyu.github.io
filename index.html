@@ -462,7 +462,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-30 14:52:06" itemprop="dateModified" datetime="2019-06-30T14:52:06-05:00">2019-06-30</time>
+                <time title="Modified: 2019-06-30 15:45:53" itemprop="dateModified" datetime="2019-06-30T15:45:53-05:00">2019-06-30</time>
               
             
           </span>
@@ -508,7 +508,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">2.9k</span>
+                <span title="Symbols count in article">4.5k</span>
               
 
               
@@ -522,7 +522,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">3 mins.</span>
+                <span title="Reading time">4 mins.</span>
               
             </div>
           
@@ -543,31 +543,18 @@
 
       
         
-          
-            <h1 id="introduction">Introduction</h1>
+          <h1 id="introduction">Introduction</h1>
 <p>The <strong>H-1B</strong> is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science related jobs in the U.S., H-1B visa is the most common working visa. Job hunting is stressful, so that the tatics show more importance when selecting the companies to apply. Not saying there are no chances in companies with no H-1B case in 2018, as changes happen every year, and policies vary in each company. Accessing more information and prioritizing tasks in hand are what the new grads need to do.</p>
 <p>I want to dig into the data of H-1B case disclosure file in 2018 a little. The data could be found at U.S. Department of Labor's website: https://www.foreignlaborcert.doleta.gov/performancedata.cfm#dis. I would just focus on data related entry level jobs.</p>
-<p>The <strong><em>Jupyter notebook</em></strong> could be found <a href>here</a>.</p>
-<h1 id="key-insights">Key Insights</h1>
-<h4 id="companies-in-california-new-jersey-texas-new-york-illinois-like-to-sponsor-data-science-employees-most-which-takes-up-50-of-that-in-the-u.s.">Companies in California, New Jersey, Texas, New York, Illinois like to sponsor data science employees most, which takes up &gt;50% of that in the U.S.</h4>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df=pd.read_csv(<span class="string">'./H-1B_Disclosure_Data_FY2019.csv'</span>)</span><br><span class="line">df=df[df.VISA_CLASS==<span class="string">'H-1B'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#create a list of job title that relate to data science</span></span><br><span class="line">state_list=list(df.EMPLOYER_STATE.unique())</span><br><span class="line">state_list.remove(np.nan)</span><br><span class="line">df[<span class="string">'JOB_TITLE'</span>]=[i[:<span class="number">-1</span>] <span class="keyword">if</span> str(i)[<span class="number">-1</span>]==<span class="string">'.'</span> <span class="keyword">else</span> i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'JOB_TITLE'</span>]]</span><br><span class="line">data_job_title=[i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'JOB_TITLE'</span>].unique() <span class="keyword">if</span> <span class="string">'MACHINE LEARNING'</span>  <span class="keyword">in</span> str(i) ]</span><br><span class="line">data_job_title+=[i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'JOB_TITLE'</span>].unique() <span class="keyword">if</span> <span class="string">'DATA'</span>  <span class="keyword">in</span> str(i) ]</span><br><span class="line">data_job_title+=[i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'JOB_TITLE'</span>].unique() <span class="keyword">if</span> <span class="string">'RESEARCH SCIENTIST'</span>  <span class="keyword">in</span> str(i) ]</span><br><span class="line">data_job_title+=[i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'JOB_TITLE'</span>].unique() <span class="keyword">if</span> <span class="string">'APPLIED SCIENTIST'</span>  <span class="keyword">in</span> str(i) ]</span><br><span class="line">data_job_title+=[i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">'JOB_TITLE'</span>].unique() <span class="keyword">if</span> <span class="string">'SQL'</span>  <span class="keyword">in</span> str(i) ]</span><br><span class="line">data_job_title=list(set(data_job_title))</span><br><span class="line"></span><br><span class="line"><span class="comment">#count number of data related job H-1B cases in each state</span></span><br><span class="line">data_geo=df[df.JOB_TITLE.isin(data_job_title)].groupby(<span class="string">'EMPLOYER_STATE'</span>)[<span class="string">'CASE_NUMBER'</span>].count().sort_values(ascending=<span class="literal">False</span>).to_frame()</span><br><span class="line">data_geo.to_csv(<span class="string">'./data_geo.csv'</span>)</span><br></pre></td></tr></table></figure>
-<p>For any job titles containing <em>Data</em>, <em>Machine Learning</em>, <em>Research Scientist</em>, <em>Applied Scientist</em>, <em>SQL</em>, I would include them as data science related jobs. I know there are job titles like <em>Product Analyst</em> which are essentially <em>Data Analyst</em> or <em>Data Scientist</em>, but I'll ignore these cases here.</p>
-<p>We can see the top 5 states sponsor <span class="math inline">\(9699\)</span> data science employees which take up more than <span class="math inline">\(50\%\)</span> of that in the U.S.</p>
-<p>Here is a map in Tableau that demonstrates how many data science employees sponsored in each state.</p>
-<iframe src="https://public.tableau.com/shared/MCQ8F254G?:showVizHome=no&amp;:embed=true" width="700" height="450">
-</iframe>
-<h4 id="except-those-big-tech-companies-iccs-sponsor-a-lot">Except those big tech companies, ICCs sponsor a LOT!</h4>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_company=data_company.groupby(<span class="string">'EMPLOYER_NAME'</span>)[<span class="string">'CASE_NUMBER'</span>].sum().sort_values(ascending=<span class="literal">False</span>).to_frame()</span><br></pre></td></tr></table></figure>
-<p>Here is a visualization of companies who sponsor H-1B (Only shows companies with ≥ 20 cases)</p>
-<iframe src="https://public.tableau.com/views/Book4_15618711097530/NumberofDataScienceEmployeesSponsoredinEachCompany?:showVizHome=no&amp;:embed=true" width="700" height="450">
-</iframe>
-<h4 id="only-50-companies">Only 50 companies</h4>
-<iframe src="https://public.tableau.com/shared/S96TBNH7M??:showVizHome=no&amp;:embed=true" width="700" height="700">
-</iframe>
-<p>Ref:</p>
-<p>https://en.wikipedia.org/wiki/H-1B_visa</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/8b70757d/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -2768,7 +2755,7 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">311k</span>
+    <span title="Symbols count total">312k</span>
   
 
   
