@@ -119,17 +119,17 @@
 
 
 
-  <meta name="description" content="Introduction The H-1B is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science re">
+  <meta name="description" content="Introduction The H-1B is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science jo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Analysis of 2018 H-1B Sponsorship on Data Science Jobs">
+<meta property="og:title" content="Analysis of 2018 H-1B Sponsorship for Data Science Employees">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/8b70757d/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Introduction The H-1B is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science re">
+<meta property="og:description" content="Introduction The H-1B is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science jo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-30T20:45:53.595Z">
+<meta property="og:updated_time" content="2019-06-30T20:55:28.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Analysis of 2018 H-1B Sponsorship on Data Science Jobs">
-<meta name="twitter:description" content="Introduction The H-1B is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science re">
+<meta name="twitter:title" content="Analysis of 2018 H-1B Sponsorship for Data Science Employees">
+<meta name="twitter:description" content="Introduction The H-1B is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science jo">
 
 
 
@@ -149,7 +149,7 @@
   };
 </script>
 
-  <title>Analysis of 2018 H-1B Sponsorship on Data Science Jobs | Nancy's Notes</title>
+  <title>Analysis of 2018 H-1B Sponsorship for Data Science Employees | Nancy's Notes</title>
   
 
 
@@ -420,7 +420,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Analysis of 2018 H-1B Sponsorship on Data Science Jobs
+          <h1 class="post-title" itemprop="name headline">Analysis of 2018 H-1B Sponsorship for Data Science Employees
 
               
             
@@ -463,7 +463,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-30 15:45:53" itemprop="dateModified" datetime="2019-06-30T15:45:53-05:00">2019-06-30</time>
+                <time title="Modified: 2019-06-30 15:55:28" itemprop="dateModified" datetime="2019-06-30T15:55:28-05:00">2019-06-30</time>
               
             
           </span>
@@ -509,7 +509,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">4.5k</span>
+                <span title="Symbols count in article">4.4k</span>
               
 
               
@@ -544,7 +544,7 @@
 
       
         <h1 id="introduction">Introduction</h1>
-<p>The <strong>H-1B</strong> is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science related jobs in the U.S., H-1B visa is the most common working visa. Job hunting is stressful, so that the tatics show more importance when selecting the companies to apply. Not saying there are no chances in companies with no H-1B case in 2018, as changes happen every year, and policies vary in each company. Accessing more information and prioritizing tasks in hand are what the new grads need to do.</p>
+<p>The <strong>H-1B</strong> is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science jobs in the U.S., H-1B visa is the most common working visa. Job hunting is stressful, so the tatics show more importance when selecting the companies to apply. Not saying there are no chances in companies with no H-1B sponsor records in 2018, as policies vary in each company every year. Accessing more information and prioritizing tasks in hand are what new grads need to do.</p>
 <p>I want to dig into the data of H-1B case disclosure file in 2018 a little. The data could be found at U.S. Department of Labor's website: https://www.foreignlaborcert.doleta.gov/performancedata.cfm#dis. I would just focus on data related entry level jobs.</p>
 <a id="more"></a>
 <h1 id="key-insights">Key Insights</h1>
@@ -555,7 +555,7 @@
 <p>Here is a map in Tableau that demonstrates how many data science employees sponsored in each state.</p>
 <iframe src="https://public.tableau.com/shared/MCQ8F254G?:showVizHome=no&amp;:embed=true" width="700" height="450">
 </iframe>
-<h4 id="except-those-big-tech-companies-iccs-sponsor-a-lot">Except those big tech companies, ICCs sponsor a LOT!</h4>
+<h4 id="besides-big-tech-companies-iccs-sponsor-a-lot">Besides big tech companies, ICCs sponsor a LOT!</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_company=data_company.groupby(<span class="string">'EMPLOYER_NAME'</span>)[<span class="string">'CASE_NUMBER'</span>].sum().sort_values(ascending=<span class="literal">False</span>).to_frame()</span><br></pre></td></tr></table></figure>
 <p>Here is a visualization of companies who sponsor H-1B (Only shows companies with ≥ 20 cases)</p>
 <iframe src="https://public.tableau.com/views/Book4_15618711097530/NumberofDataScienceEmployeesSponsoredinEachCompany?:showVizHome=no&amp;:embed=true" width="700" height="450">
@@ -876,7 +876,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#key-insights"><span class="nav-number">2.</span> <span class="nav-text">Key Insights</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#companies-in-california-new-jersey-texas-new-york-illinois-like-to-sponsor-data-science-employees-most-which-takes-up-50-of-that-in-the-u.s."><span class="nav-number">2.0.0.1.</span> <span class="nav-text">Companies in California, New Jersey, Texas, New York, Illinois like to sponsor data science employees most, which takes up &gt;50% of that in the U.S.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#except-those-big-tech-companies-iccs-sponsor-a-lot"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">Except those big tech companies, ICCs sponsor a LOT!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#more-than-140-companies-in-washington-state-sponsor-and-they-locate-not-only-in-washington-state"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">More than 140 companies in Washington state sponsor, and they locate not only in Washington state</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#key-insights"><span class="nav-number">2.</span> <span class="nav-text">Key Insights</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#companies-in-california-new-jersey-texas-new-york-illinois-like-to-sponsor-data-science-employees-most-which-takes-up-50-of-that-in-the-u.s."><span class="nav-number">2.0.0.1.</span> <span class="nav-text">Companies in California, New Jersey, Texas, New York, Illinois like to sponsor data science employees most, which takes up &gt;50% of that in the U.S.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#besides-big-tech-companies-iccs-sponsor-a-lot"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">Besides big tech companies, ICCs sponsor a LOT!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#more-than-140-companies-in-washington-state-sponsor-and-they-locate-not-only-in-washington-state"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">More than 140 companies in Washington state sponsor, and they locate not only in Washington state</span></a></li></ol></li></ol></div>
             
 
           </div>
