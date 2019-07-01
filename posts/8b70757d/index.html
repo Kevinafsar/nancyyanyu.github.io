@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Introduction The H-1B is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science jo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-01T00:04:30.024Z">
+<meta property="og:updated_time" content="2019-07-01T00:07:40.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Analysis of 2018 H-1B Sponsorship for Data Science Employees">
 <meta name="twitter:description" content="Introduction The H-1B is a visa in the U.S. that allows U.S. employers to temporarily employ foreign workers in specialty occupations. For international students who are trying to find Data science jo">
@@ -463,7 +463,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-30 19:04:30" itemprop="dateModified" datetime="2019-06-30T19:04:30-05:00">2019-06-30</time>
+                <time title="Modified: 2019-06-30 19:07:40" itemprop="dateModified" datetime="2019-06-30T19:07:40-05:00">2019-06-30</time>
               
             
           </span>
@@ -575,7 +575,7 @@
 <li>Companies based in Washington state not only sponsored people in the state, but also in other states, like California, Texas, New Jersey, and etc.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data_comp=df[(df.EMPLOYER_STATE==<span class="string">'WA'</span>) &amp; (df.JOB_TITLE.isin(data_job_title))].groupby(<span class="string">'EMPLOYER_NAME'</span>)[<span class="string">'CASE_NUMBER'</span>].count().sort_values(ascending=<span class="literal">False</span>).reset_index()</span><br><span class="line">data_comp_wa=pd.merge(data_comp,df[[<span class="string">'EMPLOYER_CITY'</span>,<span class="string">'EMPLOYER_STATE'</span>,<span class="string">'EMPLOYER_NAME'</span>]].drop_duplicates(),on=[<span class="string">'EMPLOYER_NAME'</span>],how=<span class="string">'left'</span>)</span><br></pre></td></tr></table></figure>
-<iframe src="https://public.tableau.com/shared/82398BJSX?:showVizHome=no&amp;:embed=true" width="900" height="900">
+<iframe src="https://public.tableau.com/shared/82398BJSX?:showVizHome=no&amp;:embed=true" width="1000" height="800">
 </iframe>
 <p><strong>Ref:</strong></p>
 <p>https://en.wikipedia.org/wiki/H-1B_visa</p>
