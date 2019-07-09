@@ -400,6 +400,665 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/9a328503/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/9a328503/" class="post-title-link" itemprop="url">Spark SQL & DataFrame, SparkETL</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-09 14:49:45 / Modified: 13:00:17" itemprop="dateCreated datePublished" datetime="2019-07-09T14:49:45-05:00">2019-07-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">5.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">5 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="sql-and-dataframe">SQL and DataFrame</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark</span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">from</span> pyspark.conf <span class="keyword">import</span> SparkConf</span><br></pre></td></tr></table></figure>
+<p>A <strong><em>SparkSession</em></strong> can be used create DataFrame, register DataFrame as tables, execute SQL over tables, cache tables, and read parquet files. To create a SparkSession, use the following builder pattern:</p>
+<p><strong><em>getOrCreate</em></strong>: Gets an existing SparkSession or, if there is no existing one, creates a new one based on the options set in this builder</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conf=SparkConf().set(<span class="string">"spark.python.profile"</span>, <span class="string">"true"</span>)</span><br><span class="line">spark=SparkSession.builder.master(<span class="string">"local"</span>).appName(<span class="string">"wordcount"</span>).config(conf=SparkConf()).getOrCreate()</span><br></pre></td></tr></table></figure>
+<p><strong><em>createDataFrame</em></strong>(data, schema=None, samplingRatio=None, verifySchema=True)</p>
+<p>Creates a DataFrame from an RDD, a list or a pandas.DataFrame.</p>
+<h2 id="creates-a-dataframe-from-a-list">Creates a DataFrame from a list</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l=[(<span class="string">"alice"</span>,<span class="number">1</span>),(<span class="string">"bob"</span>,<span class="number">2</span>)]</span><br><span class="line">df=spark.createDataFrame(l,[<span class="string">'name'</span>,<span class="string">'age'</span>])</span><br><span class="line">df.collect()</span><br></pre></td></tr></table></figure>
+<pre><code>[Row(name=&#39;alice&#39;, age=1), Row(name=&#39;bob&#39;, age=2)]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.toPandas()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+name
+</th>
+<th>
+age
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+alice
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+bob
+</td>
+<td>
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="creates-a-dataframe-from-pandas-dataframe-and-use-sql-query">Creates a DataFrame from pandas DataFrame, and use sql query</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df2=spark.createDataFrame(pd.DataFrame(l,columns=[<span class="string">'name'</span>,<span class="string">'age'</span>]))</span><br><span class="line">df2.collect()</span><br></pre></td></tr></table></figure>
+<p>[Row(name='alice', age=1), Row(name='bob', age=2)]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.select(<span class="string">"name"</span>).collect()</span><br></pre></td></tr></table></figure>
+<p>[Row(name='alice'), Row(name='bob')]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df2.createOrReplaceTempView(<span class="string">'table1'</span>)</span><br><span class="line">spark.sql(<span class="string">"select name from table1"</span>).collect()</span><br></pre></td></tr></table></figure>
+<p>[Row(name='alice'), Row(name='bob')]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark.table(<span class="string">"table1"</span>).collect()</span><br></pre></td></tr></table></figure>
+<p>[Row(name='alice', age=1), Row(name='bob', age=2)]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark.stop()</span><br></pre></td></tr></table></figure>
+<h2 id="sqlcontext">SQLContext</h2>
+<p>The entry point for working with structured data (rows and columns) in Spark, in Spark 1.x.</p>
+<p>As of Spark 2.0, this is replaced by SparkSession. However, we are keeping the class here for backward compatibility.</p>
+<p>A SQLContext can be used create DataFrame, register DataFrame as tables, execute SQL over tables, cache tables, and read parquet files.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc=SparkContext()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> Row,SQLContext</span><br><span class="line">sqlContext=SQLContext(sc)</span><br><span class="line">rdd=sc.parallelize(l)</span><br><span class="line">Person=Row(<span class="string">"name"</span>,<span class="string">"age"</span>)</span><br><span class="line">person=rdd.map(<span class="keyword">lambda</span> x: Person(*x))</span><br><span class="line">sqlContext.createDataFrame(person).collect()</span><br></pre></td></tr></table></figure>
+<p>[Row(name='alice', age=1), Row(name='bob', age=2)]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc.stop()</span><br></pre></td></tr></table></figure>
+<h1 id="sparketl">SparkETL</h1>
+<p>ETL is a type of data integration process referring to three distinct but interrelated steps (Extract, Transform and Load) and is used to synthesize data from multiple sources many times to build a Data Warehouse, Data Hub, or Data Lake.</p>
+<p>Let's write an ETL job on pyspark!</p>
+<p>Reference: https://github.com/AlexIoannides/pyspark-example-project</p>
+<p>Before building ETL process, we write a function <em>start_spark</em> to start our sparkSession, update and get our configuration.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> __main__</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> environ,listdir,path</span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkFiles</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">from</span> pyspark.conf <span class="keyword">import</span> SparkConf</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_spark</span><span class="params">(app_name=<span class="string">"my_spark_app"</span>,master=<span class="string">"local[*]"</span>,files=[<span class="string">'etl_conf.json'</span>])</span>:</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    flag_repl=<span class="keyword">not</span>(hasattr(__main__,<span class="string">'__file__'</span>))</span><br><span class="line">    flag_debug=<span class="string">'DEBUG'</span> <span class="keyword">in</span> environ.keys()</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span>(flag_repl <span class="keyword">or</span> flag_debug):    </span><br><span class="line">        spark_builder=(SparkSession.builder.appName(app_name))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        spark_builder=SparkSession.builder.appName(app_name).master(master)</span><br><span class="line">    </span><br><span class="line">    spark_files=<span class="string">'.'</span>.join(list(files))</span><br><span class="line">    spark_builder.config(<span class="string">'spark.files'</span>,spark_files)</span><br><span class="line">    spark_builder.config(conf=SparkConf())    </span><br><span class="line">    spark_sess=spark_builder.getOrCreate()</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">#spark_logger=logger.Log4j(spark_sess)</span></span><br><span class="line">    spark_files_dir=SparkFiles.getRootDirectory()</span><br><span class="line">    </span><br><span class="line">    config_files=[x <span class="keyword">for</span> x <span class="keyword">in</span> listdir(spark_files_dir) <span class="keyword">if</span> x.endswith(<span class="string">'conf.json'</span>)]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> config_files:</span><br><span class="line">        path_to_config_file=path.join(spark_files_dir,config_files[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">with</span> open(path_to_config_file,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            config_dict=json.load(f)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        </span><br><span class="line">        config_dict=<span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> spark_sess,config_dict</span><br></pre></td></tr></table></figure>
+<p>ETL Process contains 3 stages: Extract, Transform, Load. In Spark, - <strong>Extract</strong>: read Parquet format data in local machine - <strong>Transform</strong>: use sparkSQL to manipulate data - <strong>Load</strong>: write to csv</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> spark <span class="keyword">import</span> start_spark</span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf</span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkFiles</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> Row</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    spark,conf=start_spark()</span><br><span class="line">    steps_per_floor_=conf[<span class="string">'steps_per_floor'</span>]</span><br><span class="line">    df=extract(spark)</span><br><span class="line">    df_tf=transform(df,steps_per_floor_,spark)</span><br><span class="line">    load(df_tf)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">extract</span><span class="params">(spark)</span>:</span></span><br><span class="line">    df=spark.read.parquet(<span class="string">'tests/test_data/employees'</span>)</span><br><span class="line">    <span class="keyword">return</span> df</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transform</span><span class="params">(df,steps_per_floor_,spark)</span>:</span></span><br><span class="line">    df.createOrReplaceTempView(<span class="string">"table1"</span>)</span><br><span class="line">    df_transformed=spark.sql(<span class="string">"select id, concat(first_name,' ' , second_name) as name, floor* %s as steps_to_desk from table1"</span>%steps_per_floor_)</span><br><span class="line">    <span class="keyword">return</span> df_transformed</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load</span><span class="params">(df)</span>:</span></span><br><span class="line">    df.coalesce(<span class="number">1</span>).write.csv(<span class="string">'loaded_data'</span>, mode=<span class="string">'overwrite'</span>, header=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_test_data</span><span class="params">(spark,conf)</span>:</span>   </span><br><span class="line">    local_records=[</span><br><span class="line">            Row(id=<span class="number">1</span>, first_name=<span class="string">'nancy'</span>, second_name=<span class="string">"yan"</span>, floor=<span class="number">1</span>),</span><br><span class="line">            Row(id=<span class="number">2</span>, first_name=<span class="string">'Dan'</span>, second_name=<span class="string">'Sommerville'</span>, floor=<span class="number">1</span>),</span><br><span class="line">            Row(id=<span class="number">3</span>, first_name=<span class="string">'Alex'</span>, second_name=<span class="string">'Ioannides'</span>, floor=<span class="number">2</span>),</span><br><span class="line">            Row(id=<span class="number">4</span>, first_name=<span class="string">'Ken'</span>, second_name=<span class="string">'Lai'</span>, floor=<span class="number">2</span>),</span><br><span class="line">            Row(id=<span class="number">5</span>, first_name=<span class="string">'Stu'</span>, second_name=<span class="string">'White'</span>, floor=<span class="number">3</span>),</span><br><span class="line">            Row(id=<span class="number">6</span>, first_name=<span class="string">'Mark'</span>, second_name=<span class="string">'Sweeting'</span>, floor=<span class="number">3</span>),</span><br><span class="line">            Row(id=<span class="number">7</span>, first_name=<span class="string">'Phil'</span>, second_name=<span class="string">'Bird'</span>, floor=<span class="number">4</span>),</span><br><span class="line">            Row(id=<span class="number">8</span>, first_name=<span class="string">'Kim'</span>, second_name=<span class="string">'Suter'</span>, floor=<span class="number">4</span>)</span><br><span class="line">        ]</span><br><span class="line">    </span><br><span class="line">    df=spark.createDataFrame(local_records)</span><br><span class="line">    df_tf=transform(df,conf[<span class="string">'steps_per_floor'</span>],spark)</span><br><span class="line">    df_tf.coalesce(<span class="number">1</span>).write.parquet(<span class="string">'tests/test_data/employees_report'</span>,mode=<span class="string">'overwrite'</span>)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/5dd8d30/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/5dd8d30/" class="post-title-link" itemprop="url">pyspark_streaming_1</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-08 14:49:45" itemprop="dateCreated datePublished" datetime="2019-07-08T14:49:45-05:00">2019-07-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-09 12:58:11" itemprop="dateModified" datetime="2019-07-09T12:58:11-05:00">2019-07-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="structured-streaming">Structured Streaming</h1>
+<p><img src="./1.png" width="600"></p>
+<ul>
+<li><strong>Advantages of Structured Streaming</strong>
+<ul>
+<li>Streaming code looks a lot like the equivalent of non-streaming code.</li>
+<li>Structured data allows spark to represent data more efficiently.</li>
+<li>SQL-style queries allow for query optimization opportunities and even better performance.</li>
+<li>More compatibility with other spark components like MLLib</li>
+</ul></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Reference: https://github.com/jleetutorial/python-spark-streaming/blob/master/5_structured/1_Structured_Streaming_Demo.ipynb</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">import</span> findspark</span><br><span class="line"><span class="comment"># <span class="doctag">TODO:</span> your path will likely not have 'matthew' in it. Change it to reflect your path.</span></span><br><span class="line">findspark.init()</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">from</span> pyspark.sql.functions <span class="keyword">import</span> explode</span><br><span class="line"><span class="keyword">from</span> pyspark.sql.functions <span class="keyword">import</span> split</span><br><span class="line"></span><br><span class="line">spark = SparkSession.builder.appName(<span class="string">"StructuredNetworkWordCount"</span>).getOrCreate()</span><br><span class="line"></span><br><span class="line"><span class="comment"># In the terminal, type nc -lk 9999 to run the netcat server, and then type in whatever you choose.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create DataFrame representing the stream of input lines from connection to localhost:9999</span></span><br><span class="line">lines = spark.readStream.format(<span class="string">"socket"</span>).option(<span class="string">"host"</span>, <span class="string">"localhost"</span>).option(<span class="string">"port"</span>, <span class="number">9999</span>).load()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Split the lines into words</span></span><br><span class="line">words = lines.select(explode(split(lines.value, <span class="string">" "</span>)).alias(<span class="string">"word"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate running word count</span></span><br><span class="line">wordCounts = words.groupBy(<span class="string">"word"</span>).count()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start running the query that prints the running counts to the console</span></span><br><span class="line">query = wordCounts.writeStream.outputMode(<span class="string">"complete"</span>).format(<span class="string">"console"</span>).start()</span><br><span class="line">query.awaitTermination()</span><br></pre></td></tr></table></figure>
+<h1 id="dataframe-and-sql-operations">DataFrame and SQL Operations</h1>
+<p>You can easily use <a href="https://spark.apache.org/docs/latest/sql-programming-guide.html" target="_blank" rel="noopener">DataFrames and SQL</a> operations on streaming data. You have to create a SparkSession using the SparkContext that the StreamingContext is using. Furthermore, this has to done such that it can be restarted on driver failures. This is done by creating a lazily instantiated singleton instance of SparkSession. This is shown in the following example. It modifies the earlier <a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html#a-quick-example" target="_blank" rel="noopener">word count example</a> to generate word counts using DataFrames and SQL. Each RDD is converted to a DataFrame, registered as a temporary table and then queried using SQL.[Ref: ]</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/0/" class="post-title-link" itemprop="url">Untitled</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-03 15:20:37" itemprop="dateCreated datePublished" datetime="2019-07-03T15:20:37-05:00">2019-07-03</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">89</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>title: 离开纽约前的一些想法 abbrlink: babf682e date: 2019-06-11 13:17:57 categories: Journal tags:</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/8b70757d/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1872,645 +2531,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/b89c7c35/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/b89c7c35/" class="post-title-link" itemprop="url">Machine Learning Basic Questions</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-17 17:49:31" itemprop="dateCreated datePublished" datetime="2019-06-17T17:49:31-05:00">2019-06-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-18 16:46:20" itemprop="dateModified" datetime="2019-06-18T16:46:20-05:00">2019-06-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">18k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">16 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="can-you-state-tom-mitchells-definition-of-learning-and-discuss-t-p-and-e">1. Can you state Tom Mitchell's definition of learning and discuss T, P and E?</h3>
-<p>Mitchell (1997) provides the definition “A computer program is said to learn from <strong>experience E</strong> with respect to some class of <strong>tasks T</strong> and <strong>performance measure P</strong>, if its performance at tasks in <strong>T</strong>, as measured by <strong>P</strong>, improves with experience <strong>E</strong>.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/b89c7c35/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/4f6e00ef/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/4f6e00ef/" class="post-title-link" itemprop="url">ESL Note: Model Averaging and Stacking</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-17 16:21:28" itemprop="dateCreated datePublished" datetime="2019-06-17T16:21:28-05:00">2019-06-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-18 12:33:58" itemprop="dateModified" datetime="2019-06-18T12:33:58-05:00">2019-06-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="bayesian-model-averaging">Bayesian Model Averaging</h2>
-<p>We have a set of candidate models <span class="math inline">\(M_m\)</span>; m = 1,…,M for our training set <span class="math inline">\(Z\)</span>.</p>
-<p><strong>Suppose</strong> <span class="math inline">\(\zeta\)</span> is some quantity of interest, for example, a prediction f(x) at some fixed feature value <span class="math inline">\(x\)</span>. The <strong><em>posterior distribution</em></strong> of <span class="math inline">\(\zeta\)</span> is <span class="math display">\[
-\Pr(\zeta|\mathbf{Z})=\sum_{i=1}^M\Pr(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
-\]</span> with <strong><em>posterior mean</em></strong>: <span class="math display">\[
-E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
-\]</span> This Bayesian prediction is a weighted average of the individual predictions, with weights proportional to the posterior probability of each model.</p>
-<h3 id="frequentist-viewpoint">Frequentist Viewpoint</h3>
-<p>Given predictions <span class="math inline">\(\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)\)</span>, under squared-error loss, we can seek the weights $w = (w_1, w_2,…, w_M) $ such that <span class="math display">\[
-\hat{w}=\arg \min_w E_P[Y-\sum_{i=1}^Mw_m\hat{f}_m(x)]^2
-\]</span> Here the input value <span class="math inline">\(x\)</span> is fixed and the <span class="math inline">\(N\)</span> observations in the dataset <span class="math inline">\(Z\)</span> (and the target <span class="math inline">\(Y\)</span> ) are distributed according to <span class="math inline">\(P\)</span>. The solution is the population linear regression of <span class="math inline">\(Y\)</span> on <span class="math inline">\(\hat{F}(x)^T=[\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)]\)</span> : <span class="math display">\[
-\hat{w}=E_P[\hat{F}(x)\hat{F}(x)^T]^{-1}E_P[\hat{F}(x)Y]
-\]</span></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/c7bd9d66/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/c7bd9d66/" class="post-title-link" itemprop="url">Deep Learning Questions Part I: UAT, Motivation</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-17 15:22:02" itemprop="dateCreated datePublished" datetime="2019-06-17T15:22:02-05:00">2019-06-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-18 16:46:15" itemprop="dateModified" datetime="2019-06-18T16:46:15-05:00">2019-06-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">3.5k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">3 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="universal-approximation-of-neural-networks">Universal Approximation of neural networks</h2>
-<h3 id="state-the-universal-approximation-theorem-what-is-the-technique-used-to-prove-that">1. State the universal approximation theorem? What is the technique used to prove that?</h3>
-<p><strong>Universal approximation theorem</strong> (Hornik et al., 1989; Cybenko, 1989) states that a feedforward network with a linear output layer and at least one hidden layer with any “squashing” activation function (such as the logistic sigmoid activation function) can approximate any Borel measurable function from one finite-dimensional space to another with any desired non-zero amount of error, provided that the network is given enough hidden units.</p>
-<p>The universal approximation theorem means that <strong>regardless of what function we are trying to learn, we know that a large MLP will be able to represent this function.</strong></p>
-<p>However, we are not guaranteed that the training algorithm will be able to learn that function. Even if the MLP is able to represent the function, learning can fail for two different reasons.</p>
-<ol type="1">
-<li>The <strong>optimization algorithm</strong> used for training may not be able to find the value of the parameters that corresponds to the desired function.</li>
-<li>The training algorithm might <strong>choose the wrong function due to overfitting</strong></li>
-</ol>
-<p>The universal approximation theorem says that there exists a network large enough to achieve any degree of accuracy we desire, but the theorem does not say how large this network will be.</p>
-<h3 id="what-is-a-borel-measurable-function">2. What is a Borel measurable function?</h3>
-<p>Any continuous function on a closed and bounded subset of <span class="math inline">\(R^n\)</span> is Borel measurable and therefore may be approximated by a neural network.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/c7bd9d66/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2557,7 +2577,7 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2580,9 +2600,7 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -2655,7 +2673,13 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -2756,7 +2780,7 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">311k</span>
+    <span title="Symbols count total">319k</span>
   
 
   
