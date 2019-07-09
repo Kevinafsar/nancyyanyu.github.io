@@ -400,6 +400,219 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/4f6e00ef/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/4f6e00ef/" class="post-title-link" itemprop="url">ESL Note: Model Averaging and Stacking</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-17 16:21:28" itemprop="dateCreated datePublished" datetime="2019-06-17T16:21:28-05:00">2019-06-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-18 12:33:58" itemprop="dateModified" datetime="2019-06-18T12:33:58-05:00">2019-06-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="bayesian-model-averaging">Bayesian Model Averaging</h2>
+<p>We have a set of candidate models <span class="math inline">\(M_m\)</span>; m = 1,…,M for our training set <span class="math inline">\(Z\)</span>.</p>
+<p><strong>Suppose</strong> <span class="math inline">\(\zeta\)</span> is some quantity of interest, for example, a prediction f(x) at some fixed feature value <span class="math inline">\(x\)</span>. The <strong><em>posterior distribution</em></strong> of <span class="math inline">\(\zeta\)</span> is <span class="math display">\[
+\Pr(\zeta|\mathbf{Z})=\sum_{i=1}^M\Pr(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
+\]</span> with <strong><em>posterior mean</em></strong>: <span class="math display">\[
+E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
+\]</span> This Bayesian prediction is a weighted average of the individual predictions, with weights proportional to the posterior probability of each model.</p>
+<h3 id="frequentist-viewpoint">Frequentist Viewpoint</h3>
+<p>Given predictions <span class="math inline">\(\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)\)</span>, under squared-error loss, we can seek the weights $w = (w_1, w_2,…, w_M) $ such that <span class="math display">\[
+\hat{w}=\arg \min_w E_P[Y-\sum_{i=1}^Mw_m\hat{f}_m(x)]^2
+\]</span> Here the input value <span class="math inline">\(x\)</span> is fixed and the <span class="math inline">\(N\)</span> observations in the dataset <span class="math inline">\(Z\)</span> (and the target <span class="math inline">\(Y\)</span> ) are distributed according to <span class="math inline">\(P\)</span>. The solution is the population linear regression of <span class="math inline">\(Y\)</span> on <span class="math inline">\(\hat{F}(x)^T=[\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)]\)</span> : <span class="math display">\[
+\hat{w}=E_P[\hat{F}(x)\hat{F}(x)^T]^{-1}E_P[\hat{F}(x)Y]
+\]</span></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/c7bd9d66/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2326,224 +2539,6 @@ f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/9b1a6524/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/9b1a6524/" class="post-title-link" itemprop="url">ISLR Note - PCA</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-09 00:40:07" itemprop="dateCreated datePublished" datetime="2019-06-09T00:40:07-05:00">2019-06-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-17 14:59:51" itemprop="dateModified" datetime="2019-06-17T14:59:51-05:00">2019-06-17</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">7.9k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">7 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="principal-components-analysis">Principal Components Analysis</h1>
-<p><strong>Principal component analysis (PCA)</strong> refers to the process by which principal components are computed, and the subsequent use of these components in understanding the data. - PCA also serves as a tool for data visualization (visualization of the observations or visualization of the variables).</p>
-<h2 id="what-are-principal-components">What Are Principal Components?</h2>
-<p><strong>PCA</strong> :finds a low-dimensional representation of a data set that contains as much as possible of the <strong>variation</strong></p>
-<p>Each of the dimensions found by PCA is a linear combination of the <span class="math inline">\(p\)</span> features.</p>
-<p><strong><em>The first principal component</em></strong> of a set of features <span class="math inline">\(X_1,X_2, . . . , X_p\)</span> is the normalized linear combination of the features</p>
-<p><span class="math display">\[
-\begin{align}
-Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
-\end{align}
-\]</span></p>
-<p>that has the <strong>largest variance</strong>.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/9b1a6524/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2590,7 +2585,7 @@ Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2791,7 +2786,7 @@ Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">317k</span>
+    <span title="Symbols count total">330k</span>
   
 
   
