@@ -49,28 +49,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://nancyyanyu.github.io/posts/0/"/>
-    <id>https://nancyyanyu.github.io/posts/0/</id>
-    <published>2019-07-03T20:20:37.401Z</published>
-    <updated>2019-07-03T20:20:37.621Z</updated>
-    
-    <content type="html"><![CDATA[<p>title: 离开纽约前的一些想法 abbrlink: babf682e date: 2019-06-11 13:17:57 categories: Journal tags:</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;title: 离开纽约前的一些想法 abbrlink: babf682e date: 2019-06-11 13:17:57 categories: Journal tags:&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Analysis of 2018 H-1B Sponsorship for Data Science Employees</title>
     <link href="https://nancyyanyu.github.io/posts/8b70757d/"/>
     <id>https://nancyyanyu.github.io/posts/8b70757d/</id>
@@ -586,6 +564,43 @@ f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle
       <category term="Clustering" scheme="https://nancyyanyu.github.io/tags/Clustering/"/>
     
       <category term="Unsupervised" scheme="https://nancyyanyu.github.io/tags/Unsupervised/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ISLR Note - PCA</title>
+    <link href="https://nancyyanyu.github.io/posts/9b1a6524/"/>
+    <id>https://nancyyanyu.github.io/posts/9b1a6524/</id>
+    <published>2019-06-09T05:40:07.674Z</published>
+    <updated>2019-06-17T19:59:51.314Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="principal-components-analysis">Principal Components Analysis</h1><p><strong>Principal component analysis (PCA)</strong> refers to the process by which principal components are computed, and the subsequent use of these components in understanding the data. - PCA also serves as a tool for data visualization (visualization of the observations or visualization of the variables).</p><h2 id="what-are-principal-components">What Are Principal Components?</h2><p><strong>PCA</strong> :finds a low-dimensional representation of a data set that contains as much as possible of the <strong>variation</strong></p><p>Each of the dimensions found by PCA is a linear combination of the <span class="math inline">\(p\)</span> features.</p><p><strong><em>The first principal component</em></strong> of a set of features <span class="math inline">\(X_1,X_2, . . . , X_p\)</span> is the normalized linear combination of the features</p><p><span class="math display">\[\begin{align}Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p\end{align}\]</span></p><p>that has the <strong>largest variance</strong>.</p><a id="more"></a><p><strong>Normalized</strong>: <span class="math inline">\(\sum_{j=1}^p \phi_{j1}^2=1\)</span></p><p><strong>Loadings</strong>: <span class="math inline">\(\phi_{11}, . . . , \phi_{p1}\)</span> the loadings of the first principal component; - Together, the loadings make up the principal component loading vector, <span class="math inline">\(\phi_1=(\phi_{11},\phi_{21},...,\phi_{p1})^T\)</span></p><h3 id="compute-the-first-principal-component">Compute the first principal component</h3><ul><li><p>Assume that each of the variables in <span class="math inline">\(X\)</span> has been centered to have mean zero. We then look for the linear combination of the sample feature values of the form <span class="math display">\[\begin{align}z_{i1}=\phi_{11}x_{i1}+\phi_{21}x_{i2}+,,,+\phi_{p1}x_{ip} \quad \quad i=1,2,...,n\end{align}\]</span></p><p>that has largest sample variance, subject to the constraint that <span class="math inline">\(\sum_{j=1}^p \phi_{j1}^2=1\)</span></p></li><li><p>The first principal component loading vector solves the optimization problem <span class="math display">\[\begin{align}\max_{\phi_{11},...,\phi_{p1}}{\left\{ \frac{1}{n} \sum_{i=1}^n \left( \sum_{j=1}^p \phi_{j1}x_{ij}   \right)^2 \right\}} \, subject \, to \, \sum_{j=1}^p \phi_{j1}^2=1\end{align}\]</span></p></li><li><p>Since <span class="math inline">\(\sum_{i=1}^nx_{ij}/n=1\)</span>, the average of the <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> will be zero as well. Hence the objective that we are maximizing is just the <strong>sample variance</strong> of the <span class="math inline">\(n\)</span> values of zi1</p></li><li><p><strong>Scores</strong>: We refer to <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> as the scores of the first principal component.</p></li></ul><p><strong>Geometric interpretation</strong>: for the first principal component: The loading vector <span class="math inline">\(\phi_1\)</span> with elements <span class="math inline">\(\phi_{11},\phi_{21},...,\phi_{p1}\)</span> defines a direction in feature space along which the data <strong>vary the most</strong>. If we project the n data points <span class="math inline">\(x_1, . . . , x_n\)</span> onto this direction, the projected values are the principal component scores <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> themselves.</p><h3 id="compute-the-second-principal-component">Compute the second principal component</h3><p><strong>The second principal component <span class="math inline">\(Z_2\)</span></strong>: the linear combination of <span class="math inline">\(X_1,X_2, . . . , X_p\)</span> that has maximal variance out of all linear combinations that are <strong>uncorrelated with <span class="math inline">\(Z_1\)</span></strong>.</p><p>The second principal component scores <span class="math inline">\(z_{12}, . . . , z_{n2}\)</span> take the form</p><p><span class="math display">\[\begin{align}z_{i2}=\phi_{12}x_{i1}+\phi_{22}x_{i2}+,,,+\phi_{p2}x_{ip} \quad \quad i=1,2,...,n\end{align}\]</span> where <span class="math inline">\(\phi_2\)</span> is the second principal component <strong>loading</strong> vector, with elements <span class="math inline">\(\phi_{12},\phi_{22},...,\phi_{p2}\)</span>.</p><p>It turns out that constraining <span class="math inline">\(Z_2\)</span> to be uncorrelated with <span class="math inline">\(Z_1\)</span> is equivalent to constraining the direction <span class="math inline">\(\phi_2\)</span> to be <strong>orthogonal</strong> (perpendicular) to the direction <span class="math inline">\(\phi_1\)</span>.</p><p>To find <span class="math inline">\(\phi_2\)</span>, we solve a problem similar to (10.3) with <span class="math inline">\(\phi_2\)</span> replacing <span class="math inline">\(\phi_1\)</span>, and with the additional constraint that <span class="math inline">\(\phi_2\)</span> is orthogonal to <span class="math inline">\(\phi_1\)</span></p><p><img src="./1.png" width="600"></p><p><strong>Interpretation:</strong> - 1st loading vector places approximately equal weight on Assault, Murder, and Rape, with much less weight UrbanPop. Hence this component roughly corresponds to a measure of overall rates of serious crimes. - Overall, we see that the crime-related variables (Murder, Assault, and Rape) are located close to each other, and that the UrbanPop variable is far from the other three. - This indicates that the crime-related variables are correlated with each other—states with high murder rates tend to have high assault and rape rates—and that the UrbanPop variable is less correlated with the other three.</p><h2 id="another-interpretation-of-principal-components">Another Interpretation of Principal Components</h2><p><strong>An alternative interpretation for principal components</strong>: principal components provide low-dimensional linear surfaces that are closest to the observations</p><ul><li><p><strong>The first principal component loading vector has a very special property</strong>: it is the line in p-dimensional space that is closest to the n observations (using average squared Euclidean distance as a measure of closeness).</p></li><li><p>The appeal of this interpretation : we seek a single dimension of the data that lies as close as possible to all of the data points, since such a line will likely provide a good summary of the data.</p></li><li><p><strong>The first two principal components</strong> of a data set <strong>span the plane</strong> that is closest to the n observations, in terms of average squared Euclidean distance</p></li><li><p>Together <strong>the first M principal component</strong> score vectors and the first M principal component loading vectors provide the best M-dimensional approximation (in terms of Euclidean distance) to the ith observation <span class="math inline">\(x_{ij}\)</span> . <span class="math display">\[\begin{align}x_{ij} \approx \sum_{m=1}^Mz_{im}\phi_{jm}\end{align}\]</span> (assuming the original data matrix X is column-centered).</p><p>(assuming the original data matrix X is column-centered).</p></li><li><p>When <span class="math inline">\(M = min(n − 1, p)\)</span>, then the representation is exact: <span class="math inline">\(x_{ij} = \sum_{m=1}^Mz_{im}\phi_{jm}\)</span></p></li></ul><h2 id="more-on-pca">More on PCA</h2><h3 id="scaling-the-variables">Scaling the Variables</h3><p>Before PCA is performed, the variables should be <strong>centered to have mean zero</strong>. Furthermore, the results obtained when we perform PCA will also depend on whether the variables have been <strong>individually scaled</strong> (each multiplied by a different constant)</p><p><img src="./2.png" width="600"></p><h3 id="uniqueness-of-the-principal-components">Uniqueness of the Principal Components</h3><p><strong>Each principal component loading vector <span class="math inline">\(\phi_1=(\phi_{11},\phi_{21},...,\phi_{p1})^T\)</span> and the score vectors <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> is unique, up to a sign flip. </strong> - Two different software packages will yield the same principal component loading vectors and score vectors, although the signs of those loading vectors may differ. - <strong>The signs may differ</strong> because each principal component loading vector specifies a direction in p-dimensional space: flipping the sign has no effect as the direction does not change.</p><h3 id="the-proportion-of-variance-explained">The Proportion of Variance Explained</h3><p><strong>How much of the variance in the data is not contained in the first few principal components?</strong></p><p><strong>Proportion of variance explained (PVE)</strong> by each principal component: - The total variance present in a data set (assuming that the variables have been centered to have mean zero) is defined as</p><p><span class="math display">\[\begin{align}\sum_{j=1}^pVar(X_j)=\sum_{j=1}^p\frac{1}{n}\sum_{i=1}^nx_{ij}^2\end{align}\]</span></p><ul><li>The variance explained by the mth principal component is</li></ul><p><span class="math display">\[\begin{align}\frac{1}{n}\sum_{i=1}^nz_{im}^2=\frac{1}{n}\sum_{i=1}^n \left( \sum_{j=1}^p \phi_{jm}x_{ij} \right)^2\end{align}\]</span></p><ul><li>Therefore, the <strong>PVE of the mth principal component</strong> is given by</li></ul><p><span class="math display">\[\begin{align}\frac{\sum_{i=1}^n \left( \sum_{j=1}^p \phi_{jm}x_{ij} \right)^2}{\sum_{j=1}^p\sum_{i=1}^nx_{ij}^2}\end{align}\]</span></p><p>The PVE of each principal component is a positive quantity. In order to compute the <strong>cumulative PVE</strong> of the first <span class="math inline">\(M\)</span> principal components, we can simply sum (10.8) over each of the first <span class="math inline">\(M\)</span> PVEs. In total, there are <span class="math inline">\(min(n − 1, p)\)</span> principal components, and their PVEs sum to one.</p><p><img src="./3.png" width="600"></p><h3 id="deciding-how-many-principal-components-to-use">Deciding How Many Principal Components to Use</h3><p>We would like to use the smallest number of principal components required to get a good understanding of the data.</p><p><strong>How many principal components are needed?</strong> - We typically decide on the number of principal components required to visualize the data by examining a <strong>scree plot</strong> (Right FIGURE 10.4) - We choose the smallest number of principal components that are required in order to explain a sizable amount of the variation in the data. - We tend to look at the first few principal components in order to find interesting patterns in the data. If no interesting patterns are found in the first few principal components, then further principal components are unlikely to be of interest.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;principal-components-analysis&quot;&gt;Principal Components Analysis&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Principal component analysis (PCA)&lt;/strong&gt; refers to the process by which principal components are computed, and the subsequent use of these components in understanding the data. - PCA also serves as a tool for data visualization (visualization of the observations or visualization of the variables).&lt;/p&gt;
+&lt;h2 id=&quot;what-are-principal-components&quot;&gt;What Are Principal Components?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;PCA&lt;/strong&gt; :finds a low-dimensional representation of a data set that contains as much as possible of the &lt;strong&gt;variation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Each of the dimensions found by PCA is a linear combination of the &lt;span class=&quot;math inline&quot;&gt;\(p\)&lt;/span&gt; features.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;The first principal component&lt;/em&gt;&lt;/strong&gt; of a set of features &lt;span class=&quot;math inline&quot;&gt;\(X_1,X_2, . . . , X_p\)&lt;/span&gt; is the normalized linear combination of the features&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[
+\begin{align}
+Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
+\end{align}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;that has the &lt;strong&gt;largest variance&lt;/strong&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="Unsupervised" scheme="https://nancyyanyu.github.io/tags/Unsupervised/"/>
+    
+      <category term="PCA" scheme="https://nancyyanyu.github.io/tags/PCA/"/>
+    
+      <category term="Dimension Reduction" scheme="https://nancyyanyu.github.io/tags/Dimension-Reduction/"/>
     
   </entry>
   
