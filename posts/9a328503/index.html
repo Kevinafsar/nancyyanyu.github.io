@@ -127,7 +127,7 @@
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="SQL and DataFrame 1234import pysparkfrom pyspark import SparkContextfrom pyspark.sql import SparkSessionfrom pyspark.conf import SparkConf A SparkSession can be used create DataFrame, register DataFra">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-09T18:00:17.556Z">
+<meta property="og:updated_time" content="2019-07-09T18:04:06.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark SQL &amp; DataFrame, SparkETL">
 <meta name="twitter:description" content="SQL and DataFrame 1234import pysparkfrom pyspark import SparkContextfrom pyspark.sql import SparkSessionfrom pyspark.conf import SparkConf A SparkSession can be used create DataFrame, register DataFra">
@@ -447,7 +447,7 @@
                 
               
 
-              <time title="Created: 2019-07-09 14:49:45 / Modified: 13:00:17" itemprop="dateCreated datePublished" datetime="2019-07-09T14:49:45-05:00">2019-07-09</time>
+              <time title="Created: 2019-07-09 14:49:45 / Modified: 13:04:06" itemprop="dateCreated datePublished" datetime="2019-07-09T14:49:45-05:00">2019-07-09</time>
             
 
             
@@ -539,6 +539,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conf=SparkConf().set(<span class="string">"spark.python.profile"</span>, <span class="string">"true"</span>)</span><br><span class="line">spark=SparkSession.builder.master(<span class="string">"local"</span>).appName(<span class="string">"wordcount"</span>).config(conf=SparkConf()).getOrCreate()</span><br></pre></td></tr></table></figure>
 <p><strong><em>createDataFrame</em></strong>(data, schema=None, samplingRatio=None, verifySchema=True)</p>
 <p>Creates a DataFrame from an RDD, a list or a pandas.DataFrame.</p>
+<a id="more"></a>
 <h2 id="creates-a-dataframe-from-a-list">Creates a DataFrame from a list</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l=[(<span class="string">"alice"</span>,<span class="number">1</span>),(<span class="string">"bob"</span>,<span class="number">2</span>)]</span><br><span class="line">df=spark.createDataFrame(l,[<span class="string">'name'</span>,<span class="string">'age'</span>])</span><br><span class="line">df.collect()</span><br></pre></td></tr></table></figure>
 <pre><code>[Row(name=&#39;alice&#39;, age=1), Row(name=&#39;bob&#39;, age=2)]</code></pre>
@@ -617,10 +618,15 @@ bob
 <h1 id="sparketl">SparkETL</h1>
 <p>ETL is a type of data integration process referring to three distinct but interrelated steps (Extract, Transform and Load) and is used to synthesize data from multiple sources many times to build a Data Warehouse, Data Hub, or Data Lake.</p>
 <p>Let's write an ETL job on pyspark!</p>
-<p>Reference: https://github.com/AlexIoannides/pyspark-example-project</p>
+<p>Reference: (https://github.com/AlexIoannides/pyspark-example-project)</p>
 <p>Before building ETL process, we write a function <em>start_spark</em> to start our sparkSession, update and get our configuration.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> __main__</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> environ,listdir,path</span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkFiles</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">from</span> pyspark.conf <span class="keyword">import</span> SparkConf</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_spark</span><span class="params">(app_name=<span class="string">"my_spark_app"</span>,master=<span class="string">"local[*]"</span>,files=[<span class="string">'etl_conf.json'</span>])</span>:</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    flag_repl=<span class="keyword">not</span>(hasattr(__main__,<span class="string">'__file__'</span>))</span><br><span class="line">    flag_debug=<span class="string">'DEBUG'</span> <span class="keyword">in</span> environ.keys()</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span>(flag_repl <span class="keyword">or</span> flag_debug):    </span><br><span class="line">        spark_builder=(SparkSession.builder.appName(app_name))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        spark_builder=SparkSession.builder.appName(app_name).master(master)</span><br><span class="line">    </span><br><span class="line">    spark_files=<span class="string">'.'</span>.join(list(files))</span><br><span class="line">    spark_builder.config(<span class="string">'spark.files'</span>,spark_files)</span><br><span class="line">    spark_builder.config(conf=SparkConf())    </span><br><span class="line">    spark_sess=spark_builder.getOrCreate()</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">#spark_logger=logger.Log4j(spark_sess)</span></span><br><span class="line">    spark_files_dir=SparkFiles.getRootDirectory()</span><br><span class="line">    </span><br><span class="line">    config_files=[x <span class="keyword">for</span> x <span class="keyword">in</span> listdir(spark_files_dir) <span class="keyword">if</span> x.endswith(<span class="string">'conf.json'</span>)]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> config_files:</span><br><span class="line">        path_to_config_file=path.join(spark_files_dir,config_files[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">with</span> open(path_to_config_file,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            config_dict=json.load(f)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        </span><br><span class="line">        config_dict=<span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> spark_sess,config_dict</span><br></pre></td></tr></table></figure>
-<p>ETL Process contains 3 stages: Extract, Transform, Load. In Spark, - <strong>Extract</strong>: read Parquet format data in local machine - <strong>Transform</strong>: use sparkSQL to manipulate data - <strong>Load</strong>: write to csv</p>
+<p>ETL Process contains 3 stages: Extract, Transform, Load. In Spark,</p>
+<ul>
+<li><strong>Extract</strong>: read Parquet format data in local machine</li>
+<li><strong>Transform</strong>: use sparkSQL to manipulate data</li>
+<li><strong>Load</strong>: write to csv</li>
+</ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> spark <span class="keyword">import</span> start_spark</span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf</span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkFiles</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> Row</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    spark,conf=start_spark()</span><br><span class="line">    steps_per_floor_=conf[<span class="string">'steps_per_floor'</span>]</span><br><span class="line">    df=extract(spark)</span><br><span class="line">    df_tf=transform(df,steps_per_floor_,spark)</span><br><span class="line">    load(df_tf)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">extract</span><span class="params">(spark)</span>:</span></span><br><span class="line">    df=spark.read.parquet(<span class="string">'tests/test_data/employees'</span>)</span><br><span class="line">    <span class="keyword">return</span> df</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transform</span><span class="params">(df,steps_per_floor_,spark)</span>:</span></span><br><span class="line">    df.createOrReplaceTempView(<span class="string">"table1"</span>)</span><br><span class="line">    df_transformed=spark.sql(<span class="string">"select id, concat(first_name,' ' , second_name) as name, floor* %s as steps_to_desk from table1"</span>%steps_per_floor_)</span><br><span class="line">    <span class="keyword">return</span> df_transformed</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load</span><span class="params">(df)</span>:</span></span><br><span class="line">    df.coalesce(<span class="number">1</span>).write.csv(<span class="string">'loaded_data'</span>, mode=<span class="string">'overwrite'</span>, header=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_test_data</span><span class="params">(spark,conf)</span>:</span>   </span><br><span class="line">    local_records=[</span><br><span class="line">            Row(id=<span class="number">1</span>, first_name=<span class="string">'nancy'</span>, second_name=<span class="string">"yan"</span>, floor=<span class="number">1</span>),</span><br><span class="line">            Row(id=<span class="number">2</span>, first_name=<span class="string">'Dan'</span>, second_name=<span class="string">'Sommerville'</span>, floor=<span class="number">1</span>),</span><br><span class="line">            Row(id=<span class="number">3</span>, first_name=<span class="string">'Alex'</span>, second_name=<span class="string">'Ioannides'</span>, floor=<span class="number">2</span>),</span><br><span class="line">            Row(id=<span class="number">4</span>, first_name=<span class="string">'Ken'</span>, second_name=<span class="string">'Lai'</span>, floor=<span class="number">2</span>),</span><br><span class="line">            Row(id=<span class="number">5</span>, first_name=<span class="string">'Stu'</span>, second_name=<span class="string">'White'</span>, floor=<span class="number">3</span>),</span><br><span class="line">            Row(id=<span class="number">6</span>, first_name=<span class="string">'Mark'</span>, second_name=<span class="string">'Sweeting'</span>, floor=<span class="number">3</span>),</span><br><span class="line">            Row(id=<span class="number">7</span>, first_name=<span class="string">'Phil'</span>, second_name=<span class="string">'Bird'</span>, floor=<span class="number">4</span>),</span><br><span class="line">            Row(id=<span class="number">8</span>, first_name=<span class="string">'Kim'</span>, second_name=<span class="string">'Suter'</span>, floor=<span class="number">4</span>)</span><br><span class="line">        ]</span><br><span class="line">    </span><br><span class="line">    df=spark.createDataFrame(local_records)</span><br><span class="line">    df_tf=transform(df,conf[<span class="string">'steps_per_floor'</span>],spark)</span><br><span class="line">    df_tf.coalesce(<span class="number">1</span>).write.parquet(<span class="string">'tests/test_data/employees_report'</span>,mode=<span class="string">'overwrite'</span>)</span><br></pre></td></tr></table></figure>
 
       
@@ -665,8 +671,8 @@ bob
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/5dd8d30/" rel="next" title="pyspark_streaming_1">
-                <i class="fa fa-chevron-left"></i> pyspark_streaming_1
+              <a href="/posts/0/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -749,7 +755,7 @@ bob
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -849,9 +855,7 @@ bob
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -969,7 +973,7 @@ bob
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">319k</span>
+    <span title="Symbols count total">317k</span>
   
 
   
