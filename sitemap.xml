@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/techou/index.html</loc>
+    
+    <lastmod>2019-07-09T18:21:03.250Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/4935c427/</loc>
+    
+    <lastmod>2019-07-09T18:19:59.622Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/posts/c490e7f0/</loc>
     
     <lastmod>2019-07-09T18:14:20.949Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://nancyyanyu.github.io/project/index.html</loc>
     
     <lastmod>2019-07-01T01:39:40.130Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/techou/index.html</loc>
-    
-    <lastmod>2019-07-01T01:27:25.423Z</lastmod>
     
   </url>
   
