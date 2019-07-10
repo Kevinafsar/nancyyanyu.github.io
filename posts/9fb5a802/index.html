@@ -130,7 +130,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/9fb5a802/2.jpg">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/9fb5a802/3.gif">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/9fb5a802/4.gif">
-<meta property="og:updated_time" content="2019-07-10T22:29:56.644Z">
+<meta property="og:updated_time" content="2019-07-10T22:54:13.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Realtime Twitter Data Analysis using Spark Streaming">
 <meta name="twitter:description" content="In this project, I built an application that extract streaming tweets from Twitter, transform the data, and visualize using Apache Sparking Streaming to gain the trending hashtags of a specific topic.">
@@ -451,7 +451,7 @@
                 
               
 
-              <time title="Created: 2019-07-10 13:23:56 / Modified: 17:29:56" itemprop="dateCreated datePublished" datetime="2019-07-10T13:23:56-05:00">2019-07-10</time>
+              <time title="Created: 2019-07-10 13:23:56 / Modified: 17:54:13" itemprop="dateCreated datePublished" datetime="2019-07-10T13:23:56-05:00">2019-07-10</time>
             
 
             
@@ -542,7 +542,7 @@
 <p>Spark Streaming is an extension of the core Spark API that enables scalable, high-throughput, fault-tolerant stream processing of live data streams. Data can be ingested from many sources like Kafka, Flume, Kinesis, or TCP sockets, and can be processed using complex algorithms expressed with high-level functions like <code>map</code>, <code>reduce</code>, <code>join</code> and <code>window</code>.</p>
 <p>I will skip the explaination of how to set up spark in local machine, and the details of Streaming API. Please see the <a href="https://spark.apache.org/docs/latest/api/python/pyspark.streaming.html" target="_blank" rel="noopener">document</a> of Spark.</p>
 <h1 id="part-i.-create-twitter-streaming">Part I. Create Twitter Streaming</h1>
-<p>##Register Twitter App</p>
+<h2 id="register-twitter-app">Register Twitter App</h2>
 <p>Before using Twitter's API, I registered an app <a href="https://developer.twitter.com/en/apps" target="_blank" rel="noopener">here</a>, and got the <em>Consumer API keys</em>, <em>Access token &amp; access token secret</em>.</p>
 <p><img src="./2.jpg" width="500"></p>
 <p>These information should be saved, as Twitter needs them to authenticate a user.</p>
@@ -873,7 +873,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#apache-spark-streaming"><span class="nav-number">1.</span> <span class="nav-text">Apache Spark Streaming</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#part-i.-create-twitter-streaming"><span class="nav-number">2.</span> <span class="nav-text">Part I. Create Twitter Streaming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#extract-tweets-from-twitter-streaming"><span class="nav-number">2.1.</span> <span class="nav-text">Extract Tweets from Twitter Streaming</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#part-ii.-set-up-streaming-application"><span class="nav-number">3.</span> <span class="nav-text">Part II. Set Up Streaming Application</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#summary"><span class="nav-number">4.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#apache-spark-streaming"><span class="nav-number">1.</span> <span class="nav-text">Apache Spark Streaming</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#part-i.-create-twitter-streaming"><span class="nav-number">2.</span> <span class="nav-text">Part I. Create Twitter Streaming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#register-twitter-app"><span class="nav-number">2.1.</span> <span class="nav-text">Register Twitter App</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extract-tweets-from-twitter-streaming"><span class="nav-number">2.2.</span> <span class="nav-text">Extract Tweets from Twitter Streaming</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#part-ii.-set-up-streaming-application"><span class="nav-number">3.</span> <span class="nav-text">Part II. Set Up Streaming Application</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#summary"><span class="nav-number">4.</span> <span class="nav-text">Summary</span></a></li></ol></div>
             
 
           </div>
