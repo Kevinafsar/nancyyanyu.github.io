@@ -120,7 +120,7 @@
 
 
   <meta name="description" content="multiple linear regression model takes the form: \[ \begin{align} Y=\beta_0+\beta_1X_1+,,,+\beta_pX_p+\epsilon \end{align} \] Estimating the Regression Coefficients We choose β0, β1, . . . , βp to min">
-<meta name="keywords" content="Model Assessment,Model Selection,Linear Regression,Regression">
+<meta name="keywords" content="Model Assessment,Model Selection,Linear Regression,Regression,p-value">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ISLR Note - Multiple Linear Regression, Hypothesis Test, R2">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/85819d65/index.html">
@@ -130,7 +130,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/85819d65/5.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/85819d65/6.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/85819d65/7.png">
-<meta property="og:updated_time" content="2019-06-17T23:22:41.166Z">
+<meta property="og:updated_time" content="2019-07-15T23:10:21.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Multiple Linear Regression, Hypothesis Test, R2">
 <meta name="twitter:description" content="multiple linear regression model takes the form: \[ \begin{align} Y=\beta_0+\beta_1X_1+,,,+\beta_pX_p+\epsilon \end{align} \] Estimating the Regression Coefficients We choose β0, β1, . . . , βp to min">
@@ -468,7 +468,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-17 18:22:41" itemprop="dateModified" datetime="2019-06-17T18:22:41-05:00">2019-06-17</time>
+                <time title="Modified: 2019-07-15 18:10:21" itemprop="dateModified" datetime="2019-07-15T18:10:21-05:00">2019-07-15</time>
               
             
           </span>
@@ -514,7 +514,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">7.9k</span>
+                <span title="Symbols count in article">9.2k</span>
               
 
               
@@ -528,7 +528,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">7 mins.</span>
+                <span title="Reading time">8 mins.</span>
               
             </div>
           
@@ -693,6 +693,24 @@ RSE=\sqrt{\frac{RSS}{n-p-1}}
 <h3 id="prediction-intervals"><strong>Prediction intervals</strong></h3>
 <p><strong>Prediction intervals</strong> are always wider than <strong>confidence intervals</strong> - Because they incorporate both <em>the error in the estimate for f(X) (the reducible error) and the uncertainty as to how much an individual point will differ from the population regression plane (the irreducible error).</em></p>
 <p>E.g. - <strong>confidence interval</strong> : quantify the uncertainty surrounding the average sales over a large number of cities. - <strong>prediction interval</strong> : quantify the uncertainty surrounding sales for a particular city.</p>
+<h1 id="note-of-p-value-v.s.-r-square">Note of P-Value v.s. R-Square</h1>
+<p>Referring answer fromn <a href="https://www.researchgate.net/profile/Faye_Anderson3" target="_blank" rel="noopener">Faye Anderson</a>:</p>
+<p>There is no established association/relationship between p-value and R-square. This all depends on the data (i.e.; contextual).</p>
+<p>R-square value tells you how much variation is explained by your model. So 0.1 R-square means that your model explains 10% of variation within the data. The greater R-square the better the model. Whereas p-value tells you about the F statistic hypothesis testing of the &quot;fit of the intercept-only model and your model are equal&quot;. So if the p-value is less than the significance level (usually 0.05) then your model fits the data well.</p>
+<p>Thus you have four scenarios:</p>
+<ol type="1">
+<li><p>low R-square and low p-value (p-value &lt;= 0.05)</p></li>
+<li><p>low R-square and high p-value (p-value &gt; 0.05)</p></li>
+<li><p>high R-square and low p-value</p></li>
+<li><p>high R-square and high p-value</p></li>
+</ol>
+<p>Interpretation:</p>
+<ol type="1">
+<li><p>means that your model doesn't explain much of variation of the data but it is significant (better than not having a model)</p></li>
+<li><p>means that your model doesn't explain much of variation of the data and it is not significant (worst scenario)</p></li>
+<li><p>means your model explains a lot of variation within the data and is significant (best scenario)</p></li>
+<li><p>means that your model explains a lot of variation within the data but is not significant (model is worthless)</p></li>
+</ol>
 
       
     </div>
@@ -726,6 +744,8 @@ RSE=\sqrt{\frac{RSS}{n-p-1}}
             <a href="/tags/Linear-Regression/" rel="tag"># Linear Regression</a>
           
             <a href="/tags/Regression/" rel="tag"># Regression</a>
+          
+            <a href="/tags/p-value/" rel="tag"># p-value</a>
           
         </div>
       
@@ -826,7 +846,7 @@ RSE=\sqrt{\frac{RSS}{n-p-1}}
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -930,7 +950,9 @@ RSE=\sqrt{\frac{RSS}{n-p-1}}
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1015,7 +1037,7 @@ RSE=\sqrt{\frac{RSS}{n-p-1}}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#estimating-the-regression-coefficients"><span class="nav-number">1.</span> <span class="nav-text">Estimating the Regression Coefficients</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#some-important-questions"><span class="nav-number">2.</span> <span class="nav-text">Some Important Questions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#is-there-a-relationship-between-the-response-and-predictors"><span class="nav-number">2.1.</span> <span class="nav-text">Is There a Relationship Between the Response and Predictors?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#do-all-the-predictors-help-to-explain-y-or-is-only-a-subset-of-the-predictors-useful"><span class="nav-number">2.2.</span> <span class="nav-text">Do all the predictors help to explain Y , or is only a subset of the predictors useful?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-well-does-the-model-fit-the-data"><span class="nav-number">2.3.</span> <span class="nav-text">How well does the model fit the data?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#r2-statistics"><span class="nav-number">2.3.1.</span> <span class="nav-text">R2 Statistics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rse"><span class="nav-number">2.3.2.</span> <span class="nav-text">RSE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#graphical-summaries"><span class="nav-number">2.3.3.</span> <span class="nav-text">Graphical summaries</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#given-a-set-of-predictor-values-what-response-value-should-we-predict-and-how-accurate-is-our-prediction"><span class="nav-number">2.4.</span> <span class="nav-text">Given a set of predictor values, what response value should we predict, and how accurate is our prediction?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prediction-intervals"><span class="nav-number">2.4.1.</span> <span class="nav-text">Prediction intervals</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#estimating-the-regression-coefficients"><span class="nav-number">1.</span> <span class="nav-text">Estimating the Regression Coefficients</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#some-important-questions"><span class="nav-number">2.</span> <span class="nav-text">Some Important Questions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#is-there-a-relationship-between-the-response-and-predictors"><span class="nav-number">2.1.</span> <span class="nav-text">Is There a Relationship Between the Response and Predictors?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#do-all-the-predictors-help-to-explain-y-or-is-only-a-subset-of-the-predictors-useful"><span class="nav-number">2.2.</span> <span class="nav-text">Do all the predictors help to explain Y , or is only a subset of the predictors useful?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-well-does-the-model-fit-the-data"><span class="nav-number">2.3.</span> <span class="nav-text">How well does the model fit the data?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#r2-statistics"><span class="nav-number">2.3.1.</span> <span class="nav-text">R2 Statistics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rse"><span class="nav-number">2.3.2.</span> <span class="nav-text">RSE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#graphical-summaries"><span class="nav-number">2.3.3.</span> <span class="nav-text">Graphical summaries</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#given-a-set-of-predictor-values-what-response-value-should-we-predict-and-how-accurate-is-our-prediction"><span class="nav-number">2.4.</span> <span class="nav-text">Given a set of predictor values, what response value should we predict, and how accurate is our prediction?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prediction-intervals"><span class="nav-number">2.4.1.</span> <span class="nav-text">Prediction intervals</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#note-of-p-value-v.s.-r-square"><span class="nav-number">3.</span> <span class="nav-text">Note of P-Value v.s. R-Square</span></a></li></ol></div>
             
 
           </div>
@@ -1048,7 +1070,7 @@ RSE=\sqrt{\frac{RSS}{n-p-1}}
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">337k</span>
+    <span title="Symbols count total">339k</span>
   
 
   
