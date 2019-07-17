@@ -134,8 +134,9 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/63adf3bb/6.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/63adf3bb/5.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/63adf3bb/7.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/63adf3bb/10.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/63adf3bb/8.png">
-<meta property="og:updated_time" content="2019-07-17T20:47:58.965Z">
+<meta property="og:updated_time" content="2019-07-17T21:25:44.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Analysis of K-POP: Playing with Spotify API">
 <meta name="twitter:description" content="Introduction K-pop has become a phenomenon in the U.S, as evidenced by bombing number of K-pop shows across the nation. In Spotify&apos;s K-pop genre, there are more than 500 K-pop artists. Among them, the">
@@ -473,7 +474,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-17 15:47:58" itemprop="dateModified" datetime="2019-07-17T15:47:58-05:00">2019-07-17</time>
+                <time title="Modified: 2019-07-17 16:25:44" itemprop="dateModified" datetime="2019-07-17T16:25:44-05:00">2019-07-17</time>
               
             
           </span>
@@ -519,7 +520,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">8.4k</span>
+                <span title="Symbols count in article">9k</span>
               
 
               
@@ -595,7 +596,7 @@
 <li><strong>Tempo:</strong> the overall estimated tempo of a track in beats per minute (BPM).</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySpotify</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""This class was to download data from Spotify API.</span></span><br><span class="line"><span class="string">    The download process should be: </span></span><br><span class="line"><span class="string">        artist=artist_genre -&gt; album=album_artists(artist) -&gt; songs=songs_albums(album)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,genre=<span class="string">'k-pop'</span>)</span>:</span></span><br><span class="line">        self.authenticate()</span><br><span class="line">        self.genre=genre</span><br><span class="line">                </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">authenticate</span><span class="params">(self)</span>:</span></span><br><span class="line">        auth=open_json(<span class="string">'auth'</span>)</span><br><span class="line">        my_id = auth[<span class="string">'my_id'</span>]</span><br><span class="line">        secret_key = auth[<span class="string">'secret_key'</span>]</span><br><span class="line">        </span><br><span class="line">        client_credentials_manager = SpotifyClientCredentials(client_id = my_id, client_secret = secret_key)</span><br><span class="line">        self.sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)                </span><br><span class="line">        </span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-<p><a href>Full code</a></p>
+<p><a href="https://github.com/nancyyanyu/mini_projects/blob/master/spotify_project/spotify_app.py" target="_blank" rel="noopener">Full code</a></p>
 <p> </p>
 <h1 id="data-analysis">Data Analysis</h1>
 <h3 id="who-are-the-most-popular-k-pop-artists">1. Who are the most popular K-pop artists?</h3>
@@ -650,7 +651,7 @@
 <h3 id="how-does-popularity-change">2. How does popularity change?</h3>
 <p>Since <em>Spotify</em> does not provide historical data of artists' popularity and followers, I write a class <strong><em>Popularity</em></strong> to grab everyday's data, upload to AWS DynamoDB.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Popularity</span><span class="params">(MySpotify)</span>:</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,table_name=<span class="string">'KPOP_POPULARITY'</span>,genre=<span class="string">'k-pop'</span>)</span>:</span></span><br><span class="line">        super().__init__(genre)</span><br><span class="line">        self.table = dynamodb.Table(table_name)</span><br><span class="line">        self.track_table=dynamodb.Table(table_name+<span class="string">'_TRACK'</span>)</span><br><span class="line">        self.data_folder=<span class="string">'%s_artists_info'</span>%self.genre</span><br><span class="line">        self.today=str(dt.datetime.now().date())</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put_data</span><span class="params">(self)</span>:</span></span><br><span class="line">        artists=open_json(<span class="string">"data/artists/"</span>+self.data_folder)            </span><br><span class="line">        info=&#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> artist <span class="keyword">in</span> artists:</span><br><span class="line">            info[artist[<span class="string">'name'</span>]]=&#123;&#125;</span><br><span class="line">            info[artist[<span class="string">'name'</span>]][<span class="string">'followers'</span>]=artist[<span class="string">'followers'</span>][<span class="string">'total'</span>]</span><br><span class="line">            info[artist[<span class="string">'name'</span>]][<span class="string">'popularity'</span>]=artist[<span class="string">'popularity'</span>]</span><br><span class="line">        </span><br><span class="line">        self.table.put_item(</span><br><span class="line">           Item=&#123;<span class="string">'time'</span>: self.today,</span><br><span class="line">               <span class="string">'info'</span>:info&#125;)</span><br><span class="line">        print(<span class="string">"Update artist data to AWS DynamoDB: &#123;&#125;"</span>.format(self.today))</span><br><span class="line">                </span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-<p><a href>Full code</a></p>
+<p><a href="https://github.com/nancyyanyu/mini_projects/blob/master/spotify_project/popularity.py" target="_blank" rel="noopener">Full code</a></p>
 <p>The <strong><em>ETL process</em></strong> works like this:</p>
 <center>
 <img src="./6.png" width="540">
@@ -668,6 +669,13 @@
 <p>Here is a visualization of the number of albums released by year and by month. We can see a sharp increase from 2016 to 2018. Also artists seem to be more active during October and November.</p>
 <p><img src="./7.png" width="700"></p>
 <h3 id="audios-features-analysis">4. Audios' features analysis</h3>
+<p>To analyze audio features, I wrote a class <strong><em>Analyze</em></strong> to wrap to ETL process and analysis functions.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Analyze</span><span class="params">(object)</span>:</span>       </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,genre=<span class="string">'k-pop'</span>)</span>:</span></span><br><span class="line">        self.features=[<span class="string">'acousticness'</span>,<span class="string">'liveness'</span>,          </span><br><span class="line">                  <span class="string">'instrumentalness'</span>,<span class="string">'speechiness'</span>, </span><br><span class="line">                   <span class="string">'danceability'</span>,<span class="string">'energy'</span>,<span class="string">'valence'</span>,<span class="string">'tempo'</span>]</span><br><span class="line">        self.poplr=Popularity()</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">extract_data</span><span class="params">(self,artist)</span>:</span></span><br><span class="line">        df=pd.read_hdf(<span class="string">'./data/analysis/&#123;&#125;_tracks_analysis.h5'</span>.format(artist))</span><br><span class="line">        <span class="keyword">return</span> df</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/nancyyanyu/mini_projects/blob/master/spotify_project/track_analysis.py" target="_blank" rel="noopener">Full code</a></p>
+<p>The <strong><em>ETL process</em></strong> works like this:</p>
+<center>
+<img src="./10.png" width="540">
+</center>
 <p>As last chapter says, I extracted 8 audio features of all tracks. I calculated the truncated average of each feature by year, and try to find some changes in the K-pop music itself.</p>
 <p><img src="./8.png" width="800"></p>
 <p>We can see features like <strong><em>acousticness</em></strong>, and <strong><em>instrumentalness</em></strong> have an upward trend; while <strong><em>energy</em></strong>, <strong><em>tempo</em></strong> and <strong><em>valence</em></strong> have un downward trend in recent years.</p>
@@ -1036,7 +1044,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">346k</span>
+    <span title="Symbols count total">347k</span>
   
 
   
