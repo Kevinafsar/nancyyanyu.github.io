@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancyyanyu.github.io/"/>
-  <updated>2019-07-17T21:25:44.358Z</updated>
+  <updated>2019-07-25T00:06:28.617Z</updated>
   <id>https://nancyyanyu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Probability Theory - Random Variables</title>
+    <link href="https://nancyyanyu.github.io/posts/ea98dd04/"/>
+    <id>https://nancyyanyu.github.io/posts/ea98dd04/</id>
+    <published>2019-07-24T21:25:08.000Z</published>
+    <updated>2019-07-25T00:06:28.617Z</updated>
+    
+    <content type="html"><![CDATA[<p>This blog consists of note from CS229 Machine Learning lecture note, and other complementary resources.</p><p><strong>Discrete random variables</strong>:</p><ul><li><p><span class="math inline">\(X ∼ Bernoulli(p)\)</span> (where 0 ≤ p ≤ 1): one if a coin with heads probability <span class="math inline">\(p\)</span> comes up heads, zero otherwise</p><ul><li><p>PMF: <span class="math inline">\(p(x)=\begin{cases}p &amp; x=1\\1-p &amp; x=0\end{cases}\)</span></p></li><li>Mean: <span class="math inline">\(p\)</span></li><li><p>Variance: <span class="math inline">\(p(1-p)\)</span></p></li></ul></li><li><p>$X ∼ Binomial(n, p) $ (where 0 ≤ p ≤ 1): the number of heads in <span class="math inline">\(n\)</span> independent flips of a coin with heads probability <span class="math inline">\(p\)</span>.</p><ul><li><p>PMF: <span class="math inline">\(p(x)=\left(\begin{array}{c}n\\ x\end{array}\right) p^x(1-p)^{n-x}\)</span></p></li><li>Mean: <span class="math inline">\(np\)</span></li><li><p>Variance: <span class="math inline">\(np(1-p)\)</span></p></li></ul></li><li><p>$X ∼ Geometric(p) $(where p &gt; 0): the number of flips of a coin with heads probability <span class="math inline">\(p\)</span> until the first heads.</p><ul><li><p>PMF: <span class="math inline">\(p(x)=p(1-p)^{x-1}\)</span></p></li><li>Mean: <span class="math inline">\(\frac{1}{p}\)</span></li><li><p>Variance: <span class="math inline">\(\frac{1-p}{p^2}\)</span></p></li></ul></li><li><span class="math inline">\(X ∼ Poisson(λ)\)</span> (where λ &gt; 0): a probability distribution over the nonnegative integers used for modeling the frequency of rare events.<ul><li>PMF: <span class="math inline">\(p(x)=e^{-\lambda}\frac{\lambda^x}{x!}\)</span></li><li>Mean: <span class="math inline">\(\lambda\)</span></li><li>Variance: <span class="math display">\[\lambda\]</span></li></ul></li></ul><p><strong>Continuous random variables</strong>:</p><ul><li><span class="math inline">\(X ∼ Uniform(a, b)\)</span> (where a &lt; b): equal probability density to every value between a and b on the real line.<ul><li>PDF: <span class="math inline">\(f(x)=\frac{1}{b-a}, a \leq x \leq b\)</span></li><li>CDF: <span class="math inline">\(F(x)=\begin{cases}0 &amp; x \leq a\\ \frac{x-a}{b-a} &amp; a\leq x \leq b \\ 1 &amp; b \leq x \end{cases}\)</span></li><li>Mean: <span class="math inline">\(\frac{a+b}{2}\)</span></li><li>Variance: <span class="math inline">\(\frac{(b-a)^2}{12}\)</span></li></ul></li><li><span class="math inline">\(X ∼ Exponential(λ)\)</span> (where λ &gt; 0): decaying probability density over the nonnegative reals.<ul><li>PDF:<span class="math inline">\(f(x)=\begin{cases}\lambda e^{-\lambda x} &amp; x \geq 0\\0 &amp; otw. \end{cases}\)</span></li><li>CDF: <span class="math inline">\(F(x)=\begin{cases}1- e^{-\lambda x} &amp; x \geq 0\\0 &amp; otw. \end{cases}\)</span></li><li>Mean: <span class="math inline">\(\frac{1}{\lambda}\)</span></li><li>Variance: <span class="math inline">\(\frac{1}{\lambda^2}\)</span></li></ul></li><li><span class="math inline">\(X ∼ Normal(\mu, \sigma^2)\)</span> : also known as the Gaussian distribution<ul><li>PDF: <span class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span></li><li>CDF: $F(x)=_{0}<sup>{z}e</sup>{-z^2/2}dx $<br></li><li>Mean: <span class="math inline">\(\mu\)</span></li><li>Variance: <span class="math inline">\(\sigma^2\)</span></li></ul></li></ul><p><img src="./1.png" width="600"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This blog consists of note from CS229 Machine Learning lecture note, and other complementary resources.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Discrete random va
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="Probability" scheme="https://nancyyanyu.github.io/tags/Probability/"/>
+    
+  </entry>
   
   <entry>
     <title>Data Analysis of K-POP: Playing with Spotify API</title>
@@ -544,38 +570,6 @@ E(y_0-\hat{f}(x_0))^2=Var(\hat{f}(x_0))+[Bias(\hat{f}(x_0))]^2+Var(\epsilon)
     
     
       <category term="Interview" scheme="https://nancyyanyu.github.io/tags/Interview/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ISLR Note - SVM: Support Vector Machines</title>
-    <link href="https://nancyyanyu.github.io/posts/a1139410/"/>
-    <id>https://nancyyanyu.github.io/posts/a1139410/</id>
-    <published>2019-06-11T23:03:07.000Z</published>
-    <updated>2019-06-17T21:03:48.248Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="svms-with-kernel">SVMs with Kernel</h1><p>The <strong><em>support vector machine (SVM)</em></strong> is an extension of the support vector classifier that results from enlarging the feature space using <strong>kernels</strong>.</p><p>The <strong><em>solution to the support vector classifier problem</em></strong> involves only the <strong><em>inner products</em></strong> of the observations: <span class="math display">\[\langle x_i,x_{i^{&#39;}} \rangle =\sum_{j=1}^px_{ij}x_{i^{&#39;}j}\]</span> (Details won't be discussed in this note)</p><p>The <strong>linear support vector classifier</strong> can be represented as <span class="math display">\[f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle\]</span></p><ul><li><span class="math inline">\(α_i\)</span> is nonzero only for the support vectors in the solution—that is, if a training observation is not a support vector, then its <span class="math inline">\(α_i\)</span>equals zero.</li></ul><a id="more"></a><p>So if <span class="math inline">\(S\)</span> is the collection of indices of these support points: <span class="math display">\[f(x)=\beta_0+\sum_{i \in S}^n \alpha_i \langle x,x_i \rangle\]</span> <strong>Generalization</strong>: <em>Kernel</em> <span class="math display">\[K(x_i,x_{i^{&#39;}})\]</span> <strong>Kernel</strong>: Kernel is a function that quantifies the similarity of two observations.</p><ul><li><strong><em>Linear kernel</em></strong>: <span class="math inline">\(K(x_i,x_{i^{&#39;}})=\sum_{j=1}^px_{ij}x_{i^{&#39;}j}\)</span><ul><li>Linear kernel essentially quantifies the similarity of a pair of observations using <strong>Pearson</strong> (standard) correlation.</li></ul></li><li><strong><em>Polynomial kernel</em></strong> of degree d: <span class="math inline">\(K(x_i,x_{i^{&#39;}})=(1+\sum_{j=1}^px_{ij}x_{i^{&#39;}j})^d\)</span><ul><li>fitting a support vector classifier in a higher-dimensional space involving polynomials of degree <span class="math inline">\(d\)</span>.</li></ul></li><li><strong><em>Radial kernel</em></strong>: <span class="math inline">\(K(x_i,x_{i^{&#39;}})=\exp(-\gamma \sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2)\)</span><ul><li>Radial kernel has very <em>local</em> behavior: only nearby training observations have an effect on the class label of a test observation<ul><li>If a given test observation <span class="math inline">\(x^∗ = (x^∗_1 . . .x^∗_p)^T\)</span> is far from a training observation <span class="math inline">\(x_i\)</span> in terms of <strong><em>Euclidean distance</em></strong>; <span class="math inline">\(\Rightarrow\)</span> $ _{j=1}<sup>p(x_{ij}-x_{i</sup>{'}j})^2 $ will be large <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(K(x_i,x_{i^{&#39;}})=\exp(-\gamma \sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2)\)</span> will be very tiny. <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(x_i\)</span> will play virtually no role in <span class="math inline">\(f(x^∗)\)</span>.</li></ul></li></ul></li></ul><p><strong><em>Support Vector Machine</em></strong>: When the support vector classifieris combined with a non-linear kernel, the resulting classifier is known as a support vector machine. <span class="math display">\[f(x)=\beta_0+\sum_{i \in S}^n \alpha_i K(x,x_i)\]</span> <img src="./SVM1.png"></p><p><strong>Advantage of Kernel over enlarging the feature space using functions of the original features: </strong></p><ul><li><strong><em>Computational</em></strong>: one need only compute <span class="math inline">\(K(x_i,x_{i^{&#39;}})\)</span> for all <span class="math inline">\(\left(\begin{array}{c}n\\ 2\end{array}\right)\)</span> distinct pairs <span class="math inline">\(i, i^{&#39;}\)</span>. This can bedone without explicitly working in the <em>enlarged feature space.</em><ul><li><strong>Curse of dimensionality</strong>: for some kernels, such as the radial kernel, the feature space is implicit and infinite-dimensional.</li></ul></li></ul><h1 id="svms-with-more-than-two-classes">SVMs with More than Two Classes</h1><h2 id="one-versus-one-classification">One-Versus-One Classification</h2><p>A <strong><em>one-versus-one</em></strong> or <strong><em>all-pairs</em></strong> approach constructs <span class="math inline">\(\left(\begin{array}{c}K\\ 2\end{array}\right)\)</span> SVMs, each of which compares a pair of classes</p><ol type="1"><li>One such SVM might compare the <span class="math inline">\(k\)</span>-th class, coded as +1, to the <span class="math inline">\(k^{&#39;}\)</span>-th class, codedas −1.</li><li>We classify a test observation using each of the <span class="math inline">\(\left(\begin{array}{c}K\\ 2\end{array}\right)\)</span> classifiers.</li><li>We tally the number of times that the test observation is assigned to each of the K classes.</li><li>The final classification is performed by assigning the test observation to the class to which it was most frequently assigned in these <span class="math inline">\(\left(\begin{array}{c}K\\ 2\end{array}\right)\)</span> pairwise classifications.</li></ol><h2 id="one-versus-all-classification">One-Versus-All Classification</h2><p>The <strong><em>one-versus-all</em></strong> approach:</p><ol type="1"><li>We fit <span class="math inline">\(K\)</span> SVMs, each time comparing one of all the K classes to the remaining K − 1 classes.</li><li>Let <span class="math inline">\(β_{0k}, β_{1k}, . . . , β_{pk}\)</span> denote the parameters that result from fitting an SVM comparing the kth class(coded as +1) to the others (coded as −1).</li><li>Let $ x^∗$ denote a test observation. We assign the observation to the class for which <span class="math inline">\(β_{0k}x_1^*+β_{1k}x_2^*+, . . . ,+ β_{pk}x_p^*\)</span> is largest, as this amounts to a high level of confidence that the test observation belongs to the kth class rather than to any of the other classes.</li></ol><h1 id="relationship-to-logistic-regression">Relationship to Logistic Regression</h1><p>Rewrite the criterion (9.12)–(9.15) [look at last post] for fitting the support vector classifier <span class="math inline">\(f(X) = β_0 + β_1X_1 + . . . + β_pX_p\)</span> as</p><p><span class="math display">\[\min_{\beta_0,...,\beta_p}\left\{ \sum_{i=1}^n\max[0,1-y_If(x_i)]+\lambda\sum_{j=1}^p\beta_j^2 \right\}\]</span></p><ul><li>λ is small: few violations to the margin ; high-variance, low-bias; <span class="math inline">\(\Leftrightarrow\)</span> small <span class="math inline">\(C\)</span>;</li></ul><p><strong>“Loss + Penalty” form</strong>: <span class="math display">\[\min_{\beta_0,...,\beta_p}\left\{ L(\mathbf{X},\mathbf{y},\beta)+\lambda P(\beta) \right\}\]</span></p><ul><li><span class="math inline">\(L(\mathbf{X},\mathbf{y},\beta)\)</span> : loss function</li><li><span class="math inline">\(P(\beta)\)</span>: penalty function</li></ul><p><strong>Ridge regression and the lasso</strong>: <span class="math display">\[L(\mathbf{X},\mathbf{y},\beta)=\sum_{i=1}^n \left( y_i-\beta_0-\sum_{j=1}^p x_{ij}\beta_j \right)^2 \\P(\beta) = \sum_{j=1}^p \beta_j^2 \quad ridge \, regression \\P(\beta) = \sum_{j=1}^p |\beta_j| \quad lasso\]</span> <strong>SVM</strong>: <strong><em>hindge loss</em></strong> <span class="math display">\[L(\mathbf{X},\mathbf{y},\beta)=\sum_{i=1}^n \max[0,1-y_i(\beta_0+\beta_1x_{i1}+,,,+\beta_px_{ip})]\]</span> <img src="SVM2.png"></p><ul><li>Due to thesimilarities between their loss functions, logistic regression and the supportvector classifier often give very similar results.</li><li>When the classes are well separated, SVMs tend to behave better than logistic regression</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;svms-with-kernel&quot;&gt;SVMs with Kernel&lt;/h1&gt;
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;support vector machine (SVM)&lt;/em&gt;&lt;/strong&gt; is an extension of the support vector classifier that results from enlarging the feature space using &lt;strong&gt;kernels&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;solution to the support vector classifier problem&lt;/em&gt;&lt;/strong&gt; involves only the &lt;strong&gt;&lt;em&gt;inner products&lt;/em&gt;&lt;/strong&gt; of the observations: &lt;span class=&quot;math display&quot;&gt;\[
-\langle x_i,x_{i^{&amp;#39;}} \rangle =\sum_{j=1}^px_{ij}x_{i^{&amp;#39;}j}
-\]&lt;/span&gt; (Details won&#39;t be discussed in this note)&lt;/p&gt;
-&lt;p&gt;The &lt;strong&gt;linear support vector classifier&lt;/strong&gt; can be represented as &lt;span class=&quot;math display&quot;&gt;\[
-f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;\(α_i\)&lt;/span&gt; is nonzero only for the support vectors in the solution—that is, if a training observation is not a support vector, then its &lt;span class=&quot;math inline&quot;&gt;\(α_i\)&lt;/span&gt;equals zero.&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="SVM" scheme="https://nancyyanyu.github.io/tags/SVM/"/>
     
   </entry>
   
