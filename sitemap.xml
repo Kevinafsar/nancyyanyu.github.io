@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/project/index.html</loc>
+    
+    <lastmod>2019-08-02T19:18:40.502Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/posts/445d7012/</loc>
     
-    <lastmod>2019-08-02T19:02:34.040Z</lastmod>
+    <lastmod>2019-08-02T19:03:41.286Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/4935c427/</loc>
+    
+    <lastmod>2019-08-02T19:03:11.019Z</lastmod>
     
   </url>
   
@@ -23,23 +37,9 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/posts/4935c427/</loc>
-    
-    <lastmod>2019-08-02T18:44:24.177Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://nancyyanyu.github.io/resume/index.html</loc>
     
     <lastmod>2019-07-23T22:25:36.819Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/project/index.html</loc>
-    
-    <lastmod>2019-07-17T21:42:21.985Z</lastmod>
     
   </url>
   
@@ -387,14 +387,14 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/README.html</loc>
+    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/bower.json</loc>
     
     <lastmod>2019-06-09T06:58:06.044Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/bower.json</loc>
+    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2019-06-09T06:58:06.044Z</lastmod>
     
