@@ -128,7 +128,7 @@
 <meta property="og:description" content="This blog consists of note from CS229 Machine Learning lecture note, and other complementary resources. Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads pro">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/ea98dd04/1.png">
-<meta property="og:updated_time" content="2019-07-25T00:06:28.617Z">
+<meta property="og:updated_time" content="2019-07-26T05:19:05.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Probability Theory - Random Variables">
 <meta name="twitter:description" content="This blog consists of note from CS229 Machine Learning lecture note, and other complementary resources. Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads pro">
@@ -449,12 +449,24 @@
                 
               
 
-              <time title="Created: 2019-07-24 16:25:08 / Modified: 19:06:28" itemprop="dateCreated datePublished" datetime="2019-07-24T16:25:08-05:00">2019-07-24</time>
+              <time title="Created: 2019-07-24 16:25:08" itemprop="dateCreated datePublished" datetime="2019-07-24T16:25:08-05:00">2019-07-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-26 00:19:05" itemprop="dateModified" datetime="2019-07-26T00:19:05-05:00">2019-07-26</time>
               
             
           </span>
@@ -500,7 +512,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.9k</span>
+                <span title="Symbols count in article">3.1k</span>
               
 
               
@@ -514,7 +526,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -560,6 +572,7 @@
 <li>PMF: <span class="math inline">\(p(x)=e^{-\lambda}\frac{\lambda^x}{x!}\)</span></li>
 <li>Mean: <span class="math inline">\(\lambda\)</span></li>
 <li>Variance: <span class="math display">\[\lambda\]</span></li>
+<li><strong>Properties</strong>: Poisson random variable may be used to approximate a <strong><em>binomial</em></strong> random variable when the binomial parameter <em>n</em> is large and <em>p</em> is small.</li>
 </ul></li>
 </ul>
 <p><strong>Continuous random variables</strong>:</p>
@@ -587,7 +600,36 @@
 <li>Variance: <span class="math inline">\(\sigma^2\)</span></li>
 </ul></li>
 </ul>
+<a id="more"></a>
 <p><img src="./1.png" width="600"></p>
+<p><strong>Conditional distributions</strong> <span class="math display">\[
+p_{Y|X}(y|x)=\frac{p_{XY}(x,y)}{p_X(x)} \\
+f_{Y|X}(y|x)=\frac{f_{XY}(x,y)}{f_X(x)}
+\]</span></p>
+<p><strong>Bayes’s rule</strong> <span class="math display">\[
+\begin{align} P_{Y|X}(y|x)&amp;=\frac{p_{XY}(x,y)}{p_X(x)} \\
+&amp;=\frac{P_{X|Y}(x|y)P_Y(y)}{P_X(x)} \\
+&amp;=\frac{P_{X|Y}(x|y)P_Y(y)}{\sum_{y^{&#39;}\in V al(Y)} P_{X|Y}(x|y^{&#39;})P_Y(y^{&#39;})}
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align} f_{Y|X}(y|x)&amp;=\frac{f_{XY}(x,y)}{f_X(x)} \\
+&amp;=\frac{f_{X|Y}(x|y)f_Y(y)}{\int_{-\infty}^{\infty}f_{X|Y}(x|y^{&#39;})f_Y(y^{&#39;}) dy^{&#39;}}
+\end{align}
+\]</span></p>
+<p><strong>Independence</strong></p>
+<h1 id="problems">Problems:</h1>
+<ol type="1">
+<li>Let <span class="math inline">\(X\)</span> be uniformly distributed over <span class="math inline">\((0, 1)\)</span>. Calculate <span class="math inline">\(E[X^3]\)</span></li>
+</ol>
+<p><span class="math display">\[
+F_Y(a)=P(Y\leq a)=P(X^3&lt;a)=P(X\leq a^{1/3})=a^{1/3} \\
+\]</span></p>
+<p>where the last equality follows since <em>X</em> is uniformly distributed over (0, 1). By differentiating <span class="math inline">\(F_Y(a)\)</span>, we obtain the density of <em>Y</em>, namely, <span class="math display">\[
+f_Y(a)=\frac{1}{3}a^{-2/3} , 0\leq a \leq 1
+\]</span> Hence, <span class="math display">\[
+E[X^3]=E(Y)=\int_{-\infty}^\infty af_Y(a)da= \int_{0}^1 \frac{1}{3}a^{1/3}da = \frac{1}{3}\frac{3}{4} a^{4/3} |^1_0=\frac{1}{4}
+\]</span></p>
 
       
     </div>
@@ -636,6 +678,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/445d7012/" rel="prev" title="Journal-July">
+                Journal-July <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -686,8 +732,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -702,7 +757,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -891,6 +946,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#problems"><span class="nav-number">1.</span> <span class="nav-text">Problems:</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -917,7 +989,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">349k</span>
+    <span title="Symbols count total">350k</span>
   
 
   
