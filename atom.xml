@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancyyanyu.github.io/"/>
-  <updated>2019-08-02T18:40:12.726Z</updated>
+  <updated>2019-08-02T18:41:54.250Z</updated>
   <id>https://nancyyanyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://nancyyanyu.github.io/posts/445d7012/"/>
     <id>https://nancyyanyu.github.io/posts/445d7012/</id>
     <published>2019-08-02T16:38:59.000Z</published>
-    <updated>2019-08-02T18:40:12.726Z</updated>
+    <updated>2019-08-02T18:41:54.250Z</updated>
     
     <content type="html"><![CDATA[]]></content>
     
@@ -433,9 +433,9 @@
       <category term="Big Data" scheme="https://nancyyanyu.github.io/categories/Big-Data/"/>
     
     
-      <category term="Hadoop" scheme="https://nancyyanyu.github.io/tags/Hadoop/"/>
-    
       <category term="HDFS" scheme="https://nancyyanyu.github.io/tags/HDFS/"/>
+    
+      <category term="Hadoop" scheme="https://nancyyanyu.github.io/tags/Hadoop/"/>
     
   </entry>
   
