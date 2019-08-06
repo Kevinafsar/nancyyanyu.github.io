@@ -119,14 +119,20 @@
 
 
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Realtime Financial Market Visualization and Analysis">
+  <meta name="description" content="Introduction In this project, I developed a financial data processing and visualization platform using Apache Kafka, Apache Cassandra, and Bokeh. I used Kafka for realtime stock price and market news">
+<meta name="keywords" content="Bokeh,Kafka,Cassandra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realtime Financial Market Data Visualization and Analysis">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/109fc1d1/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
+<meta property="og:description" content="Introduction In this project, I developed a financial data processing and visualization platform using Apache Kafka, Apache Cassandra, and Bokeh. I used Kafka for realtime stock price and market news">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-06T21:14:47.321Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/109fc1d1/kafka_stock.png">
+<meta property="og:updated_time" content="2019-08-06T22:34:49.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Realtime Financial Market Visualization and Analysis">
+<meta name="twitter:title" content="Realtime Financial Market Data Visualization and Analysis">
+<meta name="twitter:description" content="Introduction In this project, I developed a financial data processing and visualization platform using Apache Kafka, Apache Cassandra, and Bokeh. I used Kafka for realtime stock price and market news">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/109fc1d1/kafka_stock.png">
 
 
 
@@ -146,7 +152,7 @@
   };
 </script>
 
-  <title>Realtime Financial Market Visualization and Analysis | Nancy's Notes</title>
+  <title>Realtime Financial Market Data Visualization and Analysis | Nancy's Notes</title>
   
 
 
@@ -417,7 +423,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Realtime Financial Market Visualization and Analysis
+          <h1 class="post-title" itemprop="name headline">Realtime Financial Market Data Visualization and Analysis
 
               
             
@@ -460,7 +466,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-06 16:14:47" itemprop="dateModified" datetime="2019-08-06T16:14:47-05:00">2019-08-06</time>
+                <time title="Modified: 2019-08-06 17:34:49" itemprop="dateModified" datetime="2019-08-06T17:34:49-05:00">2019-08-06</time>
               
             
           </span>
@@ -506,7 +512,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1</span>
+                <span title="Symbols count in article">1.4k</span>
               
 
               
@@ -540,7 +546,33 @@
       
 
       
-        
+        <h1 id="introduction">Introduction</h1>
+<p>In this project, I developed a financial data processing and visualization platform using Apache Kafka, Apache Cassandra, and Bokeh. I used Kafka for realtime stock price and market news streaming, Cassandra for historical and realtime stock data warehousing, and Bokeh for visualization on web browsers. I also wrote a web crawler to scrape companys' financial statements and basic information from Yahoo Finance, and played with various economy data APIs.</p>
+<p><em>Please check the <a href="https://github.com/nancyyanyu/kafka_stock" target="_blank" rel="noopener">GitHub repo</a> of this project, and <strong>most importantly, please check this platform's website and play with each plot</strong> <span class="math inline">\(\rightarrow\)</span> <a href="http://magiconch.me/" target="_blank" rel="noopener">magiconch.me</a></em></p>
+<a id="more"></a>
+<h1 id="architecture">Architecture</h1>
+<p>There are currently 3 tabs in the webpage:</p>
+<ul>
+<li><strong><em>Stock: Streaming &amp; Fundamental</em></strong>
+<ul>
+<li>Visualize a single stock's candlestick plot, basic company &amp; financial information;</li>
+<li>Plot realtime S&amp;P500 price during trading hours (fake date during non-trading hours)</li>
+</ul></li>
+<li><strong><em>Stock: Comparison</em></strong>
+<ul>
+<li>Plot 2 user-selected stocks' price, and print their statstical summay and correlation</li>
+<li>Visualize the 5,10,30-day moving average of adjusted close price</li>
+</ul></li>
+<li><strong><em>Economy</em></strong>
+<ul>
+<li>Plot a geomap to visualize various economy data by state</li>
+<li>Plot 4 economy indicators nationwide for comparison</li>
+<li>Present the most recent market news</li>
+</ul></li>
+</ul>
+<p>Please see the screenshots of each tab below:</p>
+<p>Here is the architecture of the platform, and I will go through the process of :</p>
+<p><img src="./kafka_stock.png" width="700"></p>
 
       
     </div>
@@ -561,6 +593,19 @@
     
 
     <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Bokeh/" rel="tag"># Bokeh</a>
+          
+            <a href="/tags/Kafka/" rel="tag"># Kafka</a>
+          
+            <a href="/tags/Cassandra/" rel="tag"># Cassandra</a>
+          
+        </div>
       
 
       
@@ -630,8 +675,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -760,7 +814,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">36</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -835,6 +895,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#architecture"><span class="nav-number">2.</span> <span class="nav-text">Architecture</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -861,7 +938,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">352k</span>
+    <span title="Symbols count total">354k</span>
   
 
   

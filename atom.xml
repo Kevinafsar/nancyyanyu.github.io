@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancyyanyu.github.io/"/>
-  <updated>2019-08-06T21:14:47.321Z</updated>
+  <updated>2019-08-06T22:34:49.577Z</updated>
   <id>https://nancyyanyu.github.io/</id>
   
   <author>
@@ -17,26 +17,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Realtime Financial Market Visualization and Analysis</title>
+    <title>Realtime Financial Market Data Visualization and Analysis</title>
     <link href="https://nancyyanyu.github.io/posts/109fc1d1/"/>
     <id>https://nancyyanyu.github.io/posts/109fc1d1/</id>
     <published>2019-08-05T22:36:32.000Z</published>
-    <updated>2019-08-06T21:14:47.321Z</updated>
+    <updated>2019-08-06T22:34:49.577Z</updated>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1><p>In this project, I developed a financial data processing and visualization platform using Apache Kafka, Apache Cassandra, and Bokeh. I used Kafka for realtime stock price and market news streaming, Cassandra for historical and realtime stock data warehousing, and Bokeh for visualization on web browsers. I also wrote a web crawler to scrape companys' financial statements and basic information from Yahoo Finance, and played with various economy data APIs.</p><p><em>Please check the <a href="https://github.com/nancyyanyu/kafka_stock" target="_blank" rel="noopener">GitHub repo</a> of this project, and <strong>most importantly, please check this platform's website and play with each plot</strong> <span class="math inline">\(\rightarrow\)</span> <a href="http://magiconch.me/" target="_blank" rel="noopener">magiconch.me</a></em></p><a id="more"></a><h1 id="architecture">Architecture</h1><p>There are currently 3 tabs in the webpage:</p><ul><li><strong><em>Stock: Streaming &amp; Fundamental</em></strong><ul><li>Visualize a single stock's candlestick plot, basic company &amp; financial information;</li><li>Plot realtime S&amp;P500 price during trading hours (fake date during non-trading hours)</li></ul></li><li><strong><em>Stock: Comparison</em></strong><ul><li>Plot 2 user-selected stocks' price, and print their statstical summay and correlation</li><li>Visualize the 5,10,30-day moving average of adjusted close price</li></ul></li><li><strong><em>Economy</em></strong><ul><li>Plot a geomap to visualize various economy data by state</li><li>Plot 4 economy indicators nationwide for comparison</li><li>Present the most recent market news</li></ul></li></ul><p>Please see the screenshots of each tab below:</p><p>Here is the architecture of the platform, and I will go through the process of :</p><p><img src="./kafka_stock.png" width="700"></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        
-
-      
+      &lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;In this project, I developed a financial data processing and visualization platform using Apache Kafka, Apache Cassandra, and Bokeh. I used Kafka for realtime stock price and market news streaming, Cassandra for historical and realtime stock data warehousing, and Bokeh for visualization on web browsers. I also wrote a web crawler to scrape companys&#39; financial statements and basic information from Yahoo Finance, and played with various economy data APIs.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Please check the &lt;a href=&quot;https://github.com/nancyyanyu/kafka_stock&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub repo&lt;/a&gt; of this project, and &lt;strong&gt;most importantly, please check this platform&#39;s website and play with each plot&lt;/strong&gt; &lt;span class=&quot;math inline&quot;&gt;\(\rightarrow\)&lt;/span&gt; &lt;a href=&quot;http://magiconch.me/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;magiconch.me&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
     
     </summary>
     
       <category term="Project" scheme="https://nancyyanyu.github.io/categories/Project/"/>
     
+    
+      <category term="Bokeh" scheme="https://nancyyanyu.github.io/tags/Bokeh/"/>
+    
+      <category term="Kafka" scheme="https://nancyyanyu.github.io/tags/Kafka/"/>
+    
+      <category term="Cassandra" scheme="https://nancyyanyu.github.io/tags/Cassandra/"/>
     
   </entry>
   
@@ -432,9 +436,9 @@
       <category term="Big Data" scheme="https://nancyyanyu.github.io/categories/Big-Data/"/>
     
     
-      <category term="Hadoop" scheme="https://nancyyanyu.github.io/tags/Hadoop/"/>
-    
       <category term="HDFS" scheme="https://nancyyanyu.github.io/tags/HDFS/"/>
+    
+      <category term="Hadoop" scheme="https://nancyyanyu.github.io/tags/Hadoop/"/>
     
   </entry>
   
