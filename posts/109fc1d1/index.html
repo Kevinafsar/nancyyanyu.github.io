@@ -131,7 +131,9 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/109fc1d1/tab1.gif">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/109fc1d1/tab2.gif">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/109fc1d1/tab3.gif">
-<meta property="og:updated_time" content="2019-08-07T21:15:09.073Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/109fc1d1/stream1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/109fc1d1/fundamental.png">
+<meta property="og:updated_time" content="2019-08-08T18:16:12.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Realtime Financial Market Data Visualization and Analysis">
 <meta name="twitter:description" content="Introduction In this project, I developed a financial data processing and visualization platform using Apache Kafka, Apache Cassandra, and Bokeh. I used Kafka for realtime stock price and market news">
@@ -469,7 +471,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-07 16:15:09" itemprop="dateModified" datetime="2019-08-07T16:15:09-05:00">2019-08-07</time>
+                <time title="Modified: 2019-08-08 13:16:12" itemprop="dateModified" datetime="2019-08-08T13:16:12-05:00">2019-08-08</time>
               
             
           </span>
@@ -515,7 +517,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.3k</span>
+                <span title="Symbols count in article">4.5k</span>
               
 
               
@@ -529,7 +531,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">4 mins.</span>
               
             </div>
           
@@ -559,19 +561,19 @@
 <ul>
 <li><strong><em>Stock: Streaming &amp; Fundamental</em></strong>
 <ul>
-<li>Single stock's candlestick plot, basic company &amp; financial information;</li>
+<li>Single stock's candlestick, basic company &amp; financial information;</li>
 <li>Realtime S&amp;P500 price during trading hours (<em>fake date</em> during non-trading hours)</li>
 </ul></li>
 <li><strong><em>Stock: Comparison</em></strong>
 <ul>
-<li>2 user-selected stocks' price, and their statstical summay and correlation</li>
+<li>2 user-selected stocks' price, and their statstical summay &amp; correlation</li>
 <li>5,10,30-day moving average of adjusted close price</li>
 </ul></li>
 <li><strong><em>Economy</em></strong>
 <ul>
 <li>Geomap of various economy data by state</li>
-<li>4 economy indicators nationwide for comparison</li>
-<li>The most recent market news</li>
+<li>Economy indicators's plot</li>
+<li>Latest market news</li>
 </ul></li>
 </ul>
 <p> </p>
@@ -584,6 +586,36 @@
 <p><img src="./tab2.gif" width="800"></p>
 <p><strong>Tab 3:</strong></p>
 <p><img src="./tab3.gif" width="800"></p>
+<h2 id="stock-streaming-fundamental">1 Stock: Streaming &amp; Fundamental</h2>
+<h3 id="data-source">1.1 Data Source</h3>
+<ul>
+<li><a href="https://www.alphavantage.co/" target="_blank" rel="noopener">Alpha Vantage</a> : provide free APIs for realtime and historical data on stocks
+<ul>
+<li>Problems: rate limiting of 5 calls per minute, 500 calls per day for free account</li>
+</ul></li>
+<li><a href="https://finance.yahoo.com/" target="_blank" rel="noopener">Yahoo Finance</a>: write a web crawler to get company's summary profile and fundamental information such as financial statements from Yahoo Finance</li>
+</ul>
+<h3 id="etl">1.2 ETL</h3>
+<h4 id="historical-data">1. Historical data</h4>
+<p>In the first tab, both historical data and streaming data are presented. Before each trading day, I got every stocks' historical data from <strong><em>Alpha Vantage</em></strong> to update the newest daily price and volume.</p>
+<p>The raw data is in <em>string</em> type, the transformation of the data type needs to be performed. I also standardized 'time' column to &quot;%Y-%m-%d %H:%M:%S&quot; because that's the datetime format Cassandra could recognize.</p>
+<p>Each stock has three tables that stored its daily, 1-minute, and 18-second frequency's OHLCV in <strong><em>Apache Cassandra</em></strong>. Cassandra has its own query language <strong><em>Cassandra Query Language (CQL)</em></strong> which is quite similar to SQL.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS SYMBOL_historical ( </span><br><span class="line">       TIME timestamp,           </span><br><span class="line">       SYMBOL text,              </span><br><span class="line">       OPEN float,               </span><br><span class="line">       HIGH float,               </span><br><span class="line">       LOW float,                </span><br><span class="line">       CLOSE float,              </span><br><span class="line">       ADJUSTED_CLOSE float,     </span><br><span class="line">       VOLUME float,             </span><br><span class="line">       dividend_amount float,    </span><br><span class="line">       split_coefficient float,  </span><br><span class="line">       PRIMARY KEY (SYMBOL,TIME));</span><br></pre></td></tr></table></figure>
+<h4 id="realtime-data">2. Realtime data</h4>
+<p>I used Apache Kafka to handle streaming data, the stream plot would combine both historical as well as the streaming data for visualization. The <em>topic</em> for this streaming task is <em>'stock_streaming1'</em>.</p>
+<p>This <em>topic</em> has two producers, which recevied fake data generated by random number during non-trading hours and realtime S&amp;P500 price and volume from <strong><em>Alpha Vantage</em></strong> during trading hours. It also has two consumers, which send data to Cassandra database and to a local json file.</p>
+<p><img src="./stream1.png" width="600"></p>
+<p><strong>NOTE:</strong></p>
+<p>Since <strong><em>Alpha Vantage</em></strong> could only be called 5 times per minute, so I could either get one minute frequency data by calling <em>TIME_SERIES_INTRADAY</em> function provided by <strong><em>Alpha Vantage</em></strong> every minute , or to get data faster, call <em>GLOBAL_QUOTE</em> function every 18 seconds to get the latest price and volume information, while avoiding rate limiting error.</p>
+<p>One other thing to note is <strong>timezone</strong>. I am in Pacific Time. To align with Eastern Time trading hours, I need to record the time I called <em>GLOBAL_QUOTE</em>, adjust to Eastern Time, and store accordingly to the database.</p>
+<p>Interestingly, Cassandra stores datetime type data in UTC timezone. When querying data from Cassandra, we need to double check whether the time changed. Otherwise, the plot would not seamlessly combine historical data and streaming data.</p>
+<h4 id="fundatmental-data">3. Fundatmental data</h4>
+<p>I wrote a script to crawl the financial statements and summary profile given the company's symbol, and loaded each company's fundamental data to a json file.</p>
+<p><img src="./fundamental.png" width="700"></p>
+<p> </p>
+<h2 id="stock-comparison">2 Stock: Comparison</h2>
+<h3 id="etl-1">2.1 ETL</h3>
+<p>The second tab only uses historical daily frequency data, extracted from Cassandra database. It aims to compare two stocks. So I plot 2 selected stocks' adjusted close and volume, along with 3 technical indicators: 5MA, 10MA, 30MA; as well as the statistical summay and correlation of these 2 stocks.</p>
 
       
     </div>
@@ -916,7 +948,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#architecture"><span class="nav-number">2.</span> <span class="nav-text">Architecture</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#architecture"><span class="nav-number">2.</span> <span class="nav-text">Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stock-streaming-fundamental"><span class="nav-number">2.1.</span> <span class="nav-text">1 Stock: Streaming &amp; Fundamental</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#data-source"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 Data Source</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etl"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 ETL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#historical-data"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">1. Historical data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#realtime-data"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">2. Realtime data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fundatmental-data"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">3. Fundatmental data</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stock-comparison"><span class="nav-number">2.2.</span> <span class="nav-text">2 Stock: Comparison</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#etl-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 ETL</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -949,7 +981,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">353k</span>
+    <span title="Symbols count total">357k</span>
   
 
   
