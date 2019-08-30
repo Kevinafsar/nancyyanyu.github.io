@@ -132,7 +132,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/4.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/5.png">
-<meta property="og:updated_time" content="2019-06-21T22:33:21.511Z">
+<meta property="og:updated_time" content="2019-08-30T15:18:51.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ISLR Note - Logistic Regression">
 <meta name="twitter:description" content="Why Not Linear Regression? Linear regression is not appropriate in the case of a qualitative response. Reason: there is no natural way to convert a qualitative response variable with more than two lev">
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-21 17:33:21" itemprop="dateModified" datetime="2019-06-21T17:33:21-05:00">2019-06-21</time>
+                <time title="Modified: 2019-08-30 10:18:51" itemprop="dateModified" datetime="2019-08-30T10:18:51-05:00">2019-08-30</time>
               
             
           </span>
@@ -577,11 +577,11 @@ p(X)=\frac{e^{\beta_0+\beta_1X}}{1+e^{\beta_0+\beta_1X}} \\
 <li><p>The rate of change in p(X) per unit change in X depends on the current value of X,</p></li>
 </ul>
 <h1 id="estimating-the-regression-coefficients">Estimating the Regression Coefficients</h1>
-<p>The basic intuition behind using <strong>maximum likelihood</strong> to fit a logistic regression model is as follows: - We seek estimates for β0 and β1 such that the predicted probability $(x_i) of class &quot;default&quot; for each individual, using (4.2), corresponds as closely as possible to the individual’s observed &quot;default&quot; status. In other words, we try to find ˆ β0 and ˆ β1 such that plugging these estimates into the model for p(X), given in (4.2), yields a number close to one for all individuals who &quot;defaulted&quot;, and a number close to zero for all individuals who did not.</p>
+<p>The basic intuition behind using <strong>maximum likelihood</strong> to fit a logistic regression model is as follows: - We seek estimates for <span class="math inline">\(β_0\)</span> and <span class="math inline">\(β_1\)</span> such that the predicted probability <span class="math inline">\(\hat{p}(x_i)\)</span> of class &quot;default&quot; for each individual, using (4.2), corresponds as closely as possible to the individual’s observed &quot;default&quot; status. In other words, we try to find <span class="math inline">\(\hat{β}_0\)</span> and <span class="math inline">\(\hat{β}_1\)</span> such that plugging these estimates into the model for <span class="math inline">\(p(X)\)</span>, given in (4.2), yields a number close to one for all individuals who &quot;defaulted&quot;, and a number close to zero for all individuals who did not.</p>
 <p><strong>Likelihood function</strong>:</p>
 <p><span class="math display">\[
 \begin{align}
-l(\beta_0,\beta_1)=\prod_{i:y_i=1}p(x_i) \prod_{i^{&#39;}:y_{i^{&#39;}}}(1-p(x_{i^{&#39;}}))
+l(\beta_0,\beta_1)=\prod_{i:y_i=1}p(x_i) \prod_{i^{&#39;}:y_{i^{&#39;}}=0}(1-p(x_{i^{&#39;}}))
 \end{align}
 \]</span> The estimates <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> are chosen to maximize this <strong><em>likelihood function.</em></strong></p>
 <p>In the linear regression setting, the least squares approach is in fact a special case of maximum likelihood.</p>
@@ -672,7 +672,7 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/4d2428fd/" rel="prev" title="ISLR Note - Linear Discriminant Analysis, ROC & AUC, Confusion Matrix">
+              <a href="/posts/5b711fed/" rel="prev" title="ISLR Note - Linear Discriminant Analysis, ROC & AUC, Confusion Matrix">
                 ISLR Note - Linear Discriminant Analysis, ROC & AUC, Confusion Matrix <i class="fa fa-chevron-right"></i>
               </a>
             
