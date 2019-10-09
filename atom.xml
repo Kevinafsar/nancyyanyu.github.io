@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancyyanyu.github.io/"/>
-  <updated>2019-09-12T01:46:08.132Z</updated>
+  <updated>2019-10-09T05:02:52.755Z</updated>
   <id>https://nancyyanyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://nancyyanyu.github.io/posts/ada5a11a/"/>
     <id>https://nancyyanyu.github.io/posts/ada5a11a/</id>
     <published>2019-09-11T23:08:35.000Z</published>
-    <updated>2019-09-12T01:46:08.132Z</updated>
+    <updated>2019-10-09T05:02:52.755Z</updated>
     
     <content type="html"><![CDATA[<p><strong>linear function</strong>: <span class="math inline">\(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\)</span></p><p><strong>cost function</strong>: <span class="math inline">\(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\)</span></p><h1 id="least-mean-square-algorithm">Least Mean Square Algorithm</h1><p>To minimizes <span class="math inline">\(J(θ)\)</span>, consider the <strong><em>gradient descent</em></strong> algorithm, which starts with some initial <span class="math inline">\(θ\)</span>, and repeatedly performs the update: <span class="math display">\[θ_j:= θ_j − α\frac{∂J(θ)}{∂θ_j}\]</span> (This update is simultaneously performed for all values of <span class="math inline">\(j = 0, . . . , d\)</span>.)</p><p>Gradient descent algorithm repeatedly takes a step in the direction of <em>steepest decrease</em> of <span class="math inline">\(J\)</span>.</p><p>Work out partial derivative term with only one training example (x, y): <span class="math display">\[\frac{∂J(θ)}{∂θ_j}=\frac{∂}{∂θ_j}\frac{1}{2}\sum_{i=1}^n(h_θ(x)-y)^2 \\=(h_θ(x)-y)\frac{∂}{∂θ_j}(h_θ(x)-y) \\=(h_θ(x)-y)\frac{∂}{∂θ_j}(\sum_{i=1}^d θ_ix_i-y) \\=(h_θ(x)-y)x_j\]</span> For a single training example, this gives the update rule - <strong><em>LMS update rule</em></strong>: <span class="math display">\[θ_j:= θ_j + α(y^{(i)}-h_θ(x^{(i)}))x_j^{(i)}\]</span> <strong>Properties</strong>: the magnitude of the update is proportional to the error term <span class="math inline">\((y^{(i)}-h_θ(x^{(i)}))\)</span></p><p><strong>Batch gradient descent</strong>: <span class="math display">\[θ_j:= θ_j + α\sum_{i=1}^n(y^{(i)}-h_θ(x^{(i)}))x_j^{(i)}\]</span></p>]]></content>
     
