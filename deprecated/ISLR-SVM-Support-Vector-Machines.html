@@ -119,13 +119,21 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nancy&#39;s Notes">
-<meta property="og:url" content="https://nancyyanyu.github.io/archives/2019/page/6/index.html">
+  <meta name="description" content="SVMs with Kernel The support vector machine (SVM) is an extension of the support vector classifier that results from enlarging the feature space using kernels. The solution to the support vector class">
+<meta name="keywords" content="SVM">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ISLR Note - SVM: Support Vector Machines">
+<meta property="og:url" content="https://nancyyanyu.github.io/deprecated/ISLR-SVM-Support-Vector-Machines.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
+<meta property="og:description" content="SVMs with Kernel The support vector machine (SVM) is an extension of the support vector classifier that results from enlarging the feature space using kernels. The solution to the support vector class">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://nancyyanyu.github.io/deprecated/SVM1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/deprecated/SVM2.png">
+<meta property="og:updated_time" content="2019-06-17T21:03:48.248Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancy&#39;s Notes">
+<meta name="twitter:title" content="ISLR Note - SVM: Support Vector Machines">
+<meta name="twitter:description" content="SVMs with Kernel The support vector machine (SVM) is an extension of the support vector classifier that results from enlarging the feature space using kernels. The solution to the support vector class">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/deprecated/SVM1.png">
 
 
 
@@ -135,7 +143,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/archives/2019/page/6/">
+  <link rel="canonical" href="https://nancyyanyu.github.io/deprecated/ISLR-SVM-Support-Vector-Machines">
 
 
 
@@ -145,7 +153,7 @@
   };
 </script>
 
-  <title>Archive | Nancy's Notes</title>
+  <title>ISLR Note - SVM: Support Vector Machines | Nancy's Notes</title>
   
 
 
@@ -193,7 +201,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-archive">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -411,116 +419,149 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">ISLR Note - SVM: Support Vector Machines
+
+</h1>
+
+<div class="post-meta">
   
   
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+
+
+
+</div>
+
+</header>
 
       
-      <span class="archive-page-counter">
-        
-        
-         
-          
-        Nice! 52 posts in total. Keep on posting.
-      </span>
       
-
       
+      <div class="post-body han-init-context">
+        
+        
+          <h1 id="svms-with-kernel">SVMs with Kernel</h1>
+<p>The <strong><em>support vector machine (SVM)</em></strong> is an extension of the support vector classifier that results from enlarging the feature space using <strong>kernels</strong>.</p>
+<p>The <strong><em>solution to the support vector classifier problem</em></strong> involves only the <strong><em>inner products</em></strong> of the observations: <span class="math display">\[
+\langle x_i,x_{i^{&#39;}} \rangle =\sum_{j=1}^px_{ij}x_{i^{&#39;}j}
+\]</span> (Details won't be discussed in this note)</p>
+<p>The <strong>linear support vector classifier</strong> can be represented as <span class="math display">\[
+f(x)=\beta_0+\sum_{i=1}^n \alpha_i \langle x,x_i \rangle
+\]</span></p>
+<ul>
+<li><span class="math inline">\(α_i\)</span> is nonzero only for the support vectors in the solution—that is, if a training observation is not a support vector, then its <span class="math inline">\(α_i\)</span>equals zero.</li>
+</ul>
+<a id="more"></a>
+<p>So if <span class="math inline">\(S\)</span> is the collection of indices of these support points: <span class="math display">\[
+f(x)=\beta_0+\sum_{i \in S}^n \alpha_i \langle x,x_i \rangle
+\]</span> <strong>Generalization</strong>: <em>Kernel</em> <span class="math display">\[
+K(x_i,x_{i^{&#39;}})
+\]</span> <strong>Kernel</strong>: Kernel is a function that quantifies the similarity of two observations.</p>
+<ul>
+<li><strong><em>Linear kernel</em></strong>: <span class="math inline">\(K(x_i,x_{i^{&#39;}})=\sum_{j=1}^px_{ij}x_{i^{&#39;}j}\)</span>
+<ul>
+<li>Linear kernel essentially quantifies the similarity of a pair of observations using <strong>Pearson</strong> (standard) correlation.</li>
+</ul></li>
+<li><strong><em>Polynomial kernel</em></strong> of degree d: <span class="math inline">\(K(x_i,x_{i^{&#39;}})=(1+\sum_{j=1}^px_{ij}x_{i^{&#39;}j})^d\)</span>
+<ul>
+<li>fitting a support vector classifier in a higher-dimensional space involving polynomials of degree <span class="math inline">\(d\)</span>.</li>
+</ul></li>
+<li><strong><em>Radial kernel</em></strong>: <span class="math inline">\(K(x_i,x_{i^{&#39;}})=\exp(-\gamma \sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2)\)</span>
+<ul>
+<li>Radial kernel has very <em>local</em> behavior: only nearby training observations have an effect on the class label of a test observation
+<ul>
+<li>If a given test observation <span class="math inline">\(x^∗ = (x^∗_1 . . .x^∗_p)^T\)</span> is far from a training observation <span class="math inline">\(x_i\)</span> in terms of <strong><em>Euclidean distance</em></strong>; <span class="math inline">\(\Rightarrow\)</span> $ _{j=1}<sup>p(x_{ij}-x_{i</sup>{'}j})^2 $ will be large <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(K(x_i,x_{i^{&#39;}})=\exp(-\gamma \sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2)\)</span> will be very tiny. <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(x_i\)</span> will play virtually no role in <span class="math inline">\(f(x^∗)\)</span>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong><em>Support Vector Machine</em></strong>: When the support vector classifieris combined with a non-linear kernel, the resulting classifier is known as a support vector machine. <span class="math display">\[
+f(x)=\beta_0+\sum_{i \in S}^n \alpha_i K(x,x_i)
+\]</span> <img src="./SVM1.png"></p>
+<p><strong>Advantage of Kernel over enlarging the feature space using functions of the original features: </strong></p>
+<ul>
+<li><strong><em>Computational</em></strong>: one need only compute <span class="math inline">\(K(x_i,x_{i^{&#39;}})\)</span> for all <span class="math inline">\(\left(\begin{array}{c}n\\ 2\end{array}\right)\)</span> distinct pairs <span class="math inline">\(i, i^{&#39;}\)</span>. This can bedone without explicitly working in the <em>enlarged feature space.</em>
+<ul>
+<li><strong>Curse of dimensionality</strong>: for some kernels, such as the radial kernel, the feature space is implicit and infinite-dimensional.</li>
+</ul></li>
+</ul>
+<h1 id="svms-with-more-than-two-classes">SVMs with More than Two Classes</h1>
+<h2 id="one-versus-one-classification">One-Versus-One Classification</h2>
+<p>A <strong><em>one-versus-one</em></strong> or <strong><em>all-pairs</em></strong> approach constructs <span class="math inline">\(\left(\begin{array}{c}K\\ 2\end{array}\right)\)</span> SVMs, each of which compares a pair of classes</p>
+<ol type="1">
+<li>One such SVM might compare the <span class="math inline">\(k\)</span>-th class, coded as +1, to the <span class="math inline">\(k^{&#39;}\)</span>-th class, codedas −1.</li>
+<li>We classify a test observation using each of the <span class="math inline">\(\left(\begin{array}{c}K\\ 2\end{array}\right)\)</span> classifiers.</li>
+<li>We tally the number of times that the test observation is assigned to each of the K classes.</li>
+<li>The final classification is performed by assigning the test observation to the class to which it was most frequently assigned in these <span class="math inline">\(\left(\begin{array}{c}K\\ 2\end{array}\right)\)</span> pairwise classifications.</li>
+</ol>
+<h2 id="one-versus-all-classification">One-Versus-All Classification</h2>
+<p>The <strong><em>one-versus-all</em></strong> approach:</p>
+<ol type="1">
+<li>We fit <span class="math inline">\(K\)</span> SVMs, each time comparing one of all the K classes to the remaining K − 1 classes.</li>
+<li>Let <span class="math inline">\(β_{0k}, β_{1k}, . . . , β_{pk}\)</span> denote the parameters that result from fitting an SVM comparing the kth class(coded as +1) to the others (coded as −1).</li>
+<li>Let $ x^∗$ denote a test observation. We assign the observation to the class for which <span class="math inline">\(β_{0k}x_1^*+β_{1k}x_2^*+, . . . ,+ β_{pk}x_p^*\)</span> is largest, as this amounts to a high level of confidence that the test observation belongs to the kth class rather than to any of the other classes.</li>
+</ol>
+<h1 id="relationship-to-logistic-regression">Relationship to Logistic Regression</h1>
+<p>Rewrite the criterion (9.12)–(9.15) [look at last post] for fitting the support vector classifier <span class="math inline">\(f(X) = β_0 + β_1X_1 + . . . + β_pX_p\)</span> as</p>
+<p><span class="math display">\[
+\min_{\beta_0,...,\beta_p}\left\{ \sum_{i=1}^n\max[0,1-y_If(x_i)]+\lambda\sum_{j=1}^p\beta_j^2 \right\}
+\]</span></p>
+<ul>
+<li>λ is small: few violations to the margin ; high-variance, low-bias; <span class="math inline">\(\Leftrightarrow\)</span> small <span class="math inline">\(C\)</span>;</li>
+</ul>
+<p><strong>“Loss + Penalty” form</strong>: <span class="math display">\[
+\min_{\beta_0,...,\beta_p}\left\{ L(\mathbf{X},\mathbf{y},\beta)+\lambda P(\beta) \right\}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(L(\mathbf{X},\mathbf{y},\beta)\)</span> : loss function</li>
+<li><span class="math inline">\(P(\beta)\)</span>: penalty function</li>
+</ul>
+<p><strong>Ridge regression and the lasso</strong>: <span class="math display">\[
+L(\mathbf{X},\mathbf{y},\beta)=\sum_{i=1}^n \left( y_i-\beta_0-\sum_{j=1}^p x_{ij}\beta_j \right)^2 \\
+P(\beta) = \sum_{j=1}^p \beta_j^2 \quad ridge \, regression \\
+P(\beta) = \sum_{j=1}^p |\beta_j| \quad lasso
+\]</span> <strong>SVM</strong>: <strong><em>hindge loss</em></strong> <span class="math display">\[
+L(\mathbf{X},\mathbf{y},\beta)=\sum_{i=1}^n \max[0,1-y_i(\beta_0+\beta_1x_{i1}+,,,+\beta_px_{ip})]
+\]</span> <img src="SVM2.png"></p>
+<ul>
+<li>Due to thesimilarities between their loss functions, logistic regression and the supportvector classifier often give very similar results.</li>
+<li>When the classes are well separated, SVMs tend to behave better than logistic regression</li>
+</ul>
 
         
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/85819d65/" itemprop="url">
-            
-              <span itemprop="name">ISLR Note - Multiple Linear Regression, Hypothesis Test, R2</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-08T22:57:40-05:00" content="2019-06-08">
-          06-08
-        </time>
       </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/595ebc31/" itemprop="url">
-            
-              <span itemprop="name">ISLR Note - Simple Linear Regression</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-08T22:15:46-05:00" content="2019-06-08">
-          06-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
+      
     </div>
+    
+
+
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2019/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/2019/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/5/">5</a><span class="page-number current">6</span>
-  </nav>
-
-
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -540,8 +581,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -556,7 +606,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -674,9 +724,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -751,6 +799,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#svms-with-kernel"><span class="nav-number">1.</span> <span class="nav-text">SVMs with Kernel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#svms-with-more-than-two-classes"><span class="nav-number">2.</span> <span class="nav-text">SVMs with More than Two Classes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#one-versus-one-classification"><span class="nav-number">2.1.</span> <span class="nav-text">One-Versus-One Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#one-versus-all-classification"><span class="nav-number">2.2.</span> <span class="nav-text">One-Versus-All Classification</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#relationship-to-logistic-regression"><span class="nav-number">3.</span> <span class="nav-text">Relationship to Logistic Regression</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -777,7 +842,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">369k</span>
+    <span title="Symbols count total">359k</span>
   
 
   
@@ -928,11 +993,118 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
 
   
 
 
-  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+<!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
+
+<link rel="stylesheet" href="https://www.wenjunjiang.win/css/gitment.css">
+<!-- END LOCAL -->
+
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'nancyyanyu',
+      repo: 'nancyyanyu.github.io',
+      
+      oauth: {
+      
+      
+        client_secret: '75adc257166813deff478053f3f05133285d6cf0',
+      
+        client_id: '90ddd3d00d8930cb0d84'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -951,34 +1123,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 

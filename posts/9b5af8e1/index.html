@@ -119,22 +119,25 @@
 
 
 
-  <meta name="description" content="Linear Regression Models and Least Squares Linear Regression Model  Form of the linear regression model: \(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\). Training data: (\(x_1\),\(y_1\)) ... (\(x_N\),">
+  <meta name="description" content="Simple Linear Regression Models Linear Regression Model  Form of the linear regression model: \(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\). Training data: (\(x_1\),\(y_1\)) ... (\(x_N\),\(y_N\)). E">
 <meta name="keywords" content="Linear Regression,Regression">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ESL Note - Linear Regression Models and Least Squares">
+<meta property="og:title" content="Linear Regression Models">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/9b5af8e1/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Linear Regression Models and Least Squares Linear Regression Model  Form of the linear regression model: \(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\). Training data: (\(x_1\),\(y_1\)) ... (\(x_N\),">
+<meta property="og:description" content="Simple Linear Regression Models Linear Regression Model  Form of the linear regression model: \(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\). Training data: (\(x_1\),\(y_1\)) ... (\(x_N\),\(y_N\)). E">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/9b5af8e1/1_v2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/9b5af8e1/2_v2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/9b5af8e1/3_v2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/9b5af8e1/4_v2.png">
-<meta property="og:updated_time" content="2019-10-09T07:52:23.479Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/9b5af8e1/5_v3.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/9b5af8e1/6_v3.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/9b5af8e1/7_v3.png">
+<meta property="og:updated_time" content="2019-10-09T08:14:13.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESL Note - Linear Regression Models and Least Squares">
-<meta name="twitter:description" content="Linear Regression Models and Least Squares Linear Regression Model  Form of the linear regression model: \(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\). Training data: (\(x_1\),\(y_1\)) ... (\(x_N\),">
+<meta name="twitter:title" content="Linear Regression Models">
+<meta name="twitter:description" content="Simple Linear Regression Models Linear Regression Model  Form of the linear regression model: \(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\). Training data: (\(x_1\),\(y_1\)) ... (\(x_N\),\(y_N\)). E">
 <meta name="twitter:image" content="https://nancyyanyu.github.io/posts/9b5af8e1/1_v2.png">
 
 
@@ -155,7 +158,7 @@
   };
 </script>
 
-  <title>ESL Note - Linear Regression Models and Least Squares | Nancy's Notes</title>
+  <title>Linear Regression Models | Nancy's Notes</title>
   
 
 
@@ -426,7 +429,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ESL Note - Linear Regression Models and Least Squares
+          <h1 class="post-title" itemprop="name headline">Linear Regression Models
 
               
             
@@ -469,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-09 02:52:23" itemprop="dateModified" datetime="2019-10-09T02:52:23-05:00">2019-10-09</time>
+                <time title="Modified: 2019-10-09 03:14:13" itemprop="dateModified" datetime="2019-10-09T03:14:13-05:00">2019-10-09</time>
               
             
           </span>
@@ -515,7 +518,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">23k</span>
+                <span title="Symbols count in article">32k</span>
               
 
               
@@ -529,7 +532,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">21 mins.</span>
+                <span title="Reading time">29 mins.</span>
               
             </div>
           
@@ -549,8 +552,8 @@
       
 
       
-        <h1 id="linear-regression-models-and-least-squares">Linear Regression Models and Least Squares</h1>
-<h3 id="linear-regression-model">Linear Regression Model</h3>
+        <h1 id="simple-linear-regression-models">Simple Linear Regression Models</h1>
+<h2 id="linear-regression-model">Linear Regression Model</h2>
 <ul>
 <li><p>Form of the linear regression model: <em><span class="math inline">\(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\)</span></em>.</p></li>
 <li><p>Training data: (<span class="math inline">\(x_1\)</span>,<span class="math inline">\(y_1\)</span>) ... (<span class="math inline">\(x_N\)</span>,<span class="math inline">\(y_N\)</span>). Each <span class="math inline">\(x_{i} =(x_{i1},x_{i2},...,x_{ip})^{T}\)</span> is a vector of feature measurements for the <span class="math inline">\(i\)</span>-th case.</p></li>
@@ -564,7 +567,7 @@
 <li>The regression function E(Y |X) is linear, or the linear model is a reasonable approximation.</li>
 </ul>
 <a id="more"></a>
-<h3 id="residual-sum-of-squares">Residual Sum of Squares</h3>
+<h2 id="residual-sum-of-squares">Residual Sum of Squares</h2>
 <p><strong>Residual</strong>: <span class="math inline">\(e_i = y_i−\hat{y_i}\)</span> represents the ith residual—this is the difference between residual the ith observed response value and the ith response value that is predicted by our linear model. <span class="math display">\[
 \begin{align}
 RSS(\beta)&amp;=e_1^2+e_2^2+e_3^2+...e_n^2 \\
@@ -594,7 +597,7 @@ RSS(\beta)&amp;=e_1^2+e_2^2+e_3^2+...e_n^2 \\
 \]</span> where <span class="math inline">\(\bar{y}=\sum_{i=1}^ny_i/n\)</span>, <span class="math inline">\(\bar{x}=\sum_{i=1}^nx_i/n\)</span> are the <strong>sample means</strong>.</p>
 <p>Fitted values at the training inputs: <span class="math inline">\(\hat{y}=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^Ty\)</span></p>
 <p>Hat matrix: <span class="math inline">\(H=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\)</span></p>
-<h3 id="assessing-the-accuracy-of-the-coefficient-estimates">Assessing the Accuracy of the Coefficient Estimates</h3>
+<h2 id="assessing-the-accuracy-of-the-coefficient-estimates">Assessing the Accuracy of the Coefficient Estimates</h2>
 <p>Assume that the true relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> takes the form <span class="math inline">\(Y = f(X) + \epsilon\)</span> for some unknown function <span class="math inline">\(f\)</span>, where <span class="math inline">\(\epsilon\)</span> is a mean-zero random error term.</p>
 <p><strong>Least squares line</strong>: <span class="math display">\[
 \begin{align}
@@ -606,7 +609,7 @@ Y=\beta_0+\beta_1X+\epsilon
 \end{align}
 \]</span> The <strong>error term</strong> is a catch-all for what we miss with this simple model: the true relationship is probably not linear, there may be other variables that cause variation in <span class="math inline">\(Y\)</span> , and there may be measurement error. We typically assume that the error term is independent of <span class="math inline">\(X\)</span>.</p>
 <p><img src="./1_v2.png" width="600"></p>
-<h4 id="population-v.s.-sample">Population V.S. Sample</h4>
+<h3 id="population-v.s.-sample">Population V.S. Sample</h3>
 <p>The true relationship is generally not known for real data, but the least squares line can always be computed using the coefficient estimates.</p>
 <p><strong>Why there are two different lines describe the relationship between the predictor and the response?</strong></p>
 <ul>
@@ -618,7 +621,7 @@ Y=\beta_0+\beta_1X+\epsilon
 <li>If we use the sample mean <span class="math inline">\(\hat{\mu}\)</span> to estimate μ, this estimate is <strong>unbiased</strong>, in the sense that on average, we expect <span class="math inline">\(\hat{\mu}\)</span> to equal <span class="math inline">\(μ\)</span>.</li>
 <li>An unbiased estimator does not systematically over- or under-estimate the true parameter.</li>
 </ul>
-<h4 id="standard-error">Standard Error</h4>
+<h3 id="standard-error">Standard Error</h3>
 <p><strong>How accurate is the sample mean <span class="math inline">\(\hat{\mu}\)</span> as an estimate of μ?</strong></p>
 <ul>
 <li><strong>Standard error of <span class="math inline">\(\hat{\mu}\)</span>(SE(<span class="math inline">\(\hat{\mu}\)</span>)</strong>): average amount that this estimate <span class="math inline">\(\hat{\mu}\)</span> differs from the actual value of μ. <span class="math display">\[
@@ -653,7 +656,7 @@ RSE=\sqrt{RSS/(n-2)}
 \end{align}
 \]</span></p></li>
 </ul>
-<h3 id="sampling-properties-of-beta">Sampling Properties of <span class="math inline">\(\beta\)</span></h3>
+<h2 id="sampling-properties-of-beta">Sampling Properties of <span class="math inline">\(\beta\)</span></h2>
 <p>The <u>variance–covariance</u> matrix of the least squares parameter estimates: <span class="math display">\[
 \begin{align} Var(\hat{\beta})=(\mathbf{X}^T\mathbf{X})^{-1}\sigma^2 \end{align}
 \]</span> <strong>Unbiased estimate of <span class="math inline">\(\sigma^2\)</span>:</strong> <span class="math display">\[
@@ -688,8 +691,8 @@ RSE=\sqrt{RSS/(n-2)}
 C_\beta = \left\{ \beta \big| (\hat\beta-\beta)^T\mathbf{X}^T\mathbf{X}(\hat\beta-\beta) \le \hat\sigma^2{\chi^2_{p+1}}^{(1-\alpha)}\right\},
 \end{equation}
 \]</span> This condifence set for <span class="math inline">\(\beta\)</span> generates a corresponding confidence set for the true function <span class="math inline">\(f(x) = x^T\beta\)</span>: <span class="math inline">\(\left\{ x^T\beta \big| \beta \in C_\beta \right\}\)</span></p>
-<h3 id="inference">Inference</h3>
-<h4 id="hypothesis-tests">Hypothesis Tests</h4>
+<h2 id="inference">Inference</h2>
+<h3 id="hypothesis-tests">Hypothesis Tests</h3>
 <p>The most common hypothesis test involves testing the <strong>null test hypothesis</strong> of</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H_0: There is no relationship between X and Y or β1=0</span><br></pre></td></tr></table></figure>
 <p>versus the <strong>alternative hypothesis</strong></p>
@@ -698,7 +701,7 @@ C_\beta = \left\{ \beta \big| (\hat\beta-\beta)^T\mathbf{X}^T\mathbf{X}(\hat\bet
 <ul>
 <li>If <span class="math inline">\(SE( \hat{\beta_1}\)</span>) is small, then even relatively small values of <span class="math inline">\(\hat{\beta_1}\)</span> may provide strong evidence that <span class="math inline">\(\beta_1 \neq 0\)</span>, and hence that there is a relationship between X and Y</li>
 </ul>
-<p><strong>t-statistic</strong>:</p>
+<h4 id="t-statistic"><strong>T-statistic</strong>:</h4>
 <p>To test the hypothesis that a particular coeﬃcient <span class="math inline">\(\beta_j= 0\)</span>, we form the standardized coeﬃcient or Z-score <span class="math display">\[
 \begin{align}
 t=\frac{\hat{\beta_1}-0}{SE(\hat{\beta_1})}  \\ or \quad 
@@ -707,7 +710,7 @@ z_j=\frac{\hat{\beta_j}-0}{\hat{\sigma}\sqrt{\upsilon_j}}
 \]</span> where <span class="math inline">\(\upsilon_j\)</span> is the j-th diagonal element of <span class="math inline">\((\mathbf{X}^T\mathbf{X})^{-1}\)</span></p>
 <p>which measures the number of standard deviations that <span class="math inline">\(\hat{\beta_1}\)</span> is away from 0.If there really is no relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> , then we expect it will have a <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(n−2\)</span> degrees of freedom.</p>
 <p>Under the null hypothesis that <span class="math inline">\(\beta_j= 0\)</span>, <span class="math inline">\(z_j\)</span> is distributed as <span class="math inline">\(t_{N-p-1}\)</span>, and hence a large (absolute) value of <span class="math inline">\(z_j\)</span> will lead to rejection of this null hypothesis. If <span class="math inline">\(\hat{\sigma}\)</span> is replaced by a known value <span class="math inline">\(σ\)</span>, then <span class="math inline">\(z_j\)</span> would have a standard normal distribution.</p>
-<p><strong>p-value</strong></p>
+<h4 id="p-value"><strong>p-value</strong></h4>
 <ul>
 <li>The probability of observing any value <span class="math inline">\(≥ t\)</span> or <span class="math inline">\(≤ -t\)</span>, assuming <span class="math inline">\(β_1 = 0\)</span>.</li>
 </ul>
@@ -720,7 +723,7 @@ z_j=\frac{\hat{\beta_j}-0}{\hat{\sigma}\sqrt{\upsilon_j}}
 <li>We reject the null hypothesis—that is, we declare a relationship to exist between X and Y</li>
 </ul></li>
 </ul>
-<p><strong>f-statistic</strong>:</p>
+<h4 id="f-statistic"><strong>F-statistic</strong>:</h4>
 <p>To test if a categorical variable with <span class="math inline">\(k\)</span> levels can be excluded from a model, we need to test whether the coeﬃcients of the dummy variables used to represent the levels can all be set to zero. Here we use the <span class="math inline">\(F\)</span> statistic：</p>
 <p><span class="math display">\[
 \begin{align} F=\frac{(RSS_0-RSS_1)/(p_1-p_0)}{RSS_1/(N-p_1-1)} \end{align}
@@ -731,7 +734,7 @@ z_j=\frac{\hat{\beta_j}-0}{\hat{\sigma}\sqrt{\upsilon_j}}
 </ul>
 <p>The <span class="math inline">\(F\)</span> statistic measures the change in residual sum-of-squares per additional parameter in the bigger model, and it is normalized by an estimate of <span class="math inline">\(\sigma^2\)</span>.</p>
 <p>Under the Gaussian assumptions, and the null hypothesis that the smaller model is correct, the <span class="math inline">\(F\)</span> statistic will have a <span class="math inline">\(F_{p_1-p_0,N-p_1-1}\)</span> distribution.</p>
-<h3 id="the-gaussmarkov-theorem">The Gauss–Markov Theorem</h3>
+<h2 id="the-gaussmarkov-theorem">The Gauss–Markov Theorem</h2>
 <p>We focus on estimation of any linear combination of the parameters <span class="math inline">\(\theta=\alpha^T\beta\)</span>, for example, predictions <span class="math inline">\(f(x_0)=x^T_0\beta\)</span> are of this form.The least squares estimate of <span class="math inline">\(\alpha^T\beta\)</span> is: <span class="math display">\[
 \begin{equation}
 \hat{\theta}=\alpha^T\hat{\beta}=\alpha^T(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}
@@ -742,9 +745,9 @@ z_j=\frac{\hat{\beta_j}-0}{\hat{\sigma}\sqrt{\upsilon_j}}
 Var(\alpha^T\hat{\beta})\leq Var(\mathbf{c}^T\mathbf{y})
 \end{equation}
 \]</span></p>
-<h3 id="assessing-the-accuracy-of-the-model">Assessing the Accuracy of the Model</h3>
+<h2 id="assessing-the-accuracy-of-the-model">Assessing the Accuracy of the Model</h2>
 <p>The quality of a linear regression fit is typically assessed using two related quantities: <strong>the residual standard error (RSE)</strong> and the <strong>R2</strong> statistic.</p>
-<h4 id="residual-standard-error">Residual Standard Error</h4>
+<h3 id="residual-standard-error">Residual Standard Error</h3>
 <p>The <span class="math inline">\(RSE\)</span> is <u>an estimate of the standard deviation of <span class="math inline">\(\epsilon\)</span>: t</u>he average amount that the response will deviate from the true regression line <span class="math display">\[
 \begin{align}
 RSS&amp;=\sum_{i=1}^n(y_i-\hat{y})^2  \\
@@ -754,7 +757,7 @@ RSE&amp;=\sqrt{\frac{1}{n-2}RSS}=\sqrt{\frac{1}{n-2}\sum_{i=1}^n(y_i-\hat{y})^2}
 <p>In the case of the advertising data, we see from the linear regression output in Table 3.2 that the RSE is 3.26. In other words, actual sales in each market deviate from the true regression line by approximately 3,260 units, on average.</p>
 <p>The mean value of sales over all markets is approximately 14,000 units, and so the percentage error is 3,260/14,000 = 23%.</p>
 <p><u>The RSE is considered a measure of the <strong>lack of fit</strong> of the model <span class="math inline">\(Y = β_0 + β_1X + \epsilon\)</span> to the data</u>.</p>
-<h4 id="r2-statistic">R2 Statistic</h4>
+<h3 id="r2-statistic">R2 Statistic</h3>
 <p>The <span class="math inline">\(RSE\)</span> is measured in the units of <span class="math inline">\(Y\)</span> , it is not always clear what constitutes a good <span class="math inline">\(RSE\)</span>.</p>
 <p>The <span class="math inline">\(R^2\)</span> statistic takes the form of a <strong>proportion</strong>—<u>the proportion of variance explained</u>—and so it always takes on a value between 0 and 1, and isi ndependent of the scale of <span class="math inline">\(Y\)</span> . <span class="math display">\[
 \begin{align}
@@ -772,7 +775,7 @@ R^2 = (TSS − RSS)/TSS= 1− RSS/TSS =  1-\frac{\sum(y_i-\hat{y})^2}{\sum(y_i-\
 <li>The inherent error <span class="math inline">\(σ^2\)</span> is high, or both.</li>
 </ul></li>
 </ul>
-<h3 id="squared-correlation-v.s.-r2-statistic">Squared Correlation V.S. R2 Statistic</h3>
+<h2 id="squared-correlation-v.s.-r2-statistic">Squared Correlation V.S. R2 Statistic</h2>
 <p><strong>Correlation</strong>: <span class="math display">\[
 \begin{align}
 Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^n(y_i-\bar{y})^2}}
@@ -781,7 +784,16 @@ Cor(X,Y)=\frac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n(x_i-\b
 <blockquote>
 <p>In the simple linear regression setting, <span class="math inline">\(R^2 = [Cor]^2\)</span>. In other words, the squared correlation and the R2 statistic are identical</p>
 </blockquote>
-<h3 id="variance-bias">Variance &amp; Bias</h3>
+<h2 id="note-of-p-value-v.s.-r-square">Note of P-Value v.s. R-Square</h2>
+<p>Referring answer fromn <a href="https://www.researchgate.net/profile/Faye_Anderson3" target="_blank" rel="noopener">Faye Anderson</a>:</p>
+<p>There is no established association/relationship between p-value and R-square. This all depends on the data (i.e.; contextual).</p>
+<p>R-square value tells you how much variation is explained by your model. So 0.1 R-square means that your model explains 10% of variation within the data. The greater R-square the better the model. Whereas p-value tells you about the F statistic hypothesis testing of the &quot;fit of the intercept-only model and your model are equal&quot;. So if the p-value is less than the significance level (usually 0.05) then your model fits the data well.</p>
+<p><u>Thus you have four scenarios:</u></p>
+<p><strong>1) low R-square and low p-value (p-value &lt;= 0.05) :</strong> means that your model doesn't explain much of variation of the data but it is significant (better than not having a model)</p>
+<p><strong>2) low R-square and high p-value (p-value &gt; 0.05) :</strong> means that your model doesn't explain much of variation of the data and it is not significant (worst scenario)</p>
+<p><strong>3) high R-square and low p-value :</strong> means your model explains a lot of variation within the data and is significant (best scenario)</p>
+<p><strong>4) high R-square and high p-value :</strong> means that your model explains a lot of variation within the data but is not significant (model is worthless)</p>
+<h2 id="variance-bias">Variance &amp; Bias</h2>
 <p>Consider the mean squared error of an estimator <span class="math inline">\(\tilde{\theta}\)</span> in estimating <span class="math inline">\(\theta\)</span>:</p>
 <p><span class="math display">\[
 \begin{align}
@@ -798,7 +810,7 @@ MSE(\tilde{\theta})&amp;= E(\tilde{\theta}-\theta)^2 \\
 y_0=f(x_0)+\epsilon_0
 \end{equation}
 \]</span></p>
-<h3 id="prediction-error-mse">Prediction error &amp; MSE</h3>
+<h2 id="prediction-error-mse">Prediction error &amp; MSE</h2>
 <p>The expected prediction error of an estimate <span class="math inline">\(\tilde{f}(x_0)=x_0^T\tilde{\beta}\)</span>:</p>
 <p><span class="math display">\[
 \begin{align}
@@ -808,6 +820,155 @@ E(y_0-\tilde{f}(x_0))^2 &amp;=E(f(x_0)+\epsilon_0-x_0^T\tilde{\beta})^2 \\
 &amp;=\sigma^2+MSE(\tilde{f}(x_0))
 \end{align}
 \]</span> Therefore, expected prediction error and mean squared error diﬀer only by the constant <span class="math inline">\(\sigma^2\)</span>, representing the variance of the new observation <span class="math inline">\(y_0\)</span>.</p>
+<h1 id="multiple-linear-regression">Multiple Linear Regression</h1>
+<p>Multiple linear regression model takes the form: <span class="math display">\[
+\begin{align}
+Y=\beta_0+\beta_1X_1+,,,+\beta_pX_p+\epsilon
+\end{align}
+\]</span></p>
+<h2 id="estimating-the-regression-coefficients">Estimating the Regression Coefficients</h2>
+<p>We choose <span class="math inline">\(β_0, β_1, . . . , β_p\)</span> to minimize the sum of squared residuals <span class="math display">\[
+\begin{align}
+RSS&amp;=\sum_{i=1}^n(y_i-\hat{y}_i)^2 \\
+&amp;=\sum_{i=1}^n(y_i-\hat{\beta_0}-\hat{\beta_1}x_{i1}-,,,-\hat{\beta_p}x_{ip})^2
+\end{align}
+\]</span> <img src="./5_v3.png" width="600"></p>
+<p><strong>Does it make sense for the multiple regression to suggest no relationship between <em>sales</em> and <em>newspaper</em> while the simple linear regression implies the opposite?</strong></p>
+<ul>
+<li>Notice that the correlation between radio and newspaper is 0.35.</li>
+<li>In markets where we spend more on radio our sales will tend to be higher, and as our correlation matrix shows, we also tend to spend more on newspaper advertising in those same markets.</li>
+<li>Hence, in a simple linear regression which only examines sales versus newspaper, we will observe that higher values of newspaper tend to be associated with higher values of sales, even though newspaper advertising does not actually affect sales.</li>
+</ul>
+<h2 id="some-important-questions">Some Important Questions</h2>
+<h3 id="is-there-a-relationship-between-the-response-and-predictors">1. Is There a Relationship Between the Response and Predictors?</h3>
+<h4 id="hypothesis-test"><strong>Hypothesis Test</strong></h4>
+<p>We use a hypothesis test to answer this question.</p>
+<p>We test the <strong>null hypothesis</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H_0 : β1 = β2 = · · · = βp = 0</span><br></pre></td></tr></table></figure>
+<p>versus the <strong>alternative</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H_a : at least one βj is non-zero</span><br></pre></td></tr></table></figure>
+<p>This hypothesis test is performed by computing the <strong>F-statistic</strong>, <span class="math display">\[
+\begin{align}
+F=\frac{(TSS-RSS)/p}{RSS/(n-p-1)}
+\end{align}
+\]</span> where <span class="math inline">\(TSS =\sum(y_i − \bar{y})^2\)</span> and <span class="math inline">\(RSS =\sum(y_i−\hat{y}_i)^2\)</span>.</p>
+<p>If the linear model assumptions are correct, one can show that <span class="math display">\[
+\begin{align}
+E[RSS/(n-p-1)]=\sigma^2
+\end{align}
+\]</span> and that, provided <span class="math inline">\(H_0\)</span> is true, <span class="math display">\[
+\begin{align}
+E[(TSS-RSS)/p]=\sigma^2
+\end{align}
+\]</span></p>
+<ul>
+<li>When there is no relationship between the response and predictors, one would expect the F-statistic to take on a value close to 1.</li>
+<li>On the other hand, if <span class="math inline">\(H_a\)</span> is true, then <span class="math inline">\(E[(TSS-RSS)/p]&gt;\sigma^2\)</span>, so we expect <span class="math inline">\(F\)</span> to be greater than 1.</li>
+</ul>
+<p><img src="./6_v3.png" width="600"></p>
+<h3 id="how-large-does-the-f-statistic-need-to-be-before-we-can-reject-h0-and-conclude-that-there-is-a-relationship"><strong>2. How large does the F-statistic need to be before we can reject H0 and conclude that there is a relationship?</strong></h3>
+<ul>
+<li>When n is large, an F-statistic that is just a little larger than 1 might still provide evidence against H_0.</li>
+<li>In contrast, a larger F-statistic is needed to reject H_0 if n is small.</li>
+<li>For the advertising data, the <strong>p-value</strong> associated with the F-statistic in Table 3.6 is essentially zero, so we have extremely strong evidence that at least one of the media is associated with increased sales.</li>
+</ul>
+<p><strong>To test that a particular subset of q of the coefficients are zero</strong></p>
+<p>This corresponds to a null hypothesis</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H_0 : β(p-q+1) = β(p-q+2) = · · · = βp = 0</span><br></pre></td></tr></table></figure>
+<p>In this case we fit a second model that uses all the variables <strong>except those last q</strong>. Suppose that the residual sum of squares for that model is <span class="math inline">\(RSS_0\)</span>. Then the appropriate F-statistic is <span class="math display">\[
+\begin{align}
+F=\frac{(RSS_0-RSS)/q}{RSS/(n-p-1)}
+\end{align}
+\]</span></p>
+<h4 id="f-statistics-v.s.-t-statistics"><strong>F-statistics v.s. t-statistics</strong></h4>
+<ul>
+<li><strong>Equivalency</strong>: In Table 3.4, for each individual predictor a t-statistic and a p-value were reported. These provide information about whether each individual predictor is related to the response, after adjusting for the other predictors. It turns out that each of these are exactly equivalent to the F-test that omits that single variable from the model, leaving all the others in—i.e. q=1 in the model. So it reports the <strong>partial effect</strong> of adding that variable to the model.</li>
+</ul>
+<blockquote>
+<p>The square of each <em>t-statistic</em> is the corresponding <em>F-statistic</em>.</p>
+</blockquote>
+<ul>
+<li><strong>p is large</strong>: If any one of the p-values for the individual variables is very small, then <strong><em>at least one of the predictors is related to the response</em></strong>. However, this logic is flawed, especially when the number of predictors p is large.
+<ul>
+<li>If we use the individual t-statistics and associated p-values to decide whether there is any association between the variables and the response, high chance we will incorrectly conclude there is a relationship.</li>
+<li>However, the F-statistic does not suffer from this problem because it adjusts for the number of predictors.</li>
+</ul></li>
+<li><strong>p &gt; n</strong>: more coefficients βj to estimate than observations from which to estimate them.
+<ul>
+<li>cannot even fit the multiple linear regression model using least squares,</li>
+</ul></li>
+</ul>
+<h3 id="do-all-the-predictors-help-to-explain-y-or-is-only-a-subset-of-the-predictors-useful">3. Do all the predictors help to explain Y , or is only a subset of the predictors useful?</h3>
+<h4 id="variable-selection"><strong>Variable Selection</strong></h4>
+<ul>
+<li>Various statistics can be used to judge the quality of a model:
+<ul>
+<li><strong>Mallow’s Cp, Akaike informa-Mallow’s Cp tion criterion (AIC)</strong></li>
+<li><strong>Bayesian information criterion (BIC)</strong></li>
+<li><strong>adjusted R2</strong></li>
+</ul></li>
+<li>There are three classical approaches to select models:
+<ul>
+<li><strong>Forward selection</strong></li>
+<li><strong>Backward selection</strong></li>
+<li><strong>Mixed selection</strong></li>
+</ul></li>
+</ul>
+<h3 id="how-well-does-the-model-fit-the-data">4. How well does the model fit the data?</h3>
+<p>Two of the most common numerical measures of model fit are the <strong>RSE</strong> and <strong><span class="math inline">\(R^2\)</span></strong></p>
+<h4 id="r2-statistics">R2 Statistics</h4>
+<p>An <span class="math inline">\(R^2\)</span> value close to 1 indicates that the model explains a large portion of the variance in the response variable. <span class="math display">\[
+\begin{align}
+R^2 = (TSS − RSS)/TSS= 1− RSS/TSS
+\end{align}
+\]</span> Recall that in simple regression, <span class="math inline">\(R^2\)</span> is the square of the correlation of the response and the variable. In multiple linear regression, it turns out that it equals <span class="math inline">\(Cor(Y, \hat{Y} )^2\)</span>, the square of the correlation between the response and the fitted linear model; in fact one property of the fitted linear model is that it maximizes this correlation among all possible linear models.</p>
+<p><strong><span class="math inline">\(R^2\)</span> will always increase when more variables are added to the model, even if those variables are only weakly associated with the response.</strong></p>
+<ul>
+<li>This is due to the fact that adding another variable tothe least squares equations must allow us to fit the training data (though not necessarily the testing data) more accurately.</li>
+<li>The fact that adding <em>newspaper</em> advertising to the model containing only TV and radio advertising leads to just a tiny increase in R2 provides additional evidence that newspaper can be dropped from the model.</li>
+</ul>
+<h4 id="rse">RSE</h4>
+<p><strong>RSE</strong> is defined as <span class="math display">\[
+\begin{align}
+RSE=\sqrt{\frac{RSS}{n-p-1}}
+\end{align}
+\]</span> Models with more variables can have higher RSE if the decrease in RSS is small relative to the increase in p.</p>
+<h4 id="graphical-summaries">Graphical summaries</h4>
+<p><img src="./7_v3.png" width="600"> It suggests a <strong>synergy</strong> or <strong>interaction</strong> effect between the advertising media, whereby combining the media together results in a bigger boost to sales than using any single medium</p>
+<h3 id="given-a-set-of-predictor-values-what-response-value-should-we-predict-and-how-accurate-is-our-prediction">5. Given a set of predictor values, what response value should we predict, and how accurate is our prediction?</h3>
+<h4 id="uncertainty-associated-with-prediction"><strong>Uncertainty associated with prediction</strong></h4>
+<ol type="1">
+<li>The coefficient estimates <span class="math inline">\(\hat{\beta_0},\hat{\beta_1},...,\hat{\beta_p}\)</span> are estimates for <span class="math inline">\(β_0, β_1, . . . , β_p\)</span>. That is, the <strong>least squares plane</strong> <span class="math display">\[
+\begin{align}
+\hat{Y}=\hat{\beta_0}+\hat{\beta_1}X_1+,...+\hat{\beta_p}X_p
+\end{align}
+\]</span> is only an estimate for the <strong>true population regression plane</strong> <span class="math display">\[
+\begin{align}
+f(X)=\beta_0+\beta_1X_1+,...+\beta_pX_p
+\end{align}
+\]</span></li>
+</ol>
+<ul>
+<li>The inaccuracy in the coefficient estimates is related to the <strong>reducible error</strong>.</li>
+<li>We can compute a <strong>confidence interval</strong> in order to determine how close <span class="math inline">\(\hat{Y}\)</span> will be to f(X).</li>
+</ul>
+<ol start="2" type="1">
+<li>In practice assuming a linear model for <span class="math inline">\(f(X)\)</span> is almost always an approximation of reality, so there is an additional source of potentially <strong>reducible error</strong> which we call <strong>model bias</strong>.</li>
+<li>Even if we knew <span class="math inline">\(f(X)\)</span>—true values for <span class="math inline">\(β_0, β_1, . . . , β_p\)</span>—the response value cannot be predicted perfectly because of the random error <span class="math inline">\(\epsilon\)</span> --<strong>irreducible error</strong>.</li>
+</ol>
+<ul>
+<li>How much will Y vary from <span class="math inline">\(\hat{Y}\)</span>? -- <strong>prediction intervals</strong></li>
+</ul>
+<h4 id="prediction-intervals"><strong>Prediction intervals</strong></h4>
+<p><strong>Prediction intervals</strong> are always wider than <strong>confidence intervals</strong></p>
+<ul>
+<li>Because they incorporate both <em>the error in the estimate for f(X) (the reducible error) and the uncertainty as to how much an individual point will differ from the population regression plane (the irreducible error).</em></li>
+</ul>
+<p>E.g.</p>
+<ul>
+<li><strong>confidence interval</strong> : quantify the uncertainty surrounding the average sales over a large number of cities.</li>
+<li><strong>prediction interval</strong> : quantify the uncertainty surrounding sales for a particular city.</li>
+</ul>
 <h2 id="multiple-regression-from-simple-univariate-regression">Multiple Regression from Simple Univariate Regression</h2>
 <p>Gram-Schmidt正交化</p>
 <h3 id="simple-univariate-regression">Simple Univariate Regression</h3>
@@ -835,7 +996,7 @@ r_i&amp;=y_i-x_i\hat{\beta}
 \hat{\beta}&amp;=\frac{&lt;\mathbf{x},\mathbf{y}&gt;}{&lt;\mathbf{x},\mathbf{x}&gt;} \\
 \mathbf{r}&amp;=\mathbf{y}-\mathbf{x}\hat{\beta}
 \end{align}
-\]</span> Suppose the inputs x1, x2,..., xp (the columns of the data matrix <span class="math inline">\(\mathbf{X}\)</span>) are orthogonal; that is <span class="math inline">\(&lt;\mathbf{x_k},\mathbf{x_j}&gt;=0\)</span>. Then the multiple least squares estimates <span class="math inline">\(\hat{\beta_j}\)</span> are equal to <span class="math inline">\(\frac{&lt;\mathbf{x_j},\mathbf{y}&gt;}{&lt;\mathbf{x_j},\mathbf{x_j}&gt;}\)</span>—the univariate estimates. In other words, <font color="red">when the inputs are orthogonal, they have no eﬀect on each other’s parameter estimates in the model.</font></p>
+\]</span> Suppose the inputs <span class="math inline">\(x_1, x_2,..., x_p\)</span> (the columns of the data matrix <span class="math inline">\(\mathbf{X}\)</span>) are orthogonal; that is <span class="math inline">\(&lt;\mathbf{x_k},\mathbf{x_j}&gt;=0\)</span>. Then the multiple least squares estimates <span class="math inline">\(\hat{\beta_j}\)</span> are equal to <span class="math inline">\(\frac{&lt;\mathbf{x_j},\mathbf{y}&gt;}{&lt;\mathbf{x_j},\mathbf{x_j}&gt;}\)</span>—the univariate estimates. In other words, <font color="red">when the inputs are orthogonal, they have no eﬀect on each other’s parameter estimates in the model.</font></p>
 <h3 id="orthogonalization">Orthogonalization</h3>
 <p><span class="math display">\[
 \begin{align}
@@ -847,8 +1008,8 @@ r_i&amp;=y_i-x_i\hat{\beta}
 <li><span class="math inline">\(\mathbf{1}\)</span>, the vector of N ones;</li>
 </ul>
 <p><strong>Steps:</strong> 1. regress <span class="math inline">\(\mathbf{x}\)</span> on <span class="math inline">\(\mathbf{1}\)</span> to produce the residual <span class="math inline">\(\mathbf{z}=\mathbf{x}-\bar{x}\mathbf{1}\)</span>; 2. regress <span class="math inline">\(\mathbf{y}\)</span> on the residual <span class="math inline">\(\mathbf{z}\)</span> to give the coeﬃcient <span class="math inline">\(\hat{\beta}_1\)</span></p>
-<p>regress <span class="math inline">\(\mathbf{a}\)</span> on <span class="math inline">\(\mathbf{b}\)</span>: (<span class="math inline">\(\mathbf{b}\)</span> is adjusted for <span class="math inline">\(\mathbf{a}\)</span>),(or <span class="math inline">\(\mathbf{b}\)</span> is <strong>“orthogonalized”</strong> with respect to <span class="math inline">\(\mathbf{a}\)</span>); a simple univariate regression of <span class="math inline">\(\mathbf{b}\)</span> on a with no intercept, producing coeﬃcient <span class="math inline">\(\hat{\lambda}=\frac{&lt;\mathbf{a},\mathbf{b}&gt;}{&lt;\mathbf{a},\mathbf{a}&gt;}\)</span> and residual vector $ - $.</p>
-<p>The orthogonalization does not change the subspace spanned by x1 and x2, it simply produces an <strong>orthogonal basis</strong> for representing it.</p>
+<p>Regress <span class="math inline">\(\mathbf{a}\)</span> on <span class="math inline">\(\mathbf{b}\)</span> (<span class="math inline">\(\mathbf{b}\)</span> is adjusted for <span class="math inline">\(\mathbf{a}\)</span>),(or <span class="math inline">\(\mathbf{b}\)</span> is <strong>“orthogonalized”</strong> with respect to <span class="math inline">\(\mathbf{a}\)</span>); a simple univariate regression of <span class="math inline">\(\mathbf{b}\)</span> on a with no intercept, producing coeﬃcient <span class="math inline">\(\hat{\lambda}=\frac{&lt;\mathbf{a},\mathbf{b}&gt;}{&lt;\mathbf{a},\mathbf{a}&gt;}\)</span> and residual vector $ - $.</p>
+<p>The orthogonalization does not change the subspace spanned by <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>, it simply produces an <strong>orthogonal basis</strong> for representing it.</p>
 <h3 id="gramschmidt-procedure-for-multiple-regression">Gram–Schmidt procedure for multiple regression</h3>
 <p><strong>ALGORITHM 3.1 Regression by Successive Orthogonalization</strong></p>
 <ol type="1">
@@ -892,8 +1053,7 @@ r_i&amp;=y_i-x_i\hat{\beta}
 <li><span class="math inline">\(\mathbf{Q}\)</span> is an <span class="math inline">\(N ×(p+1)\)</span> orthogonal matrix, <span class="math inline">\(Q^TQ=I\)</span>;</li>
 <li><span class="math inline">\(\mathbf{R}\)</span> is a $(p +1) × (p + 1) $Vupper triangular matrix.</li>
 </ul>
-<p>Least squares solution:</p>
-<p><span class="math display">\[
+<p><strong>Least squares solution:</strong> <span class="math display">\[
 \begin{align}
 \hat{\beta}&amp;=R^{-1}Q^T\mathbf{y} \\
 \mathbf{\hat{y}}&amp;=QQ^T\mathbf{y}
@@ -1062,7 +1222,7 @@ RSS(B;Σ)&amp;=\sum_{i=1}^N(y_{ik}-f_k(x_i))^TΣ^{-1}(y_{ik}-f_k(x_i))
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1180,9 +1340,7 @@ RSS(B;Σ)&amp;=\sum_{i=1}^N(y_{ik}-f_k(x_i))^TΣ^{-1}(y_{ik}-f_k(x_i))
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1267,7 +1425,7 @@ RSS(B;Σ)&amp;=\sum_{i=1}^N(y_{ik}-f_k(x_i))^TΣ^{-1}(y_{ik}-f_k(x_i))
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linear-regression-models-and-least-squares"><span class="nav-number">1.</span> <span class="nav-text">Linear Regression Models and Least Squares</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linear-regression-model"><span class="nav-number">1.0.1.</span> <span class="nav-text">Linear Regression Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#residual-sum-of-squares"><span class="nav-number">1.0.2.</span> <span class="nav-text">Residual Sum of Squares</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#solution"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assessing-the-accuracy-of-the-coefficient-estimates"><span class="nav-number">1.0.3.</span> <span class="nav-text">Assessing the Accuracy of the Coefficient Estimates</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#population-v.s.-sample"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">Population V.S. Sample</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#standard-error"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">Standard Error</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sampling-properties-of-beta"><span class="nav-number">1.0.4.</span> <span class="nav-text">Sampling Properties of \(\beta\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inference"><span class="nav-number">1.0.5.</span> <span class="nav-text">Inference</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hypothesis-tests"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">Hypothesis Tests</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-gaussmarkov-theorem"><span class="nav-number">1.0.6.</span> <span class="nav-text">The Gauss–Markov Theorem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assessing-the-accuracy-of-the-model"><span class="nav-number">1.0.7.</span> <span class="nav-text">Assessing the Accuracy of the Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#residual-standard-error"><span class="nav-number">1.0.7.1.</span> <span class="nav-text">Residual Standard Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#r2-statistic"><span class="nav-number">1.0.7.2.</span> <span class="nav-text">R2 Statistic</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#squared-correlation-v.s.-r2-statistic"><span class="nav-number">1.0.8.</span> <span class="nav-text">Squared Correlation V.S. R2 Statistic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#variance-bias"><span class="nav-number">1.0.9.</span> <span class="nav-text">Variance &amp; Bias</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prediction-error-mse"><span class="nav-number">1.0.10.</span> <span class="nav-text">Prediction error &amp; MSE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiple-regression-from-simple-univariate-regression"><span class="nav-number">1.1.</span> <span class="nav-text">Multiple Regression from Simple Univariate Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simple-univariate-regression"><span class="nav-number">1.1.1.</span> <span class="nav-text">Simple Univariate Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orthogonalization"><span class="nav-number">1.1.2.</span> <span class="nav-text">Orthogonalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gramschmidt-procedure-for-multiple-regression"><span class="nav-number">1.1.3.</span> <span class="nav-text">Gram–Schmidt procedure for multiple regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#precision-of-coefficient-estimation"><span class="nav-number">1.1.4.</span> <span class="nav-text">Precision of Coefficient Estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#qr-decomposition"><span class="nav-number">1.1.5.</span> <span class="nav-text">QR decomposition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiple-outputs"><span class="nav-number">1.2.</span> <span class="nav-text">3.2.4 Multiple Outputs</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#simple-linear-regression-models"><span class="nav-number">1.</span> <span class="nav-text">Simple Linear Regression Models</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-regression-model"><span class="nav-number">1.1.</span> <span class="nav-text">Linear Regression Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#residual-sum-of-squares"><span class="nav-number">1.2.</span> <span class="nav-text">Residual Sum of Squares</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#solution"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#assessing-the-accuracy-of-the-coefficient-estimates"><span class="nav-number">1.3.</span> <span class="nav-text">Assessing the Accuracy of the Coefficient Estimates</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#population-v.s.-sample"><span class="nav-number">1.3.1.</span> <span class="nav-text">Population V.S. Sample</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#standard-error"><span class="nav-number">1.3.2.</span> <span class="nav-text">Standard Error</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sampling-properties-of-beta"><span class="nav-number">1.4.</span> <span class="nav-text">Sampling Properties of \(\beta\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inference"><span class="nav-number">1.5.</span> <span class="nav-text">Inference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hypothesis-tests"><span class="nav-number">1.5.1.</span> <span class="nav-text">Hypothesis Tests</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#t-statistic"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">T-statistic:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-value"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">p-value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f-statistic"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">F-statistic:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-gaussmarkov-theorem"><span class="nav-number">1.6.</span> <span class="nav-text">The Gauss–Markov Theorem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#assessing-the-accuracy-of-the-model"><span class="nav-number">1.7.</span> <span class="nav-text">Assessing the Accuracy of the Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#residual-standard-error"><span class="nav-number">1.7.1.</span> <span class="nav-text">Residual Standard Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#r2-statistic"><span class="nav-number">1.7.2.</span> <span class="nav-text">R2 Statistic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#squared-correlation-v.s.-r2-statistic"><span class="nav-number">1.8.</span> <span class="nav-text">Squared Correlation V.S. R2 Statistic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#note-of-p-value-v.s.-r-square"><span class="nav-number">1.9.</span> <span class="nav-text">Note of P-Value v.s. R-Square</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#variance-bias"><span class="nav-number">1.10.</span> <span class="nav-text">Variance &amp; Bias</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prediction-error-mse"><span class="nav-number">1.11.</span> <span class="nav-text">Prediction error &amp; MSE</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#multiple-linear-regression"><span class="nav-number">2.</span> <span class="nav-text">Multiple Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#estimating-the-regression-coefficients"><span class="nav-number">2.1.</span> <span class="nav-text">Estimating the Regression Coefficients</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#some-important-questions"><span class="nav-number">2.2.</span> <span class="nav-text">Some Important Questions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#is-there-a-relationship-between-the-response-and-predictors"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. Is There a Relationship Between the Response and Predictors?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hypothesis-test"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Hypothesis Test</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#how-large-does-the-f-statistic-need-to-be-before-we-can-reject-h0-and-conclude-that-there-is-a-relationship"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. How large does the F-statistic need to be before we can reject H0 and conclude that there is a relationship?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#f-statistics-v.s.-t-statistics"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">F-statistics v.s. t-statistics</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#do-all-the-predictors-help-to-explain-y-or-is-only-a-subset-of-the-predictors-useful"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. Do all the predictors help to explain Y , or is only a subset of the predictors useful?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#variable-selection"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">Variable Selection</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#how-well-does-the-model-fit-the-data"><span class="nav-number">2.2.4.</span> <span class="nav-text">4. How well does the model fit the data?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#r2-statistics"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">R2 Statistics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rse"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">RSE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#graphical-summaries"><span class="nav-number">2.2.4.3.</span> <span class="nav-text">Graphical summaries</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#given-a-set-of-predictor-values-what-response-value-should-we-predict-and-how-accurate-is-our-prediction"><span class="nav-number">2.2.5.</span> <span class="nav-text">5. Given a set of predictor values, what response value should we predict, and how accurate is our prediction?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#uncertainty-associated-with-prediction"><span class="nav-number">2.2.5.1.</span> <span class="nav-text">Uncertainty associated with prediction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prediction-intervals"><span class="nav-number">2.2.5.2.</span> <span class="nav-text">Prediction intervals</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiple-regression-from-simple-univariate-regression"><span class="nav-number">2.3.</span> <span class="nav-text">Multiple Regression from Simple Univariate Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simple-univariate-regression"><span class="nav-number">2.3.1.</span> <span class="nav-text">Simple Univariate Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orthogonalization"><span class="nav-number">2.3.2.</span> <span class="nav-text">Orthogonalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gramschmidt-procedure-for-multiple-regression"><span class="nav-number">2.3.3.</span> <span class="nav-text">Gram–Schmidt procedure for multiple regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#precision-of-coefficient-estimation"><span class="nav-number">2.3.4.</span> <span class="nav-text">Precision of Coefficient Estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#qr-decomposition"><span class="nav-number">2.3.5.</span> <span class="nav-text">QR decomposition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiple-outputs"><span class="nav-number">2.4.</span> <span class="nav-text">3.2.4 Multiple Outputs</span></a></li></ol></li></div>
             
 
           </div>
@@ -1300,7 +1458,7 @@ RSS(B;Σ)&amp;=\sum_{i=1}^N(y_{ik}-f_k(x_i))^TΣ^{-1}(y_{ik}-f_k(x_i))
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">369k</span>
+    <span title="Symbols count total">359k</span>
   
 
   

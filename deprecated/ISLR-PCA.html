@@ -119,18 +119,22 @@
 
 
 
-  <meta name="description" content="Logistic Regression Reference: Trevor Hastie, Robert Tibshirani, Jerome Friedman The elements of statistical learning Data mining, inference, and prediction The logistic regression model arises from t">
-<meta name="keywords" content="Logistic Regression,Classification">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ESL Note - Logistic Regression">
-<meta property="og:url" content="https://nancyyanyu.github.io/posts/c759e252/index.html">
+  <meta name="description" content="Principal Components Analysis Principal component analysis (PCA) refers to the process by which principal components are computed, and the subsequent use of these components in understanding the data.">
+<meta name="keywords" content="PCA,Unsupervised,Dimension Reduction">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ISLR Note - PCA">
+<meta property="og:url" content="https://nancyyanyu.github.io/deprecated/ISLR-PCA.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Logistic Regression Reference: Trevor Hastie, Robert Tibshirani, Jerome Friedman The elements of statistical learning Data mining, inference, and prediction The logistic regression model arises from t">
+<meta property="og:description" content="Principal Components Analysis Principal component analysis (PCA) refers to the process by which principal components are computed, and the subsequent use of these components in understanding the data.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-12T01:16:41.985Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/deprecated/1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/deprecated/2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/deprecated/3.png">
+<meta property="og:updated_time" content="2019-10-09T08:18:44.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESL Note - Logistic Regression">
-<meta name="twitter:description" content="Logistic Regression Reference: Trevor Hastie, Robert Tibshirani, Jerome Friedman The elements of statistical learning Data mining, inference, and prediction The logistic regression model arises from t">
+<meta name="twitter:title" content="ISLR Note - PCA">
+<meta name="twitter:description" content="Principal Components Analysis Principal component analysis (PCA) refers to the process by which principal components are computed, and the subsequent use of these components in understanding the data.">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/deprecated/1.png">
 
 
 
@@ -140,7 +144,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/posts/c759e252/">
+  <link rel="canonical" href="https://nancyyanyu.github.io/deprecated/ISLR-PCA">
 
 
 
@@ -150,7 +154,7 @@
   };
 </script>
 
-  <title>ESL Note - Logistic Regression | Nancy's Notes</title>
+  <title>ISLR Note - PCA | Nancy's Notes</title>
   
 
 
@@ -364,6 +368,34 @@
   
     
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
   
 
   
@@ -390,241 +422,140 @@
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/c759e252/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">ESL Note - Logistic Regression
+<h1 class="post-title" itemprop="name headline">ISLR Note - PCA
 
-              
-            
-          </h1>
-        
+</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
+<div class="post-meta">
+  
+  
 
-            
-            
-            
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
 
-              
-                
-              
+</div>
 
-              <time title="Created: 2019-06-09 00:07:28" itemprop="dateCreated datePublished" datetime="2019-06-09T00:07:28-05:00">2019-06-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-09-11 20:16:41" itemprop="dateModified" datetime="2019-09-11T20:16:41-05:00">2019-09-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">700</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
+</header>
 
       
       
-
       
-        <h1 id="logistic-regression">Logistic Regression</h1>
-<p>Reference: Trevor Hastie, Robert Tibshirani, Jerome Friedman The elements of statistical learning Data mining, inference, and prediction</p>
-<p>The logistic regression model arises from the desire to model the posterior probabilities of the K classes via linear functions in x, while at the same time ensuring that they sum to one and remain in [0, 1]. The model has the form:</p>
-<a id="more"></a>
+      <div class="post-body han-init-context">
+        
+        
+          <h1 id="principal-components-analysis">Principal Components Analysis</h1>
+<p><strong>Principal component analysis (PCA)</strong> refers to the process by which principal components are computed, and the subsequent use of these components in understanding the data.</p>
+<ul>
+<li>PCA also serves as a tool for data visualization (visualization of the observations or visualization of the variables).</li>
+</ul>
+<h2 id="what-are-principal-components">What Are Principal Components?</h2>
+<p><strong>PCA</strong> :finds a low-dimensional representation of a data set that contains as much as possible of the <strong>variation</strong></p>
+<p>Each of the dimensions found by PCA is a linear combination of the <span class="math inline">\(p\)</span> features.</p>
+<p><strong><em>The first principal component</em></strong> of a set of features <span class="math inline">\(X_1,X_2, . . . , X_p\)</span> is the normalized linear combination of the features</p>
 <p><span class="math display">\[
 \begin{align}
-\log\frac{\text{Pr}(G=1|X=x)}{\text{Pr}(G=K|X=x)} &amp;= \beta_{10} + \beta_1^Tx \\
-\log\frac{\text{Pr}(G=2|X=x)}{\text{Pr}(G=K|X=x)} &amp;= \beta_{20} + \beta_2^Tx \\
-&amp;\vdots \\
-\log\frac{\text{Pr}(G=K-1|X=x)}{\text{Pr}(G=K|X=x)} &amp;= \beta_{(K-1)0} + \beta_{K-1}^Tx \\
+Z_1=\phi_{11}X_1+\phi_{21}X_2+,,,+\phi_{p1}X_p
 \end{align}
 \]</span></p>
+<p>that has the <strong>largest variance</strong>.</p>
+<p><strong>Normalized</strong>: <span class="math inline">\(\sum_{j=1}^p \phi_{j1}^2=1\)</span></p>
+<p><strong>Loadings</strong>: <span class="math inline">\(\phi_{11}, . . . , \phi_{p1}\)</span> the loadings of the first principal component; - Together, the loadings make up the principal component loading vector, <span class="math inline">\(\phi_1=(\phi_{11},\phi_{21},...,\phi_{p1})^T\)</span></p>
+<h3 id="compute-the-first-principal-component">Compute the first principal component</h3>
+<ul>
+<li><p>Assume that each of the variables in <span class="math inline">\(X\)</span> has been centered to have mean zero. We then look for the linear combination of the sample feature values of the form <span class="math display">\[
+\begin{align}
+z_{i1}=\phi_{11}x_{i1}+\phi_{21}x_{i2}+,,,+\phi_{p1}x_{ip} \quad \quad i=1,2,...,n
+\end{align}
+\]</span></p>
+<p>that has largest sample variance, subject to the constraint that <span class="math inline">\(\sum_{j=1}^p \phi_{j1}^2=1\)</span></p></li>
+<li><p>The first principal component loading vector solves the optimization problem <span class="math display">\[
+\begin{align}
+\max_{\phi_{11},...,\phi_{p1}}{\left\{ \frac{1}{n} \sum_{i=1}^n \left( \sum_{j=1}^p \phi_{j1}x_{ij}   \right)^2 \right\}} \, subject \, to \, \sum_{j=1}^p \phi_{j1}^2=1
+\end{align}
+\]</span></p></li>
+<li><p>Since <span class="math inline">\(\sum_{i=1}^nx_{ij}/n=1\)</span>, the average of the <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> will be zero as well. Hence the objective that we are maximizing is just the <strong>sample variance</strong> of the <span class="math inline">\(n\)</span> values of zi1</p></li>
+<li><p><strong>Scores</strong>: We refer to <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> as the scores of the first principal component.</p></li>
+</ul>
+<p><strong>Geometric interpretation</strong>: for the first principal component: The loading vector <span class="math inline">\(\phi_1\)</span> with elements <span class="math inline">\(\phi_{11},\phi_{21},...,\phi_{p1}\)</span> defines a direction in feature space along which the data <strong>vary the most</strong>. If we project the n data points <span class="math inline">\(x_1, . . . , x_n\)</span> onto this direction, the projected values are the principal component scores <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> themselves.</p>
+<h3 id="compute-the-second-principal-component">Compute the second principal component</h3>
+<p><strong>The second principal component <span class="math inline">\(Z_2\)</span></strong>: the linear combination of <span class="math inline">\(X_1,X_2, . . . , X_p\)</span> that has maximal variance out of all linear combinations that are <strong>uncorrelated with <span class="math inline">\(Z_1\)</span></strong>.</p>
+<p>The second principal component scores <span class="math inline">\(z_{12}, . . . , z_{n2}\)</span> take the form</p>
+<p><span class="math display">\[
+\begin{align}
+z_{i2}=\phi_{12}x_{i1}+\phi_{22}x_{i2}+,,,+\phi_{p2}x_{ip} \quad \quad i=1,2,...,n
+\end{align}
+\]</span> where <span class="math inline">\(\phi_2\)</span> is the second principal component <strong>loading</strong> vector, with elements <span class="math inline">\(\phi_{12},\phi_{22},...,\phi_{p2}\)</span>.</p>
+<p>It turns out that constraining <span class="math inline">\(Z_2\)</span> to be uncorrelated with <span class="math inline">\(Z_1\)</span> is equivalent to constraining the direction <span class="math inline">\(\phi_2\)</span> to be <strong>orthogonal</strong> (perpendicular) to the direction <span class="math inline">\(\phi_1\)</span>.</p>
+<p>To find <span class="math inline">\(\phi_2\)</span>, we solve a problem similar to (10.3) with <span class="math inline">\(\phi_2\)</span> replacing <span class="math inline">\(\phi_1\)</span>, and with the additional constraint that <span class="math inline">\(\phi_2\)</span> is orthogonal to <span class="math inline">\(\phi_1\)</span></p>
+<p><img src="./1.png" width="600"></p>
+<p><strong>Interpretation:</strong> - 1st loading vector places approximately equal weight on Assault, Murder, and Rape, with much less weight UrbanPop. Hence this component roughly corresponds to a measure of overall rates of serious crimes. - Overall, we see that the crime-related variables (Murder, Assault, and Rape) are located close to each other, and that the UrbanPop variable is far from the other three. - This indicates that the crime-related variables are correlated with each other—states with high murder rates tend to have high assault and rape rates—and that the UrbanPop variable is less correlated with the other three.</p>
+<h2 id="another-interpretation-of-principal-components">Another Interpretation of Principal Components</h2>
+<p><strong>An alternative interpretation for principal components</strong>: principal components provide low-dimensional linear surfaces that are closest to the observations</p>
+<ul>
+<li><p><strong>The first principal component loading vector has a very special property</strong>: it is the line in p-dimensional space that is closest to the n observations (using average squared Euclidean distance as a measure of closeness).</p></li>
+<li><p>The appeal of this interpretation : we seek a single dimension of the data that lies as close as possible to all of the data points, since such a line will likely provide a good summary of the data.</p></li>
+<li><p><strong>The first two principal components</strong> of a data set <strong>span the plane</strong> that is closest to the n observations, in terms of average squared Euclidean distance</p></li>
+<li><p>Together <strong>the first M principal component</strong> score vectors and the first M principal component loading vectors provide the best M-dimensional approximation (in terms of Euclidean distance) to the ith observation <span class="math inline">\(x_{ij}\)</span> . <span class="math display">\[
+\begin{align}
+x_{ij} \approx \sum_{m=1}^Mz_{im}\phi_{jm}
+\end{align}
+\]</span> (assuming the original data matrix X is column-centered).</p>
+<p>(assuming the original data matrix X is column-centered).</p></li>
+<li><p>When <span class="math inline">\(M = min(n − 1, p)\)</span>, then the representation is exact: <span class="math inline">\(x_{ij} = \sum_{m=1}^Mz_{im}\phi_{jm}\)</span></p></li>
+</ul>
+<h2 id="more-on-pca">More on PCA</h2>
+<h3 id="scaling-the-variables">Scaling the Variables</h3>
+<p>Before PCA is performed, the variables should be <strong>centered to have mean zero</strong>. Furthermore, the results obtained when we perform PCA will also depend on whether the variables have been <strong>individually scaled</strong> (each multiplied by a different constant)</p>
+<p><img src="./2.png" width="600"></p>
+<h3 id="uniqueness-of-the-principal-components">Uniqueness of the Principal Components</h3>
+<p><strong>Each principal component loading vector <span class="math inline">\(\phi_1=(\phi_{11},\phi_{21},...,\phi_{p1})^T\)</span> and the score vectors <span class="math inline">\(z_{11}, . . . , z_{n1}\)</span> is unique, up to a sign flip. </strong> - Two different software packages will yield the same principal component loading vectors and score vectors, although the signs of those loading vectors may differ. - <strong>The signs may differ</strong> because each principal component loading vector specifies a direction in p-dimensional space: flipping the sign has no effect as the direction does not change.</p>
+<h3 id="the-proportion-of-variance-explained">The Proportion of Variance Explained</h3>
+<p><strong>How much of the variance in the data is not contained in the first few principal components?</strong></p>
+<p><strong>Proportion of variance explained (PVE)</strong> by each principal component: - The total variance present in a data set (assuming that the variables have been centered to have mean zero) is defined as</p>
+<p><span class="math display">\[
+\begin{align}
+\sum_{j=1}^pVar(X_j)=\sum_{j=1}^p\frac{1}{n}\sum_{i=1}^nx_{ij}^2
+\end{align}
+\]</span></p>
+<ul>
+<li>The variance explained by the mth principal component is</li>
+</ul>
+<p><span class="math display">\[
+\begin{align}
+\frac{1}{n}\sum_{i=1}^nz_{im}^2=\frac{1}{n}\sum_{i=1}^n \left( \sum_{j=1}^p \phi_{jm}x_{ij} \right)^2
+\end{align}
+\]</span></p>
+<ul>
+<li>Therefore, the <strong>PVE of the mth principal component</strong> is given by</li>
+</ul>
+<p><span class="math display">\[
+\begin{align}
+\frac{\sum_{i=1}^n \left( \sum_{j=1}^p \phi_{jm}x_{ij} \right)^2}{\sum_{j=1}^p\sum_{i=1}^nx_{ij}^2}
+\end{align}
+\]</span></p>
+<p>The PVE of each principal component is a positive quantity. In order to compute the <strong>cumulative PVE</strong> of the first <span class="math inline">\(M\)</span> principal components, we can simply sum (10.8) over each of the first <span class="math inline">\(M\)</span> PVEs. In total, there are <span class="math inline">\(min(n − 1, p)\)</span> principal components, and their PVEs sum to one.</p>
+<p><img src="./3.png" width="600"></p>
+<h3 id="deciding-how-many-principal-components-to-use">Deciding How Many Principal Components to Use</h3>
+<p>We would like to use the smallest number of principal components required to get a good understanding of the data.</p>
+<p><strong>How many principal components are needed?</strong> - We typically decide on the number of principal components required to visualize the data by examining a <strong>scree plot</strong> (Right FIGURE 10.4) - We choose the smallest number of principal components that are required in order to explain a sizable amount of the variation in the data. - We tend to look at the first few principal components in order to find interesting patterns in the data. If no interesting patterns are found in the first few principal components, then further principal components are unlikely to be of interest.</p>
 
+        
+      </div>
+      
+      
       
     </div>
-
     
 
+
+
     
     
     
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/Logistic-Regression/" rel="tag"># Logistic Regression</a>
-          
-            <a href="/tags/Classification/" rel="tag"># Classification</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/posts/9b5af8e1/" rel="next" title="ISLR Note - Comparison of Classification Methods">
-                <i class="fa fa-chevron-left"></i> ISLR Note - Comparison of Classification Methods
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/2a71b2a0/" rel="prev" title="ESL Note - Bias, Variance">
-                ESL Note - Bias, Variance <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
   </div>
 
 
@@ -685,7 +616,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -803,9 +734,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -890,7 +819,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#logistic-regression"><span class="nav-number">1.</span> <span class="nav-text">Logistic Regression</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#principal-components-analysis"><span class="nav-number">1.</span> <span class="nav-text">Principal Components Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-are-principal-components"><span class="nav-number">1.1.</span> <span class="nav-text">What Are Principal Components?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#compute-the-first-principal-component"><span class="nav-number">1.1.1.</span> <span class="nav-text">Compute the first principal component</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compute-the-second-principal-component"><span class="nav-number">1.1.2.</span> <span class="nav-text">Compute the second principal component</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#another-interpretation-of-principal-components"><span class="nav-number">1.2.</span> <span class="nav-text">Another Interpretation of Principal Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#more-on-pca"><span class="nav-number">1.3.</span> <span class="nav-text">More on PCA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scaling-the-variables"><span class="nav-number">1.3.1.</span> <span class="nav-text">Scaling the Variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uniqueness-of-the-principal-components"><span class="nav-number">1.3.2.</span> <span class="nav-text">Uniqueness of the Principal Components</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-proportion-of-variance-explained"><span class="nav-number">1.3.3.</span> <span class="nav-text">The Proportion of Variance Explained</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deciding-how-many-principal-components-to-use"><span class="nav-number">1.3.4.</span> <span class="nav-text">Deciding How Many Principal Components to Use</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -923,7 +852,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">369k</span>
+    <span title="Symbols count total">359k</span>
   
 
   

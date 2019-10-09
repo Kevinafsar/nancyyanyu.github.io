@@ -2,14 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nancyyanyu.github.io/posts/9b5af8e1/</loc>
+    <loc>https://nancyyanyu.github.io/posts/bc53b72b/</loc>
     
-    <lastmod>2019-10-09T07:52:23.479Z</lastmod>
+    <lastmod>2019-10-09T08:33:59.593Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/posts/595ebc31/</loc>
+    <loc>https://nancyyanyu.github.io/posts/b358d10f/</loc>
+    
+    <lastmod>2019-10-09T08:28:17.824Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/deprecated/ESL-Logistic_Regression.html</loc>
+    
+    <lastmod>2019-10-09T08:28:03.847Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/cac93a23/</loc>
+    
+    <lastmod>2019-10-09T08:24:39.446Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/deprecated/ISLR-PCA.html</loc>
+    
+    <lastmod>2019-10-09T08:18:44.423Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/deprecated/ISLR-Multiple%20Linear%20Regression.html</loc>
+    
+    <lastmod>2019-10-09T08:14:13.977Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/9b5af8e1/</loc>
+    
+    <lastmod>2019-10-09T08:14:13.103Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/deprecated/ISLR-Simple_Linear_Regression.html</loc>
     
     <lastmod>2019-10-09T07:49:59.200Z</lastmod>
     
@@ -26,13 +68,6 @@
     <loc>https://nancyyanyu.github.io/posts/ada5a11a/</loc>
     
     <lastmod>2019-10-09T05:02:52.755Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/posts/c759e252/</loc>
-    
-    <lastmod>2019-09-12T01:16:41.985Z</lastmod>
     
   </url>
   
@@ -54,13 +89,6 @@
     <loc>https://nancyyanyu.github.io/posts/5b711fed/</loc>
     
     <lastmod>2019-08-30T15:25:07.695Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/posts/b358d10f/</loc>
-    
-    <lastmod>2019-08-30T15:18:51.734Z</lastmod>
     
   </url>
   
@@ -117,13 +145,6 @@
     <loc>https://nancyyanyu.github.io/posts/9fb5a802/</loc>
     
     <lastmod>2019-07-16T18:08:21.260Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/posts/85819d65/</loc>
-    
-    <lastmod>2019-07-15T23:10:21.402Z</lastmod>
     
   </url>
   
@@ -254,37 +275,16 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/posts/a1139410/</loc>
+    <loc>https://nancyyanyu.github.io/deprecated/ISLR-SVM-Support-Vector-Machines.html</loc>
     
     <lastmod>2019-06-17T21:03:48.248Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/posts/e6eddd64/</loc>
+    <loc>https://nancyyanyu.github.io/deprecated/ISLR-SVM-Support-Vector-Classifiers.html</loc>
     
     <lastmod>2019-06-17T20:45:22.502Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/posts/bc53b72b/</loc>
-    
-    <lastmod>2019-06-17T20:42:35.085Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/posts/cac93a23/</loc>
-    
-    <lastmod>2019-06-17T20:04:09.445Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/posts/9b1a6524/</loc>
-    
-    <lastmod>2019-06-17T19:59:51.314Z</lastmod>
     
   </url>
   
@@ -408,14 +408,14 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/bower.json</loc>
+    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2019-06-09T06:58:06.044Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/README.html</loc>
+    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/bower.json</loc>
     
     <lastmod>2019-06-09T06:58:06.044Z</lastmod>
     

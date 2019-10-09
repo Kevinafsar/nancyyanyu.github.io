@@ -119,23 +119,23 @@
 
 
 
-  <meta name="description" content="Why Not Linear Regression? Linear regression is not appropriate in the case of a qualitative response. Reason: there is no natural way to convert a qualitative response variable with more than two lev">
-<meta name="keywords" content="Logistic Regression,Classification">
+  <meta name="description" content="Why Not Linear Regression? The logistic regression model arises from the desire to model the posterior probabilities of the K classes via linear functions in x, while at the same time ensuring that th">
+<meta name="keywords" content="Classification,Logistic Regression">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ISLR Note - Logistic Regression">
+<meta property="og:title" content="Logistic Regression">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/b358d10f/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Why Not Linear Regression? Linear regression is not appropriate in the case of a qualitative response. Reason: there is no natural way to convert a qualitative response variable with more than two lev">
+<meta property="og:description" content="Why Not Linear Regression? The logistic regression model arises from the desire to model the posterior probabilities of the K classes via linear functions in x, while at the same time ensuring that th">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/1.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/2.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/4.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/5.png">
-<meta property="og:updated_time" content="2019-08-30T15:18:51.734Z">
+<meta property="og:updated_time" content="2019-10-09T08:28:17.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ISLR Note - Logistic Regression">
-<meta name="twitter:description" content="Why Not Linear Regression? Linear regression is not appropriate in the case of a qualitative response. Reason: there is no natural way to convert a qualitative response variable with more than two lev">
+<meta name="twitter:title" content="Logistic Regression">
+<meta name="twitter:description" content="Why Not Linear Regression? The logistic regression model arises from the desire to model the posterior probabilities of the K classes via linear functions in x, while at the same time ensuring that th">
 <meta name="twitter:image" content="https://nancyyanyu.github.io/posts/b358d10f/1.png">
 
 
@@ -156,7 +156,7 @@
   };
 </script>
 
-  <title>ISLR Note - Logistic Regression | Nancy's Notes</title>
+  <title>Logistic Regression | Nancy's Notes</title>
   
 
 
@@ -427,7 +427,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ISLR Note - Logistic Regression
+          <h1 class="post-title" itemprop="name headline">Logistic Regression
 
               
             
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-30 10:18:51" itemprop="dateModified" datetime="2019-08-30T10:18:51-05:00">2019-08-30</time>
+                <time title="Modified: 2019-10-09 03:28:17" itemprop="dateModified" datetime="2019-10-09T03:28:17-05:00">2019-10-09</time>
               
             
           </span>
@@ -516,7 +516,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">4k</span>
+                <span title="Symbols count in article">4.5k</span>
               
 
               
@@ -551,7 +551,15 @@
 
       
         <h1 id="why-not-linear-regression">Why Not Linear Regression?</h1>
-<p><strong>Linear regression is not appropriate in the case of a qualitative response.</strong></p>
+<p>The logistic regression model arises from the desire to model the posterior probabilities of the K classes via linear functions in x, while at the same time ensuring that they sum to one and remain in [0, 1]. The model has the form: <span class="math display">\[
+\begin{align}
+\log\frac{\text{Pr}(G=1|X=x)}{\text{Pr}(G=K|X=x)} &amp;= \beta_{10} + \beta_1^Tx \\
+\log\frac{\text{Pr}(G=2|X=x)}{\text{Pr}(G=K|X=x)} &amp;= \beta_{20} + \beta_2^Tx \\
+&amp;\vdots \\
+\log\frac{\text{Pr}(G=K-1|X=x)}{\text{Pr}(G=K|X=x)} &amp;= \beta_{(K-1)0} + \beta_{K-1}^Tx \\
+\end{align}
+\]</span></p>
+<p>Linear regression is not appropriate in the case of a qualitative response.**</p>
 <p><strong>Reason:</strong> there is no natural way to convert a qualitative response variable with more than two levels into a quantitative response that is ready for linear regression.</p>
 <p><strong>Setting</strong>: For the Default data, logistic regression models the probability of default. For example, the probability of default given balance can be written as <span class="math inline">\(Pr(default = Yes|balance).\)</span></p>
 <p><img src="./1.png" width="600"></p>
@@ -647,9 +655,9 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
         
         <div class="post-tags">
           
-            <a href="/tags/Logistic-Regression/" rel="tag"># Logistic Regression</a>
-          
             <a href="/tags/Classification/" rel="tag"># Classification</a>
+          
+            <a href="/tags/Logistic-Regression/" rel="tag"># Logistic Regression</a>
           
         </div>
       
@@ -750,7 +758,7 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -868,9 +876,7 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -988,7 +994,7 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">369k</span>
+    <span title="Symbols count total">359k</span>
   
 
   
