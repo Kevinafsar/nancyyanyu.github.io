@@ -119,18 +119,13 @@
 
 
 
-  <meta name="description" content="Universal Approximation of neural networks 1. State the universal approximation theorem? What is the technique used to prove that? Universal approximation theorem (Hornik et al., 1989; Cybenko, 1989)">
-<meta name="keywords" content="Interview">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deep Learning Questions Part I: UAT, Motivation">
-<meta property="og:url" content="https://nancyyanyu.github.io/copy/Questions-5.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Nancy&#39;s Notes">
+<meta property="og:url" content="https://nancyyanyu.github.io/archives/2019/06/page/2/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Universal Approximation of neural networks 1. State the universal approximation theorem? What is the technique used to prove that? Universal approximation theorem (Hornik et al., 1989; Cybenko, 1989)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T21:46:15.099Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deep Learning Questions Part I: UAT, Motivation">
-<meta name="twitter:description" content="Universal Approximation of neural networks 1. State the universal approximation theorem? What is the technique used to prove that? Universal approximation theorem (Hornik et al., 1989; Cybenko, 1989)">
+<meta name="twitter:title" content="Nancy&#39;s Notes">
 
 
 
@@ -140,7 +135,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/copy/Questions-5">
+  <link rel="canonical" href="https://nancyyanyu.github.io/archives/2019/06/page/2/">
 
 
 
@@ -150,7 +145,7 @@
   };
 </script>
 
-  <title>Deep Learning Questions Part I: UAT, Motivation | Nancy's Notes</title>
+  <title>Archive | Nancy's Notes</title>
   
 
 
@@ -198,7 +193,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -416,98 +411,221 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">Deep Learning Questions Part I: UAT, Motivation
-
-</h1>
-
-<div class="post-meta">
   
   
-
-
-
-</div>
-
-</header>
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
       
-      
-      
-      <div class="post-body han-init-context">
+      <span class="archive-page-counter">
         
         
-          <h2 id="universal-approximation-of-neural-networks">Universal Approximation of neural networks</h2>
-<h3 id="state-the-universal-approximation-theorem-what-is-the-technique-used-to-prove-that">1. State the universal approximation theorem? What is the technique used to prove that?</h3>
-<p><strong>Universal approximation theorem</strong> (Hornik et al., 1989; Cybenko, 1989) states that a feedforward network with a linear output layer and at least one hidden layer with any “squashing” activation function (such as the logistic sigmoid activation function) can approximate any Borel measurable function from one finite-dimensional space to another with any desired non-zero amount of error, provided that the network is given enough hidden units.</p>
-<p>The universal approximation theorem means that <strong>regardless of what function we are trying to learn, we know that a large MLP will be able to represent this function.</strong></p>
-<p>However, we are not guaranteed that the training algorithm will be able to learn that function. Even if the MLP is able to represent the function, learning can fail for two different reasons.</p>
-<ol type="1">
-<li>The <strong>optimization algorithm</strong> used for training may not be able to find the value of the parameters that corresponds to the desired function.</li>
-<li>The training algorithm might <strong>choose the wrong function due to overfitting</strong></li>
-</ol>
-<p>The universal approximation theorem says that there exists a network large enough to achieve any degree of accuracy we desire, but the theorem does not say how large this network will be.</p>
-<h3 id="what-is-a-borel-measurable-function">2. What is a Borel measurable function?</h3>
-<p>Any continuous function on a closed and bounded subset of <span class="math inline">\(R^n\)</span> is Borel measurable and therefore may be approximated by a neural network.</p>
-<a id="more"></a>
-<h2 id="deep-learning-motivation">Deep Learning motivation</h2>
-<ol type="1">
-<li>What is the mathematical motivation of Deep Learning as opposed to standard Machine Learning techniques?</li>
-<li>In standard Machine Learning vs. Deep Learning, how is the order of number of samples related to the order of regions that can be recognized in the function space?</li>
-<li>What are the reasons for choosing a deep model as opposed to shallow model? (1. Number of regions O(2^k) vs O(k) where k is the number of training examples 2. # linear regions carved out in the function space depends exponentially on the depth. )</li>
-<li>How Deep Learning tackles the curse of dimensionality?</li>
-</ol>
-<h2 id="general-questions">General questions</h2>
-<ol type="1">
-<li>How will you implement dropout during forward and backward pass?</li>
-<li>What do you do if Neural network training loss/testing loss stays constant? (ask if there could be an error in your code, going deeper, going simpler…)</li>
-<li>Why do RNNs have a tendency to suffer from exploding/vanishing gradient? How to prevent this? (Talk about LSTM cell which helps the gradient from vanishing, but make sure you know why it does so. Talk about gradient clipping, and discuss whether to clip the gradient element wise, or clip the norm of the gradient.)</li>
-<li>Do you know GAN, VAE, and memory augmented neural network? Can you talk about it?</li>
-<li>Does using full batch means that the convergence is always better given unlimited power? (Beautiful explanation by Alex Seewald: https://www.quora.com/Is-full-batch-gradient-descent-with-unlimited-computer-power-always-better-than-mini-batch-gradient-descent)</li>
-<li>What is the problem with sigmoid during backpropagation? (Very small, between 0.25 and zero.)</li>
-<li>Given a black box machine learning algorithm that you can’t modify, how could you improve its error? (you can transform the input for example.)</li>
-<li>How to find the best hyper parameters? (Random search, grid search, Bayesian search (and what it is?))</li>
-<li>What is transfer learning?</li>
-<li>Compare and contrast L1-loss vs. L2-loss and L1-regularization vs. L2-regularization.</li>
-</ol>
-<p><strong>Ref</strong>:</p>
-<p><a href="https://github.com/Sroy20/machine-learning-interview-questions" target="_blank" rel="noopener">machine-learning-interview-questions</a></p>
+         
+        
+        OK! 35 posts in total. Keep on posting.
+      </span>
+      
+
+      
 
         
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2019">2019</h1>
+          </div>
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/c8f688ba/" itemprop="url">
+            
+              <span itemprop="name">Machine Learning Questions Part III: SVM</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-17T13:07:59-05:00" content="2019-06-17">
+          06-17
+        </time>
       </div>
+
+    </header>
+  </article>
+
+
+
       
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/9c99c8b6/" itemprop="url">
+            
+              <span itemprop="name">Clustering</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-15T12:52:06-05:00" content="2019-06-15">
+          06-15
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
       
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/a2f8a358/" itemprop="url">
+            
+              <span itemprop="name">Machine Learning Questions Part II: COD, Reg, Model Evaluation, Dimensionality Reduction</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-15T05:53:38-05:00" content="2019-06-15">
+          06-15
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
       
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/6bd38994/" itemprop="url">
+            
+              <span itemprop="name">Machine Learning Questions Part I: Learning Theory & Model Selection</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-14T22:57:50-05:00" content="2019-06-14">
+          06-14
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/bc53b72b/" itemprop="url">
+            
+              <span itemprop="name">SVM</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-12T16:48:50-05:00" content="2019-06-12">
+          06-12
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
     </div>
-    
-
-
-
-    
-    
-    
   </div>
+  
+  
+  
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/2019/06/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/2019/06/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
-
-  
-
-
 
         </div>
         
@@ -527,17 +645,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -552,7 +661,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -648,7 +757,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -723,23 +834,6 @@
       </div>
 
       
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#universal-approximation-of-neural-networks"><span class="nav-number">1.</span> <span class="nav-text">Universal Approximation of neural networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#state-the-universal-approximation-theorem-what-is-the-technique-used-to-prove-that"><span class="nav-number">1.1.</span> <span class="nav-text">1. State the universal approximation theorem? What is the technique used to prove that?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-a-borel-measurable-function"><span class="nav-number">1.2.</span> <span class="nav-text">2. What is a Borel measurable function?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deep-learning-motivation"><span class="nav-number">2.</span> <span class="nav-text">Deep Learning motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#general-questions"><span class="nav-number">3.</span> <span class="nav-text">General questions</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
       
 
@@ -766,7 +860,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">276k</span>
+    <span title="Symbols count total">354k</span>
   
 
   
@@ -917,118 +1011,11 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.1.2"></script>
-<script src="/js/post-details.js?v=7.1.2"></script>
-
-
 
   
 
 
-  <script src="/js/next-boot.js?v=7.1.2"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-  
-    
-<!-- LOCAL: You can save these files to your site and update links -->
-
-  
-  <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
-
-<link rel="stylesheet" href="https://www.wenjunjiang.win/css/gitment.css">
-<!-- END LOCAL -->
-
-
-<script>
-  function renderGitment() {
-    var gitment = new Gitment({
-      id: window.location.pathname,
-      owner: 'nancyyanyu',
-      repo: 'nancyyanyu.github.io',
-      
-      oauth: {
-      
-      
-        client_secret: '75adc257166813deff478053f3f05133285d6cf0',
-      
-        client_id: '90ddd3d00d8930cb0d84'
-      }
-    });
-    gitment.render('gitment-container');
-  }
-
-  
-    renderGitment();
-  
-</script>
-
-  
-
-
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1047,7 +1034,34 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-    
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
   
 
 

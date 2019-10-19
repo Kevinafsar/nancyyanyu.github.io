@@ -119,20 +119,18 @@
 
 
 
-  <meta name="description" content="Random Variables Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads probability \(p\) comes up heads, zero otherwise  PMF: \(p(x)=\begin{cases}p &amp;amp; x=1\\1-">
-<meta name="keywords" content="Probability">
+  <meta name="description" content="Bayesian Model Averaging We have a set of candidate models \(M_m\); m = 1,…,M for our training set \(Z\). Suppose \(\zeta\) is some quantity of interest, for example, a prediction f(x) at some fixed f">
+<meta name="keywords" content="Model Inference">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Probability Theory - Random Variables">
-<meta property="og:url" content="https://nancyyanyu.github.io/copy/CS229-Prob.html">
+<meta property="og:title" content="ESL Note: Model Averaging and Stacking">
+<meta property="og:url" content="https://nancyyanyu.github.io/draft/ESL-Model-Averaging-Stacking.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Random Variables Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads probability \(p\) comes up heads, zero otherwise  PMF: \(p(x)=\begin{cases}p &amp;amp; x=1\\1-">
+<meta property="og:description" content="Bayesian Model Averaging We have a set of candidate models \(M_m\); m = 1,…,M for our training set \(Z\). Suppose \(\zeta\) is some quantity of interest, for example, a prediction f(x) at some fixed f">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/1.png">
-<meta property="og:updated_time" content="2019-08-02T19:23:35.862Z">
+<meta property="og:updated_time" content="2019-10-19T22:49:32.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Probability Theory - Random Variables">
-<meta name="twitter:description" content="Random Variables Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads probability \(p\) comes up heads, zero otherwise  PMF: \(p(x)=\begin{cases}p &amp;amp; x=1\\1-">
-<meta name="twitter:image" content="https://nancyyanyu.github.io/copy/1.png">
+<meta name="twitter:title" content="ESL Note: Model Averaging and Stacking">
+<meta name="twitter:description" content="Bayesian Model Averaging We have a set of candidate models \(M_m\); m = 1,…,M for our training set \(Z\). Suppose \(\zeta\) is some quantity of interest, for example, a prediction f(x) at some fixed f">
 
 
 
@@ -142,7 +140,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/copy/CS229-Prob">
+  <link rel="canonical" href="https://nancyyanyu.github.io/draft/ESL-Model-Averaging-Stacking">
 
 
 
@@ -152,7 +150,7 @@
   };
 </script>
 
-  <title>Probability Theory - Random Variables | Nancy's Notes</title>
+  <title>ESL Note: Model Averaging and Stacking | Nancy's Notes</title>
   
 
 
@@ -425,7 +423,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">Probability Theory - Random Variables
+<h1 class="post-title" itemprop="name headline">ESL Note: Model Averaging and Stacking
 
 </h1>
 
@@ -445,90 +443,18 @@
       <div class="post-body han-init-context">
         
         
-          <h1 id="random-variables">Random Variables</h1>
-<p><strong>Discrete random variables</strong>:</p>
-<ul>
-<li><p><span class="math inline">\(X ∼ Bernoulli(p)\)</span> (where 0 ≤ p ≤ 1): one if a coin with heads probability <span class="math inline">\(p\)</span> comes up heads, zero otherwise</p>
-<ul>
-<li><p>PMF: <span class="math inline">\(p(x)=\begin{cases}p &amp; x=1\\1-p &amp; x=0\end{cases}\)</span></p></li>
-<li>Mean: <span class="math inline">\(p\)</span></li>
-<li><p>Variance: <span class="math inline">\(p(1-p)\)</span></p></li>
-</ul></li>
-<li><p>$X ∼ Binomial(n, p) $ (where 0 ≤ p ≤ 1): the number of heads in <span class="math inline">\(n\)</span> independent flips of a coin with heads probability <span class="math inline">\(p\)</span>.</p>
-<ul>
-<li><p>PMF: <span class="math inline">\(p(x)=\left(\begin{array}{c}n\\ x\end{array}\right) p^x(1-p)^{n-x}\)</span></p></li>
-<li>Mean: <span class="math inline">\(np\)</span></li>
-<li><p>Variance: <span class="math inline">\(np(1-p)\)</span></p></li>
-</ul></li>
-<li><p>$X ∼ Geometric(p) $(where p &gt; 0): the number of flips of a coin with heads probability <span class="math inline">\(p\)</span> until the first heads.</p>
-<ul>
-<li><p>PMF: <span class="math inline">\(p(x)=p(1-p)^{x-1}\)</span></p></li>
-<li>Mean: <span class="math inline">\(\frac{1}{p}\)</span></li>
-<li><p>Variance: <span class="math inline">\(\frac{1-p}{p^2}\)</span></p></li>
-</ul></li>
-<li><span class="math inline">\(X ∼ Poisson(λ)\)</span> (where λ &gt; 0): a probability distribution over the nonnegative integers used for modeling the frequency of rare events.
-<ul>
-<li>PMF: <span class="math inline">\(p(x)=e^{-\lambda}\frac{\lambda^x}{x!}\)</span></li>
-<li>Mean: <span class="math inline">\(\lambda\)</span></li>
-<li>Variance: <span class="math display">\[\lambda\]</span></li>
-<li><strong>Properties</strong>: Poisson random variable may be used to approximate a <strong><em>binomial</em></strong> random variable when the binomial parameter <em>n</em> is large and <em>p</em> is small.</li>
-</ul></li>
-</ul>
-<a id="more"></a>
-<p><strong>Continuous random variables</strong>:</p>
-<ul>
-<li><span class="math inline">\(X ∼ Uniform(a, b)\)</span> (where a &lt; b): equal probability density to every value between a and b on the real line.
-<ul>
-<li>PDF: <span class="math inline">\(f(x)=\frac{1}{b-a}, a \leq x \leq b\)</span></li>
-<li>CDF: <span class="math inline">\(F(x)=\begin{cases}0 &amp; x \leq a\\ \frac{x-a}{b-a} &amp; a\leq x \leq b \\ 1 &amp; b \leq x \end{cases}\)</span></li>
-<li>Mean: <span class="math inline">\(\frac{a+b}{2}\)</span></li>
-<li>Variance: <span class="math inline">\(\frac{(b-a)^2}{12}\)</span></li>
-</ul></li>
-<li><span class="math inline">\(X ∼ Exponential(λ)\)</span> (where λ &gt; 0): decaying probability density over the nonnegative reals.
-<ul>
-<li>PDF:<span class="math inline">\(f(x)=\begin{cases}\lambda e^{-\lambda x} &amp; x \geq 0\\0 &amp; otw. \end{cases}\)</span></li>
-<li>CDF: <span class="math inline">\(F(x)=\begin{cases}1- e^{-\lambda x} &amp; x \geq 0\\0 &amp; otw. \end{cases}\)</span></li>
-<li>Mean: <span class="math inline">\(\frac{1}{\lambda}\)</span></li>
-<li>Variance: <span class="math inline">\(\frac{1}{\lambda^2}\)</span></li>
-</ul></li>
-<li><span class="math inline">\(X ∼ Normal(\mu, \sigma^2)\)</span> : also known as the Gaussian distribution
-<ul>
-<li>PDF: <span class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span></li>
-<li>CDF: $F(x)=_{0}<sup>{z}e</sup>{-z^2/2}dx $<br>
-</li>
-<li>Mean: <span class="math inline">\(\mu\)</span></li>
-<li>Variance: <span class="math inline">\(\sigma^2\)</span></li>
-</ul></li>
-</ul>
-<!--more-->
-<p><img src="./1.png" width="600"></p>
-<p><strong>Conditional distributions</strong> <span class="math display">\[
-p_{Y|X}(y|x)=\frac{p_{XY}(x,y)}{p_X(x)} \\
-f_{Y|X}(y|x)=\frac{f_{XY}(x,y)}{f_X(x)}
-\]</span></p>
-<p><strong>Bayes’s rule</strong> <span class="math display">\[
-\begin{align} P_{Y|X}(y|x)&amp;=\frac{p_{XY}(x,y)}{p_X(x)} \\
-&amp;=\frac{P_{X|Y}(x|y)P_Y(y)}{P_X(x)} \\
-&amp;=\frac{P_{X|Y}(x|y)P_Y(y)}{\sum_{y^{&#39;}\in V al(Y)} P_{X|Y}(x|y^{&#39;})P_Y(y^{&#39;})}
-\end{align}
-\]</span></p>
-<p><span class="math display">\[
-\begin{align} f_{Y|X}(y|x)&amp;=\frac{f_{XY}(x,y)}{f_X(x)} \\
-&amp;=\frac{f_{X|Y}(x|y)f_Y(y)}{\int_{-\infty}^{\infty}f_{X|Y}(x|y^{&#39;})f_Y(y^{&#39;}) dy^{&#39;}}
-\end{align}
-\]</span></p>
-<p><strong>Independence</strong></p>
-<h1 id="problems">Problems:</h1>
-<ol type="1">
-<li>Let <span class="math inline">\(X\)</span> be uniformly distributed over <span class="math inline">\((0, 1)\)</span>. Calculate <span class="math inline">\(E[X^3]\)</span></li>
-</ol>
-<p><span class="math display">\[
-F_Y(a)=P(Y\leq a)=P(X^3&lt;a)=P(X\leq a^{1/3})=a^{1/3} \\
-\]</span></p>
-<p>where the last equality follows since <em>X</em> is uniformly distributed over (0, 1). By differentiating <span class="math inline">\(F_Y(a)\)</span>, we obtain the density of <em>Y</em>, namely, <span class="math display">\[
-f_Y(a)=\frac{1}{3}a^{-2/3} , 0\leq a \leq 1
-\]</span> Hence, <span class="math display">\[
-E[X^3]=E(Y)=\int_{-\infty}^\infty af_Y(a)da= \int_{0}^1 \frac{1}{3}a^{1/3}da = \frac{1}{3}\frac{3}{4} a^{4/3} |^1_0=\frac{1}{4}
+          <h2 id="bayesian-model-averaging">Bayesian Model Averaging</h2>
+<p>We have a set of candidate models <span class="math inline">\(M_m\)</span>; m = 1,…,M for our training set <span class="math inline">\(Z\)</span>.</p>
+<p><strong>Suppose</strong> <span class="math inline">\(\zeta\)</span> is some quantity of interest, for example, a prediction f(x) at some fixed feature value <span class="math inline">\(x\)</span>. The <strong><em>posterior distribution</em></strong> of <span class="math inline">\(\zeta\)</span> is <span class="math display">\[
+\Pr(\zeta|\mathbf{Z})=\sum_{i=1}^M\Pr(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
+\]</span> with <strong><em>posterior mean</em></strong>: <span class="math display">\[
+E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
+\]</span> This Bayesian prediction is a weighted average of the individual predictions, with weights proportional to the posterior probability of each model.</p>
+<h3 id="frequentist-viewpoint">Frequentist Viewpoint</h3>
+<p>Given predictions <span class="math inline">\(\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)\)</span>, under squared-error loss, we can seek the weights $w = (w_1, w_2,…, w_M) $ such that <span class="math display">\[
+\hat{w}=\arg \min_w E_P[Y-\sum_{i=1}^Mw_m\hat{f}_m(x)]^2
+\]</span> Here the input value <span class="math inline">\(x\)</span> is fixed and the <span class="math inline">\(N\)</span> observations in the dataset <span class="math inline">\(Z\)</span> (and the target <span class="math inline">\(Y\)</span> ) are distributed according to <span class="math inline">\(P\)</span>. The solution is the population linear regression of <span class="math inline">\(Y\)</span> on <span class="math inline">\(\hat{F}(x)^T=[\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)]\)</span> : <span class="math display">\[
+\hat{w}=E_P[\hat{F}(x)\hat{F}(x)^T]^{-1}E_P[\hat{F}(x)Y]
 \]</span></p>
 
         
@@ -604,7 +530,7 @@ E[X^3]=E(Y)=\int_{-\infty}^\infty af_Y(a)da= \int_{0}^1 \frac{1}{3}a^{1/3}da = \
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -700,7 +626,9 @@ E[X^3]=E(Y)=\int_{-\infty}^\infty af_Y(a)da= \int_{0}^1 \frac{1}{3}a^{1/3}da = \
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -785,7 +713,7 @@ E[X^3]=E(Y)=\int_{-\infty}^\infty af_Y(a)da= \int_{0}^1 \frac{1}{3}a^{1/3}da = \
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#random-variables"><span class="nav-number">1.</span> <span class="nav-text">Random Variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#problems"><span class="nav-number">2.</span> <span class="nav-text">Problems:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bayesian-model-averaging"><span class="nav-number">1.</span> <span class="nav-text">Bayesian Model Averaging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#frequentist-viewpoint"><span class="nav-number">1.1.</span> <span class="nav-text">Frequentist Viewpoint</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -818,7 +746,7 @@ E[X^3]=E(Y)=\int_{-\infty}^\infty af_Y(a)da= \int_{0}^1 \frac{1}{3}a^{1/3}da = \
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">276k</span>
+    <span title="Symbols count total">354k</span>
   
 
   

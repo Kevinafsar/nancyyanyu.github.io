@@ -121,21 +121,21 @@
 
   <meta name="description" content="Support Vector Machine 1. SVM v.s. Logistic Regression SVM Optimization problem: \[ \max_{\beta_0,...\beta_p,\epsilon_1,..,\epsilon_n} M \\ s.t.  \sum_{j=1}^p \beta_j^2=1,  \quad (9.13) \\  y_i(\beta_">
 <meta name="keywords" content="Interview">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Machine Learning Questions Part III: SVM">
-<meta property="og:url" content="https://nancyyanyu.github.io/copy/Questions-3.html">
+<meta property="og:url" content="https://nancyyanyu.github.io/posts/c8f688ba/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Support Vector Machine 1. SVM v.s. Logistic Regression SVM Optimization problem: \[ \max_{\beta_0,...\beta_p,\epsilon_1,..,\epsilon_n} M \\ s.t.  \sum_{j=1}^p \beta_j^2=1,  \quad (9.13) \\  y_i(\beta_">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/1.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/2.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/4.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/5.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/c8f688ba/1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/c8f688ba/2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/c8f688ba/4.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/c8f688ba/5.png">
 <meta property="og:updated_time" content="2019-06-18T21:46:08.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning Questions Part III: SVM">
 <meta name="twitter:description" content="Support Vector Machine 1. SVM v.s. Logistic Regression SVM Optimization problem: \[ \max_{\beta_0,...\beta_p,\epsilon_1,..,\epsilon_n} M \\ s.t.  \sum_{j=1}^p \beta_j^2=1,  \quad (9.13) \\  y_i(\beta_">
-<meta name="twitter:image" content="https://nancyyanyu.github.io/copy/1.png">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/c8f688ba/1.png">
 
 
 
@@ -145,7 +145,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/copy/Questions-3">
+  <link rel="canonical" href="https://nancyyanyu.github.io/posts/c8f688ba/">
 
 
 
@@ -369,34 +369,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -423,32 +395,161 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/c8f688ba/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">Machine Learning Questions Part III: SVM
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body han-init-context">
         
         
-          <h2 id="support-vector-machine">Support Vector Machine</h2>
+          <h1 class="post-title" itemprop="name headline">Machine Learning Questions Part III: SVM
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-17 13:07:59" itemprop="dateCreated datePublished" datetime="2019-06-17T13:07:59-05:00">2019-06-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-18 16:46:08" itemprop="dateModified" datetime="2019-06-18T16:46:08-05:00">2019-06-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">11k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">10 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="support-vector-machine">Support Vector Machine</h2>
 <h3 id="svm-v.s.-logistic-regression">1. SVM v.s. Logistic Regression</h3>
 <p><strong>SVM Optimization problem</strong>: <span class="math display">\[
 \max_{\beta_0,...\beta_p,\epsilon_1,..,\epsilon_n} M \\
@@ -612,19 +713,72 @@ K(x_i,x_j)=\exp(-\lambda ||x_i-x_j||^2)
 <p><a href="https://www.quora.com/How-can-one-use-kernels-utilizing-the-kernel-trick-in-logistic-regression" target="_blank" rel="noopener">How can one use kernels (utilizing the kernel trick) in logistic regression?</a></p>
 <p><a href="https://www.quora.com/What-are-C-and-gamma-with-regards-to-a-support-vector-machine" target="_blank" rel="noopener">What are C and gamma with regards to a support vector machine?</a></p>
 
-        
-      </div>
-      
-      
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/9c99c8b6/" rel="next" title="Clustering">
+                <i class="fa fa-chevron-left"></i> Clustering
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/25b6d1fa/" rel="prev" title="Machine Learning Questions - Part IV: Clustering & Bayesian">
+                Machine Learning Questions - Part IV: Clustering & Bayesian <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -685,7 +839,7 @@ K(x_i,x_j)=\exp(-\lambda ||x_i-x_j||^2)
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -781,7 +935,9 @@ K(x_i,x_j)=\exp(-\lambda ||x_i-x_j||^2)
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -899,7 +1055,7 @@ K(x_i,x_j)=\exp(-\lambda ||x_i-x_j||^2)
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">276k</span>
+    <span title="Symbols count total">354k</span>
   
 
   

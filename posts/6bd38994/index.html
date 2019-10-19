@@ -121,23 +121,23 @@
 
   <meta name="description" content="Learning Theory 1. Describe bias and variance with examples. Variance: refers to the amount by which \(\hat{f}\) would change if we estimated it using a different training data set. more flexible stat">
 <meta name="keywords" content="Interview">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Machine Learning Questions Part I: Learning Theory &amp; Model Selection">
-<meta property="og:url" content="https://nancyyanyu.github.io/copy/Questions.html">
+<meta property="og:url" content="https://nancyyanyu.github.io/posts/6bd38994/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Learning Theory 1. Describe bias and variance with examples. Variance: refers to the amount by which \(\hat{f}\) would change if we estimated it using a different training data set. more flexible stat">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/2.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/1.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/3.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/5.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/6.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/7.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/6bd38994/2.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/6bd38994/1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/6bd38994/3.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/6bd38994/5.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/6bd38994/6.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/6bd38994/7.png">
 <meta property="og:updated_time" content="2019-06-18T21:46:04.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning Questions Part I: Learning Theory &amp; Model Selection">
 <meta name="twitter:description" content="Learning Theory 1. Describe bias and variance with examples. Variance: refers to the amount by which \(\hat{f}\) would change if we estimated it using a different training data set. more flexible stat">
-<meta name="twitter:image" content="https://nancyyanyu.github.io/copy/2.png">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/6bd38994/2.png">
 
 
 
@@ -147,7 +147,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/copy/Questions">
+  <link rel="canonical" href="https://nancyyanyu.github.io/posts/6bd38994/">
 
 
 
@@ -371,34 +371,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -425,32 +397,161 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/6bd38994/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">Machine Learning Questions Part I: Learning Theory & Model Selection
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body han-init-context">
         
         
-          <h2 id="learning-theory">Learning Theory</h2>
+          <h1 class="post-title" itemprop="name headline">Machine Learning Questions Part I: Learning Theory & Model Selection
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-14 22:57:50" itemprop="dateCreated datePublished" datetime="2019-06-14T22:57:50-05:00">2019-06-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-18 16:46:04" itemprop="dateModified" datetime="2019-06-18T16:46:04-05:00">2019-06-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">21k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">19 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="learning-theory">Learning Theory</h2>
 <h3 id="describe-bias-and-variance-with-examples.">1. Describe bias and variance with examples.</h3>
 <p><strong><em>Variance</em></strong>: refers to the amount by which <span class="math inline">\(\hat{f}\)</span> would change if we estimated it using a different training data set. <strong><em>more flexible statistical methods have higher variance</em></strong></p>
 <ul>
@@ -712,19 +813,72 @@ H(P,Q)=-E_{x \sim P} \log Q(x)
 <p><a href="https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229" target="_blank" rel="noopener">Understanding the Bias-Variance Tradeoff</a></p>
 <p><a href="https://adventuresinmachinelearning.com/cross-entropy-kl-divergence/" target="_blank" rel="noopener">An introduction to entropy, cross entropy and KL divergence in machine learning</a></p>
 
-        
-      </div>
-      
-      
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/bc53b72b/" rel="next" title="SVM">
+                <i class="fa fa-chevron-left"></i> SVM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/a2f8a358/" rel="prev" title="Machine Learning Questions Part II: COD, Reg, Model Evaluation, Dimensionality Reduction">
+                Machine Learning Questions Part II: COD, Reg, Model Evaluation, Dimensionality Reduction <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -785,7 +939,7 @@ H(P,Q)=-E_{x \sim P} \log Q(x)
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -881,7 +1035,9 @@ H(P,Q)=-E_{x \sim P} \log Q(x)
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -999,7 +1155,7 @@ H(P,Q)=-E_{x \sim P} \log Q(x)
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">276k</span>
+    <span title="Symbols count total">354k</span>
   
 
   

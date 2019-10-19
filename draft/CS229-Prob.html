@@ -119,20 +119,20 @@
 
 
 
-  <meta name="description" content="Clustering 1. Describe the k-means algorithm. K-means clustering is a simple and elegant approach for partitioning a data set into K distinct, non-overlapping clusters. The idea behind K-means clust">
-<meta name="keywords" content="Interview">
+  <meta name="description" content="Random Variables Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads probability \(p\) comes up heads, zero otherwise  PMF: \(p(x)=\begin{cases}p &amp;amp; x=1\\1-">
+<meta name="keywords" content="Probability">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Machine Learning Questions - Part IV: Clustering &amp; Bayesian">
-<meta property="og:url" content="https://nancyyanyu.github.io/copy/Questions-4.html">
+<meta property="og:title" content="Probability Theory - Random Variables">
+<meta property="og:url" content="https://nancyyanyu.github.io/draft/CS229-Prob.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Clustering 1. Describe the k-means algorithm. K-means clustering is a simple and elegant approach for partitioning a data set into K distinct, non-overlapping clusters. The idea behind K-means clust">
+<meta property="og:description" content="Random Variables Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads probability \(p\) comes up heads, zero otherwise  PMF: \(p(x)=\begin{cases}p &amp;amp; x=1\\1-">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://nancyyanyu.github.io/copy/1.png">
-<meta property="og:updated_time" content="2019-06-18T21:45:53.718Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/draft/1.png">
+<meta property="og:updated_time" content="2019-08-02T19:23:35.862Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machine Learning Questions - Part IV: Clustering &amp; Bayesian">
-<meta name="twitter:description" content="Clustering 1. Describe the k-means algorithm. K-means clustering is a simple and elegant approach for partitioning a data set into K distinct, non-overlapping clusters. The idea behind K-means clust">
-<meta name="twitter:image" content="https://nancyyanyu.github.io/copy/1.png">
+<meta name="twitter:title" content="Probability Theory - Random Variables">
+<meta name="twitter:description" content="Random Variables Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads probability \(p\) comes up heads, zero otherwise  PMF: \(p(x)=\begin{cases}p &amp;amp; x=1\\1-">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/draft/1.png">
 
 
 
@@ -142,7 +142,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/copy/Questions-4">
+  <link rel="canonical" href="https://nancyyanyu.github.io/draft/CS229-Prob">
 
 
 
@@ -152,7 +152,7 @@
   };
 </script>
 
-  <title>Machine Learning Questions - Part IV: Clustering & Bayesian | Nancy's Notes</title>
+  <title>Probability Theory - Random Variables | Nancy's Notes</title>
   
 
 
@@ -425,7 +425,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">Machine Learning Questions - Part IV: Clustering & Bayesian
+<h1 class="post-title" itemprop="name headline">Probability Theory - Random Variables
 
 </h1>
 
@@ -445,117 +445,91 @@
       <div class="post-body han-init-context">
         
         
-          <h2 id="clustering">Clustering</h2>
-<h3 id="describe-the-k-means-algorithm.">1. Describe the k-means algorithm.</h3>
-<p><strong>K-means clustering</strong> is a simple and elegant approach for partitioning a data set into K distinct, <strong><em>non-overlapping</em></strong> clusters.</p>
-<p>The idea behind <strong>K-means clustering</strong> is that a <em>good</em> clustering is one for which the <strong><em>within-cluster</em></strong> <strong><em>variation</em></strong> is as small as possible.</p>
-<p>The <strong>within-cluster variation</strong> for cluster <span class="math inline">\(C_k\)</span> is a measure <span class="math inline">\(W(C_k)\)</span> of the amount by which the observations within a cluster differ from each other.</p>
+          <h1 id="random-variables">Random Variables</h1>
+<p><strong>Discrete random variables</strong>:</p>
+<ul>
+<li><p><span class="math inline">\(X ∼ Bernoulli(p)\)</span> (where 0 ≤ p ≤ 1): one if a coin with heads probability <span class="math inline">\(p\)</span> comes up heads, zero otherwise</p>
+<ul>
+<li><p>PMF: <span class="math inline">\(p(x)=\begin{cases}p &amp; x=1\\1-p &amp; x=0\end{cases}\)</span></p></li>
+<li>Mean: <span class="math inline">\(p\)</span></li>
+<li><p>Variance: <span class="math inline">\(p(1-p)\)</span></p></li>
+</ul></li>
+<li><p>$X ∼ Binomial(n, p) $ (where 0 ≤ p ≤ 1): the number of heads in <span class="math inline">\(n\)</span> independent flips of a coin with heads probability <span class="math inline">\(p\)</span>.</p>
+<ul>
+<li><p>PMF: <span class="math inline">\(p(x)=\left(\begin{array}{c}n\\ x\end{array}\right) p^x(1-p)^{n-x}\)</span></p></li>
+<li>Mean: <span class="math inline">\(np\)</span></li>
+<li><p>Variance: <span class="math inline">\(np(1-p)\)</span></p></li>
+</ul></li>
+<li><p>$X ∼ Geometric(p) $(where p &gt; 0): the number of flips of a coin with heads probability <span class="math inline">\(p\)</span> until the first heads.</p>
+<ul>
+<li><p>PMF: <span class="math inline">\(p(x)=p(1-p)^{x-1}\)</span></p></li>
+<li>Mean: <span class="math inline">\(\frac{1}{p}\)</span></li>
+<li><p>Variance: <span class="math inline">\(\frac{1-p}{p^2}\)</span></p></li>
+</ul></li>
+<li><span class="math inline">\(X ∼ Poisson(λ)\)</span> (where λ &gt; 0): a probability distribution over the nonnegative integers used for modeling the frequency of rare events.
+<ul>
+<li>PMF: <span class="math inline">\(p(x)=e^{-\lambda}\frac{\lambda^x}{x!}\)</span></li>
+<li>Mean: <span class="math inline">\(\lambda\)</span></li>
+<li>Variance: <span class="math display">\[\lambda\]</span></li>
+<li><strong>Properties</strong>: Poisson random variable may be used to approximate a <strong><em>binomial</em></strong> random variable when the binomial parameter <em>n</em> is large and <em>p</em> is small.</li>
+</ul></li>
+</ul>
 <a id="more"></a>
-<p><strong>Define the within-cluster variation</strong>: <strong><em>Euclidean distance</em></strong>: <span class="math display">\[
-W(C_k)=\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2
-\]</span></p>
+<p><strong>Continuous random variables</strong>:</p>
 <ul>
-<li>where <span class="math inline">\(|C_k|\)</span> denotes the number of observations in the kth cluster.</li>
-<li>The within-cluster variation for the kth cluster is <em>the sum of all of the pairwise squared Euclidean distances between the observations in the kth cluster</em>, divided by the total number of observations in the kth cluster.</li>
-</ul>
-<p><strong>Objective funtion</strong>: <span class="math display">\[
-\min_{C_1,...,C_K}\left\{ \sum_{i=1}^K\frac{1}{|C_k|}\sum_{i,i^{&#39;}\in C_k}\sum_{j=1}^p(x_{ij}-x_{i^{&#39;}j})^2\right\}
-\]</span></p>
+<li><span class="math inline">\(X ∼ Uniform(a, b)\)</span> (where a &lt; b): equal probability density to every value between a and b on the real line.
 <ul>
-<li>partition the observations into K clusters such that the total within-cluster variation, summed over all K clusters, is <em>as small as possible</em>.</li>
+<li>PDF: <span class="math inline">\(f(x)=\frac{1}{b-a}, a \leq x \leq b\)</span></li>
+<li>CDF: <span class="math inline">\(F(x)=\begin{cases}0 &amp; x \leq a\\ \frac{x-a}{b-a} &amp; a\leq x \leq b \\ 1 &amp; b \leq x \end{cases}\)</span></li>
+<li>Mean: <span class="math inline">\(\frac{a+b}{2}\)</span></li>
+<li>Variance: <span class="math inline">\(\frac{(b-a)^2}{12}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(X ∼ Exponential(λ)\)</span> (where λ &gt; 0): decaying probability density over the nonnegative reals.
+<ul>
+<li>PDF:<span class="math inline">\(f(x)=\begin{cases}\lambda e^{-\lambda x} &amp; x \geq 0\\0 &amp; otw. \end{cases}\)</span></li>
+<li>CDF: <span class="math inline">\(F(x)=\begin{cases}1- e^{-\lambda x} &amp; x \geq 0\\0 &amp; otw. \end{cases}\)</span></li>
+<li>Mean: <span class="math inline">\(\frac{1}{\lambda}\)</span></li>
+<li>Variance: <span class="math inline">\(\frac{1}{\lambda^2}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(X ∼ Normal(\mu, \sigma^2)\)</span> : also known as the Gaussian distribution
+<ul>
+<li>PDF: <span class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span></li>
+<li>CDF: $F(x)=_{0}<sup>{z}e</sup>{-z^2/2}dx $<br>
+</li>
+<li>Mean: <span class="math inline">\(\mu\)</span></li>
+<li>Variance: <span class="math inline">\(\sigma^2\)</span></li>
+</ul></li>
 </ul>
-<p><strong>Algorithm</strong></p>
+<!--more-->
 <p><img src="./1.png" width="600"></p>
-<p>In the algorithm above, <span class="math inline">\(k\)</span> (a parameter of the algorithm) is the number of clusters we want to find; and the cluster <strong>centroids</strong> <span class="math inline">\(\mu_j\)</span> represent our current guesses for the positions of the centers of the clusters. To initialize the cluster centroids, we could choose <span class="math inline">\(k\)</span> training examples randomly, and set the cluster centroids to be equal to the values of these k examples. (Other initialization methods are also possible.)</p>
-<p>The inner-loop of the algorithm repeatedly carries out two steps:</p>
-<ul>
-<li>“Assigning” each training example <span class="math inline">\(x^{(i)}\)</span> to the closest cluster centroid <span class="math inline">\(\mu_j\)</span>, and</li>
-<li>Moving each cluster centroid <span class="math inline">\(\mu_j\)</span> to the mean of the points assigned to it.</li>
-</ul>
-<p><strong>Local optimum</strong> : This means that as the algorithmis run, the clustering obtained will continually improve until the result no longer changes; the objective will never increase.</p>
-<ul>
-<li>It is important to run the algorithm multiple times from different random initial configurations, because the results obtained will depend on the initial (random) cluster assignmentof each observation in Step 1 of Algorithm 10.1</li>
-</ul>
-<h3 id="what-is-distortion-function-is-it-convex-or-non-convex">2. What is distortion function? Is it convex or non-convex?</h3>
-<p><strong>Distortion function</strong>: <span class="math display">\[
-J(c,\mu)=\sum_{i=1}^n ||x^{(i)}-\mu_{c^{(i)}}||^2
-\]</span> <span class="math inline">\(J\)</span> measures the sum of squared distances between each training example <span class="math inline">\(x^{(i)}\)</span> and the cluster centroid <span class="math inline">\(\mu_{c^{(i)}}\)</span> to which it has been assigned.</p>
-<ul>
-<li>k-means is exactly <em>coordinate descent</em> 坐标下降 on <span class="math inline">\(J\)</span>. Specifically, the inner-loop of k-means repeatedly minimizes <span class="math inline">\(J\)</span> with respect to <span class="math inline">\(c\)</span> while holding <span class="math inline">\(\mu\)</span> fixed, and then minimizes <span class="math inline">\(J\)</span> with respect to <span class="math inline">\(\mu\)</span> while holding <span class="math inline">\(c\)</span> fixed. Thus,<span class="math inline">\(J\)</span> must monotonically decrease, and the value of <span class="math inline">\(J\)</span> must converge.</li>
-</ul>
-<p>The distortion function <span class="math inline">\(J\)</span> is a <strong><em>non-convex</em></strong> function, and so coordinate descent on <span class="math inline">\(J\)</span> is not guaranteed to converge to the global minimum.</p>
-<h3 id="describe-the-em-algorithm-intuitively.">3. Describe the EM algorithm intuitively.</h3>
-<ol start="4" type="1">
-<li>What is the Gaussian Mixture Model?</li>
-<li>What are the two steps of the EM algorithm</li>
-<li>Compare GMM vs GDA.</li>
-</ol>
-<h2 id="bayesian-machine-learning">Bayesian Machine Learning</h2>
-<h3 id="what-are-the-differences-between-bayesian-and-freqentist-approach-for-machine-learning">1. What are the differences between “Bayesian” and “Freqentist” approach for Machine Learning?</h3>
-<p>The <strong>Bayesian</strong> approach differs from the standard (&quot;<strong>frequentist</strong>&quot;) method for inference in its use of a <em>prior distribution</em> to express the uncertainty present before seeing the data, and to allow the uncertainty remaining after seeing the data to be expressed in the form of a <em>posterior distribution</em>.</p>
-<p>Given a specific set of data, the <strong>frequentist</strong> believes that there is a true, underlying distribution from which said data was generated. The inability to get the exact parameters is a function of finite sample size. The <strong>Bayesian</strong>, on the other hand, think that we start with some assumption about the parameters (even if unknowingly) and use the data to refine our opinion about those parameters.</p>
-<ul>
-<li><p>The <strong>Bayesian</strong> probability measures a &quot;degree of belief&quot;. It pretty much matches our every-day intuitive understanding of probability,</p></li>
-<li><p>The <strong>frequentists</strong> interpretation needs some explanation. Frequentists can assign probabilities only to events/obervations that come from repeatable experiments. With &quot;<em>probability of an event</em>&quot; they mean the relative frequency of the event occuring in an infinitively long series of repetitions. For instance, when a frequentists says that the probability for &quot;heads&quot; in a coin toss is 0.5 (50%) he means that in infinititively many such coin tosses, 50% of the coins will show &quot;head&quot;.</p></li>
-</ul>
-<p><strong>Frequentist:</strong> best suited to falsify a hypothesis <strong>Bayesian:</strong> best suited to (re)allocate the credibility of a statement</p>
-<h4 id="downsides-of-frequentists">Downsides of Frequentists</h4>
-<ul>
-<li><p>Frequentists approach relies on data more than Bayesian as we totally ignore our knowledge or logical thinking which have been introduced in a form of prior probability.</p></li>
-<li><p>P-value does not provide the probability of your hypothesis to be collect. It only avoids the most extreme value that seems to be rare. It sometimes make the situation difficult as you may find it challenging to explain the actual meaning of value. Whereas, the posterior probability describes in percentage how likely your hypothesis is correct based on our prior knowledge.</p></li>
-</ul>
-<h4 id="downsides-of-bayesians">Downsides of Bayesians</h4>
-<ul>
-<li>Bayesian Statistic requires more mathematical knowledge since the formula requires us to deduce two probability distributions.</li>
-<li>What if your prior has become meaningless as the logic we have is no longer valid? (Some articles suggest that the prior at early stage can be any number as it can be updated as more information comes in)</li>
-</ul>
-<h3 id="when-will-you-use-bayesian-methods-instead-of-frequentist-methods">2. When will you use Bayesian methods instead of Frequentist methods?</h3>
-<p>Small dataset, large feature set</p>
-<h3 id="compare-maximum-likelihood-and-maximum-a-posteriori-estimation.">3. Compare maximum likelihood and maximum a posteriori estimation.</h3>
-<p><strong><em>MLE</em></strong>:</p>
-<p>Likelihood function: <span class="math inline">\(P(X|\theta)\)</span></p>
-<p>MLE for θ, the parameter we want to infer: <span class="math display">\[
-\begin{align}
-\theta_{MLE}&amp;=\arg \max_\theta P(X|\theta) \\
-&amp;=\arg \max_\theta \prod_i P(x_i|\theta)
+<p><strong>Conditional distributions</strong> <span class="math display">\[
+p_{Y|X}(y|x)=\frac{p_{XY}(x,y)}{p_X(x)} \\
+f_{Y|X}(y|x)=\frac{f_{XY}(x,y)}{f_X(x)}
+\]</span></p>
+<p><strong>Bayes’s rule</strong> <span class="math display">\[
+\begin{align} P_{Y|X}(y|x)&amp;=\frac{p_{XY}(x,y)}{p_X(x)} \\
+&amp;=\frac{P_{X|Y}(x|y)P_Y(y)}{P_X(x)} \\
+&amp;=\frac{P_{X|Y}(x|y)P_Y(y)}{\sum_{y^{&#39;}\in V al(Y)} P_{X|Y}(x|y^{&#39;})P_Y(y^{&#39;})}
 \end{align}
-\]</span> As taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow. Hence, we will instead work in the log space, as logarithm is monotonically increasing, so maximizing a function is equal to maximizing the log of that function. <span class="math display">\[
-\begin{align}
-\theta_{MLE}&amp;=\arg \max_\theta \log P(X|\theta) \\
-&amp;=\arg \max_\theta \log \prod_i P(x_i|\theta) \\
-&amp;=\arg \max_\theta \sum_i \log  P(x_i|\theta)
-\end{align}
-\]</span> To use this framework, we just need to derive the log likelihood of our model, then maximizing it with regard of θθ using our favorite optimization algorithm like Gradient Descent.</p>
-<p><strong><em>MAP</em></strong>:</p>
-<p>MAP usually comes up in Bayesian setting. Because, as the name suggests, it works on a posterior distribution, not only the likelihood.</p>
-<p>Bayes’ rule: <span class="math display">\[
-P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)} \\
-\propto P(X|\theta)P(\theta)
 \]</span></p>
 <p><span class="math display">\[
-\begin{align}
-\theta_{MAP}&amp;=\arg \max_\theta P(X|\theta) P(\theta) \\
-&amp;=\arg \max_\theta \log P(X|\theta) P(\theta) \\
-&amp;=\arg \max_\theta \log \prod_i P(x_i|\theta) P(\theta)\\
-&amp;=\arg \max_\theta \sum_i \log  P(x_i|\theta)P(\theta) 
+\begin{align} f_{Y|X}(y|x)&amp;=\frac{f_{XY}(x,y)}{f_X(x)} \\
+&amp;=\frac{f_{X|Y}(x|y)f_Y(y)}{\int_{-\infty}^{\infty}f_{X|Y}(x|y^{&#39;})f_Y(y^{&#39;}) dy^{&#39;}}
 \end{align}
 \]</span></p>
-<p>Comparing both MLE and MAP equation, the only thing differs is the <strong>inclusion of prior P(θ)</strong> in MAP. What it means is that, <strong>the likelihood is now weighted with some weight coming from the prior</strong>.</p>
-<p>Let’s consider what if we use the simplest prior in our MAP estimation, i.e. <strong><em>uniform prior.</em></strong> This means, we assign equal weights everywhere, on all possible values of the θ. For example ,our prior P(θ) is <span class="math inline">\(\frac{1}{6}\)</span> <span class="math display">\[
-\begin{align}
-\theta_{MAP} &amp;=\arg \max_\theta \sum_i \log  P(x_i|\theta)P(\theta) \\
-&amp;= \arg \max_\theta \sum_i \log  P(x_i|\theta) const \\
-&amp;= \arg \max_\theta \sum_i \log  P(x_i|\theta) \\
-&amp;= \theta_{MLE}
-\end{align}
+<p><strong>Independence</strong></p>
+<h1 id="problems">Problems:</h1>
+<ol type="1">
+<li>Let <span class="math inline">\(X\)</span> be uniformly distributed over <span class="math inline">\((0, 1)\)</span>. Calculate <span class="math inline">\(E[X^3]\)</span></li>
+</ol>
+<p><span class="math display">\[
+F_Y(a)=P(Y\leq a)=P(X^3&lt;a)=P(X\leq a^{1/3})=a^{1/3} \\
 \]</span></p>
-<p><strong>Ref</strong>:</p>
-<p><a href="https://github.com/Sroy20/machine-learning-interview-questions" target="_blank" rel="noopener">machine-learning-interview-questions</a></p>
-<p><a href="%5Bhttp://cs229.stanford.edu/notes-spring2019/cs229-notes7a.pdf%5D(http://cs229.stanford.edu/notes-spring2019/cs229-notes7a.pdf)">CS229 Lecture notes: Unsupervised Learning, k-means clustering</a></p>
-<p><a href="%5Bhttp://cs229.stanford.edu/notes-spring2019/cs229-notes7b.pdf%5D(http://cs229.stanford.edu/notes-spring2019/cs229-notes7b.pdf)">CS229 Lecture notes: Mixtures of Gaussians and the EM algorithm</a></p>
-<p><a href="https://medium.com/@yongddeng/a-meaningless-debate-frequentists-vs-bayesians-7317317b458f" target="_blank" rel="noopener">A Meaningless Debate: Frequentists vs Bayesians</a></p>
-<p><a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf" target="_blank" rel="noopener">Comparison of frequentist and Bayesian inference</a></p>
-<p><a href="https://wiseodd.github.io/techblog/2017/01/01/mle-vs-map/" target="_blank" rel="noopener">MLE vs MAP: the connection between Maximum Likelihood and Maximum A Posteriori Estimation</a></p>
+<p>where the last equality follows since <em>X</em> is uniformly distributed over (0, 1). By differentiating <span class="math inline">\(F_Y(a)\)</span>, we obtain the density of <em>Y</em>, namely, <span class="math display">\[
+f_Y(a)=\frac{1}{3}a^{-2/3} , 0\leq a \leq 1
+\]</span> Hence, <span class="math display">\[
+E[X^3]=E(Y)=\int_{-\infty}^\infty af_Y(a)da= \int_{0}^1 \frac{1}{3}a^{1/3}da = \frac{1}{3}\frac{3}{4} a^{4/3} |^1_0=\frac{1}{4}
+\]</span></p>
 
         
       </div>
@@ -630,7 +604,7 @@ P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)} \\
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -726,7 +700,9 @@ P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)} \\
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -811,7 +787,7 @@ P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)} \\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#clustering"><span class="nav-number">1.</span> <span class="nav-text">Clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#describe-the-k-means-algorithm."><span class="nav-number">1.1.</span> <span class="nav-text">1. Describe the k-means algorithm.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-distortion-function-is-it-convex-or-non-convex"><span class="nav-number">1.2.</span> <span class="nav-text">2. What is distortion function? Is it convex or non-convex?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#describe-the-em-algorithm-intuitively."><span class="nav-number">1.3.</span> <span class="nav-text">3. Describe the EM algorithm intuitively.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bayesian-machine-learning"><span class="nav-number">2.</span> <span class="nav-text">Bayesian Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-are-the-differences-between-bayesian-and-freqentist-approach-for-machine-learning"><span class="nav-number">2.1.</span> <span class="nav-text">1. What are the differences between “Bayesian” and “Freqentist” approach for Machine Learning?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#downsides-of-frequentists"><span class="nav-number">2.1.1.</span> <span class="nav-text">Downsides of Frequentists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#downsides-of-bayesians"><span class="nav-number">2.1.2.</span> <span class="nav-text">Downsides of Bayesians</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#when-will-you-use-bayesian-methods-instead-of-frequentist-methods"><span class="nav-number">2.2.</span> <span class="nav-text">2. When will you use Bayesian methods instead of Frequentist methods?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compare-maximum-likelihood-and-maximum-a-posteriori-estimation."><span class="nav-number">2.3.</span> <span class="nav-text">3. Compare maximum likelihood and maximum a posteriori estimation.</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#random-variables"><span class="nav-number">1.</span> <span class="nav-text">Random Variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#problems"><span class="nav-number">2.</span> <span class="nav-text">Problems:</span></a></li></ol></div>
             
 
           </div>
@@ -844,7 +820,7 @@ P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)} \\
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">276k</span>
+    <span title="Symbols count total">354k</span>
   
 
   

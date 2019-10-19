@@ -119,18 +119,13 @@
 
 
 
-  <meta name="description" content="linear function: \(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\) cost function: \(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\) Least Mean Square Algorithm To minimizes \(J(θ)\), consider">
-<meta name="keywords" content="Linear Regression,Regression">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Linear Regression - CS229 Note">
-<meta property="og:url" content="https://nancyyanyu.github.io/copy/CS229-LinearRegression.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Nancy&#39;s Notes">
+<meta property="og:url" content="https://nancyyanyu.github.io/tags/Interview/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="linear function: \(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\) cost function: \(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\) Least Mean Square Algorithm To minimizes \(J(θ)\), consider">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-09T05:02:52.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linear Regression - CS229 Note">
-<meta name="twitter:description" content="linear function: \(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\) cost function: \(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\) Least Mean Square Algorithm To minimizes \(J(θ)\), consider">
+<meta name="twitter:title" content="Nancy&#39;s Notes">
 
 
 
@@ -140,7 +135,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/copy/CS229-LinearRegression">
+  <link rel="canonical" href="https://nancyyanyu.github.io/tags/Interview/">
 
 
 
@@ -150,7 +145,7 @@
   };
 </script>
 
-  <title>Linear Regression - CS229 Note | Nancy's Notes</title>
+  <title>Tag: Interview | Nancy's Notes</title>
   
 
 
@@ -198,7 +193,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -416,81 +411,187 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">Linear Regression - CS229 Note
-
-</h1>
-
-<div class="post-meta">
   
   
+  
+  <div class="post-block tag">
 
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body han-init-context">
-        
-        
-          <p><strong>linear function</strong>: <span class="math inline">\(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\)</span></p>
-<p><strong>cost function</strong>: <span class="math inline">\(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\)</span></p>
-<h1 id="least-mean-square-algorithm">Least Mean Square Algorithm</h1>
-<p>To minimizes <span class="math inline">\(J(θ)\)</span>, consider the <strong><em>gradient descent</em></strong> algorithm, which starts with some initial <span class="math inline">\(θ\)</span>, and repeatedly performs the update: <span class="math display">\[
-θ_j:= θ_j − α\frac{∂J(θ)}{∂θ_j}
-\]</span> (This update is simultaneously performed for all values of <span class="math inline">\(j = 0, . . . , d\)</span>.)</p>
-<p>Gradient descent algorithm repeatedly takes a step in the direction of <em>steepest decrease</em> of <span class="math inline">\(J\)</span>.</p>
-<p>Work out partial derivative term with only one training example (x, y): <span class="math display">\[
-\frac{∂J(θ)}{∂θ_j}=\frac{∂}{∂θ_j}\frac{1}{2}\sum_{i=1}^n(h_θ(x)-y)^2 \\
-=(h_θ(x)-y)\frac{∂}{∂θ_j}(h_θ(x)-y) \\
-=(h_θ(x)-y)\frac{∂}{∂θ_j}(\sum_{i=1}^d θ_ix_i-y) \\
-=(h_θ(x)-y)x_j
-\]</span> For a single training example, this gives the update rule - <strong><em>LMS update rule</em></strong>: <span class="math display">\[
-θ_j:= θ_j + α(y^{(i)}-h_θ(x^{(i)}))x_j^{(i)}
-\]</span> <strong>Properties</strong>: the magnitude of the update is proportional to the error term <span class="math inline">\((y^{(i)}-h_θ(x^{(i)}))\)</span></p>
-<p><strong>Batch gradient descent</strong>: <span class="math display">\[
-θ_j:= θ_j + α\sum_{i=1}^n(y^{(i)}-h_θ(x^{(i)}))x_j^{(i)}
-\]</span></p>
-
-        
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>Interview<small>Tag</small>
+        </h1>
       </div>
+
       
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/b89c7c35/" itemprop="url">
+            
+              <span itemprop="name">Machine Learning Basic Questions</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-17T17:49:31-05:00" content="2019-06-17">
+          06-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
       
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/c7bd9d66/" itemprop="url">
+            
+              <span itemprop="name">Deep Learning Questions Part I: UAT, Motivation</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-17T15:22:02-05:00" content="2019-06-17">
+          06-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/25b6d1fa/" itemprop="url">
+            
+              <span itemprop="name">Machine Learning Questions - Part IV: Clustering & Bayesian</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-17T15:22:00-05:00" content="2019-06-17">
+          06-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/c8f688ba/" itemprop="url">
+            
+              <span itemprop="name">Machine Learning Questions Part III: SVM</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-17T13:07:59-05:00" content="2019-06-17">
+          06-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/a2f8a358/" itemprop="url">
+            
+              <span itemprop="name">Machine Learning Questions Part II: COD, Reg, Model Evaluation, Dimensionality Reduction</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-15T05:53:38-05:00" content="2019-06-15">
+          06-15
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/posts/6bd38994/" itemprop="url">
+            
+              <span itemprop="name">Machine Learning Questions Part I: Learning Theory & Model Selection</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-06-14T22:57:50-05:00" content="2019-06-14">
+          06-14
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
       
     </div>
-    
 
-
-
-    
-    
-    
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
-
-  
-
-
 
         </div>
         
@@ -510,17 +611,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -535,7 +627,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -631,7 +723,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -706,23 +800,6 @@
       </div>
 
       
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#least-mean-square-algorithm"><span class="nav-number">1.</span> <span class="nav-text">Least Mean Square Algorithm</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
       
 
@@ -749,7 +826,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">276k</span>
+    <span title="Symbols count total">354k</span>
   
 
   
@@ -900,118 +977,11 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.1.2"></script>
-<script src="/js/post-details.js?v=7.1.2"></script>
-
-
 
   
 
 
-  <script src="/js/next-boot.js?v=7.1.2"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-  
-    
-<!-- LOCAL: You can save these files to your site and update links -->
-
-  
-  <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
-
-<link rel="stylesheet" href="https://www.wenjunjiang.win/css/gitment.css">
-<!-- END LOCAL -->
-
-
-<script>
-  function renderGitment() {
-    var gitment = new Gitment({
-      id: window.location.pathname,
-      owner: 'nancyyanyu',
-      repo: 'nancyyanyu.github.io',
-      
-      oauth: {
-      
-      
-        client_secret: '75adc257166813deff478053f3f05133285d6cf0',
-      
-        client_id: '90ddd3d00d8930cb0d84'
-      }
-    });
-    gitment.render('gitment-container');
-  }
-
-  
-    renderGitment();
-  
-</script>
-
-  
-
-
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1030,7 +1000,34 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-    
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
   
 
 

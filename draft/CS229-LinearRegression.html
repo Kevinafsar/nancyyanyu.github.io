@@ -119,18 +119,18 @@
 
 
 
-  <meta name="description" content="Bayesian Model Averaging We have a set of candidate models \(M_m\); m = 1,…,M for our training set \(Z\). Suppose \(\zeta\) is some quantity of interest, for example, a prediction f(x) at some fixed f">
-<meta name="keywords" content="Model Inference">
+  <meta name="description" content="linear function: \(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\) cost function: \(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\) Least Mean Square Algorithm To minimizes \(J(θ)\), consider">
+<meta name="keywords" content="Linear Regression,Regression">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ESL Note: Model Averaging and Stacking">
-<meta property="og:url" content="https://nancyyanyu.github.io/copy/ESL-Model-Averaging-Stacking.html">
+<meta property="og:title" content="Linear Regression - CS229 Note">
+<meta property="og:url" content="https://nancyyanyu.github.io/draft/CS229-LinearRegression.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Bayesian Model Averaging We have a set of candidate models \(M_m\); m = 1,…,M for our training set \(Z\). Suppose \(\zeta\) is some quantity of interest, for example, a prediction f(x) at some fixed f">
+<meta property="og:description" content="linear function: \(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\) cost function: \(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\) Least Mean Square Algorithm To minimizes \(J(θ)\), consider">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-19T22:49:32.531Z">
+<meta property="og:updated_time" content="2019-10-09T05:02:52.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESL Note: Model Averaging and Stacking">
-<meta name="twitter:description" content="Bayesian Model Averaging We have a set of candidate models \(M_m\); m = 1,…,M for our training set \(Z\). Suppose \(\zeta\) is some quantity of interest, for example, a prediction f(x) at some fixed f">
+<meta name="twitter:title" content="Linear Regression - CS229 Note">
+<meta name="twitter:description" content="linear function: \(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\) cost function: \(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\) Least Mean Square Algorithm To minimizes \(J(θ)\), consider">
 
 
 
@@ -140,7 +140,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/copy/ESL-Model-Averaging-Stacking">
+  <link rel="canonical" href="https://nancyyanyu.github.io/draft/CS229-LinearRegression">
 
 
 
@@ -150,7 +150,7 @@
   };
 </script>
 
-  <title>ESL Note: Model Averaging and Stacking | Nancy's Notes</title>
+  <title>Linear Regression - CS229 Note | Nancy's Notes</title>
   
 
 
@@ -423,7 +423,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">ESL Note: Model Averaging and Stacking
+<h1 class="post-title" itemprop="name headline">Linear Regression - CS229 Note
 
 </h1>
 
@@ -443,18 +443,23 @@
       <div class="post-body han-init-context">
         
         
-          <h2 id="bayesian-model-averaging">Bayesian Model Averaging</h2>
-<p>We have a set of candidate models <span class="math inline">\(M_m\)</span>; m = 1,…,M for our training set <span class="math inline">\(Z\)</span>.</p>
-<p><strong>Suppose</strong> <span class="math inline">\(\zeta\)</span> is some quantity of interest, for example, a prediction f(x) at some fixed feature value <span class="math inline">\(x\)</span>. The <strong><em>posterior distribution</em></strong> of <span class="math inline">\(\zeta\)</span> is <span class="math display">\[
-\Pr(\zeta|\mathbf{Z})=\sum_{i=1}^M\Pr(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
-\]</span> with <strong><em>posterior mean</em></strong>: <span class="math display">\[
-E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
-\]</span> This Bayesian prediction is a weighted average of the individual predictions, with weights proportional to the posterior probability of each model.</p>
-<h3 id="frequentist-viewpoint">Frequentist Viewpoint</h3>
-<p>Given predictions <span class="math inline">\(\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)\)</span>, under squared-error loss, we can seek the weights $w = (w_1, w_2,…, w_M) $ such that <span class="math display">\[
-\hat{w}=\arg \min_w E_P[Y-\sum_{i=1}^Mw_m\hat{f}_m(x)]^2
-\]</span> Here the input value <span class="math inline">\(x\)</span> is fixed and the <span class="math inline">\(N\)</span> observations in the dataset <span class="math inline">\(Z\)</span> (and the target <span class="math inline">\(Y\)</span> ) are distributed according to <span class="math inline">\(P\)</span>. The solution is the population linear regression of <span class="math inline">\(Y\)</span> on <span class="math inline">\(\hat{F}(x)^T=[\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)]\)</span> : <span class="math display">\[
-\hat{w}=E_P[\hat{F}(x)\hat{F}(x)^T]^{-1}E_P[\hat{F}(x)Y]
+          <p><strong>linear function</strong>: <span class="math inline">\(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\)</span></p>
+<p><strong>cost function</strong>: <span class="math inline">\(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\)</span></p>
+<h1 id="least-mean-square-algorithm">Least Mean Square Algorithm</h1>
+<p>To minimizes <span class="math inline">\(J(θ)\)</span>, consider the <strong><em>gradient descent</em></strong> algorithm, which starts with some initial <span class="math inline">\(θ\)</span>, and repeatedly performs the update: <span class="math display">\[
+θ_j:= θ_j − α\frac{∂J(θ)}{∂θ_j}
+\]</span> (This update is simultaneously performed for all values of <span class="math inline">\(j = 0, . . . , d\)</span>.)</p>
+<p>Gradient descent algorithm repeatedly takes a step in the direction of <em>steepest decrease</em> of <span class="math inline">\(J\)</span>.</p>
+<p>Work out partial derivative term with only one training example (x, y): <span class="math display">\[
+\frac{∂J(θ)}{∂θ_j}=\frac{∂}{∂θ_j}\frac{1}{2}\sum_{i=1}^n(h_θ(x)-y)^2 \\
+=(h_θ(x)-y)\frac{∂}{∂θ_j}(h_θ(x)-y) \\
+=(h_θ(x)-y)\frac{∂}{∂θ_j}(\sum_{i=1}^d θ_ix_i-y) \\
+=(h_θ(x)-y)x_j
+\]</span> For a single training example, this gives the update rule - <strong><em>LMS update rule</em></strong>: <span class="math display">\[
+θ_j:= θ_j + α(y^{(i)}-h_θ(x^{(i)}))x_j^{(i)}
+\]</span> <strong>Properties</strong>: the magnitude of the update is proportional to the error term <span class="math inline">\((y^{(i)}-h_θ(x^{(i)}))\)</span></p>
+<p><strong>Batch gradient descent</strong>: <span class="math display">\[
+θ_j:= θ_j + α\sum_{i=1}^n(y^{(i)}-h_θ(x^{(i)}))x_j^{(i)}
 \]</span></p>
 
         
@@ -530,7 +535,7 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -626,7 +631,9 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -711,7 +718,7 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bayesian-model-averaging"><span class="nav-number">1.</span> <span class="nav-text">Bayesian Model Averaging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#frequentist-viewpoint"><span class="nav-number">1.1.</span> <span class="nav-text">Frequentist Viewpoint</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#least-mean-square-algorithm"><span class="nav-number">1.</span> <span class="nav-text">Least Mean Square Algorithm</span></a></li></ol></div>
             
 
           </div>
@@ -744,7 +751,7 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">276k</span>
+    <span title="Symbols count total">354k</span>
   
 
   
