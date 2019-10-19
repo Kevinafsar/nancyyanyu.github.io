@@ -462,7 +462,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-19 16:51:41" itemprop="dateModified" datetime="2019-10-19T16:51:41-05:00">2019-10-19</time>
+                <time title="Modified: 2019-10-19 17:18:22" itemprop="dateModified" datetime="2019-10-19T17:18:22-05:00">2019-10-19</time>
               
             
           </span>
@@ -2134,7 +2134,7 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/6084c2b2/">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/9b5af8e1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Nancy Yan">
@@ -2154,7 +2154,7 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/posts/6084c2b2/" class="post-title-link" itemprop="url">Comparing Logistic Regression, LDA, QDA, and KNN</a>
+                <a href="/posts/9b5af8e1/" class="post-title-link" itemprop="url">Linear Regression Part I: Linear Regression Models</a>
               
             
           </h1>
@@ -2179,7 +2179,7 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
                 
               
 
-              <time title="Created: 2019-06-08 22:58:39" itemprop="dateCreated datePublished" datetime="2019-06-08T22:58:39-05:00">2019-06-08</time>
+              <time title="Created: 2019-06-08 23:11:26" itemprop="dateCreated datePublished" datetime="2019-06-08T23:11:26-05:00">2019-06-08</time>
             
 
             
@@ -2196,7 +2196,7 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-19 17:13:17" itemprop="dateModified" datetime="2019-10-19T17:13:17-05:00">2019-10-19</time>
+                <time title="Modified: 2019-10-19 17:19:12" itemprop="dateModified" datetime="2019-10-19T17:19:12-05:00">2019-10-19</time>
               
             
           </span>
@@ -2242,7 +2242,7 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">5.4k</span>
+                <span title="Symbols count in article">35k</span>
               
 
               
@@ -2256,7 +2256,7 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">5 mins.</span>
+                <span title="Reading time">32 mins.</span>
               
             </div>
           
@@ -2277,64 +2277,240 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
 
       
         
+          <h1 id="simple-linear-regression-models">Simple Linear Regression Models</h1>
+<h2 id="linear-regression-model">Linear Regression Model</h2>
+<ul>
+<li><p>Form of the linear regression model: <em><span class="math inline">\(f(X)=\beta_{0}+\sum_{j=1}^{p}X_{j}\beta_{j}\)</span></em>.</p></li>
+<li><p>Training data: (<span class="math inline">\(x_1\)</span>,<span class="math inline">\(y_1\)</span>) ... (<span class="math inline">\(x_N\)</span>,<span class="math inline">\(y_N\)</span>). Each <span class="math inline">\(x_{i} =(x_{i1},x_{i2},...,x_{ip})^{T}\)</span> is a vector of feature measurements for the <span class="math inline">\(i\)</span>-th case.</p></li>
+<li><p>Goal: estimate the parameters <span class="math inline">\(β\)</span></p></li>
+<li><p>Estimation method: <strong>Least Squares</strong>, we pick the coeﬃcients <span class="math inline">\(β =(β_0,β_1,...,β_p)^{T}\)</span> to minimize the <strong>residual sum of squares</strong></p></li>
+</ul>
+<p><strong>Assumptions:</strong></p>
+<ul>
+<li>Observations <span class="math inline">\(y_i\)</span> are uncorrelated and have constant variance <span class="math inline">\(\sigma^2\)</span>;</li>
+<li><span class="math inline">\(x_i\)</span> are ﬁxed (non random)</li>
+<li>The regression function E(Y |X) is linear, or the linear model is a reasonable approximation.</li>
+</ul>
+          <!--noindex-->
           
-            <a id="more"></a>
-<h2 id="logistic-regression-and-lda-methods-are-closely-connected.">Logistic regression and LDA methods are closely connected.</h2>
-<p><strong>Setting</strong>: Consider the two-class setting with \(p = 1\) predictor, and let \(p_1(x)\) and \(p_2(x) = 1−p_1(x)\) be the probabilities that the observation \(X = x\) belongs to class 1 and class 2, respectively.</p>
-<p>In LDA, from</p>
-<p><span class="math display">\[
-\begin{align} p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_k)^2 \right)}}{\sum_{l=1}^K\pi\_l\frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_l)^2 \right)}} \end{align}
-\]</span></p>
-<p><span class="math display">\[
-\begin{align} \delta\_k(x)=x\frac{\\mu\_k}{\sigma^2}-\frac{\mu_k^2}{2\sigma^2}+\log(\pi_k) \end{align}
-\]</span> The <strong>log odds</strong> is given by</p>
-<p><span class="math display">\[
-\begin{align}\log{\frac{p_1(x)}{1-p_1(x)}}=\log{\frac{p_1(x)}{p_2(x)}}=c_0+c_1x \end{align}
-\]</span> where c0 and c1 are functions of μ1, μ2, and σ2.</p>
-<p>In Logistic Regression,</p>
-<p><span class="math display">\[
-\begin{align} \log{\frac{p_1}{1-p_1}}=\beta\_0+\beta_1x \end{align}
-\]</span> <strong>SAME</strong></p>
-<ul>
-<li><strong>Both logistic regression and LDA produce linear decision boundaries.</strong></li>
-</ul>
-<p><strong>DIFFERENCES</strong></p>
-<ul>
-<li><p>The only difference between the two approaches lies in the fact that β0 and β1 are estimated using maximum likelihood, whereas c0 and c1 are computed using the estimated mean and variance from a normal distribution. This same connection between LDA and logistic regression also holds for multidimensional data with p &gt; 1.</p></li>
-<li><p>LDA assumes that the observations are drawn from a Gaussian distribution with a common covariance matrix in each class, and so can provide some improvements over logistic regression when this assumption approximately holds. Conversely, logistic regression can outperform LDA if these Gaussian assumptions are not met.</p></li>
-</ul>
-<h2 id="knn-dominate-lda-and-logistic-in-non-linear-setting">KNN dominate LDA and Logistic in non-linear setting</h2>
-<p>In order to make a prediction for an observation X = x, the K training observations that are closest to x are identified. Then X is assigned to the class to which the plurality of these observations belong. Hence KNN is a completely <strong>non-parametric</strong> approach: <em>no assumptions are made about the shape of the decision boundary</em>.</p>
-<blockquote>
-<p>Therefore, we can expect KNN to dominate LDA and logistic regression when the decision boundary is highly non-linear.</p>
-</blockquote>
-<p>On the other hand, KNN does not tell us which predictors are important</p>
-<h2 id="qda-serves-as-a-compromise-between-knn-lda-and-logistic-regression">QDA serves as a compromise between KNN, LDA and logistic regression</h2>
-<p>QDA serves as a compromise between the non-parametric KNN method and the linear LDA and logistic regression approaches. Since QDA assumes a quadratic decision boundary, it can accurately model a wider range of problems than can the linear methods. Though not as flexible as KNN, QDA can perform better in the presence of a <em>limited number of training observations</em> because it does make some assumptions about the form of the decision boundary.</p>
-<p><img src="./images/17.png"></p>
-<p><strong>Scenario 1</strong>: - 20 training observations in each of two classes. The observations within each class were uncorrelated random normal variables with a different mean in each class. - LDA performed well in this setting. KNN performed poorly because it paid a price in terms of variance that was not offset by a reduction in bias.</p>
-<p><strong>Scenario 2</strong>: - Details are as in Scenario 1, except that within each class, the two predictors had a correlation of −0.5. - Little change in the relative performances of the methods as compared to the previous scenario.</p>
-<p><strong>Scenario 3</strong>: - X1 and X2 are from the t-distribution, with 50 observations per class.</p>
-<blockquote>
-<p>The <strong>t-distribution</strong> has a similar shape to the normal distribution, but it has a tendency to yield more extreme points—that is, more points that are far from the mean.</p>
-</blockquote>
-<ul>
-<li>The decision boundary was still linear, and so fit into the logistic regression framework. The set-up violated the assumptions of LDA, since the observations were not drawn from a normal distribution. QDA results deteriorated considerably as a consequence of non-normality.</li>
-</ul>
-<p><strong>Scenario 4</strong>: - The data were generated from a normal distribution, with a correlation of 0.5 between the predictors in the first class, and correlation of −0.5 between the predictors in the second class. - This setup corresponded to the QDA assumption, and resulted in quadratic decision boundaries.</p>
-<p><strong>Scenario 5</strong>: - Within each class, the observations were generated from a normal distribution with uncorrelated predictors. However, the responses were sampled from the logistic function using \(X^2_1 , X^2_2, and \, X1 × X2\) as predictors. - Consequently, there is a quadratic decision boundary. QDA once again performed best, followed closely by KNN-CV. The linear methods had poor performance.</p>
-<p><strong>Scenario 6</strong>: - Details are as in the previous scenario, but the responses were sampled from a more complicated non-linear function. - Even the quadratic decision boundaries of QDA could not adequately model the data. - Much more flexible KNN-CV method gave the best results. But KNN with K = 1 gave the worst results out of all methods.</p>
-<blockquote>
-<p>This highlights the fact that <strong>even when the data exhibits a complex nonlinear relationship, a non-parametric method such as KNN can still give poor results if the level of smoothness is not chosen correctly.</strong></p>
-</blockquote>
-<h2 id="conclusion">Conclusion</h2>
-<ul>
-<li><p>When the true decision boundaries are linear, then the LDA and logistic regression approaches will tend to perform well.</p></li>
-<li><p>When the boundaries are moderately non-linear, QDA may give better results.</p></li>
-<li><p>For much more complicated decision boundaries, a non-parametric approach such as KNN can be superior. But the level of smoothness for a non-parametric approach must be chosen carefully.</p></li>
-</ul>
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/9b5af8e1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/4df00c7b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/4df00c7b/" class="post-title-link" itemprop="url">Linear Regression Part II: Potential Problems</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-08 22:59:14" itemprop="dateCreated datePublished" datetime="2019-06-08T22:59:14-05:00">2019-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-10-19 17:19:00" itemprop="dateModified" datetime="2019-10-19T17:19:00-05:00">2019-10-19</time>
+              
+            
+          </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">10k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">9 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="qualitative-predictors">Qualitative Predictors</h1>
+<h2 id="predictors-with-only-two-levels">Predictors with Only Two Levels</h2>
+<p>Suppose that we wish to investigate differences in credit card balance between males and females, ignoring the other variables for the moment. If a qualitative predictor (also known as a <strong>factor</strong>) only has two <strong>levels</strong>, or possible values, then incorporating it into a regression model is very simple. We simply create an indicator or <strong>dummy variable</strong> that takes on two possible numerical values.</p>
+<p><img src="./8.png" width="300"> and use this variable as a predictor in the regression equation. This results in the model</p>
+<p><img src="./9.png" width="600"></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/4df00c7b/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -2378,7 +2554,7 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2420,7 +2596,7 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2629,7 +2805,7 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">319k</span>
+    <span title="Symbols count total">365k</span>
   
 
   
@@ -2816,6 +2992,8 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
     
       
         
+      
+    
       
     
       
