@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/posts/2ce36d51/</loc>
+    
+    <lastmod>2019-10-19T23:04:00.162Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/86b37baa/</loc>
+    
+    <lastmod>2019-10-19T23:03:53.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/2a71b2a0/</loc>
+    
+    <lastmod>2019-10-19T23:03:44.786Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/9c99c8b6/</loc>
+    
+    <lastmod>2019-10-19T23:03:36.750Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/cac93a23/</loc>
+    
+    <lastmod>2019-10-19T23:03:29.341Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/bc53b72b/</loc>
+    
+    <lastmod>2019-10-19T23:03:03.294Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/6b588a86/</loc>
+    
+    <lastmod>2019-10-19T23:02:53.811Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/a065f58f/</loc>
+    
+    <lastmod>2019-10-19T23:02:42.273Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/posts/6d11b2f4/</loc>
     
     <lastmod>2019-10-19T23:01:12.678Z</lastmod>
@@ -47,62 +103,6 @@
     <loc>https://nancyyanyu.github.io/copy/ESL-Model-Averaging-Stacking.html</loc>
     
     <lastmod>2019-10-19T22:49:32.531Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Example-Prostate%20Cancer.html</loc>
-    
-    <lastmod>2019-10-19T22:49:11.530Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Bias,%20Variance.html</loc>
-    
-    <lastmod>2019-10-19T22:48:09.077Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Model%20Selection.html</loc>
-    
-    <lastmod>2019-10-19T22:45:09.471Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Assessing%20Model%20Accuracy.html</loc>
-    
-    <lastmod>2019-10-19T22:21:35.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Clustering.html</loc>
-    
-    <lastmod>2019-10-19T22:21:25.723Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Decision%20Trees,%20Random%20Forest,%20and%20Boosting.html</loc>
-    
-    <lastmod>2019-10-19T22:21:04.067Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Dimension_Reduction-PCA.html</loc>
-    
-    <lastmod>2019-10-19T22:20:57.175Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-SVM.html</loc>
-    
-    <lastmod>2019-10-19T22:20:31.330Z</lastmod>
     
   </url>
   
@@ -156,7 +156,7 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Journal-August.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/8e8e46fb/</loc>
     
     <lastmod>2019-09-07T22:37:31.085Z</lastmod>
     
@@ -170,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Project-kafka-stock.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/109fc1d1/</loc>
     
     <lastmod>2019-08-08T21:07:24.467Z</lastmod>
     
@@ -191,91 +191,91 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Journal-July.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/445d7012/</loc>
     
     <lastmod>2019-08-02T19:03:41.286Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Journal-June.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/4935c427/</loc>
     
     <lastmod>2019-08-02T19:03:11.019Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Project-spotify-analysis.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/63adf3bb/</loc>
     
     <lastmod>2019-07-17T21:25:44.358Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Project-twitter-streaming.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/9fb5a802/</loc>
     
     <lastmod>2019-07-16T18:08:21.260Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Hadoop_Tuning_Distributed_Storage_Platform_with_File_Types.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/c490e7f0/</loc>
     
     <lastmod>2019-07-10T23:03:55.904Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Apache_Pyspark%20-%20SQL%20and%20DataFrame.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/9a328503/</loc>
     
     <lastmod>2019-07-09T18:04:06.548Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Project-h1b_analysis.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/8b70757d/</loc>
     
     <lastmod>2019-07-01T00:07:40.381Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Apache_Spark-Advanced_Topics.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/6d5a8880/</loc>
     
     <lastmod>2019-06-28T21:37:11.123Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/DFS_HDFS_Architecture_Scaling_problem.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/49a14c15/</loc>
     
     <lastmod>2019-06-28T21:31:20.680Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Apache_Spark-Basic_Concepts.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/4fe20312/</loc>
     
     <lastmod>2019-06-28T21:29:05.924Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Hadoop_MapReduce_Application_Tuning.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/bbe483af/</loc>
     
     <lastmod>2019-06-28T21:20:14.467Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Hadoop_MapReduce_Streaming_Application_in_Python.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/f53c188b/</loc>
     
     <lastmod>2019-06-28T21:12:05.710Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/Hadoop_MapReduce-How_to_Build_Reliable_System_from_Unreliable_Components.html</loc>
+    <loc>https://nancyyanyu.github.io/posts/df5ae10a/</loc>
     
     <lastmod>2019-06-28T21:02:04.140Z</lastmod>
     
@@ -359,14 +359,14 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/README.html</loc>
+    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/bower.json</loc>
     
     <lastmod>2019-06-09T06:58:06.044Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/bower.json</loc>
+    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2019-06-09T06:58:06.044Z</lastmod>
     
