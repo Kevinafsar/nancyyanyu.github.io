@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/posts/6d11b2f4/</loc>
+    
+    <lastmod>2019-10-19T23:01:12.678Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/6084c2b2/</loc>
+    
+    <lastmod>2019-10-19T23:00:54.556Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/5b711fed/</loc>
+    
+    <lastmod>2019-10-19T22:59:57.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/b358d10f/</loc>
+    
+    <lastmod>2019-10-19T22:59:42.998Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/posts/4df00c7b/</loc>
     
     <lastmod>2019-10-19T22:56:41.782Z</lastmod>
@@ -44,34 +72,6 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Resampling%20Methods%20-%20Cross%20Validation,%20Bootstrap.html</loc>
-    
-    <lastmod>2019-10-19T22:28:29.640Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Comparing%20Logistic%20Regression,%20LDA,%20QDA,%20and%20KNN.html</loc>
-    
-    <lastmod>2019-10-19T22:28:10.610Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Linear_Discriminant_Analysis.html</loc>
-    
-    <lastmod>2019-10-19T22:26:21.919Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Linear_Regression_Models.html</loc>
-    
-    <lastmod>2019-10-19T22:23:43.990Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://nancyyanyu.github.io/copy/ML-Assessing%20Model%20Accuracy.html</loc>
     
     <lastmod>2019-10-19T22:21:35.943Z</lastmod>
@@ -107,23 +107,9 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Potential_Problems.html</loc>
-    
-    <lastmod>2019-10-19T22:19:34.540Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://nancyyanyu.github.io/deprecated/ISLR-Considerations_In_High_Dimensions.html</loc>
     
     <lastmod>2019-10-09T08:35:19.511Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/copy/ML-Logistic_Regression.html</loc>
-    
-    <lastmod>2019-10-09T08:28:17.824Z</lastmod>
     
   </url>
   
