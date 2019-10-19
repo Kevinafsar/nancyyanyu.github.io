@@ -133,7 +133,8 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/a065f58f/4.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/a065f58f/5.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/a065f58f/6.png">
-<meta property="og:updated_time" content="2019-10-19T21:47:37.449Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/a065f58f/12%202.png">
+<meta property="og:updated_time" content="2019-10-19T21:51:41.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Model Selection and Regularization">
 <meta name="twitter:description" content="Introduction to Model Selection Setting:  In the regression setting, the standard linear model \(Y = β_0 + β_1X_1 + · · · + β_pX_p + \epsilon\) In the chapters that follow, we consider some approaches">
@@ -471,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-19 16:47:37" itemprop="dateModified" datetime="2019-10-19T16:47:37-05:00">2019-10-19</time>
+                <time title="Modified: 2019-10-19 16:51:41" itemprop="dateModified" datetime="2019-10-19T16:51:41-05:00">2019-10-19</time>
               
             
           </span>
@@ -517,7 +518,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">14k</span>
+                <span title="Symbols count in article">18k</span>
               
 
               
@@ -531,7 +532,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">13 mins.</span>
+                <span title="Reading time">16 mins.</span>
               
             </div>
           
@@ -577,7 +578,7 @@
 <ol type="1">
 <li>Subset Selection</li>
 <li>Shrinkage</li>
-<li><a href>Dimension Reduction</a></li>
+<li><a href="https://nancyyanyu.github.io/posts/cac93a23/">Dimension Reduction</a></li>
 </ol>
 <a id="more"></a>
 <h1 id="subset-selection">Subset Selection</h1>
@@ -783,6 +784,60 @@ minimize_{beta} \left\{\sum_{i=1}^n\left( y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j 
 <li>Subset selection methods described involve using least squares to fit a linear model that contains a subset of the predictors.</li>
 <li>Shrinkage Methods fit a model containing all p predictors by constraining or regularizing the coefficient estimates, or equivalently, that shrinks the coefficient estimates towards zero.</li>
 </ul>
+<h1 id="considerations-in-high-dimensions">Considerations In High Dimensions</h1>
+<h2 id="high-dimensional-data">High-Dimensional Data</h2>
+<p><strong>High-dimensional</strong>: Data sets containing more features than observations are often referred to as high-dimensional.</p>
+<ul>
+<li>Classical approaches such as least squares linear regression are not appropriate in this setting</li>
+</ul>
+<h2 id="what-goes-wrong-in-high-dimensions">What Goes Wrong in High Dimensions?</h2>
+<ol type="1">
+<li>When the number of features p is as large as, or &gt;n, least squares cannot be performed.</li>
+</ol>
+<p><strong>Reason</strong>: regardless of whether or not there truly is a relationship between the features and the response, least squares will yield a set of coefficient estimates that result in a perfect fit to the data, such that the residuals are zero.</p>
+<ul>
+<li>This perfect fit will almost certainly lead to overfitting of the data</li>
+<li>The problem is simple: when p &gt; n or p ≈ n, a simple least squares regression line is too <strong><em>flexible</em></strong> and hence overfits the data.</li>
+</ul>
+<ol start="2" type="1">
+<li>Examines only the R2 or the training set MSE might erroneously conclude that the model with the greatest number of variables is best. <img src="./12 2.png" width="650"></li>
+</ol>
+<ul>
+<li><strong>Cp, AIC, and BIC</strong> approaches are not appropriate in the high-dimensional setting, because estimating <span class="math inline">\(\hat{σ}^2\)</span> is problematic.(For instance, the formula for <span class="math inline">\(\hat{σ}^2\)</span> from Chapter 3 yields an estimate <span class="math inline">\(\hat{σ}^2\)</span> = 0 in this setting.)</li>
+<li><strong>Adjusted <span class="math inline">\(R^2\)</span> </strong> in the high-dimensional setting is problematic, since one can easily obtain a model with an adjusted <span class="math inline">\(R^2\)</span> value of 1.</li>
+</ul>
+<h2 id="regression-in-high-dimensions">Regression in High Dimensions</h2>
+<p><strong>Alternative approaches better-suited to the high-dimensional setting:</strong></p>
+<ul>
+<li>Forward stepwise selection</li>
+<li>Ridge regression</li>
+<li>The lasso</li>
+<li>Principal components regression</li>
+</ul>
+<p><strong>Reason:</strong> These approaches avoid overfitting by using a less flexible fitting approach than least squares.</p>
+<p><strong>Three important points:</strong> (1) Regularization or shrinkage plays a key role in high-dimensional problems,</p>
+<ol start="2" type="1">
+<li><p>Appropriate tuning parameter selection is crucial for good predictive performance, and</p></li>
+<li><p>The test error tends to increase as the dimensionality of the problem (i.e. the number of features or predictors) increases, unless the additional features are truly associated with the response.<span class="math inline">\(\Rightarrow\)</span> <strong>curse of dimensionality</strong></p></li>
+</ol>
+<h3 id="curse-of-dimensionality">Curse of dimensionality</h3>
+<p>Adding additional signal features that are truly associated with the response will improve the fitted model; However, adding noise features that are not truly associated with the response will lead to a deterioration in the fitted model.</p>
+<p><strong>Reason</strong>: This is because noise features increase the dimensionality of the problem, exacerbating the risk of overfitting (since noise features may be assigned nonzero coefficients due to chance associations with the response on the training set) without any potential upside in terms of improved test set error.</p>
+<h2 id="interpreting-results-in-high-dimensions">Interpreting Results in High Dimensions</h2>
+<ol type="1">
+<li>Be cautious in reporting the results obtained when we perform the lasso, ridge regression, or other regression procedures in the high-dimensional setting.</li>
+</ol>
+<ul>
+<li>In the high-dimensional setting, the <strong>multicollinearity</strong> problem is extreme: any variable in the model can be written as a linear combination of all of the other variables in the model. This means that we can never know exactly which variables (if any) truly are predictive of the outcome, and we can never identify the best coefficients for use in the regression.</li>
+</ul>
+<ol start="2" type="1">
+<li>Be cautious in reporting errors and measures of model fit in the high-dimensional setting</li>
+</ol>
+<ul>
+<li>e.g.: when p &gt; n, it is easy to obtain a useless model that has zero residuals.</li>
+<li><strong>One should never use sum of squared errors, p-values, R2 statistics, or other traditional measures of model fit on the training data as evidence of a good model fit in the high-dimensional setting</strong></li>
+<li>It is important to instead report results on an independent test set, or cross-validation errors. For instance, the MSE or R2 on an independent test set is a valid measure of model fit, but the MSE on the training set certainly is not.</li>
+</ul>
 
       
     </div>
@@ -822,8 +877,8 @@ minimize_{beta} \left\{\sum_{i=1}^n\left( y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/6d11b2f4/" rel="next" title="ISLR Note - Cross Validation">
-                <i class="fa fa-chevron-left"></i> ISLR Note - Cross Validation
+              <a href="/posts/6d11b2f4/" rel="next" title="Resampling Methods - Cross Validation, Bootstrap">
+                <i class="fa fa-chevron-left"></i> Resampling Methods - Cross Validation, Bootstrap
               </a>
             
           </div>
@@ -910,7 +965,7 @@ minimize_{beta} \left\{\sum_{i=1}^n\left( y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j 
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1018,15 +1073,7 @@ minimize_{beta} \left\{\sum_{i=1}^n\left( y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j 
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1111,7 +1158,7 @@ minimize_{beta} \left\{\sum_{i=1}^n\left( y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j 
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction-to-model-selection"><span class="nav-number">1.</span> <span class="nav-text">Introduction to Model Selection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#subset-selection"><span class="nav-number">2.</span> <span class="nav-text">Subset Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#best-subset-selection"><span class="nav-number">2.1.</span> <span class="nav-text">Best Subset Selection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stepwise-selection"><span class="nav-number">2.2.</span> <span class="nav-text">Stepwise Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-stepwise-selection"><span class="nav-number">2.2.1.</span> <span class="nav-text">Forward Stepwise Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backward-stepwise-selection"><span class="nav-number">2.2.2.</span> <span class="nav-text">Backward Stepwise Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hybrid-approaches"><span class="nav-number">2.2.3.</span> <span class="nav-text">Hybrid Approaches</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#choosing-the-optimal-model"><span class="nav-number">2.3.</span> <span class="nav-text">Choosing the Optimal Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c_p-aic-bic-adjusted-r2"><span class="nav-number">2.3.1.</span> <span class="nav-text">\(C_p\), \(AIC\), \(BIC\), Adjusted \(R^2\)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#c_p"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">\(C_p\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aic"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">AIC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bic"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">BIC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#adjusted-r2"><span class="nav-number">2.3.1.4.</span> <span class="nav-text">Adjusted \(R^2\)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#validation-and-cross-validation"><span class="nav-number">2.3.2.</span> <span class="nav-text">Validation and Cross-Validation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shrinage-methods"><span class="nav-number">3.</span> <span class="nav-text">Shrinage Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ridge-regression"><span class="nav-number">3.1.</span> <span class="nav-text">Ridge Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ridge-regression-improves-over-least-squares"><span class="nav-number">3.1.1.</span> <span class="nav-text">Ridge Regression Improves Over Least Squares</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-lasso"><span class="nav-number">3.2.</span> <span class="nav-text">The Lasso</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#another-formulation-for-ridge-regression-and-the-lasso"><span class="nav-number">3.2.1.</span> <span class="nav-text">Another Formulation for Ridge Regression and the Lasso</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-variable-selection-property-of-the-lasso"><span class="nav-number">3.2.2.</span> <span class="nav-text">The Variable Selection Property of the Lasso</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comparing-the-lasso-and-ridge-regression"><span class="nav-number">3.2.3.</span> <span class="nav-text">Comparing the Lasso and Ridge Regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shrinkage-methods-v.s.-subset-selection"><span class="nav-number">3.3.</span> <span class="nav-text">Shrinkage Methods v.s. Subset Selection:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction-to-model-selection"><span class="nav-number">1.</span> <span class="nav-text">Introduction to Model Selection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#subset-selection"><span class="nav-number">2.</span> <span class="nav-text">Subset Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#best-subset-selection"><span class="nav-number">2.1.</span> <span class="nav-text">Best Subset Selection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stepwise-selection"><span class="nav-number">2.2.</span> <span class="nav-text">Stepwise Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-stepwise-selection"><span class="nav-number">2.2.1.</span> <span class="nav-text">Forward Stepwise Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backward-stepwise-selection"><span class="nav-number">2.2.2.</span> <span class="nav-text">Backward Stepwise Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hybrid-approaches"><span class="nav-number">2.2.3.</span> <span class="nav-text">Hybrid Approaches</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#choosing-the-optimal-model"><span class="nav-number">2.3.</span> <span class="nav-text">Choosing the Optimal Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c_p-aic-bic-adjusted-r2"><span class="nav-number">2.3.1.</span> <span class="nav-text">\(C_p\), \(AIC\), \(BIC\), Adjusted \(R^2\)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#c_p"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">\(C_p\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aic"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">AIC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bic"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">BIC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#adjusted-r2"><span class="nav-number">2.3.1.4.</span> <span class="nav-text">Adjusted \(R^2\)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#validation-and-cross-validation"><span class="nav-number">2.3.2.</span> <span class="nav-text">Validation and Cross-Validation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shrinage-methods"><span class="nav-number">3.</span> <span class="nav-text">Shrinage Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ridge-regression"><span class="nav-number">3.1.</span> <span class="nav-text">Ridge Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ridge-regression-improves-over-least-squares"><span class="nav-number">3.1.1.</span> <span class="nav-text">Ridge Regression Improves Over Least Squares</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-lasso"><span class="nav-number">3.2.</span> <span class="nav-text">The Lasso</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#another-formulation-for-ridge-regression-and-the-lasso"><span class="nav-number">3.2.1.</span> <span class="nav-text">Another Formulation for Ridge Regression and the Lasso</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-variable-selection-property-of-the-lasso"><span class="nav-number">3.2.2.</span> <span class="nav-text">The Variable Selection Property of the Lasso</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comparing-the-lasso-and-ridge-regression"><span class="nav-number">3.2.3.</span> <span class="nav-text">Comparing the Lasso and Ridge Regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shrinkage-methods-v.s.-subset-selection"><span class="nav-number">3.3.</span> <span class="nav-text">Shrinkage Methods v.s. Subset Selection:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#considerations-in-high-dimensions"><span class="nav-number">4.</span> <span class="nav-text">Considerations In High Dimensions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#high-dimensional-data"><span class="nav-number">4.1.</span> <span class="nav-text">High-Dimensional Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#what-goes-wrong-in-high-dimensions"><span class="nav-number">4.2.</span> <span class="nav-text">What Goes Wrong in High Dimensions?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#regression-in-high-dimensions"><span class="nav-number">4.3.</span> <span class="nav-text">Regression in High Dimensions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#curse-of-dimensionality"><span class="nav-number">4.3.1.</span> <span class="nav-text">Curse of dimensionality</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#interpreting-results-in-high-dimensions"><span class="nav-number">4.4.</span> <span class="nav-text">Interpreting Results in High Dimensions</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1144,7 +1191,7 @@ minimize_{beta} \left\{\sum_{i=1}^n\left( y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j 
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">313k</span>
+    <span title="Symbols count total">319k</span>
   
 
   

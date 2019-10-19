@@ -119,21 +119,20 @@
 
 
 
-  <meta name="description" content="Parametric v.s. Non-parametric Linear regression is an example of a parametric approach because it assumes a linear functional form for f(X). Parametric methods - Advantages: - Easy to fit, because on">
+  <meta name="description" content="Logistic regression and LDA methods are closely connected. Setting: Consider the two-class setting with \(p = 1\) predictor, and let \(p_1(x)\) and \(p_2(x) = 1−p_1(x)\) be the probabilities that the">
 <meta name="keywords" content="Linear Regression,KNN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ISLR Note - Comparison of Linear Regression with K-Nearest Neighbors">
+<meta property="og:title" content="Comparing Logistic Regression, LDA, QDA, and KNN">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/6084c2b2/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Parametric v.s. Non-parametric Linear regression is an example of a parametric approach because it assumes a linear functional form for f(X). Parametric methods - Advantages: - Easy to fit, because on">
+<meta property="og:description" content="Logistic regression and LDA methods are closely connected. Setting: Consider the two-class setting with \(p = 1\) predictor, and let \(p_1(x)\) and \(p_2(x) = 1−p_1(x)\) be the probabilities that the">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://nancyyanyu.github.io/posts/6084c2b2/26.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/posts/6084c2b2/25.png">
-<meta property="og:updated_time" content="2019-06-15T09:07:38.996Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/6084c2b2/images/17.png">
+<meta property="og:updated_time" content="2019-10-19T22:13:17.701Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ISLR Note - Comparison of Linear Regression with K-Nearest Neighbors">
-<meta name="twitter:description" content="Parametric v.s. Non-parametric Linear regression is an example of a parametric approach because it assumes a linear functional form for f(X). Parametric methods - Advantages: - Easy to fit, because on">
-<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/6084c2b2/26.png">
+<meta name="twitter:title" content="Comparing Logistic Regression, LDA, QDA, and KNN">
+<meta name="twitter:description" content="Logistic regression and LDA methods are closely connected. Setting: Consider the two-class setting with \(p = 1\) predictor, and let \(p_1(x)\) and \(p_2(x) = 1−p_1(x)\) be the probabilities that the">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/6084c2b2/images/17.png">
 
 
 
@@ -153,7 +152,7 @@
   };
 </script>
 
-  <title>ISLR Note - Comparison of Linear Regression with K-Nearest Neighbors | Nancy's Notes</title>
+  <title>Comparing Logistic Regression, LDA, QDA, and KNN | Nancy's Notes</title>
   
 
 
@@ -424,7 +423,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ISLR Note - Comparison of Linear Regression with K-Nearest Neighbors
+          <h1 class="post-title" itemprop="name headline">Comparing Logistic Regression, LDA, QDA, and KNN
 
               
             
@@ -467,7 +466,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-15 04:07:38" itemprop="dateModified" datetime="2019-06-15T04:07:38-05:00">2019-06-15</time>
+                <time title="Modified: 2019-10-19 17:13:17" itemprop="dateModified" datetime="2019-10-19T17:13:17-05:00">2019-10-19</time>
               
             
           </span>
@@ -513,7 +512,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">2.6k</span>
+                <span title="Symbols count in article">5.4k</span>
               
 
               
@@ -527,7 +526,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="Reading time">5 mins.</span>
               
             </div>
           
@@ -547,25 +546,61 @@
       
 
       
-        <h1 id="parametric-v.s.-non-parametric">Parametric v.s. Non-parametric</h1>
-<p>Linear regression is an example of a parametric approach because it assumes a linear functional form for f(X).</p>
-<p><strong>Parametric methods</strong> - <strong>Advantages</strong>: - Easy to fit, because one need estimate only a small number of coefficients. - Simple interpretations, and tests of statistical significance can be easily performed - <strong>Disadvantage</strong>: - Strong assumptions about the form of f(X). If the specified functional form is far from the truth, and prediction accuracy is our goal, then the parametric method will perform poorly.</p>
-<a id="more"></a>
-<p><strong>Non-parametric methods</strong> - Do not explicitly assume a parametric form for f(X), and thereby provide an alternative and more flexible approach for performing regression. - K-nearest neighbors regression (KNN regression)</p>
-<h1 id="knn-regression">KNN Regression</h1>
-<p>Given a value for <span class="math inline">\(K\)</span> and a prediction point <span class="math inline">\(x_0\)</span>, KNN regression first identifies the <span class="math inline">\(K\)</span> training observations that are closest to <span class="math inline">\(x_0\)</span>, represented by <span class="math inline">\(N_0\)</span>. It then estimates <span class="math inline">\(f(x_0)\)</span> using the average of all the training responses in <span class="math inline">\(N_0\)</span>.</p>
+        <a id="more"></a>
+<h2 id="logistic-regression-and-lda-methods-are-closely-connected.">Logistic regression and LDA methods are closely connected.</h2>
+<p><strong>Setting</strong>: Consider the two-class setting with \(p = 1\) predictor, and let \(p_1(x)\) and \(p_2(x) = 1−p_1(x)\) be the probabilities that the observation \(X = x\) belongs to class 1 and class 2, respectively.</p>
+<p>In LDA, from</p>
 <p><span class="math display">\[
-\begin{align}
-\hat{f}(x_0)=\frac{1}{K}\sum_{x_i\in N_0}y_i
-\end{align}
+\begin{align} p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_k)^2 \right)}}{\sum_{l=1}^K\pi\_l\frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_l)^2 \right)}} \end{align}
 \]</span></p>
+<p><span class="math display">\[
+\begin{align} \delta\_k(x)=x\frac{\\mu\_k}{\sigma^2}-\frac{\mu_k^2}{2\sigma^2}+\log(\pi_k) \end{align}
+\]</span> The <strong>log odds</strong> is given by</p>
+<p><span class="math display">\[
+\begin{align}\log{\frac{p_1(x)}{1-p_1(x)}}=\log{\frac{p_1(x)}{p_2(x)}}=c_0+c_1x \end{align}
+\]</span> where c0 and c1 are functions of μ1, μ2, and σ2.</p>
+<p>In Logistic Regression,</p>
+<p><span class="math display">\[
+\begin{align} \log{\frac{p_1}{1-p_1}}=\beta\_0+\beta_1x \end{align}
+\]</span> <strong>SAME</strong></p>
 <ul>
-<li>The optimal value for K will depend on the <strong>bias-variance trade-off</strong>.</li>
-<li>A small value for K provides the most flexible fit, which will have low bias but high variance. This variance is due to the fact that the prediction in a given region is entirely dependent on just one observation.</li>
-<li>A larger values of K provide a smoother and less variable fit; the prediction in a region is an average of several points, and so changing one observation has a smaller effect. However, the smoothing may cause bias by masking some of the structure in f(X)</li>
+<li><strong>Both logistic regression and LDA produce linear decision boundaries.</strong></li>
 </ul>
-<p><strong>The parametric approach will outperform the nonparametric approach if the parametric form that has been selected is close to the true form of f.</strong> - A non-parametric approach incurs a cost in variance that is not offset by a reduction in bias - KNN performs slightly worse than linear regression when the relationship is linear, but much better than linear regression for non-linear situations. <img src="./26.png" width="600"></p>
-<p><strong>The increase in dimension has only caused a small deterioration in the linear regression test set MSE, but it has caused more than a ten-fold increase in the MSE for KNN.</strong> - This decrease in performance as the dimension increases is a common problem for KNN, and results from the fact that in higher dimensions there is effectively a reduction in sample size.<span class="math inline">\(\Rightarrow\)</span> <strong>curse of dimensionality</strong> - As a general rule, parametric methods will tend to outperform non-parametric approaches when there is a small number of observations per predictor. <img src="./25.png" width="600"></p>
+<p><strong>DIFFERENCES</strong></p>
+<ul>
+<li><p>The only difference between the two approaches lies in the fact that β0 and β1 are estimated using maximum likelihood, whereas c0 and c1 are computed using the estimated mean and variance from a normal distribution. This same connection between LDA and logistic regression also holds for multidimensional data with p &gt; 1.</p></li>
+<li><p>LDA assumes that the observations are drawn from a Gaussian distribution with a common covariance matrix in each class, and so can provide some improvements over logistic regression when this assumption approximately holds. Conversely, logistic regression can outperform LDA if these Gaussian assumptions are not met.</p></li>
+</ul>
+<h2 id="knn-dominate-lda-and-logistic-in-non-linear-setting">KNN dominate LDA and Logistic in non-linear setting</h2>
+<p>In order to make a prediction for an observation X = x, the K training observations that are closest to x are identified. Then X is assigned to the class to which the plurality of these observations belong. Hence KNN is a completely <strong>non-parametric</strong> approach: <em>no assumptions are made about the shape of the decision boundary</em>.</p>
+<blockquote>
+<p>Therefore, we can expect KNN to dominate LDA and logistic regression when the decision boundary is highly non-linear.</p>
+</blockquote>
+<p>On the other hand, KNN does not tell us which predictors are important</p>
+<h2 id="qda-serves-as-a-compromise-between-knn-lda-and-logistic-regression">QDA serves as a compromise between KNN, LDA and logistic regression</h2>
+<p>QDA serves as a compromise between the non-parametric KNN method and the linear LDA and logistic regression approaches. Since QDA assumes a quadratic decision boundary, it can accurately model a wider range of problems than can the linear methods. Though not as flexible as KNN, QDA can perform better in the presence of a <em>limited number of training observations</em> because it does make some assumptions about the form of the decision boundary.</p>
+<p><img src="./images/17.png"></p>
+<p><strong>Scenario 1</strong>: - 20 training observations in each of two classes. The observations within each class were uncorrelated random normal variables with a different mean in each class. - LDA performed well in this setting. KNN performed poorly because it paid a price in terms of variance that was not offset by a reduction in bias.</p>
+<p><strong>Scenario 2</strong>: - Details are as in Scenario 1, except that within each class, the two predictors had a correlation of −0.5. - Little change in the relative performances of the methods as compared to the previous scenario.</p>
+<p><strong>Scenario 3</strong>: - X1 and X2 are from the t-distribution, with 50 observations per class.</p>
+<blockquote>
+<p>The <strong>t-distribution</strong> has a similar shape to the normal distribution, but it has a tendency to yield more extreme points—that is, more points that are far from the mean.</p>
+</blockquote>
+<ul>
+<li>The decision boundary was still linear, and so fit into the logistic regression framework. The set-up violated the assumptions of LDA, since the observations were not drawn from a normal distribution. QDA results deteriorated considerably as a consequence of non-normality.</li>
+</ul>
+<p><strong>Scenario 4</strong>: - The data were generated from a normal distribution, with a correlation of 0.5 between the predictors in the first class, and correlation of −0.5 between the predictors in the second class. - This setup corresponded to the QDA assumption, and resulted in quadratic decision boundaries.</p>
+<p><strong>Scenario 5</strong>: - Within each class, the observations were generated from a normal distribution with uncorrelated predictors. However, the responses were sampled from the logistic function using \(X^2_1 , X^2_2, and \, X1 × X2\) as predictors. - Consequently, there is a quadratic decision boundary. QDA once again performed best, followed closely by KNN-CV. The linear methods had poor performance.</p>
+<p><strong>Scenario 6</strong>: - Details are as in the previous scenario, but the responses were sampled from a more complicated non-linear function. - Even the quadratic decision boundaries of QDA could not adequately model the data. - Much more flexible KNN-CV method gave the best results. But KNN with K = 1 gave the worst results out of all methods.</p>
+<blockquote>
+<p>This highlights the fact that <strong>even when the data exhibits a complex nonlinear relationship, a non-parametric method such as KNN can still give poor results if the level of smoothness is not chosen correctly.</strong></p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li><p>When the true decision boundaries are linear, then the LDA and logistic regression approaches will tend to perform well.</p></li>
+<li><p>When the boundaries are moderately non-linear, QDA may give better results.</p></li>
+<li><p>For much more complicated decision boundaries, a non-parametric approach such as KNN can be superior. But the level of smoothness for a non-parametric approach must be chosen carefully.</p></li>
+</ul>
 
       
     </div>
@@ -691,7 +726,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -799,15 +834,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -892,7 +919,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#parametric-v.s.-non-parametric"><span class="nav-number">1.</span> <span class="nav-text">Parametric v.s. Non-parametric</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#knn-regression"><span class="nav-number">2.</span> <span class="nav-text">KNN Regression</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic-regression-and-lda-methods-are-closely-connected."><span class="nav-number">1.</span> <span class="nav-text">Logistic regression and LDA methods are closely connected.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#knn-dominate-lda-and-logistic-in-non-linear-setting"><span class="nav-number">2.</span> <span class="nav-text">KNN dominate LDA and Logistic in non-linear setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qda-serves-as-a-compromise-between-knn-lda-and-logistic-regression"><span class="nav-number">3.</span> <span class="nav-text">QDA serves as a compromise between KNN, LDA and logistic regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
             
 
           </div>
@@ -925,7 +952,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">313k</span>
+    <span title="Symbols count total">319k</span>
   
 
   

@@ -122,15 +122,17 @@
   <meta name="description" content="Resampling methods:involve repeatedly drawing samples from a training set and refitting a mode of interest on each sample in order to obtain additional information about the fitted model. model assess">
 <meta name="keywords" content="Model Selection,Cross Validation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ISLR Note - Cross Validation">
+<meta property="og:title" content="Resampling Methods - Cross Validation, Bootstrap">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/6d11b2f4/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Resampling methods:involve repeatedly drawing samples from a training set and refitting a mode of interest on each sample in order to obtain additional information about the fitted model. model assess">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-15T08:16:43.457Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/6d11b2f4/1.png">
+<meta property="og:updated_time" content="2019-10-19T22:00:17.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ISLR Note - Cross Validation">
+<meta name="twitter:title" content="Resampling Methods - Cross Validation, Bootstrap">
 <meta name="twitter:description" content="Resampling methods:involve repeatedly drawing samples from a training set and refitting a mode of interest on each sample in order to obtain additional information about the fitted model. model assess">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/6d11b2f4/1.png">
 
 
 
@@ -150,7 +152,7 @@
   };
 </script>
 
-  <title>ISLR Note - Cross Validation | Nancy's Notes</title>
+  <title>Resampling Methods - Cross Validation, Bootstrap | Nancy's Notes</title>
   
 
 
@@ -421,7 +423,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ISLR Note - Cross Validation
+          <h1 class="post-title" itemprop="name headline">Resampling Methods - Cross Validation, Bootstrap
 
               
             
@@ -464,7 +466,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-15 03:16:43" itemprop="dateModified" datetime="2019-06-15T03:16:43-05:00">2019-06-15</time>
+                <time title="Modified: 2019-10-19 17:00:17" itemprop="dateModified" datetime="2019-10-19T17:00:17-05:00">2019-10-19</time>
               
             
           </span>
@@ -510,7 +512,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">3.7k</span>
+                <span title="Symbols count in article">5k</span>
               
 
               
@@ -524,7 +526,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">3 mins.</span>
+                <span title="Reading time">5 mins.</span>
               
             </div>
           
@@ -550,7 +552,8 @@
 <p><strong>cross-validation</strong>: can be used to estimate the test error associated with a given statistical learning method in order to evaluate its performance, or to select the appropriate level of flexibility.</p>
 <p><strong>bootstrap</strong>:provide a measure of accuracy of a parameter estimate or of a given selection statistical learning method.</p>
 <a id="more"></a>
-<h1 id="the-validation-set-approach">The Validation Set Approach</h1>
+<h1 id="cross-validation">Cross Validation</h1>
+<h2 id="the-validation-set-approach">The Validation Set Approach</h2>
 <p><strong>The Validation Set Approach</strong>:</p>
 <ol type="1">
 <li><p>Randomly dividing the available set of observations into two parts, a <strong>training set</strong> and a <strong>validation set</strong> or hold-out set.</p></li>
@@ -562,7 +565,7 @@
 <li><p>The validation estimate of the test error rate can be highly variable, depending on precisely which observations are included in the training set and which observations are included in the validation set.</p></li>
 <li><p>In the validation approach, only a subset of the observations—those that are included in the training set rather than in the validation set—are used to fit the model. Since statistical methods tend to perform worse when trained on <em>fewer observations</em>, this suggests that the validation set error rate may tend to overestimate the test error rate for the model fit on the entire data set.</p></li>
 </ol>
-<h1 id="k-fold-cross-validation">k-Fold Cross-Validation</h1>
+<h2 id="k-fold-cross-validation">K-Fold Cross-Validation</h2>
 <p><strong>Approach</strong>:</p>
 <ol type="1">
 <li><p>Randomly k-fold CV dividing the set of observations into k groups, or folds, of approximately equal size.</p></li>
@@ -581,14 +584,33 @@ CV_{(k)}=\frac{1}{k}\sum_{i=1}^kMSE_i
 <li><p>Determine how well a given statistical learning procedure can be expected to perform on independent data</p></li>
 <li><p>We are interested only in the location of the minimum point in the estimated test MSE curve. This is because we might be performing cross-validation on a number of statistical learning methods, or on a single method using different levels of flexibility, in order to identify the method that results in the lowest test error.</p></li>
 </ol>
-<h1 id="bias-variance-trade-off-for-k-fold-cross-validation">Bias-Variance Trade-Off for k-Fold Cross-Validation</h1>
+<h2 id="bias-variance-trade-off-for-k-fold-cross-validation">Bias-Variance Trade-Off for k-Fold Cross-Validation</h2>
 <p><strong>Leave-One-Out Cross-Validation V.S. k-Fold Cross-Validation</strong>: - k-Fold more biased than LOOCV - LOOCV will give approximately unbiased estimates of the test error, since each training set contains n − 1 observations, which is almost as many as the number of observations in the full data set. - k-fold CV for, say, k = 5 or k = 10 will lead to an intermediate level of bias</p>
 <ul>
 <li>k-Fold less variance than LOOCV</li>
 <li>When we perform LOOCV, we are in effect averaging the outputs of n fitted models, each of which is trained on an almost identical set of observations; therefore, these outputs are highly (positively) correlated with each other.</li>
 <li>the mean of many highly correlated quantities has higher variance than does the mean of many quantities that are not as highly correlated</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="bootstrap">Bootstrap</h1>
+<p><strong>Approach</strong>:</p>
+<ol type="1">
+<li>A data set, which we call Z, that contains n observations. We randomly select n observations from the data set in order to produce a bootstrap data set, <span class="math inline">\(Z^{∗1}\)</span>.</li>
+<li>The sampling is performed with <strong>replacement</strong>, which means that the replacement same observation can occur more than once in the bootstrap data set.</li>
+</ol>
+<ul>
+<li>In this example, <span class="math inline">\(Z^{∗1}\)</span> contains the third observation twice, the first observation once, and no instances of the second observation.</li>
+<li>Note that if an observation is contained in <span class="math inline">\(Z^{∗1}\)</span>, then both its X and Y values are included.</li>
+</ul>
+<ol start="3" type="1">
+<li><p>We can use <span class="math inline">\(Z^{∗1}\)</span> to produce a new bootstrap estimate for α, which we call <span class="math inline">\(\alpha^{∗1}\)</span>. This procedure is repeated B times for some large value of B, in order to produce B different bootstrap data sets, <span class="math inline">\(Z^{∗1}\)</span>,<span class="math inline">\(Z^{∗2}\)</span>, . . . , <span class="math inline">\(Z^{∗B}\)</span>, and B corresponding α estimates, <span class="math inline">\(\alpha^{∗1}\)</span>, <span class="math inline">\(\alpha^{∗2}\)</span>, . . . , <span class="math inline">\(\alpha^{∗B}\)</span>.</p></li>
+<li><p>We can compute the standard error of these bootstrap estimates using the formula <span class="math display">\[
+\begin{align}
+SE_B(\hat{\alpha})=\sqrt{\frac{1}{B-1}\sum_{i=1}^B\left( \hat{\alpha}^{*i}-\frac{1}{B}\sum^{B}_{j=1}\hat{\alpha}^{*j} \right)}
+\end{align}
+\]</span> This serves as an estimate of the standard error of <span class="math inline">\(\hat{\alpha}\)</span> estimated from the original data set.</p>
+<p>This serves as an estimate of the standard error of <span class="math inline">\(\hat{\alpha}\)</span> estimated from the original data set.</p></li>
+</ol>
+<p><img src="./1.png" width="600"></p>
 
       
     </div>
@@ -630,8 +652,8 @@ CV_{(k)}=\frac{1}{k}\sum_{i=1}^kMSE_i
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/86b37baa/" rel="next" title="ISLR Note - Assessing Model Accuracy">
-                <i class="fa fa-chevron-left"></i> ISLR Note - Assessing Model Accuracy
+              <a href="/posts/86b37baa/" rel="next" title="Assessing Model Accuracy">
+                <i class="fa fa-chevron-left"></i> Assessing Model Accuracy
               </a>
             
           </div>
@@ -718,7 +740,7 @@ CV_{(k)}=\frac{1}{k}\sum_{i=1}^kMSE_i
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -826,15 +848,7 @@ CV_{(k)}=\frac{1}{k}\sum_{i=1}^kMSE_i
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -919,7 +933,7 @@ CV_{(k)}=\frac{1}{k}\sum_{i=1}^kMSE_i
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#the-validation-set-approach"><span class="nav-number">1.</span> <span class="nav-text">The Validation Set Approach</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#k-fold-cross-validation"><span class="nav-number">2.</span> <span class="nav-text">k-Fold Cross-Validation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bias-variance-trade-off-for-k-fold-cross-validation"><span class="nav-number">3.</span> <span class="nav-text">Bias-Variance Trade-Off for k-Fold Cross-Validation</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cross-validation"><span class="nav-number">1.</span> <span class="nav-text">Cross Validation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-validation-set-approach"><span class="nav-number">1.1.</span> <span class="nav-text">The Validation Set Approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-fold-cross-validation"><span class="nav-number">1.2.</span> <span class="nav-text">K-Fold Cross-Validation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bias-variance-trade-off-for-k-fold-cross-validation"><span class="nav-number">1.3.</span> <span class="nav-text">Bias-Variance Trade-Off for k-Fold Cross-Validation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bootstrap"><span class="nav-number">2.</span> <span class="nav-text">Bootstrap</span></a></li></ol></div>
             
 
           </div>
@@ -952,7 +966,7 @@ CV_{(k)}=\frac{1}{k}\sum_{i=1}^kMSE_i
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">313k</span>
+    <span title="Symbols count total">319k</span>
   
 
   
