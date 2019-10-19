@@ -122,16 +122,16 @@
   <meta name="description" content="Bias, Variance and Model Complexity Test error (generalization error): the prediction error over an independent test sample \[ 𝐸𝑟𝑟𝜏=𝐸[𝐿(𝑌,\hat{f} (𝑋))|𝜏] \] Here the training set \(\tau\) is">
 <meta name="keywords" content="Model Assessment,Model Selection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ESL Note - Bias, Variance">
+<meta property="og:title" content="Bias, Variance and Model Complexity">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/2a71b2a0/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Bias, Variance and Model Complexity Test error (generalization error): the prediction error over an independent test sample \[ 𝐸𝑟𝑟𝜏=𝐸[𝐿(𝑌,\hat{f} (𝑋))|𝜏] \] Here the training set \(\tau\) is">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/2a71b2a0/bv.PNG">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/2a71b2a0/bv2.PNG">
-<meta property="og:updated_time" content="2019-06-15T03:11:28.259Z">
+<meta property="og:updated_time" content="2019-10-19T22:48:09.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESL Note - Bias, Variance">
+<meta name="twitter:title" content="Bias, Variance and Model Complexity">
 <meta name="twitter:description" content="Bias, Variance and Model Complexity Test error (generalization error): the prediction error over an independent test sample \[ 𝐸𝑟𝑟𝜏=𝐸[𝐿(𝑌,\hat{f} (𝑋))|𝜏] \] Here the training set \(\tau\) is">
 <meta name="twitter:image" content="https://nancyyanyu.github.io/posts/2a71b2a0/bv.PNG">
 
@@ -153,7 +153,7 @@
   };
 </script>
 
-  <title>ESL Note - Bias, Variance | Nancy's Notes</title>
+  <title>Bias, Variance and Model Complexity | Nancy's Notes</title>
   
 
 
@@ -424,7 +424,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ESL Note - Bias, Variance
+          <h1 class="post-title" itemprop="name headline">Bias, Variance and Model Complexity
 
               
             
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-14 22:11:28" itemprop="dateModified" datetime="2019-06-14T22:11:28-05:00">2019-06-14</time>
+                <time title="Modified: 2019-10-19 17:48:09" itemprop="dateModified" datetime="2019-10-19T17:48:09-05:00">2019-10-19</time>
               
             
           </span>
@@ -567,7 +567,8 @@ Err=E[L(Y,\hat{f}(X)]=E[Err_\tau]
 <h1 id="the-bias-variance-decomposition">The Bias Variance Decomposition</h1>
 <h2 id="general-model">General Model</h2>
 <p>If we assume that <span class="math inline">\(Y=f(X)+\epsilon\)</span> where <span class="math inline">\(E(\epsilon)=0\)</span>, and <span class="math inline">\(Var(\epsilon)=\sigma^2_\epsilon\)</span>, we can derive an expression for the expected prediction error of a regression fit <span class="math inline">\(\hat{f}(X)\)</span> at an input point X = x0, using squared-error loss:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
 &amp;=E[(f(x_0)+\epsilon-\hat{f}(x_0))^2] \\
 &amp;=E[\epsilon^2+(f(x_0)-\hat{f}(x_0))^2+2\epsilon(f(x_0)-\hat{f}(x_0))] \\
@@ -577,7 +578,8 @@ Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
 &amp;=\sigma^2_\epsilon+(E\hat{f}(x_0)-f(x_0))^2+Var(\hat{f}(x_0))\\
 &amp;=\sigma^2_\epsilon+Bias^2(\hat{f}(x_0))+Var(\hat{f}(x_0))\\
 &amp;= Irreducible Error+ Bias^2 + Variance
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <ol type="1">
 <li>The first term is the variance of the target around its true mean f(x0), and cannot be avoided no matter how well we estimate f(x0), unless <span class="math inline">\(\sigma^2_\epsilon=0\)</span></li>
 <li>The second term is the squared bias, the amount by which the average of our estimate differs from the true mean</li>
@@ -721,7 +723,7 @@ Err(x_0)&amp;=E[(Y-\hat{f}_k(x_0))^2|X=x_0] \\
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -823,11 +825,7 @@ Err(x_0)&amp;=E[(Y-\hat{f}_k(x_0))^2|X=x_0] \\
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
