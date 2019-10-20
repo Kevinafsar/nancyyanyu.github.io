@@ -400,7 +400,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/f27b47b0/">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/9b3e7e9e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Nancy Yan">
@@ -420,7 +420,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/posts/f27b47b0/" class="post-title-link" itemprop="url">CS229-Classification</a>
+                <a href="/posts/9b3e7e9e/" class="post-title-link" itemprop="url">CS229-GeneralizedLinearModels</a>
               
             
           </h1>
@@ -445,7 +445,7 @@
                 
               
 
-              <time title="Created: 2019-10-20 15:01:24 / Modified: 18:45:52" itemprop="dateCreated datePublished" datetime="2019-10-20T15:01:24-05:00">2019-10-20</time>
+              <time title="Created: 2019-10-20 16:50:20 / Modified: 18:50:20" itemprop="dateCreated datePublished" datetime="2019-10-20T16:50:20-05:00">2019-10-20</time>
             
 
             
@@ -455,6 +455,195 @@
             
           </span>
 
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/f27b47b0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/posts/f27b47b0/" class="post-title-link" itemprop="url">CS229 Note: Logistic Regression</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-10-20 15:01:24 / Modified: 18:50:53" itemprop="dateCreated datePublished" datetime="2019-10-20T15:01:24-05:00">2019-10-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -513,8 +702,7 @@
 
       
         
-          
-            <h1 id="logistic-regression">Logistic regression</h1>
+          <h1 id="logistic-regression">Logistic regression</h1>
 <p>Change the form for our <strong>hypotheses <span class="math inline">\(h(x)\)</span>:</strong> <span class="math display">\[
 h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}}
 \]</span> <strong>Logistic function(sigmoid function):</strong> <span class="math display">\[
@@ -526,62 +714,19 @@ g(z)=\frac{1}{1+\exp{(-z)}}
 &amp;=\frac{1}{1+\exp{(-z)}} \cdot (1-\frac{1}{1+\exp{(-z)}}) \\
 &amp;=g(z) \cdot (1-g(z))
 \end{align}
-\]</span></p>
-<h2 id="how-do-we-fit-θ-for-it"><strong>How do we fit <span class="math inline">\(θ\)</span> for it?</strong></h2>
-<p><strong>Probabilistic assumptions</strong>: <span class="math display">\[
-P(y=1|x;\theta)=h_\theta(x) \\
-P(y=0|x;\theta)=1-h_\theta(x)
-\]</span> Note that this can be written more compactly as <span class="math display">\[
-p(y|x;\theta)=(h_\theta(x) )^y(1-h_\theta(x) )^{1-y}
-\]</span> Assuming that the <span class="math inline">\(n\)</span> training examples were generated independently, we can then write down the likelihood of the parameters as <span class="math display">\[
-L(\theta)=p(\overrightarrow{y}|X;\theta)=\prod_{i=1}^np(y^{(i)}|x^{(i)};\theta) \\
-=\prod_{i=1}^n(h_\theta(x^{(i)}) )^{y^{(i)}}(1-h_\theta(x^{(i)}) )^{1-y^{(i)}}
-\]</span> As before, it will be easier to maximize the log likelihood: <span class="math display">\[
-ℓ(θ) = \log{L(θ)}=\sum_{i=1}^ny^{(i)}\log{h_\theta(x^{(i)})}+(1-y^{(i)})\log{(1-h_\theta(x^{(i)}) )}
-\]</span> Use gradient ascent to maximize the likelihood: <span class="math inline">\(θ := θ + α∇ℓ(θ)\)</span></p>
-<p>Let’s start by working with just one training example <span class="math inline">\((x, y)\)</span>: <span class="math display">\[
-\begin{align}
-\frac{\partial ℓ(θ)}{\partial θ_j}&amp;=(y\frac{1}{h_\theta(x)}-(1-y)\frac{1}{1-h_\theta(x)})\frac{\partial h_\theta(x)}{\partial θ_j} \\
-&amp;=(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)})\frac{\partial g(\theta^Tx)}{\partial θ_j} \\
-&amp;=(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)}) g(\theta^Tx)(1- g(\theta^Tx))\frac{\partial θ^Tx}{\partial θ_j} \\
-&amp;=(y(1- g(\theta^Tx))-(1-y)g(\theta^Tx))x_j \\
-&amp;=(y-g(\theta^Tx))x_j \\
-&amp;=(y-h_\theta(x))x_j
-\end{align}
-\]</span> <strong>Stochastic gradient ascent rule</strong>: <span class="math display">\[
-θ_j := θ_j + α(y^{(i)}-h_\theta(x^{(i)}))x^{(i)}_j
-\]</span> It looks identical to the LMS update rule; but this is not the same algorithm, because <span class="math inline">\(h_\theta(x^{(i)})\)</span> is now defined as a non-linear function of <span class="math inline">\(\theta^Tx^{(i)}\)</span>.</p>
-<h1 id="digression-the-perceptron-learning-algorithm">Digression: The perceptron learning algorithm</h1>
-<p>Consider modifying the logistic regression method to “force” it to output values that are either 0 or 1 or exactly： <span class="math display">\[
-g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
-\]</span> Let <span class="math inline">\(h(x) = g(θ^T x)\)</span> as before but using this modified definition of <span class="math inline">\(g\)</span>, and if we use the update rule <span class="math display">\[
-θ_j := θ_j + α(y^{(i)}-h_\theta(x^{(i)}))x^{(i)}_j
-\]</span> then we have the <strong>perceptron learning algorithn</strong>.</p>
-<p>Note:</p>
-<ul>
-<li>Even though the perceptron may be cosmetically similar to the other algorithms we talked about, it is actually a very different type of algorithm than logistic regression and least squares linear regression;</li>
-<li>Difficult to endow the perceptron’s predictions with meaningful probabilistic interpretations, or derive the perceptron as a maximum likelihood estimation algorithm.</li>
-</ul>
-<h1 id="fisher-scoring-algorithm-for-maximizing-ℓθ">Fisher scoring algorithm for maximizing ℓ(θ)</h1>
-<p><strong>Newton’s method</strong> (finding a zero of a function) performs the following update: <span class="math display">\[
-\theta:=\theta-\frac{f(\theta)}{f^{&#39;}(\theta)}
-\]</span> <strong>Interpretation:</strong> Approximating the function <span class="math inline">\(f\)</span> via a linear function that is tangent to <span class="math inline">\(f\)</span> at the current guess <span class="math inline">\(θ\)</span>, solving for where that linear function equals to zero, and letting the next guess for <span class="math inline">\(θ\)</span> be where that linear function is zero.</p>
-<p><img src="./newton.png" width="600"></p>
-<p>The maxima of <span class="math inline">\(ℓ\)</span> correspond to points where its first derivative <span class="math inline">\(ℓ′(θ)\)</span> is zero. So, by letting <span class="math inline">\(f(θ) = ℓ′(θ)\)</span>, we can use the same algorithm to maximize <span class="math inline">\(ℓ\)</span>, and we obtain update rule: <span class="math display">\[
-\theta:=\theta-\frac{ℓ′(θ)}{ℓ′′(θ)}
-\]</span> <u>The generalization of Newton’s method:</u> <span class="math display">\[
-\theta:=\theta-H^{-1}∇_θℓ(θ)
-\]</span> <span class="math inline">\(H\)</span> is <strong>Hessian</strong> matrix, whose entries are given by <span class="math inline">\(H_{ij}=\frac{\partial^2 ℓ(θ)}{\partial θ_i \partial θ_j}\)</span></p>
-<ul>
-<li>Faster convergence than (batch) gradient descent, and requires many fewer iterations to get very close to the minimum.</li>
-<li>One iteration of Newton’s can, however, be more expensive than one iteration of gradient descent, since it requires finding and inverting an d-by-d Hessian</li>
-</ul>
-<p>When <strong><em>Newton’s method</em></strong> is applied to maximize the <strong><em>logistic regression log likelihood function ℓ(θ)</em></strong>, the resulting method is also called <strong>Fisher scoring</strong>.</p>
-
+\]</span>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/f27b47b0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
@@ -2210,210 +2355,6 @@ MSE=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{f}(x_i))^2
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/cac93a23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/cac93a23/" class="post-title-link" itemprop="url">Study Note: Dimension Reduction - PCA, PCR</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-10-19 18:03:29 / Modified: 18:20:56" itemprop="dateCreated datePublished" datetime="2019-10-19T18:03:29-05:00">2019-10-19</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">15k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">14 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="dimension-reduction-methods">Dimension Reduction Methods</h1>
-<p>Subset selection and shrinkage methods all use the original predictors, X1,X2, . . . , Xp.</p>
-<p>Dimension Reduction Methods <strong><em>transform</em></strong> the predictors and then fit a least squares model using the transformed variables.</p>
-<h2 id="approach">Approach</h2>
-<p>Let <span class="math inline">\(Z_1,Z_2, . . . ,Z_M\)</span> represent <span class="math inline">\(M &lt; p\)</span> linear combinations of our original <span class="math inline">\(p\)</span> predictors. That is,</p>
-<p><span class="math display">\[
-\begin{align}
-Z_m=\sum_{j=1}^p\phi_{jm}X_j
-\end{align}
-\]</span>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/cac93a23/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2460,7 +2401,7 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2558,7 +2499,9 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -2659,7 +2602,7 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">370k</span>
+    <span title="Symbols count total">373k</span>
   
 
   

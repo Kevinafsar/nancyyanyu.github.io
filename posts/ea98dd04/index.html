@@ -119,20 +119,20 @@
 
 
 
-  <meta name="description" content="High-Dimensional Data High-dimensional: Data sets containing more features than observations are often referred to as high-dimensional. - Classical approaches such as least squares linear highregressi">
-<meta name="keywords" content="Curse of dimensionality,Regression">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Considerations In High Dimensions.">
-<meta property="og:url" content="https://nancyyanyu.github.io/deprecated/ISLR-Considerations_In_High_Dimensions.html">
+  <meta name="description" content="Random Variables Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads probability \(p\) comes up heads, zero otherwise  PMF: \(p(x)=\begin{cases}p &amp;amp; x=1\\1-">
+<meta name="keywords" content="Probability">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Probability Theory - Random Variables">
+<meta property="og:url" content="https://nancyyanyu.github.io/posts/ea98dd04/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="High-Dimensional Data High-dimensional: Data sets containing more features than observations are often referred to as high-dimensional. - Classical approaches such as least squares linear highregressi">
+<meta property="og:description" content="Random Variables Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads probability \(p\) comes up heads, zero otherwise  PMF: \(p(x)=\begin{cases}p &amp;amp; x=1\\1-">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://nancyyanyu.github.io/deprecated/12.png">
-<meta property="og:updated_time" content="2019-10-09T08:35:19.511Z">
+<meta property="og:image" content="https://nancyyanyu.github.io/posts/ea98dd04/1.png">
+<meta property="og:updated_time" content="2019-10-20T02:03:24.155Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Considerations In High Dimensions.">
-<meta name="twitter:description" content="High-Dimensional Data High-dimensional: Data sets containing more features than observations are often referred to as high-dimensional. - Classical approaches such as least squares linear highregressi">
-<meta name="twitter:image" content="https://nancyyanyu.github.io/deprecated/12.png">
+<meta name="twitter:title" content="Probability Theory - Random Variables">
+<meta name="twitter:description" content="Random Variables Discrete random variables:  \(X ∼ Bernoulli(p)\) (where 0 ≤ p ≤ 1): one if a coin with heads probability \(p\) comes up heads, zero otherwise  PMF: \(p(x)=\begin{cases}p &amp;amp; x=1\\1-">
+<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/ea98dd04/1.png">
 
 
 
@@ -142,7 +142,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/deprecated/ISLR-Considerations_In_High_Dimensions">
+  <link rel="canonical" href="https://nancyyanyu.github.io/posts/ea98dd04/">
 
 
 
@@ -152,7 +152,7 @@
   };
 </script>
 
-  <title>Considerations In High Dimensions. | Nancy's Notes</title>
+  <title>Probability Theory - Random Variables | Nancy's Notes</title>
   
 
 
@@ -366,34 +366,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -420,92 +392,312 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/ea98dd04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy Yan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Notes">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">Considerations In High Dimensions.
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body han-init-context">
         
         
-          <h1 id="high-dimensional-data">High-Dimensional Data</h1>
-<p><strong>High-dimensional</strong>: Data sets containing more features than observations are often referred to as high-dimensional. - Classical approaches such as least squares linear highregression are not appropriate in this setting</p>
-<h1 id="what-goes-wrong-in-high-dimensions">What Goes Wrong in High Dimensions?</h1>
+          <h1 class="post-title" itemprop="name headline">Probability Theory - Random Variables
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-24 16:25:08" itemprop="dateCreated datePublished" datetime="2019-07-24T16:25:08-05:00">2019-07-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-10-19 21:03:24" itemprop="dateModified" datetime="2019-10-19T21:03:24-05:00">2019-10-19</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">3 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="random-variables">Random Variables</h1>
+<p><strong>Discrete random variables</strong>:</p>
+<ul>
+<li><p><span class="math inline">\(X ∼ Bernoulli(p)\)</span> (where 0 ≤ p ≤ 1): one if a coin with heads probability <span class="math inline">\(p\)</span> comes up heads, zero otherwise</p>
+<ul>
+<li><p>PMF: <span class="math inline">\(p(x)=\begin{cases}p &amp; x=1\\1-p &amp; x=0\end{cases}\)</span></p></li>
+<li>Mean: <span class="math inline">\(p\)</span></li>
+<li><p>Variance: <span class="math inline">\(p(1-p)\)</span></p></li>
+</ul></li>
+<li><p>$X ∼ Binomial(n, p) $ (where 0 ≤ p ≤ 1): the number of heads in <span class="math inline">\(n\)</span> independent flips of a coin with heads probability <span class="math inline">\(p\)</span>.</p>
+<ul>
+<li><p>PMF: <span class="math inline">\(p(x)=\left(\begin{array}{c}n\\ x\end{array}\right) p^x(1-p)^{n-x}\)</span></p></li>
+<li>Mean: <span class="math inline">\(np\)</span></li>
+<li><p>Variance: <span class="math inline">\(np(1-p)\)</span></p></li>
+</ul></li>
+<li><p>$X ∼ Geometric(p) $(where p &gt; 0): the number of flips of a coin with heads probability <span class="math inline">\(p\)</span> until the first heads.</p>
+<ul>
+<li><p>PMF: <span class="math inline">\(p(x)=p(1-p)^{x-1}\)</span></p></li>
+<li>Mean: <span class="math inline">\(\frac{1}{p}\)</span></li>
+<li><p>Variance: <span class="math inline">\(\frac{1-p}{p^2}\)</span></p></li>
+</ul></li>
+<li><span class="math inline">\(X ∼ Poisson(λ)\)</span> (where λ &gt; 0): a probability distribution over the nonnegative integers used for modeling the frequency of rare events.
+<ul>
+<li>PMF: <span class="math inline">\(p(x)=e^{-\lambda}\frac{\lambda^x}{x!}\)</span></li>
+<li>Mean: <span class="math inline">\(\lambda\)</span></li>
+<li>Variance: <span class="math display">\[\lambda\]</span></li>
+<li><strong>Properties</strong>: Poisson random variable may be used to approximate a <strong><em>binomial</em></strong> random variable when the binomial parameter <em>n</em> is large and <em>p</em> is small.</li>
+</ul></li>
+</ul>
 <a id="more"></a>
+<p><strong>Continuous random variables</strong>:</p>
+<ul>
+<li><span class="math inline">\(X ∼ Uniform(a, b)\)</span> (where a &lt; b): equal probability density to every value between a and b on the real line.
+<ul>
+<li>PDF: <span class="math inline">\(f(x)=\frac{1}{b-a}, a \leq x \leq b\)</span></li>
+<li>CDF: <span class="math inline">\(F(x)=\begin{cases}0 &amp; x \leq a\\ \frac{x-a}{b-a} &amp; a\leq x \leq b \\ 1 &amp; b \leq x \end{cases}\)</span></li>
+<li>Mean: <span class="math inline">\(\frac{a+b}{2}\)</span></li>
+<li>Variance: <span class="math inline">\(\frac{(b-a)^2}{12}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(X ∼ Exponential(λ)\)</span> (where λ &gt; 0): decaying probability density over the nonnegative reals.
+<ul>
+<li>PDF:<span class="math inline">\(f(x)=\begin{cases}\lambda e^{-\lambda x} &amp; x \geq 0\\0 &amp; otw. \end{cases}\)</span></li>
+<li>CDF: <span class="math inline">\(F(x)=\begin{cases}1- e^{-\lambda x} &amp; x \geq 0\\0 &amp; otw. \end{cases}\)</span></li>
+<li>Mean: <span class="math inline">\(\frac{1}{\lambda}\)</span></li>
+<li>Variance: <span class="math inline">\(\frac{1}{\lambda^2}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(X ∼ Normal(\mu, \sigma^2)\)</span> : also known as the Gaussian distribution
+<ul>
+<li>PDF: <span class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span></li>
+<li>CDF: $F(x)=_{0}<sup>{z}e</sup>{-z^2/2}dx $<br>
+</li>
+<li>Mean: <span class="math inline">\(\mu\)</span></li>
+<li>Variance: <span class="math inline">\(\sigma^2\)</span></li>
+</ul></li>
+</ul>
+<!--more-->
+<p><img src="./1.png" width="600"></p>
+<p><strong>Conditional distributions</strong> <span class="math display">\[
+p_{Y|X}(y|x)=\frac{p_{XY}(x,y)}{p_X(x)} \\
+f_{Y|X}(y|x)=\frac{f_{XY}(x,y)}{f_X(x)}
+\]</span></p>
+<p><strong>Bayes’s rule</strong> <span class="math display">\[
+\begin{align} P_{Y|X}(y|x)&amp;=\frac{p_{XY}(x,y)}{p_X(x)} \\
+&amp;=\frac{P_{X|Y}(x|y)P_Y(y)}{P_X(x)} \\
+&amp;=\frac{P_{X|Y}(x|y)P_Y(y)}{\sum_{y^{&#39;}\in V al(Y)} P_{X|Y}(x|y^{&#39;})P_Y(y^{&#39;})}
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align} f_{Y|X}(y|x)&amp;=\frac{f_{XY}(x,y)}{f_X(x)} \\
+&amp;=\frac{f_{X|Y}(x|y)f_Y(y)}{\int_{-\infty}^{\infty}f_{X|Y}(x|y^{&#39;})f_Y(y^{&#39;}) dy^{&#39;}}
+\end{align}
+\]</span></p>
+<p><strong>Independence</strong></p>
+<h1 id="problems">Problems:</h1>
 <ol type="1">
-<li>When the number of features p is as large as, or &gt;n, least squares cannot be performed.</li>
+<li>Let <span class="math inline">\(X\)</span> be uniformly distributed over <span class="math inline">\((0, 1)\)</span>. Calculate <span class="math inline">\(E[X^3]\)</span></li>
 </ol>
-<p><strong>Reason</strong>: regardless of whether or not there truly is a relationship between the features and the response, least squares will yield a set of coefficient estimates that result in a perfect fit to the data, such that the residuals are zero. - This perfect fit will almost certainly lead to overfitting of the data - The problem is simple: when p &gt; n or p ≈ n, a simple least squares regression line is too <strong><em>flexible</em></strong> and hence overfits the data.</p>
-<ol start="2" type="1">
-<li>Examines only the R2 or the training set MSE might erroneously conclude that the model with the greatest number of variables is best. <img src="./12.png" width="650"></li>
-</ol>
-<ul>
-<li><p><strong>Cp, AIC, and BIC</strong> approaches are not appropriate in the high-dimensional setting, because estimating ˆσ2 is problematic.(For instance, the formula for ˆσ2 from Chapter 3 yields an estimate ˆσ2 = 0 in this setting.)</p></li>
-<li><p><strong>Adjusted R2</strong> in the high-dimensional setting is problematic, since one can easily obtain a model with an adjusted R2 value of 1.</p></li>
-</ul>
-<h1 id="regression-in-high-dimensions">Regression in High Dimensions</h1>
-<p><strong>Alternative approaches better-suited to the high-dimensional setting:</strong></p>
-<ul>
-<li>forward stepwise selection</li>
-<li>ridge regression</li>
-<li>the lasso</li>
-<li>principal components regression</li>
-</ul>
-<p><strong>Reason:</strong> these approaches avoid overfitting by using a less flexible fitting approach than least squares.</p>
-<p><strong>Three important points:</strong> (1) regularization or shrinkage plays a key role in high-dimensional problems,</p>
-<ol start="2" type="1">
-<li><p>appropriate tuning parameter selection is crucial for good predictive performance, and</p></li>
-<li><p>the test error tends to increase as the dimensionality of the problem (i.e. the number of features or predictors) increases, unless the additional features are truly associated with the response.<span class="math inline">\(\Rightarrow\)</span> <strong>curse of dimensionality</strong></p></li>
-</ol>
-<h2 id="curse-of-dimensionality">Curse of dimensionality</h2>
-<p>Adding additional signal features that are truly associated with the response will improve the fitted model; However, adding noise features that are not truly associated with the response will lead to a deterioration in the fitted model.</p>
-<p><strong>Reason</strong>: This is because noise features increase the dimensionality of the problem, exacerbating the risk of overfitting (since noise features may be assigned nonzero coefficients due to chance associations with the response on the training set) without any potential upside in terms of improved test set error.</p>
-<h1 id="interpreting-results-in-high-dimensions">Interpreting Results in High Dimensions</h1>
-<ol type="1">
-<li>Be cautious in reporting the results obtained when we perform the lasso, ridge regression, or other regression procedures in the high-dimensional setting.</li>
-</ol>
-<ul>
-<li>In the high-dimensional setting, the <strong>multicollinearity</strong> problem is extreme: any variable in the model can be written as a linear combination of all of the other variables in the model. This means that we can never know exactly which variables (if any) truly are predictive of the outcome, and we can never identify the best coefficients for use in the regression.</li>
-</ul>
-<ol start="2" type="1">
-<li>Be cautious in reporting errors and measures of model fit in the high-dimensional setting</li>
-</ol>
-<ul>
-<li>e.g.: when p &gt; n, it is easy to obtain a useless model that has zero residuals.</li>
-<li><strong>One should never use sum of squared errors, p-values, R2 statistics, or other traditional measures of model fit on the training data as evidence of a good model fit in the high-dimensional setting</strong></li>
-<li>It is important to instead report results on an independent test set, or cross-validation errors. For instance, the MSE or R2 on an independent test set is a valid measure of model fit, but the MSE on the training set certainly is not.</li>
-</ul>
+<p><span class="math display">\[
+F_Y(a)=P(Y\leq a)=P(X^3&lt;a)=P(X\leq a^{1/3})=a^{1/3} \\
+\]</span></p>
+<p>where the last equality follows since <em>X</em> is uniformly distributed over (0, 1). By differentiating <span class="math inline">\(F_Y(a)\)</span>, we obtain the density of <em>Y</em>, namely, <span class="math display">\[
+f_Y(a)=\frac{1}{3}a^{-2/3} , 0\leq a \leq 1
+\]</span> Hence, <span class="math display">\[
+E[X^3]=E(Y)=\int_{-\infty}^\infty af_Y(a)da= \int_{0}^1 \frac{1}{3}a^{1/3}da = \frac{1}{3}\frac{3}{4} a^{4/3} |^1_0=\frac{1}{4}
+\]</span></p>
 
-        
-      </div>
-      
-      
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Probability/" rel="tag"># Probability</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/9a328503/" rel="next" title="Spark SQL & DataFrame, SparkETL">
+                <i class="fa fa-chevron-left"></i> Spark SQL & DataFrame, SparkETL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/445d7012/" rel="prev" title="July 2019 | 七月日志">
+                July 2019 | 七月日志 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -566,7 +758,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -664,7 +856,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -749,7 +943,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#high-dimensional-data"><span class="nav-number">1.</span> <span class="nav-text">High-Dimensional Data</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-goes-wrong-in-high-dimensions"><span class="nav-number">2.</span> <span class="nav-text">What Goes Wrong in High Dimensions?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#regression-in-high-dimensions"><span class="nav-number">3.</span> <span class="nav-text">Regression in High Dimensions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#curse-of-dimensionality"><span class="nav-number">3.1.</span> <span class="nav-text">Curse of dimensionality</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#interpreting-results-in-high-dimensions"><span class="nav-number">4.</span> <span class="nav-text">Interpreting Results in High Dimensions</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#random-variables"><span class="nav-number">1.</span> <span class="nav-text">Random Variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#problems"><span class="nav-number">2.</span> <span class="nav-text">Problems:</span></a></li></ol></div>
             
 
           </div>
@@ -782,7 +976,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">370k</span>
+    <span title="Symbols count total">373k</span>
   
 
   

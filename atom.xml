@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancyyanyu.github.io/"/>
-  <updated>2019-10-20T23:45:52.657Z</updated>
+  <updated>2019-10-20T23:50:20.829Z</updated>
   <id>https://nancyyanyu.github.io/</id>
   
   <author>
@@ -17,24 +17,60 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CS229-Classification</title>
-    <link href="https://nancyyanyu.github.io/posts/f27b47b0/"/>
-    <id>https://nancyyanyu.github.io/posts/f27b47b0/</id>
-    <published>2019-10-20T20:01:24.000Z</published>
-    <updated>2019-10-20T23:45:52.657Z</updated>
+    <title>CS229-GeneralizedLinearModels</title>
+    <link href="https://nancyyanyu.github.io/posts/9b3e7e9e/"/>
+    <id>https://nancyyanyu.github.io/posts/9b3e7e9e/</id>
+    <published>2019-10-20T21:50:20.000Z</published>
+    <updated>2019-10-20T23:50:20.829Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="logistic-regression">Logistic regression</h1><p>Change the form for our <strong>hypotheses <span class="math inline">\(h(x)\)</span>:</strong> <span class="math display">\[h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}}\]</span> <strong>Logistic function(sigmoid function):</strong> <span class="math display">\[g(z)=\frac{1}{1+\exp{(-z)}}\]</span> <img src="./sigmoid.png" width="600"></p><p><span class="math display">\[\begin{align}g^{&#39;}(z)&amp;=\frac{d}{dz}\frac{1}{1+\exp{(-z)}} \\&amp;=\frac{1}{(1+\exp{(-z)})^2} \exp{(-z)} \\&amp;=\frac{1}{1+\exp{(-z)}} \cdot (1-\frac{1}{1+\exp{(-z)}}) \\&amp;=g(z) \cdot (1-g(z))\end{align}\]</span></p><h2 id="how-do-we-fit-θ-for-it"><strong>How do we fit <span class="math inline">\(θ\)</span> for it?</strong></h2><p><strong>Probabilistic assumptions</strong>: <span class="math display">\[P(y=1|x;\theta)=h_\theta(x) \\P(y=0|x;\theta)=1-h_\theta(x)\]</span> Note that this can be written more compactly as <span class="math display">\[p(y|x;\theta)=(h_\theta(x) )^y(1-h_\theta(x) )^{1-y}\]</span> Assuming that the <span class="math inline">\(n\)</span> training examples were generated independently, we can then write down the likelihood of the parameters as <span class="math display">\[L(\theta)=p(\overrightarrow{y}|X;\theta)=\prod_{i=1}^np(y^{(i)}|x^{(i)};\theta) \\=\prod_{i=1}^n(h_\theta(x^{(i)}) )^{y^{(i)}}(1-h_\theta(x^{(i)}) )^{1-y^{(i)}}\]</span> As before, it will be easier to maximize the log likelihood: <span class="math display">\[ℓ(θ) = \log{L(θ)}=\sum_{i=1}^ny^{(i)}\log{h_\theta(x^{(i)})}+(1-y^{(i)})\log{(1-h_\theta(x^{(i)}) )}\]</span> Use gradient ascent to maximize the likelihood: <span class="math inline">\(θ := θ + α∇ℓ(θ)\)</span></p><p>Let’s start by working with just one training example <span class="math inline">\((x, y)\)</span>: <span class="math display">\[\begin{align}\frac{\partial ℓ(θ)}{\partial θ_j}&amp;=(y\frac{1}{h_\theta(x)}-(1-y)\frac{1}{1-h_\theta(x)})\frac{\partial h_\theta(x)}{\partial θ_j} \\&amp;=(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)})\frac{\partial g(\theta^Tx)}{\partial θ_j} \\&amp;=(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)}) g(\theta^Tx)(1- g(\theta^Tx))\frac{\partial θ^Tx}{\partial θ_j} \\&amp;=(y(1- g(\theta^Tx))-(1-y)g(\theta^Tx))x_j \\&amp;=(y-g(\theta^Tx))x_j \\&amp;=(y-h_\theta(x))x_j\end{align}\]</span> <strong>Stochastic gradient ascent rule</strong>: <span class="math display">\[θ_j := θ_j + α(y^{(i)}-h_\theta(x^{(i)}))x^{(i)}_j\]</span> It looks identical to the LMS update rule; but this is not the same algorithm, because <span class="math inline">\(h_\theta(x^{(i)})\)</span> is now defined as a non-linear function of <span class="math inline">\(\theta^Tx^{(i)}\)</span>.</p><h1 id="digression-the-perceptron-learning-algorithm">Digression: The perceptron learning algorithm</h1><p>Consider modifying the logistic regression method to “force” it to output values that are either 0 or 1 or exactly： <span class="math display">\[g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}\]</span> Let <span class="math inline">\(h(x) = g(θ^T x)\)</span> as before but using this modified definition of <span class="math inline">\(g\)</span>, and if we use the update rule <span class="math display">\[θ_j := θ_j + α(y^{(i)}-h_\theta(x^{(i)}))x^{(i)}_j\]</span> then we have the <strong>perceptron learning algorithn</strong>.</p><p>Note:</p><ul><li>Even though the perceptron may be cosmetically similar to the other algorithms we talked about, it is actually a very different type of algorithm than logistic regression and least squares linear regression;</li><li>Difficult to endow the perceptron’s predictions with meaningful probabilistic interpretations, or derive the perceptron as a maximum likelihood estimation algorithm.</li></ul><h1 id="fisher-scoring-algorithm-for-maximizing-ℓθ">Fisher scoring algorithm for maximizing ℓ(θ)</h1><p><strong>Newton’s method</strong> (finding a zero of a function) performs the following update: <span class="math display">\[\theta:=\theta-\frac{f(\theta)}{f^{&#39;}(\theta)}\]</span> <strong>Interpretation:</strong> Approximating the function <span class="math inline">\(f\)</span> via a linear function that is tangent to <span class="math inline">\(f\)</span> at the current guess <span class="math inline">\(θ\)</span>, solving for where that linear function equals to zero, and letting the next guess for <span class="math inline">\(θ\)</span> be where that linear function is zero.</p><p><img src="./newton.png" width="600"></p><p>The maxima of <span class="math inline">\(ℓ\)</span> correspond to points where its first derivative <span class="math inline">\(ℓ′(θ)\)</span> is zero. So, by letting <span class="math inline">\(f(θ) = ℓ′(θ)\)</span>, we can use the same algorithm to maximize <span class="math inline">\(ℓ\)</span>, and we obtain update rule: <span class="math display">\[\theta:=\theta-\frac{ℓ′(θ)}{ℓ′′(θ)}\]</span> <u>The generalization of Newton’s method:</u> <span class="math display">\[\theta:=\theta-H^{-1}∇_θℓ(θ)\]</span> <span class="math inline">\(H\)</span> is <strong>Hessian</strong> matrix, whose entries are given by <span class="math inline">\(H_{ij}=\frac{\partial^2 ℓ(θ)}{\partial θ_i \partial θ_j}\)</span></p><ul><li>Faster convergence than (batch) gradient descent, and requires many fewer iterations to get very close to the minimum.</li><li>One iteration of Newton’s can, however, be more expensive than one iteration of gradient descent, since it requires finding and inverting an d-by-d Hessian</li></ul><p>When <strong><em>Newton’s method</em></strong> is applied to maximize the <strong><em>logistic regression log likelihood function ℓ(θ)</em></strong>, the resulting method is also called <strong>Fisher scoring</strong>.</p>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;logistic-regression&quot;&gt;Logistic regression&lt;/h1&gt;
-&lt;p&gt;Change the form for our &lt;strong&gt;hypotheses &lt;span class=&quot;math inline&quot;&gt;\(h(x)\)&lt;/span
+        
+
       
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>CS229 Note: Logistic Regression</title>
+    <link href="https://nancyyanyu.github.io/posts/f27b47b0/"/>
+    <id>https://nancyyanyu.github.io/posts/f27b47b0/</id>
+    <published>2019-10-20T20:01:24.000Z</published>
+    <updated>2019-10-20T23:50:53.018Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="logistic-regression">Logistic regression</h1><p>Change the form for our <strong>hypotheses <span class="math inline">\(h(x)\)</span>:</strong> <span class="math display">\[h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}}\]</span> <strong>Logistic function(sigmoid function):</strong> <span class="math display">\[g(z)=\frac{1}{1+\exp{(-z)}}\]</span> <img src="./sigmoid.png" width="600"></p><p><span class="math display">\[\begin{align}g^{&#39;}(z)&amp;=\frac{d}{dz}\frac{1}{1+\exp{(-z)}} \\&amp;=\frac{1}{(1+\exp{(-z)})^2} \exp{(-z)} \\&amp;=\frac{1}{1+\exp{(-z)}} \cdot (1-\frac{1}{1+\exp{(-z)}}) \\&amp;=g(z) \cdot (1-g(z))\end{align}\]</span> <a id="more"></a></p><h2 id="how-do-we-fit-θ-for-it">How do we fit <span class="math inline">\(θ\)</span> for it?**</h2><p><strong>Probabilistic assumptions</strong>: <span class="math display">\[P(y=1|x;\theta)=h_\theta(x) \\P(y=0|x;\theta)=1-h_\theta(x)\]</span> Note that this can be written more compactly as <span class="math display">\[p(y|x;\theta)=(h_\theta(x) )^y(1-h_\theta(x) )^{1-y}\]</span> Assuming that the <span class="math inline">\(n\)</span> training examples were generated independently, we can then write down the likelihood of the parameters as <span class="math display">\[L(\theta)=p(\overrightarrow{y}|X;\theta)=\prod_{i=1}^np(y^{(i)}|x^{(i)};\theta) \\=\prod_{i=1}^n(h_\theta(x^{(i)}) )^{y^{(i)}}(1-h_\theta(x^{(i)}) )^{1-y^{(i)}}\]</span> As before, it will be easier to maximize the log likelihood: <span class="math display">\[ℓ(θ) = \log{L(θ)}=\sum_{i=1}^ny^{(i)}\log{h_\theta(x^{(i)})}+(1-y^{(i)})\log{(1-h_\theta(x^{(i)}) )}\]</span> Use gradient ascent to maximize the likelihood: <span class="math inline">\(θ := θ + α∇ℓ(θ)\)</span></p><p>Let’s start by working with just one training example <span class="math inline">\((x, y)\)</span>: <span class="math display">\[\begin{align}\frac{\partial ℓ(θ)}{\partial θ_j}&amp;=(y\frac{1}{h_\theta(x)}-(1-y)\frac{1}{1-h_\theta(x)})\frac{\partial h_\theta(x)}{\partial θ_j} \\&amp;=(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)})\frac{\partial g(\theta^Tx)}{\partial θ_j} \\&amp;=(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)}) g(\theta^Tx)(1- g(\theta^Tx))\frac{\partial θ^Tx}{\partial θ_j} \\&amp;=(y(1- g(\theta^Tx))-(1-y)g(\theta^Tx))x_j \\&amp;=(y-g(\theta^Tx))x_j \\&amp;=(y-h_\theta(x))x_j\end{align}\]</span> <strong>Stochastic gradient ascent rule</strong>: <span class="math display">\[θ_j := θ_j + α(y^{(i)}-h_\theta(x^{(i)}))x^{(i)}_j\]</span> It looks identical to the LMS update rule; but this is not the same algorithm, because <span class="math inline">\(h_\theta(x^{(i)})\)</span> is now defined as a non-linear function of <span class="math inline">\(\theta^Tx^{(i)}\)</span>.</p><h1 id="digression-the-perceptron-learning-algorithm">Digression: The perceptron learning algorithm</h1><p>Consider modifying the logistic regression method to “force” it to output values that are either 0 or 1 or exactly： <span class="math display">\[g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}\]</span> Let <span class="math inline">\(h(x) = g(θ^T x)\)</span> as before but using this modified definition of <span class="math inline">\(g\)</span>, and if we use the update rule <span class="math display">\[θ_j := θ_j + α(y^{(i)}-h_\theta(x^{(i)}))x^{(i)}_j\]</span> then we have the <strong>perceptron learning algorithn</strong>.</p><p>Note:</p><ul><li>Even though the perceptron may be cosmetically similar to the other algorithms we talked about, it is actually a very different type of algorithm than logistic regression and least squares linear regression;</li><li>Difficult to endow the perceptron’s predictions with meaningful probabilistic interpretations, or derive the perceptron as a maximum likelihood estimation algorithm.</li></ul><h1 id="fisher-scoring-algorithm-for-maximizing-ℓθ">Fisher scoring algorithm for maximizing ℓ(θ)</h1><p><strong>Newton’s method</strong> (finding a zero of a function) performs the following update: <span class="math display">\[\theta:=\theta-\frac{f(\theta)}{f^{&#39;}(\theta)}\]</span> <strong>Interpretation:</strong> Approximating the function <span class="math inline">\(f\)</span> via a linear function that is tangent to <span class="math inline">\(f\)</span> at the current guess <span class="math inline">\(θ\)</span>, solving for where that linear function equals to zero, and letting the next guess for <span class="math inline">\(θ\)</span> be where that linear function is zero.</p><p><img src="./newton.png" width="600"></p><p>The maxima of <span class="math inline">\(ℓ\)</span> correspond to points where its first derivative <span class="math inline">\(ℓ′(θ)\)</span> is zero. So, by letting <span class="math inline">\(f(θ) = ℓ′(θ)\)</span>, we can use the same algorithm to maximize <span class="math inline">\(ℓ\)</span>, and we obtain update rule: <span class="math display">\[\theta:=\theta-\frac{ℓ′(θ)}{ℓ′′(θ)}\]</span> <u>The generalization of Newton’s method:</u> <span class="math display">\[\theta:=\theta-H^{-1}∇_θℓ(θ)\]</span> <span class="math inline">\(H\)</span> is <strong>Hessian</strong> matrix, whose entries are given by <span class="math inline">\(H_{ij}=\frac{\partial^2 ℓ(θ)}{\partial θ_i \partial θ_j}\)</span></p><ul><li>Faster convergence than (batch) gradient descent, and requires many fewer iterations to get very close to the minimum.</li><li>One iteration of Newton’s can, however, be more expensive than one iteration of gradient descent, since it requires finding and inverting an d-by-d Hessian</li></ul><p>When <strong><em>Newton’s method</em></strong> is applied to maximize the <strong><em>logistic regression log likelihood function ℓ(θ)</em></strong>, the resulting method is also called <strong>Fisher scoring</strong>.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;logistic-regression&quot;&gt;Logistic regression&lt;/h1&gt;
+&lt;p&gt;Change the form for our &lt;strong&gt;hypotheses &lt;span class=&quot;math inline&quot;&gt;\(h(x)\)&lt;/span&gt;:&lt;/strong&gt; &lt;span class=&quot;math display&quot;&gt;\[
+h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}}
+\]&lt;/span&gt; &lt;strong&gt;Logistic function(sigmoid function):&lt;/strong&gt; &lt;span class=&quot;math display&quot;&gt;\[
+g(z)=\frac{1}{1+\exp{(-z)}}
+\]&lt;/span&gt; &lt;img src=&quot;./sigmoid.png&quot; width=&quot;600&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[
+\begin{align}g^{&amp;#39;}(z)&amp;amp;=\frac{d}{dz}\frac{1}{1+\exp{(-z)}} \\
+&amp;amp;=\frac{1}{(1+\exp{(-z)})^2} \exp{(-z)} \\
+&amp;amp;=\frac{1}{1+\exp{(-z)}} \cdot (1-\frac{1}{1+\exp{(-z)}}) \\
+&amp;amp;=g(z) \cdot (1-g(z))
+\end{align}
+\]&lt;/span&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
+    
+      <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
     
   </entry>
   
@@ -453,9 +489,9 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
       <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
     
     
-      <category term="LDA" scheme="https://nancyyanyu.github.io/tags/LDA/"/>
-    
       <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
+    
+      <category term="LDA" scheme="https://nancyyanyu.github.io/tags/LDA/"/>
     
       <category term="Model Evaluation" scheme="https://nancyyanyu.github.io/tags/Model-Evaluation/"/>
     
@@ -490,9 +526,9 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
       <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
     
     
-      <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
-    
       <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
+    
+      <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
     
   </entry>
   
@@ -569,28 +605,6 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
     <updated>2019-09-07T22:37:31.085Z</updated>
     
     <content type="html"><![CDATA[<p> </p><a id="more"></a><center><b>❤ 8月手帳 ❤</b></center><table><colgroup><col style="width: 6%"><col style="width: 82%"><col style="width: 10%"></colgroup><thead><tr class="header"><th style="text-align: left;">Date</th><th>Study</th><th>Workout</th></tr></thead><tbody><tr class="odd"><td style="text-align: left;">08/01</td><td>Work with economy / news api; write news streaming module and economy data visualization, geomap</td><td>/</td></tr><tr class="even"><td style="text-align: left;">08/02</td><td>Write news streaming code</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">08/03</td><td>Learn docker, write dockerfile</td><td>/</td></tr><tr class="even"><td style="text-align: left;">08/04</td><td>Write dockerfile</td><td>PingPong</td></tr><tr class="odd"><td style="text-align: left;">08/05</td><td>Write dockerfile; buy a domain name; deploy the web application on server</td><td>/</td></tr><tr class="even"><td style="text-align: left;">08/06</td><td>Test S&amp;P500 price streaming during trading hours; debug;</td><td>PingPong</td></tr><tr class="odd"><td style="text-align: left;">08/07</td><td><strong><em>Start job hunting and no more update on this page (but I will keep coding and practicing LeetCode SQL)</em></strong></td><td>/</td></tr></tbody></table><p> </p><p> </p><center><b>❤ Plan ❤</b></center><table><colgroup><col style="width: 12%"><col style="width: 74%"><col style="width: 12%"></colgroup><thead><tr class="header"><th style="text-align: center;">Categories</th><th style="text-align: center;">Content</th><th style="text-align: center;">Progress</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">Project</td><td style="text-align: center;">Realtime financial market data visualization and analysis</td><td style="text-align: center;">■■■■■■■■■□</td></tr></tbody></table><p> </p><p> </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt; &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Journal" scheme="https://nancyyanyu.github.io/categories/Journal/"/>
-    
-    
-      <category term="Journal" scheme="https://nancyyanyu.github.io/tags/Journal/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>July 2019 | 七月日志</title>
-    <link href="https://nancyyanyu.github.io/posts/445d7012/"/>
-    <id>https://nancyyanyu.github.io/posts/445d7012/</id>
-    <published>2019-08-02T16:38:59.000Z</published>
-    <updated>2019-08-02T19:03:41.286Z</updated>
-    
-    <content type="html"><![CDATA[<p> </p><a id="more"></a><p> </p><center><img src="./allen2.jpg" width="300"></center><p> </p><center><b>❤ 7月手帳 ❤</b></center><table><colgroup><col style="width: 6%"><col style="width: 81%"><col style="width: 12%"></colgroup><thead><tr class="header"><th style="text-align: left;">Date</th><th>Study</th><th>Workout</th></tr></thead><tbody><tr class="odd"><td style="text-align: left;">07/01</td><td>Job Hunting</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/02</td><td>Job Hunting</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/03</td><td>Job Hunting</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/04</td><td>Learn pyspark streaming</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/05</td><td>Learn pyspark streaming</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/06</td><td>(Travel in Portland~~)</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/07</td><td>(Travel in Portland~~)</td><td>Hiking</td></tr><tr class="even"><td style="text-align: left;">07/08</td><td>Finish udemy's course <a href="https://www.udemy.com/apache-spark-streaming-with-python-and-pyspark/" target="_blank" rel="noopener">Apache Spark Streaming with Python and PySpark</a></td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/09</td><td>Write pyspark project code and blog;</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/10</td><td>Write twitter pyspark streaming project</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/11</td><td>Coffee chat and write email all day</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/12</td><td>Work on new spotify project</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/13</td><td>(/<sub>/</sub>/<sub>nothing</sub>~~)</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/14</td><td>Coding for project; learn AWS DynamoDB, S3</td><td>Ping Pong</td></tr><tr class="odd"><td style="text-align: left;">07/15</td><td>Work on project; learn Apache Airflow, review Linear Regression</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/16</td><td>Write project report; learn Apache Airflow</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/17</td><td>Write project report</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/18</td><td>Learn Beautifulsoup, crawling and start new project</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/19</td><td>Write crawling code</td><td>Ping Pong</td></tr><tr class="even"><td style="text-align: left;">07/20</td><td>Crawling all day, deploy to EC2</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/21</td><td>Write feature extraction code; rewrite resume</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/22</td><td>Revise resume</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/23</td><td>Revise resume and review probability theory</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/24</td><td>Sending applications all day</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/25</td><td>Learn Kafka and Spark, start a new project (a full stack data engineering and analysis project with realtime data)</td><td>Ping Pong</td></tr><tr class="even"><td style="text-align: left;">07/26</td><td>Meeting, Research on new project</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/27</td><td>Learn Kafka, play with multiple realtime data API</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/28</td><td>Learn Cassandra and CQL</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/29</td><td>Study bokeh, write streaming visualization module</td><td>/</td></tr><tr class="even"><td style="text-align: left;">07/30</td><td>Crawl yahoo finance for realtime data</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">07/31</td><td>Study bokeh, write visualization module for project</td><td>Ping Pong</td></tr></tbody></table><p> </p><p> </p><center><b>❤ Plan ❤</b></center><table><colgroup><col style="width: 12%"><col style="width: 75%"><col style="width: 12%"></colgroup><thead><tr class="header"><th style="text-align: center;">Categories</th><th style="text-align: center;">Content</th><th style="text-align: center;">Progress</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">Project</td><td style="text-align: center;"><a href="https://nancyyanyu.github.io/posts/9fb5a802/">Realtime Twitter Data Analysis using Spark Streaming</a></td><td style="text-align: center;">■■■■■■■■■■</td></tr><tr class="even"><td style="text-align: center;">Project</td><td style="text-align: center;"><a href="https://nancyyanyu.github.io/posts/63adf3bb/">Data Analysis of K-POP: Playing with Spotify API</a></td><td style="text-align: center;">■■■■■■■■■■</td></tr><tr class="odd"><td style="text-align: center;">Project</td><td style="text-align: center;">Realtime financial market data visualization and analysis</td><td style="text-align: center;">■■■■■■□□□□</td></tr><tr class="even"><td style="text-align: center;">Project</td><td style="text-align: center;">Crawling project</td><td style="text-align: center;">■■■■■■■■■■</td></tr><tr class="odd"><td style="text-align: center;">Big Data</td><td style="text-align: center;">Udemy: <a href="https://www.udemy.com/apache-spark-streaming-with-python-and-pyspark/" target="_blank" rel="noopener">Apache Spark Streaming with Python and PySpark</a></td><td style="text-align: center;">■■■■■■■■■■</td></tr></tbody></table><p> </p><p> </p><center><b>❤ Some Spark Resources that I like to share~ ❤</b></center><ul><li>Youtube: <a href="https://www.youtube.com/watch?v=7ooZ4S7Ay6Y" target="_blank" rel="noopener">Advanced Apache Spark Training - Sameer Farooqui (Databricks)</a></li><li>Blog &amp; Github: <a href="%5Bhttps://github.com/NFLX-WIBD/WIBD-Workshops-2018/tree/master/Data%20Engineering%5D(https://github.com/NFLX-WIBD/WIBD-Workshops-2018/tree/master/Data%20Engineering)">Data Engineering Workshop 2018 from Netflix</a> &amp; <a href="https://medium.com/hasbrain/a-typical-data-engineering-project-sharing-from-netflix-data-engineering-team-cc27878fce55" target="_blank" rel="noopener">A Typical Data Engineering Project — Sharing From Netflix Data Engineering Team</a></li></ul><p> </p>]]></content>
     
     <summary type="html">
     

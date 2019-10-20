@@ -120,17 +120,18 @@
 
 
   <meta name="description" content="Logistic regression Change the form for our hypotheses \(h(x)\): \[ h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}} \] Logistic function(sigmoid function): \[ g(z)=\frac{1}{1+\exp{(-z)}} \]  \">
+<meta name="keywords" content="Logistic Regression,Classification">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CS229-Classification">
+<meta property="og:title" content="CS229 Note: Logistic Regression">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/f27b47b0/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:description" content="Logistic regression Change the form for our hypotheses \(h(x)\): \[ h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}} \] Logistic function(sigmoid function): \[ g(z)=\frac{1}{1+\exp{(-z)}} \]  \">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/f27b47b0/sigmoid.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/f27b47b0/newton.png">
-<meta property="og:updated_time" content="2019-10-20T23:45:52.657Z">
+<meta property="og:updated_time" content="2019-10-20T23:50:53.018Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CS229-Classification">
+<meta name="twitter:title" content="CS229 Note: Logistic Regression">
 <meta name="twitter:description" content="Logistic regression Change the form for our hypotheses \(h(x)\): \[ h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}} \] Logistic function(sigmoid function): \[ g(z)=\frac{1}{1+\exp{(-z)}} \]  \">
 <meta name="twitter:image" content="https://nancyyanyu.github.io/posts/f27b47b0/sigmoid.png">
 
@@ -152,7 +153,7 @@
   };
 </script>
 
-  <title>CS229-Classification | Nancy's Notes</title>
+  <title>CS229 Note: Logistic Regression | Nancy's Notes</title>
   
 
 
@@ -423,7 +424,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CS229-Classification
+          <h1 class="post-title" itemprop="name headline">CS229 Note: Logistic Regression
 
               
             
@@ -449,7 +450,7 @@
                 
               
 
-              <time title="Created: 2019-10-20 15:01:24 / Modified: 18:45:52" itemprop="dateCreated datePublished" datetime="2019-10-20T15:01:24-05:00">2019-10-20</time>
+              <time title="Created: 2019-10-20 15:01:24 / Modified: 18:50:53" itemprop="dateCreated datePublished" datetime="2019-10-20T15:01:24-05:00">2019-10-20</time>
             
 
             
@@ -459,6 +460,24 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -528,8 +547,8 @@ g(z)=\frac{1}{1+\exp{(-z)}}
 &amp;=\frac{1}{1+\exp{(-z)}} \cdot (1-\frac{1}{1+\exp{(-z)}}) \\
 &amp;=g(z) \cdot (1-g(z))
 \end{align}
-\]</span></p>
-<h2 id="how-do-we-fit-θ-for-it"><strong>How do we fit <span class="math inline">\(θ\)</span> for it?</strong></h2>
+\]</span> <a id="more"></a></p>
+<h2 id="how-do-we-fit-θ-for-it">How do we fit <span class="math inline">\(θ\)</span> for it?**</h2>
 <p><strong>Probabilistic assumptions</strong>: <span class="math display">\[
 P(y=1|x;\theta)=h_\theta(x) \\
 P(y=0|x;\theta)=1-h_\theta(x)
@@ -600,6 +619,17 @@ g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
 
     <footer class="post-footer">
       
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Logistic-Regression/" rel="tag"># Logistic Regression</a>
+          
+            <a href="/tags/Classification/" rel="tag"># Classification</a>
+          
+        </div>
+      
 
       
       
@@ -618,6 +648,10 @@ g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/9b3e7e9e/" rel="prev" title="CS229-GeneralizedLinearModels">
+                CS229-GeneralizedLinearModels <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -693,7 +727,7 @@ g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -791,7 +825,9 @@ g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -876,7 +912,7 @@ g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#logistic-regression"><span class="nav-number">1.</span> <span class="nav-text">Logistic regression</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#how-do-we-fit-θ-for-it"><span class="nav-number">1.1.</span> <span class="nav-text">How do we fit \(θ\) for it?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#digression-the-perceptron-learning-algorithm"><span class="nav-number">2.</span> <span class="nav-text">Digression: The perceptron learning algorithm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fisher-scoring-algorithm-for-maximizing-ℓθ"><span class="nav-number">3.</span> <span class="nav-text">Fisher scoring algorithm for maximizing ℓ(θ)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#logistic-regression"><span class="nav-number">1.</span> <span class="nav-text">Logistic regression</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#how-do-we-fit-θ-for-it"><span class="nav-number">1.1.</span> <span class="nav-text">How do we fit \(θ\) for it?**</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#digression-the-perceptron-learning-algorithm"><span class="nav-number">2.</span> <span class="nav-text">Digression: The perceptron learning algorithm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fisher-scoring-algorithm-for-maximizing-ℓθ"><span class="nav-number">3.</span> <span class="nav-text">Fisher scoring algorithm for maximizing ℓ(θ)</span></a></li></ol></div>
             
 
           </div>
@@ -909,7 +945,7 @@ g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">370k</span>
+    <span title="Symbols count total">373k</span>
   
 
   
@@ -1112,7 +1148,66 @@ g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
   
     renderGitment();
   
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1131,26 +1226,7 @@ g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-  
-
-
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 
