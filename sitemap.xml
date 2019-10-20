@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/posts/0/</loc>
+    
+    <lastmod>2019-10-20T21:44:55.197Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/draft/CS229-LinearRegression.html</loc>
+    
+    <lastmod>2019-10-20T21:43:49.845Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/draft/CS229-Classification&logisticRegression.html</loc>
+    
+    <lastmod>2019-10-20T21:43:14.038Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/resume/index.html</loc>
+    
+    <lastmod>2019-10-20T21:41:13.775Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/9b5af8e1/</loc>
+    
+    <lastmod>2019-10-20T02:36:32.339Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/draft/CS229-Prob.html</loc>
+    
+    <lastmod>2019-10-20T02:03:24.155Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/posts/9fb5a802/</loc>
     
     <lastmod>2019-10-20T01:56:57.803Z</lastmod>
@@ -26,13 +68,6 @@
     <loc>https://nancyyanyu.github.io/posts/8b70757d/</loc>
     
     <lastmod>2019-10-20T01:56:46.489Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/resume/index.html</loc>
-    
-    <lastmod>2019-10-20T01:47:47.969Z</lastmod>
     
   </url>
   
@@ -75,13 +110,6 @@
     <loc>https://nancyyanyu.github.io/posts/a065f58f/</loc>
     
     <lastmod>2019-10-19T23:21:22.427Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/posts/9b5af8e1/</loc>
-    
-    <lastmod>2019-10-19T23:21:12.394Z</lastmod>
     
   </url>
   
@@ -226,13 +254,6 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/draft/CS229-LinearRegression.html</loc>
-    
-    <lastmod>2019-10-09T05:02:52.755Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://nancyyanyu.github.io/posts/8e8e46fb/</loc>
     
     <lastmod>2019-09-07T22:37:31.085Z</lastmod>
@@ -243,13 +264,6 @@
     <loc>https://nancyyanyu.github.io/project/index.html</loc>
     
     <lastmod>2019-08-07T21:31:56.784Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/draft/CS229-Prob.html</loc>
-    
-    <lastmod>2019-08-02T19:23:35.862Z</lastmod>
     
   </url>
   

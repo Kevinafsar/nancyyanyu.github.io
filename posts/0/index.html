@@ -119,23 +119,17 @@
 
 
 
-  <meta name="description" content="no free lunch in statistics: no one method dominates all others over all possible data sets.  Explanation: On a particular data set, one specific method may work best, but some other method may work b">
-<meta name="keywords" content="Model Assessment">
+  <meta name="description" content="linear function: \(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\) cost function: \(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\) Least Mean Square Algorithm To minimizes \(J(θ)\), consider">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Study Note: Assessing Model Accuracy">
-<meta property="og:url" content="https://nancyyanyu.github.io/posts/86b37baa/index.html">
+<meta property="og:title" content="Nancy&#39;s Notes">
+<meta property="og:url" content="https://nancyyanyu.github.io/posts/0/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="no free lunch in statistics: no one method dominates all others over all possible data sets.  Explanation: On a particular data set, one specific method may work best, but some other method may work b">
+<meta property="og:description" content="linear function: \(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\) cost function: \(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\) Least Mean Square Algorithm To minimizes \(J(θ)\), consider">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://nancyyanyu.github.io/posts/86b37baa/1.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/posts/86b37baa/2.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/posts/86b37baa/4.png">
-<meta property="og:image" content="https://nancyyanyu.github.io/posts/86b37baa/3.png">
-<meta property="og:updated_time" content="2019-10-19T23:20:39.552Z">
+<meta property="og:updated_time" content="2019-10-20T21:44:55.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Study Note: Assessing Model Accuracy">
-<meta name="twitter:description" content="no free lunch in statistics: no one method dominates all others over all possible data sets.  Explanation: On a particular data set, one specific method may work best, but some other method may work b">
-<meta name="twitter:image" content="https://nancyyanyu.github.io/posts/86b37baa/1.png">
+<meta name="twitter:title" content="Nancy&#39;s Notes">
+<meta name="twitter:description" content="linear function: \(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\) cost function: \(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\) Least Mean Square Algorithm To minimizes \(J(θ)\), consider">
 
 
 
@@ -145,7 +139,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/posts/86b37baa/">
+  <link rel="canonical" href="https://nancyyanyu.github.io/posts/0/">
 
 
 
@@ -155,7 +149,7 @@
   };
 </script>
 
-  <title>Study Note: Assessing Model Accuracy | Nancy's Notes</title>
+  <title> | Nancy's Notes</title>
   
 
 
@@ -409,7 +403,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/86b37baa/">
+    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Nancy Yan">
@@ -426,7 +420,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Study Note: Assessing Model Accuracy
+          <h1 class="post-title" itemprop="name headline">
 
               
             
@@ -452,34 +446,12 @@
                 
               
 
-              <time title="Created: 2019-10-19 18:03:53 / Modified: 18:20:39" itemprop="dateCreated datePublished" datetime="2019-10-19T18:03:53-05:00">2019-10-19</time>
+              <time title="Created: 2019-10-20 16:44:55" itemprop="dateCreated datePublished" datetime="2019-10-20T16:44:55-05:00">2019-10-20</time>
             
 
-            
-              
-
-              
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -503,7 +475,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">6.4k</span>
+                <span title="Symbols count in article">8.1k</span>
               
 
               
@@ -517,7 +489,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">6 mins.</span>
+                <span title="Reading time">7 mins.</span>
               
             </div>
           
@@ -537,84 +509,125 @@
       
 
       
-        <p><strong><em>no free lunch in statistics</em></strong>: no one method dominates all others over all possible data sets.</p>
+        <p><strong>linear function</strong>: <span class="math inline">\(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\)</span></p>
+<p><strong>cost function</strong>: <span class="math inline">\(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\)</span></p>
+<h1 id="least-mean-square-algorithm">Least Mean Square Algorithm</h1>
+<p>To minimizes <span class="math inline">\(J(θ)\)</span>, consider the <strong><em>gradient descent</em></strong> algorithm, which starts with some initial <span class="math inline">\(θ\)</span>, and repeatedly performs the update: <span class="math display">\[
+θ_j:= θ_j − α\frac{∂J(θ)}{∂θ_j}
+\]</span> (This update is simultaneously performed for all values of <span class="math inline">\(j = 0, . . . , d\)</span>.)</p>
+<p>Gradient descent algorithm repeatedly takes a step in the direction of <em>steepest decrease</em> of <span class="math inline">\(J\)</span>.</p>
+<p>Work out partial derivative term with only one training example (x, y): <span class="math display">\[
+\frac{∂J(θ)}{∂θ_j}=\frac{∂}{∂θ_j}\frac{1}{2}\sum_{i=1}^n(h_θ(x)-y)^2 \\
+=(h_θ(x)-y)\frac{∂}{∂θ_j}(h_θ(x)-y) \\
+=(h_θ(x)-y)\frac{∂}{∂θ_j}(\sum_{i=1}^d θ_ix_i-y) \\
+=(h_θ(x)-y)x_j
+\]</span> For a single training example, this gives the update rule - <strong><em>LMS update rule</em></strong>: <span class="math display">\[
+θ_j:= θ_j + α(y^{(i)}-h_θ(x^{(i)}))x_j^{(i)}
+\]</span> <strong>Properties</strong>: the magnitude of the update is proportional to the error term <span class="math inline">\((y^{(i)}-h_θ(x^{(i)}))\)</span></p>
+<p><strong>Batch gradient descent</strong>: looks at every example in the entire training set on every step.</p>
 <ul>
-<li>Explanation: On a particular data set, one specific method may work best, but some other method may work better on a similar but different data set. Hence it is an important task to decide for any given set of data which method produces the best results.</li>
+<li>susceptible to local minima</li>
 </ul>
-<h1 id="measuring-the-quality-of-fit">Measuring the Quality of Fit</h1>
-<h2 id="mean-squared-error-mse">mean squared error (MSE)</h2>
 <p><span class="math display">\[
-\begin{align}
-MSE=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{f}(x_i))^2
-\end{align}
+θ:= θ + α\sum_{i=1}^n(y^{(i)}-h_θ(x^{(i)}))x^{(i)}
 \]</span></p>
-<p><strong><em>overfitting</em></strong>: When a given method yields a small training MSE but a large test MSE.</p>
-<ul>
-<li>Explanation: a less flexible model would have yielded a smaller test MSE. This happens because our statistical learning procedure is working too hard to find patterns in the training data, and may be picking up some patterns that are just caused by random chance rather than by true properties of the unknown function f.</li>
-</ul>
-<a id="more"></a>
-<p><img src="./1.png" width="500"></p>
-<h1 id="the-bias-variance-trade-off">The Bias-Variance Trade-Off</h1>
-<h2 id="decomposition">Decomposition</h2>
-<p>The expected test MSE, for a given value <span class="math inline">\(x_0\)</span> can always be decomposed into the sum of three fundamental quantities: <strong>the variance of <span class="math inline">\(\hat{f}(x_0)\)</span>, the squared bias of <span class="math inline">\(\hat{f}(x_0)\)</span>, and the variance of the error variance terms <span class="math inline">\(\epsilon\)</span>.</strong> <span class="math display">\[
-\begin{align}
-E(y_0-\hat{f}(x_0))^2=Var(\hat{f}(x_0))+[Bias(\hat{f}(x_0))]^2+Var(\epsilon)
-\end{align}
-\]</span> The overall expected test MSE can be computed by averaging <span class="math inline">\(E(y_0-\hat{f}(x_0))^2\)</span> over all possible values of x0 in the test set.</p>
-<h3 id="variance">Variance</h3>
-<p><strong><em>Variance</em></strong>: refers to the amount by which <span class="math inline">\(\hat{f}\)</span> would change if we estimated it using a different training data set. <strong><em>more flexible statistical methods have higher variance</em></strong> - Explanation: different training data sets will result in a different <span class="math inline">\(\hat{f}\)</span>. But ideally the estimate for f should not vary too much between training sets. However, if a method has high variance then small changes in the training data can result in large changes in <span class="math inline">\(\hat{f}\)</span></p>
-<h3 id="bias">Bias</h3>
-<p><strong><em>bias</em></strong>: refers to the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model. - Explanation: As we increase the flexibility of a class of methods, the bias tends to initially decrease faster than the variance increases. Consequently, the expected test MSE declines. However, at some point increasing flexibility has little impact on the bias but starts to significantly increase the variance. When this happens the test MSE increases.</p>
-<p><img src="./2.png" width="600"> <img src="./4.png" width="400"></p>
-<hr>
-<h3 id="math-explanation">Math Explanation</h3>
-<p><strong>Math Explanation</strong>: If we assume that <span class="math inline">\(Y=f(X)+\epsilon\)</span> where <span class="math inline">\(E(\epsilon)=0\)</span>, and <span class="math inline">\(Var(\epsilon)=\sigma^2_\epsilon\)</span>, we can derive an expression for the expected prediction error of a regression fit <span class="math inline">\(\hat{f}(X)\)</span> at an input point X = x0, using squared-error loss: <span class="math display">\[
-\begin{align}
-Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
-&amp;=E[(f(x_0)+\epsilon-\hat{f}(x_0))^2] \\
-&amp;=E[\epsilon^2+(f(x_0)-\hat{f}(x_0))^2+2\epsilon(f(x_0)-\hat{f}(x_0))] \\
-&amp;=\sigma^2_\epsilon+E[f(x_0)^2+\hat{f}(x_0)^2-2f(x_0)\hat{f}(x_0)] \\
-&amp;=\sigma^2_\epsilon+E[\hat{f}(x_0)^2]+f(x_0)^2-2f(x_0)E[\hat{f}(x_0)]  \\
-&amp;=\sigma^2_\epsilon+(E[\hat{f}(x_0)])^2+f(x_0)^2-2f(x_0)E[\hat{f}(x_0)] +E[\hat{f}(x_0)^2]-(E[\hat{f}(x_0))^2 \\
-&amp;=\sigma^2_\epsilon+(E\hat{f}(x_0)-f(x_0))^2+Var(\hat{f}(x_0))\\
-&amp;=\sigma^2_\epsilon+Bias^2(\hat{f}(x_0))+Var(\hat{f}(x_0))\\
-&amp;= Irreducible Error+ Bias^2 + Variance
-\end{align}
+<p><strong>Stochastic gradient descent</strong>: repeatedly run through the training set, and each time we encounter a training example, we update the parameters according to the gradient of the error with respect to that single training example only. <span class="math display">\[
+θ:= θ + α(y^{(i)}-h_θ(x^{(i)}))x^{(i)}
+\]</span> <strong>Stochastic gradient descent V.S. Batch gradient descent</strong>:</p>
+<p>Whereas <em>batch gradient descent</em> has to scan through the entire training set before taking a single step—a costly operation if <span class="math inline">\(n\)</span> is large—<em>stochastic gradient descent</em> can start making progress right away, and continues to make progress with each example it looks at.</p>
+<h1 id="the-normal-equations">The normal equations</h1>
+<h2 id="matrix-derivatives">Matrix derivatives</h2>
+<p>For a function <span class="math inline">\(f : \real^{n\times d} → \real\)</span> mapping from <span class="math inline">\(n\)</span>-by-<span class="math inline">\(d\)</span> matrices to the real numbers, we define the derivative of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(A\)</span> to be: <span class="math display">\[
+\triangledown _A f(A)=\begin{bmatrix}\frac{\partial f}{\partial A_{11}}&amp; ... &amp; \frac{\partial f}{\partial A_{1d}} \\... &amp; ... &amp; ... \\\frac{\partial f}{\partial A_{n1}} &amp;... &amp; \frac{\partial f}{\partial A_{nd}} \end{bmatrix}
 \]</span></p>
+<h2 id="least-squares-revisited">Least squares revisited</h2>
+<p>To find in closed-form the value of <span class="math inline">\(θ\)</span> that minimizes <span class="math inline">\(J(θ)\)</span>.</p>
+<p>Given a training set, define the <strong>design matrix</strong> <span class="math inline">\(X\)</span> to be the <span class="math inline">\(n\)</span>-by-<span class="math inline">\(d\)</span> matrix (actually <span class="math inline">\(n\)</span>-by-<span class="math inline">\(d + 1\)</span>, if we include the intercept term) that contains the training examples’ input values in its rows: <span class="math display">\[
+X=\begin{bmatrix}-(x^{(1)})^T- \\-(x^{(2)})^T-\\...\\-(x^{(n)})^T- \end{bmatrix}
+\]</span> Also, let <span class="math inline">\(\overrightarrow{y}\)</span> be the n-dimensional vector containing all the target values from the training set: <span class="math display">\[
+\overrightarrow{y}=\begin{bmatrix} y^{(1)} \\y^{(2)}\\...\\y^{(n)} \end{bmatrix}
+\]</span> Since <span class="math inline">\(h_θ(x^{(i)}) = (x^{(i)})^Tθ\)</span>, we can easily verify that <span class="math display">\[
+Xθ-\overrightarrow{y} = \begin{bmatrix}(x^{(1)})^Tθ \\(x^{(2)})^Tθ\\...\\(x^{(n)})^Tθ\end{bmatrix}-\begin{bmatrix} y^{(1)} \\y^{(2)}\\...\\y^{(n)} \end{bmatrix} \\
+ = \begin{bmatrix}h_θ(x^{(1)})-y^{(1)} \\h_θ(x^{(2)})-y^{(2)} \\...\\h_θ(x^{(n)})-y^{(n)} \end{bmatrix}
+\]</span> For a vector <span class="math inline">\(z\)</span>, we have that <span class="math inline">\(z^Tz=\sum_i z_i^2\)</span> <span class="math display">\[
+\frac{1}{2}(Xθ-\overrightarrow{y})^T(Xθ-\overrightarrow{y})=\frac{1}{2}\sum_{i=1}^n (h_θ(x^{(i)})-y^{(i)} )^2 =J(θ)
+\]</span> To minimize <span class="math inline">\(J\)</span>, let’s find its derivatives with respect to <span class="math inline">\(θ\)</span>. <span class="math display">\[
+\begin{align}\triangledown_θ J(θ)&amp;=\triangledown_θ\frac{1}{2}(Xθ-\overrightarrow{y})^T(Xθ-\overrightarrow{y}) \\
+&amp;=\frac{1}{2}\triangledown_θ (θ^TX^TXθ-θ^TX^T\overrightarrow{y}-\overrightarrow{y}^TXθ+\overrightarrow{y}^T\overrightarrow{y}) \\
+&amp;=\frac{1}{2}\triangledown_θ (θ^T(X^TX)θ-2θ^TX^T\overrightarrow{y}) \\
+&amp;=\frac{1}{2}(2(X^TX)θ-2X^T\overrightarrow{y}) \\
+&amp;=X^TXθ-X^T\overrightarrow{y}
+\end{align}
+\]</span> Note: <span class="math display">\[
+a^T b = b^T a \\
+\triangledown_x b^Tx=b \\
+\triangledown_xx^TAx=2Ax 
+\]</span> for symmetric matrix <span class="math inline">\(A\)</span>.</p>
+<p>To minimize <span class="math inline">\(J\)</span>, we set its derivatives to zero, and obtain the normal equations: <span class="math display">\[
+θ=(X^TX)^{-1}X^T\overrightarrow{y}
+\]</span></p>
+<h1 id="probabilistic-interpretation">Probabilistic interpretation</h1>
+<p><strong>Assumptions:</strong></p>
 <ol type="1">
-<li>The first term is the variance of the target around its true mean f(x0), and cannot be avoided no matter how well we estimate f(x0), unless <span class="math inline">\(\sigma^2_\epsilon=0\)</span></li>
-<li>The second term is the squared bias, the amount by which the average of our estimate differs from the true mean</li>
-<li>The last term is the variance; the expected squared deviation of <span class="math inline">\(\hat{f}(x_0)\)</span> around its mean.</li>
+<li>Assume that the target variables and the inputs are related via the equation:</li>
 </ol>
-<blockquote>
-<p>Typically the more complex we make the model <span class="math inline">\(\hat{f}\)</span>, the lower the (squared) bias but the higher the variance.</p>
-</blockquote>
-<h1 id="the-classification-setting">The Classification Setting</h1>
-<p><strong><em>training error rate</em></strong>： <span class="math inline">\(\frac{1}{n}\sum_{i=1}^nI(y_i\neq\hat{y}_i)\)</span></p>
-<p>Here <span class="math inline">\(\hat{y}_i\)</span> is the predicted class label for the ith observation using <span class="math inline">\(\hat{f}\)</span></p>
-<p><strong><em>test error rate</em></strong>： <span class="math inline">\(Ave (I(y_0 \neq \hat{y}_0))\)</span></p>
-<p>where <span class="math inline">\(\hat{y}_0\)</span> is the predicted class label that results from applying the classifier to the test observation with predictor x0. A good classifier is one for which the test error is smallest.</p>
-<h2 id="the-bayes-classifier">The Bayes Classifier</h2>
-<p><strong>Bayes classifier</strong>: <span class="math inline">\(Pr(Y=j|X=x_0)\)</span> - <strong>Explanation</strong>: The test error rate given in <span class="math inline">\(Ave (I(y_0 \neq \hat{y}_0))\)</span> is minimized, on average, by a very simple classifier that assigns each observation to the most likely class, given its predictor values. - <strong>Example</strong>: In a two-class problem where there are only two possible response values, say class 1 or class 2, the Bayes classifier corresponds to predicting class one if <span class="math inline">\(Pr(Y=1|X=x_0)\)</span>&gt; 0.5, and class two otherwise. - <strong>Disadvantage</strong>: For real data, we do not know the conditional distribution of Y given X, and so computing the Bayes classifier is impossible. Therefore, the Bayes classifier serves as an unattainable gold standard against which to compare other methods</p>
-<p><strong>Bayes error rate</strong>: <span class="math inline">\(1-E\left(\max_jPr(Y=j|X)\right)\)</span></p>
-<p>Since the Bayes classifier will always choose the class Bayes error <span class="math inline">\(Pr(Y=j|X=x_0)\)</span> is largest, the error rate at X = x0 will be <span class="math inline">\(1-\max_jPr(Y=j|X)\)</span></p>
-<h2 id="k-nearest-neighbors">K-Nearest Neighbors</h2>
-<p><strong>K-nearest neighbors (KNN) classifier</strong>: 1. Given a positive integer <span class="math inline">\(K\)</span> and a test observation <span class="math inline">\(x_0\)</span>, the KNN classifier first identifies the neighbors <span class="math inline">\(K\)</span> points in the training data that are closest to <span class="math inline">\(x_0\)</span>, represented by <span class="math inline">\(N_0\)</span>.</p>
+<p><span class="math display">\[
+y^{(i)}=θ^Tx^{(i)}+\epsilon^{(i)}
+\]</span></p>
+<p>where <span class="math inline">\(\epsilon^{(i)}\)</span> is an error term that captures either unmodeled effects or random noise.</p>
 <ol start="2" type="1">
-<li><p>It then estimates the conditional probability for class <span class="math inline">\(j\)</span> as the fraction of points in <span class="math inline">\(N_0\)</span> whose response values equal <span class="math inline">\(j\)</span>: <span class="math display">\[
-  \begin{align}
-  Pr(Y=j|X=x_0)=\frac{1}{K}\sum_{i\in N_0} I(y_i=j)
-  \end{align}
-  \]</span></p></li>
-<li><p>Finally, KNN applies Bayes rule and classifies the test observation <span class="math inline">\(x_0\)</span> to the class with the largest probability.</p></li>
+<li>Assume $^{(i)} (0,σ^2) $<br>
+</li>
+<li>Assume <span class="math inline">\(\epsilon^{(i)}\)</span> are IID.</li>
 </ol>
-<p><img src="./3.png" width="600"></p>
-<p>As K grows, the method becomes less flexible and produces a decision boundary that is close to linear. This corresponds to a low-variance but high-bias classifier.</p>
-<p>As we use more flexible classification methods, the training error rate will decline but the test error rate may not.</p>
-<hr>
-<p><strong>Ref:</strong></p>
-<p>James, Gareth, et al. <em>An introduction to statistical learning</em>. Vol. 112. New York: springer, 2013.</p>
-<p>Hastie, Trevor, et al. &quot;The elements of statistical learning: data mining, inference and prediction.&quot; <em>The Mathematical Intelligencer</em> 27.2 (2005): 83-85</p>
+<p>Thus, the density of <span class="math inline">\(\epsilon^{(i)}\)</span> is given by: <span class="math display">\[
+p(\epsilon^{(i)})=\frac{1}{\sqrt{2\pi}\sigma} \exp(-\frac{(\epsilon^{(i)})^2}{2\sigma^2})
+\]</span> This implies that <span class="math display">\[
+p(y^{(i)}|x^{(i)};\theta)=\frac{1}{\sqrt{2\pi}\sigma} \exp(-\frac{(y^{(i)}-θ^Tx^{(i)})^2}{2\sigma^2})
+\]</span> The notation “<span class="math inline">\(p(y^{(i)}|x^{(i)};\theta)\)</span>” indicates that this is the distribution of <span class="math inline">\(y^{(i)}\)</span> given <span class="math inline">\(x^{(i)}\)</span> and parameterized by <span class="math inline">\(θ\)</span>.</p>
+<p>When we wish to explicitly view <span class="math inline">\(p(\overrightarrow{y}|X;\theta)\)</span> as a function of <span class="math inline">\(θ\)</span>, we will instead call it the <strong>likelihood</strong> function: <span class="math display">\[
+L(\theta)=L(\theta;X,\overrightarrow{y})=p(\overrightarrow{y}|X;\theta)
+\]</span> Note that by the independence assumption on the <span class="math inline">\(\epsilon^{(i)}\)</span> (and hence also the <span class="math inline">\(y^{(i)}\)</span>'s given the <span class="math inline">\(x^{(i)}\)</span>’s), this can also be written: <span class="math display">\[
+\begin{align}L(\theta)&amp;=\prod_{i=1}^np(y^{(i)}|x^{(i)};\theta) \\
+&amp;=\prod_{i=1}^n\frac{1}{\sqrt{2\pi}\sigma} \exp(-\frac{(y^{(i)}-θ^Tx^{(i)})^2}{2\sigma^2})
+\end{align}
+\]</span> <u>What is a reasonable way of choosing our best guess of the parameters <span class="math inline">\(θ\)</span>?</u></p>
+<p>The principal of <strong>maximum likelihood</strong> says that we should choose <span class="math inline">\(θ\)</span> so as to make the data as high probability as possible. I.e., we should choose <span class="math inline">\(θ\)</span> to maximize <span class="math inline">\(L(θ)\)</span>, or <strong>log likelihood</strong> <span class="math inline">\(ℓ(θ)\)</span> : <span class="math display">\[
+\begin{align}ℓ(θ)&amp;=\log{L(\theta)} \\
+&amp;=\log{\prod_{i=1}^n\frac{1}{\sqrt{2\pi}\sigma} \exp(-\frac{(y^{(i)}-θ^Tx^{(i)})^2}{2\sigma^2})} \\
+&amp;=\sum_{i=1}^n \log{\frac{1}{\sqrt{2\pi}\sigma} \exp(-\frac{(y^{(i)}-θ^Tx^{(i)})^2}{2\sigma^2})} \\
+&amp;=n\log{\frac{1}{\sqrt{2\pi}}\sigma}-\frac{1}{2\sigma^2}\sum_{i=1}^n(y^{(i)}-θ^Tx^{(i)})^2
+\end{align}
+\]</span> Hence, maximizing <span class="math inline">\(ℓ(θ)\)</span> gives the same answer as minimizing: <span class="math display">\[
+\frac{1}{2}\sum_{i=1}^n(y^{(i)}-θ^Tx^{(i)})^2
+\]</span> which we recognize to be <span class="math inline">\(J(θ)\)</span>, our original least-squares cost function.</p>
+<p><strong>To summarize:</strong> Under the previous probabilistic assumptions on the data, <em>least-squares regression</em> corresponds to finding the <em>maximum likelihood</em> estimate of <span class="math inline">\(θ\)</span>. This is thus one set of assumptions under which least-squares regression can be justified as a very natural method that’s just doing maximum likelihood estimation.</p>
+<p>Note also that, our final choice of <span class="math inline">\(θ\)</span> did not depend on what was <span class="math inline">\(σ^2\)</span>.</p>
+<h1 id="locally-weighted-linear-regression">Locally weighted linear regression</h1>
+<p><strong>Locally weighted linear regression (LWR)</strong> algorithm assumes there is sufficient training data, makes the choice of features less critical.</p>
+<p>In the <em>original linear regression algorithm</em>, to make a prediction at a query point x (i.e., to evaluate h(x)), we would:</p>
+<ol type="1">
+<li>Fit <span class="math inline">\(θ\)</span> to minimize <span class="math inline">\(\sum_{i=1}^n(y^{(i)}-θ^Tx^{(i)})^2\)</span>.</li>
+<li>Output <span class="math inline">\(θ^T x\)</span>.</li>
+</ol>
+<p>In the <em>locally weighted linear regression</em> algorithm:</p>
+<ol type="1">
+<li><p>Fit <span class="math inline">\(θ\)</span> to minimize <span class="math inline">\(\sum_{i=1}^nw^{(i)}(y^{(i)}-θ^Tx^{(i)})^2\)</span>.</p></li>
+<li><p>Output <span class="math inline">\(θ^T x\)</span>.</p></li>
+</ol>
+<p>A fairly standard choice for the weights <span class="math inline">\(w^{(i)}\)</span> is: <span class="math display">\[
+w^{(i)}=\exp{-\frac{(x^{(i)}-x)^2}{2\tau^2}}
+\]</span> Note that the weights depend on the particular point x at which we’re trying to evaluate x. Moreover, if <span class="math inline">\(|x^{(i)} − x|\)</span> is small, then <span class="math inline">\(w^{(i)}\)</span> is close to 1; and if <span class="math inline">\(|x^{(i)} − x|\)</span> is large, then <span class="math inline">\(w^{(i)}\)</span> is small. Hence, <span class="math inline">\(θ\)</span> is chosen giving a much higher “weight” to the (errors on) training examples close to the query point <span class="math inline">\(x\)</span>.</p>
+<p><span class="math inline">\(τ\)</span> is called the <strong>bandwidth</strong> parameter, which controls how quickly the weight of a training example falls off with distance of its <span class="math inline">\(x^{(i)}\)</span> from the query point <span class="math inline">\(x\)</span>.</p>
+<h2 id="non-parametric-v.s.-parametric"><strong>Non-parametric</strong> V.S. Parametric</h2>
+<p><strong>Non-parametric algorithm</strong>: Locally weighted linear regression</p>
+<ul>
+<li>The amount of stuff we need to keep in order to represent the hypothesis <span class="math inline">\(h\)</span> grows linearly with the size of the training set.</li>
+</ul>
+<p><strong>Parametric algorithm</strong>: linear regression algorithm</p>
+<ul>
+<li>A fixed, finite number of parameters (the <span class="math inline">\(θ_i\)</span>’s)</li>
+</ul>
 
       
     </div>
@@ -636,15 +649,6 @@ Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
 
     <footer class="post-footer">
       
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/Model-Assessment/" rel="tag"># Model Assessment</a>
-          
-        </div>
-      
 
       
       
@@ -654,8 +658,8 @@ Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/2a71b2a0/" rel="next" title="Study Note: Bias, Variance and Model Complexity">
-                <i class="fa fa-chevron-left"></i> Study Note: Bias, Variance and Model Complexity
+              <a href="/posts/109fc1d1/" rel="next" title="Realtime Financial Market Data Visualization and Analysis">
+                <i class="fa fa-chevron-left"></i> Realtime Financial Market Data Visualization and Analysis
               </a>
             
           </div>
@@ -663,10 +667,6 @@ Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/2ce36d51/" rel="prev" title="Study Note: Linear Regression Example Prostate Cancer">
-                Study Note: Linear Regression Example Prostate Cancer <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -925,7 +925,7 @@ Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#measuring-the-quality-of-fit"><span class="nav-number">1.</span> <span class="nav-text">Measuring the Quality of Fit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mean-squared-error-mse"><span class="nav-number">1.1.</span> <span class="nav-text">mean squared error (MSE)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-bias-variance-trade-off"><span class="nav-number">2.</span> <span class="nav-text">The Bias-Variance Trade-Off</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#decomposition"><span class="nav-number">2.1.</span> <span class="nav-text">Decomposition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#variance"><span class="nav-number">2.1.1.</span> <span class="nav-text">Variance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bias"><span class="nav-number">2.1.2.</span> <span class="nav-text">Bias</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#math-explanation"><span class="nav-number">2.1.3.</span> <span class="nav-text">Math Explanation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-classification-setting"><span class="nav-number">3.</span> <span class="nav-text">The Classification Setting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-bayes-classifier"><span class="nav-number">3.1.</span> <span class="nav-text">The Bayes Classifier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-nearest-neighbors"><span class="nav-number">3.2.</span> <span class="nav-text">K-Nearest Neighbors</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#least-mean-square-algorithm"><span class="nav-number">1.</span> <span class="nav-text">Least Mean Square Algorithm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-normal-equations"><span class="nav-number">2.</span> <span class="nav-text">The normal equations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#matrix-derivatives"><span class="nav-number">2.1.</span> <span class="nav-text">Matrix derivatives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#least-squares-revisited"><span class="nav-number">2.2.</span> <span class="nav-text">Least squares revisited</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#probabilistic-interpretation"><span class="nav-number">3.</span> <span class="nav-text">Probabilistic interpretation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#locally-weighted-linear-regression"><span class="nav-number">4.</span> <span class="nav-text">Locally weighted linear regression</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#non-parametric-v.s.-parametric"><span class="nav-number">4.1.</span> <span class="nav-text">Non-parametric V.S. Parametric</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1161,66 +1161,7 @@ Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
   
     renderGitment();
   
-</script>
-
-  
-
-
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1239,7 +1180,26 @@ Err(x_0)&amp;=E[(Y-\hat{f}(x_0))^2|X=x_0] \\
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-    
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
   
 
 
