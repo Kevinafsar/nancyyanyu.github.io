@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/posts/109fc1d1/</loc>
+    
+    <lastmod>2019-10-20T01:51:45.596Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/63adf3bb/</loc>
+    
+    <lastmod>2019-10-20T01:51:39.387Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/9fb5a802/</loc>
+    
+    <lastmod>2019-10-20T01:51:32.784Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nancyyanyu.github.io/posts/8b70757d/</loc>
+    
+    <lastmod>2019-10-20T01:51:21.518Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/resume/index.html</loc>
     
-    <lastmod>2019-10-20T01:47:33.366Z</lastmod>
+    <lastmod>2019-10-20T01:47:47.969Z</lastmod>
     
   </url>
   
@@ -212,7 +240,7 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/posts/109fc1d1/</loc>
+    <loc>https://nancyyanyu.github.io/draft/Project-kafka-stock.html</loc>
     
     <lastmod>2019-08-08T21:07:24.467Z</lastmod>
     
@@ -247,14 +275,14 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/posts/63adf3bb/</loc>
+    <loc>https://nancyyanyu.github.io/draft/Project-spotify-analysis.html</loc>
     
     <lastmod>2019-07-17T21:25:44.358Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/posts/9fb5a802/</loc>
+    <loc>https://nancyyanyu.github.io/draft/Project-twitter-streaming.html</loc>
     
     <lastmod>2019-07-16T18:08:21.260Z</lastmod>
     
@@ -275,7 +303,7 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/posts/8b70757d/</loc>
+    <loc>https://nancyyanyu.github.io/draft/Project-h1b_analysis.html</loc>
     
     <lastmod>2019-07-01T00:07:40.381Z</lastmod>
     
