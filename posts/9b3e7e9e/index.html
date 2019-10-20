@@ -119,14 +119,15 @@
 
 
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="CS229-GeneralizedLinearModels">
+  <meta name="keywords" content="Linear Regression,Regression">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS229 Note: Generalized Linear Models">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/9b3e7e9e/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-20T23:50:20.829Z">
+<meta property="og:updated_time" content="2019-10-20T23:52:16.976Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CS229-GeneralizedLinearModels">
+<meta name="twitter:title" content="CS229 Note: Generalized Linear Models">
 
 
 
@@ -146,7 +147,7 @@
   };
 </script>
 
-  <title>CS229-GeneralizedLinearModels | Nancy's Notes</title>
+  <title>CS229 Note: Generalized Linear Models | Nancy's Notes</title>
   
 
 
@@ -417,7 +418,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CS229-GeneralizedLinearModels
+          <h1 class="post-title" itemprop="name headline">CS229 Note: Generalized Linear Models
 
               
             
@@ -443,7 +444,7 @@
                 
               
 
-              <time title="Created: 2019-10-20 16:50:20 / Modified: 18:50:20" itemprop="dateCreated datePublished" datetime="2019-10-20T16:50:20-05:00">2019-10-20</time>
+              <time title="Created: 2019-10-20 16:50:20 / Modified: 18:52:16" itemprop="dateCreated datePublished" datetime="2019-10-20T16:50:20-05:00">2019-10-20</time>
             
 
             
@@ -453,6 +454,24 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -531,6 +550,17 @@
     
 
     <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Linear-Regression/" rel="tag"># Linear Regression</a>
+          
+            <a href="/tags/Regression/" rel="tag"># Regression</a>
+          
+        </div>
       
 
       
@@ -1020,7 +1050,66 @@
   
     renderGitment();
   
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1039,26 +1128,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-  
-
-
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 

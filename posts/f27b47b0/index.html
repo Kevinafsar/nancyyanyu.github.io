@@ -119,20 +119,20 @@
 
 
 
-  <meta name="description" content="Logistic regression Change the form for our hypotheses \(h(x)\): \[ h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}} \] Logistic function(sigmoid function): \[ g(z)=\frac{1}{1+\exp{(-z)}} \]  \">
+  <meta name="description" content="Logistic regression Change the form for our hypotheses \(h(x)\): \[ h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}} \] Logistic function(sigmoid function): \[ g(z)=\frac{1}{1+\exp{(-z)}} \]">
 <meta name="keywords" content="Logistic Regression,Classification">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CS229 Note: Logistic Regression">
 <meta property="og:url" content="https://nancyyanyu.github.io/posts/f27b47b0/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Logistic regression Change the form for our hypotheses \(h(x)\): \[ h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}} \] Logistic function(sigmoid function): \[ g(z)=\frac{1}{1+\exp{(-z)}} \]  \">
+<meta property="og:description" content="Logistic regression Change the form for our hypotheses \(h(x)\): \[ h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}} \] Logistic function(sigmoid function): \[ g(z)=\frac{1}{1+\exp{(-z)}} \]">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/f27b47b0/sigmoid.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/f27b47b0/newton.png">
-<meta property="og:updated_time" content="2019-10-20T23:50:53.018Z">
+<meta property="og:updated_time" content="2019-10-20T23:54:05.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CS229 Note: Logistic Regression">
-<meta name="twitter:description" content="Logistic regression Change the form for our hypotheses \(h(x)\): \[ h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}} \] Logistic function(sigmoid function): \[ g(z)=\frac{1}{1+\exp{(-z)}} \]  \">
+<meta name="twitter:description" content="Logistic regression Change the form for our hypotheses \(h(x)\): \[ h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}} \] Logistic function(sigmoid function): \[ g(z)=\frac{1}{1+\exp{(-z)}} \]">
 <meta name="twitter:image" content="https://nancyyanyu.github.io/posts/f27b47b0/sigmoid.png">
 
 
@@ -450,7 +450,7 @@
                 
               
 
-              <time title="Created: 2019-10-20 15:01:24 / Modified: 18:50:53" itemprop="dateCreated datePublished" datetime="2019-10-20T15:01:24-05:00">2019-10-20</time>
+              <time title="Created: 2019-10-20 15:01:24 / Modified: 18:54:05" itemprop="dateCreated datePublished" datetime="2019-10-20T15:01:24-05:00">2019-10-20</time>
             
 
             
@@ -540,14 +540,15 @@
 h_\theta(x)=g(\theta^Tx)=\frac{1}{1+\exp{(-\theta^Tx)}}
 \]</span> <strong>Logistic function(sigmoid function):</strong> <span class="math display">\[
 g(z)=\frac{1}{1+\exp{(-z)}}
-\]</span> <img src="./sigmoid.png" width="600"></p>
+\]</span> <a id="more"></a></p>
+<p><img src="./sigmoid.png" width="600"></p>
 <p><span class="math display">\[
 \begin{align}g^{&#39;}(z)&amp;=\frac{d}{dz}\frac{1}{1+\exp{(-z)}} \\
 &amp;=\frac{1}{(1+\exp{(-z)})^2} \exp{(-z)} \\
 &amp;=\frac{1}{1+\exp{(-z)}} \cdot (1-\frac{1}{1+\exp{(-z)}}) \\
 &amp;=g(z) \cdot (1-g(z))
 \end{align}
-\]</span> <a id="more"></a></p>
+\]</span></p>
 <h2 id="how-do-we-fit-θ-for-it">How do we fit <span class="math inline">\(θ\)</span> for it?**</h2>
 <p><strong>Probabilistic assumptions</strong>: <span class="math display">\[
 P(y=1|x;\theta)=h_\theta(x) \\
@@ -649,8 +650,8 @@ g(z)=\begin{cases}1 &amp; z \geq 0\\0 &amp; x &lt; 0\end{cases}
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/9b3e7e9e/" rel="prev" title="CS229-GeneralizedLinearModels">
-                CS229-GeneralizedLinearModels <i class="fa fa-chevron-right"></i>
+              <a href="/posts/9b3e7e9e/" rel="prev" title="CS229 Note: Generalized Linear Models">
+                CS229 Note: Generalized Linear Models <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
