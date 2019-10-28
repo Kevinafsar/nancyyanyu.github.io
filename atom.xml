@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancyyanyu.github.io/"/>
-  <updated>2019-10-23T06:18:42.336Z</updated>
+  <updated>2019-10-28T00:32:28.248Z</updated>
   <id>https://nancyyanyu.github.io/</id>
   
   <author>
@@ -21,17 +21,19 @@
     <link href="https://nancyyanyu.github.io/posts/5576e748/"/>
     <id>https://nancyyanyu.github.io/posts/5576e748/</id>
     <published>2019-10-23T03:50:34.000Z</published>
-    <updated>2019-10-23T06:18:42.336Z</updated>
+    <updated>2019-10-28T00:32:28.248Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="generative-learning-algorithms">Generative Learning algorithms</h1><p><strong>Discriminative learning algorithms</strong>: Algorithms that try to learn <span class="math inline">\(p(y|x)\)</span> directly (such as logistic regression), or algorithms that try to learn mappings directly from the space of inputs <span class="math inline">\(X\)</span> to the labels {0, 1}, (such as the perceptron algorithm)</p><p><strong>Generative learning algorithms</strong>:</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="generative-learning-algorithms">Generative Learning algorithms</h1><p><strong>Discriminative learning algorithms</strong>: Algorithms that try to learn <span class="math inline">\(p(y|x)\)</span> directly (such as logistic regression), or algorithms that try to learn mappings directly from the space of inputs <span class="math inline">\(X\)</span> to the labels {0, 1}, (such as the perceptron algorithm)</p><p><strong>Generative learning algorithms</strong>: After modeling <span class="math inline">\(p(y)\)</span> (called the <strong>class priors</strong>) and <span class="math inline">\(p(x|y)\)</span>, our algorithm can then use <strong>Bayes rule</strong> to derive the <strong>posterior</strong> distribution on <span class="math inline">\(y\)</span> given <span class="math inline">\(x\)</span>: <span class="math display">\[p(y|x)=\frac{p(x|y)p(y)}{p(x)}\]</span> If were calculating <span class="math inline">\(p(y|x)\)</span> in order to make a prediction, then we don’t actually need to calculate the denominator, since <span class="math display">\[\arg{\max{_y}p(y|x)}=\arg{\max{_y}\frac{p(x|y)p(y)}{p(x)}}=\arg{\max{_y}p(x|y)p(y)}\]</span> <a id="more"></a></p><h2 id="gaussian-discriminant-analysis">Gaussian discriminant analysis</h2><p><strong>Assumption</strong>: that <span class="math inline">\(p(x|y)\)</span> is distributed according to a <strong>multivariate normal</strong> distribution.</p><h3 id="the-multivariate-normal-distribution">The multivariate normal distribution</h3><p>The <strong>multivariate normal(Gaussian)</strong> distribution in d-dimensions is parameterized by a <strong>mean vector</strong> <span class="math inline">\(μ ∈ R^d\)</span> and a <strong>covariance matrix</strong> <span class="math inline">\(\sum∈ R^{d\times d}\)</span>, where <span class="math inline">\(\sum≥ 0\)</span> is <u>symmetric and positive semi-definite</u>. Also written “<span class="math inline">\(\mathcal{N}(\mu, \Sigma)\)</span>”, its density is given by: <span class="math display">\[p(x; μ,\Sigma)=\frac{1}{(2\pi)^{d/2}|\Sigma|^{1/2}}\exp{(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))}\]</span> If <span class="math inline">\(X \sim \mathcal{N}(\mu , \Sigma)\)</span>, <span class="math display">\[E(X)=\int_{x}xp(x;\mu,\Sigma)dx=\mu\\\mathrm{Cov}(X)=\Sigma\]</span> <img src="./mn_1.png" width="600"></p><p>covariance matrix <span class="math inline">\(\Sigma= I\)</span>, <span class="math inline">\(\Sigma= 0.6I\)</span>, <span class="math inline">\(\Sigma= 2I\)</span></p><p><img src="./mn_1.png" width="600"> <span class="math display">\[\Sigma=\begin{bmatrix}1 &amp; 0 \\0 &amp; 1 \end{bmatrix} , \Sigma=\begin{bmatrix}1 &amp; 0.5 \\0.5 &amp; 1 \end{bmatrix} , \Sigma=\begin{bmatrix}1 &amp; 0.8 \\0.8 &amp; 1 \end{bmatrix} \]</span></p><h3 id="the-gaussian-discriminant-analysis-model">The Gaussian Discriminant Analysis model</h3>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;generative-learning-algorithms&quot;&gt;Generative Learning algorithms&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;Discriminative learning algorithms&lt;/strong&gt;: Algorith
-      
+      &lt;h1 id=&quot;generative-learning-algorithms&quot;&gt;Generative Learning algorithms&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Discriminative learning algorithms&lt;/strong&gt;: Algorithms that try to learn &lt;span class=&quot;math inline&quot;&gt;\(p(y|x)\)&lt;/span&gt; directly (such as logistic regression), or algorithms that try to learn mappings directly from the space of inputs &lt;span class=&quot;math inline&quot;&gt;\(X\)&lt;/span&gt; to the labels {0, 1}, (such as the perceptron algorithm)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Generative learning algorithms&lt;/strong&gt;: After modeling &lt;span class=&quot;math inline&quot;&gt;\(p(y)\)&lt;/span&gt; (called the &lt;strong&gt;class priors&lt;/strong&gt;) and &lt;span class=&quot;math inline&quot;&gt;\(p(x|y)\)&lt;/span&gt;, our algorithm can then use &lt;strong&gt;Bayes rule&lt;/strong&gt; to derive the &lt;strong&gt;posterior&lt;/strong&gt; distribution on &lt;span class=&quot;math inline&quot;&gt;\(y\)&lt;/span&gt; given &lt;span class=&quot;math inline&quot;&gt;\(x\)&lt;/span&gt;: &lt;span class=&quot;math display&quot;&gt;\[
+p(y|x)=\frac{p(x|y)p(y)}{p(x)}
+\]&lt;/span&gt; If were calculating &lt;span class=&quot;math inline&quot;&gt;\(p(y|x)\)&lt;/span&gt; in order to make a prediction, then we don’t actually need to calculate the denominator, since &lt;span class=&quot;math display&quot;&gt;\[
+\arg{\max{_y}p(y|x)}=\arg{\max{_y}\frac{p(x|y)p(y)}{p(x)}}=\arg{\max{_y}p(x|y)p(y)}
+\]&lt;/span&gt;
     
     </summary>
     

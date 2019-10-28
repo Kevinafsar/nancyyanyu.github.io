@@ -462,7 +462,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-23 01:18:42" itemprop="dateModified" datetime="2019-10-23T01:18:42-05:00">2019-10-23</time>
+                <time title="Modified: 2019-10-27 19:32:28" itemprop="dateModified" datetime="2019-10-27T19:32:28-05:00">2019-10-27</time>
               
             
           </span>
@@ -515,7 +515,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">317</span>
+                <span title="Symbols count in article">1.7k</span>
               
 
               
@@ -529,7 +529,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">2 mins.</span>
               
             </div>
           
@@ -550,15 +550,25 @@
 
       
         
-          
-            <h1 id="generative-learning-algorithms">Generative Learning algorithms</h1>
+          <h1 id="generative-learning-algorithms">Generative Learning algorithms</h1>
 <p><strong>Discriminative learning algorithms</strong>: Algorithms that try to learn <span class="math inline">\(p(y|x)\)</span> directly (such as logistic regression), or algorithms that try to learn mappings directly from the space of inputs <span class="math inline">\(X\)</span> to the labels {0, 1}, (such as the perceptron algorithm)</p>
-<p><strong>Generative learning algorithms</strong>:</p>
-
+<p><strong>Generative learning algorithms</strong>: After modeling <span class="math inline">\(p(y)\)</span> (called the <strong>class priors</strong>) and <span class="math inline">\(p(x|y)\)</span>, our algorithm can then use <strong>Bayes rule</strong> to derive the <strong>posterior</strong> distribution on <span class="math inline">\(y\)</span> given <span class="math inline">\(x\)</span>: <span class="math display">\[
+p(y|x)=\frac{p(x|y)p(y)}{p(x)}
+\]</span> If were calculating <span class="math inline">\(p(y|x)\)</span> in order to make a prediction, then we don’t actually need to calculate the denominator, since <span class="math display">\[
+\arg{\max{_y}p(y|x)}=\arg{\max{_y}\frac{p(x|y)p(y)}{p(x)}}=\arg{\max{_y}p(x|y)p(y)}
+\]</span>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/posts/5576e748/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
@@ -2659,7 +2669,7 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">382k</span>
+    <span title="Symbols count total">383k</span>
   
 
   
