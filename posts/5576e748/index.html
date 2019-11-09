@@ -128,7 +128,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/5576e748/mn_1.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/5576e748/mn_1.png">
-<meta property="og:updated_time" content="2019-10-28T00:32:28.248Z">
+<meta property="og:updated_time" content="2019-11-09T21:52:21.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CS229 Note: Generative Learning">
 <meta name="twitter:description" content="Generative Learning algorithms Discriminative learning algorithms: Algorithms that try to learn \(p(y|x)\) directly (such as logistic regression), or algorithms that try to learn mappings directly fro">
@@ -466,7 +466,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-27 19:32:28" itemprop="dateModified" datetime="2019-10-27T19:32:28-05:00">2019-10-27</time>
+                <time title="Modified: 2019-11-09 16:52:21" itemprop="dateModified" datetime="2019-11-09T16:52:21-05:00">2019-11-09</time>
               
             
           </span>
@@ -555,11 +555,12 @@
       
         <h1 id="generative-learning-algorithms">Generative Learning algorithms</h1>
 <p><strong>Discriminative learning algorithms</strong>: Algorithms that try to learn <span class="math inline">\(p(y|x)\)</span> directly (such as logistic regression), or algorithms that try to learn mappings directly from the space of inputs <span class="math inline">\(X\)</span> to the labels {0, 1}, (such as the perceptron algorithm)</p>
+<a id="more"></a>
 <p><strong>Generative learning algorithms</strong>: After modeling <span class="math inline">\(p(y)\)</span> (called the <strong>class priors</strong>) and <span class="math inline">\(p(x|y)\)</span>, our algorithm can then use <strong>Bayes rule</strong> to derive the <strong>posterior</strong> distribution on <span class="math inline">\(y\)</span> given <span class="math inline">\(x\)</span>: <span class="math display">\[
 p(y|x)=\frac{p(x|y)p(y)}{p(x)}
 \]</span> If were calculating <span class="math inline">\(p(y|x)\)</span> in order to make a prediction, then we don’t actually need to calculate the denominator, since <span class="math display">\[
 \arg{\max{_y}p(y|x)}=\arg{\max{_y}\frac{p(x|y)p(y)}{p(x)}}=\arg{\max{_y}p(x|y)p(y)}
-\]</span> <a id="more"></a></p>
+\]</span></p>
 <h2 id="gaussian-discriminant-analysis">Gaussian discriminant analysis</h2>
 <p><strong>Assumption</strong>: that <span class="math inline">\(p(x|y)\)</span> is distributed according to a <strong>multivariate normal</strong> distribution.</p>
 <h3 id="the-multivariate-normal-distribution">The multivariate normal distribution</h3>
@@ -574,6 +575,7 @@ E(X)=\int_{x}xp(x;\mu,\Sigma)dx=\mu\\
 \Sigma=\begin{bmatrix}1 &amp; 0 \\0 &amp; 1 \end{bmatrix} , \Sigma=\begin{bmatrix}1 &amp; 0.5 \\0.5 &amp; 1 \end{bmatrix} , \Sigma=\begin{bmatrix}1 &amp; 0.8 \\0.8 &amp; 1 \end{bmatrix} 
 \]</span></p>
 <h3 id="the-gaussian-discriminant-analysis-model">The Gaussian Discriminant Analysis model</h3>
+<h4 id="section"></h4>
 
       
     </div>
@@ -875,7 +877,7 @@ E(X)=\int_{x}xp(x;\mu,\Sigma)dx=\mu\\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#generative-learning-algorithms"><span class="nav-number">1.</span> <span class="nav-text">Generative Learning algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gaussian-discriminant-analysis"><span class="nav-number">1.1.</span> <span class="nav-text">Gaussian discriminant analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-multivariate-normal-distribution"><span class="nav-number">1.1.1.</span> <span class="nav-text">The multivariate normal distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-gaussian-discriminant-analysis-model"><span class="nav-number">1.1.2.</span> <span class="nav-text">The Gaussian Discriminant Analysis model</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#generative-learning-algorithms"><span class="nav-number">1.</span> <span class="nav-text">Generative Learning algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gaussian-discriminant-analysis"><span class="nav-number">1.1.</span> <span class="nav-text">Gaussian discriminant analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-multivariate-normal-distribution"><span class="nav-number">1.1.1.</span> <span class="nav-text">The multivariate normal distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-gaussian-discriminant-analysis-model"><span class="nav-number">1.1.2.</span> <span class="nav-text">The Gaussian Discriminant Analysis model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#section"><span class="nav-number">1.1.2.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

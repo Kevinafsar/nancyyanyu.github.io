@@ -119,19 +119,20 @@
 
 
 
-  <meta name="description" content="Bayesian Model Averaging We have a set of candidate models \(M_m\); m = 1,…,M for our training set \(Z\). Suppose \(\zeta\) is some quantity of interest, for example, a prediction f(x) at some fixed f">
-<meta name="keywords" content="Model Inference">
+  <meta name="description" content="Gaussian distribution \(\mathcal{N}(\mu,\sigma^2)\) Recall that, when deriving linear regression, the value of \(σ^2\) had no effect on our final choice of \(θ\) and \(h(x)\). To simplify the derivati">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ESL Note: Model Averaging and Stacking">
-<meta property="og:url" content="https://nancyyanyu.github.io/draft/ESL-Model-Averaging-Stacking.html">
+<meta property="og:title" content="Nancy&#39;s Notes">
+<meta property="og:url" content="https://nancyyanyu.github.io/draft/CS229-glm.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
-<meta property="og:description" content="Bayesian Model Averaging We have a set of candidate models \(M_m\); m = 1,…,M for our training set \(Z\). Suppose \(\zeta\) is some quantity of interest, for example, a prediction f(x) at some fixed f">
+<meta property="og:description" content="Gaussian distribution \(\mathcal{N}(\mu,\sigma^2)\) Recall that, when deriving linear regression, the value of \(σ^2\) had no effect on our final choice of \(θ\) and \(h(x)\). To simplify the derivati">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-19T22:49:32.531Z">
+<meta property="og:updated_time" content="2019-10-22T23:28:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ESL Note: Model Averaging and Stacking">
-<meta name="twitter:description" content="Bayesian Model Averaging We have a set of candidate models \(M_m\); m = 1,…,M for our training set \(Z\). Suppose \(\zeta\) is some quantity of interest, for example, a prediction f(x) at some fixed f">
+<meta name="twitter:title" content="Nancy&#39;s Notes">
+<meta name="twitter:description" content="Gaussian distribution \(\mathcal{N}(\mu,\sigma^2)\) Recall that, when deriving linear regression, the value of \(σ^2\) had no effect on our final choice of \(θ\) and \(h(x)\). To simplify the derivati">
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="Nancy's Notes" type="application/atom+xml">
@@ -140,7 +141,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/draft/ESL-Model-Averaging-Stacking">
+  <link rel="canonical" href="https://nancyyanyu.github.io/draft/CS229-glm">
 
 
 
@@ -150,7 +151,7 @@
   };
 </script>
 
-  <title>ESL Note: Model Averaging and Stacking | Nancy's Notes</title>
+  <title> | Nancy's Notes</title>
   
 
 
@@ -423,7 +424,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">ESL Note: Model Averaging and Stacking
+<h1 class="post-title" itemprop="name headline">
 
 </h1>
 
@@ -443,19 +444,73 @@
       <div class="post-body han-init-context">
         
         
-          <h2 id="bayesian-model-averaging">Bayesian Model Averaging</h2>
-<p>We have a set of candidate models <span class="math inline">\(M_m\)</span>; m = 1,…,M for our training set <span class="math inline">\(Z\)</span>.</p>
-<p><strong>Suppose</strong> <span class="math inline">\(\zeta\)</span> is some quantity of interest, for example, a prediction f(x) at some fixed feature value <span class="math inline">\(x\)</span>. The <strong><em>posterior distribution</em></strong> of <span class="math inline">\(\zeta\)</span> is <span class="math display">\[
-\Pr(\zeta|\mathbf{Z})=\sum_{i=1}^M\Pr(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
-\]</span> with <strong><em>posterior mean</em></strong>: <span class="math display">\[
-E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
-\]</span> This Bayesian prediction is a weighted average of the individual predictions, with weights proportional to the posterior probability of each model.</p>
-<h3 id="frequentist-viewpoint">Frequentist Viewpoint</h3>
-<p>Given predictions <span class="math inline">\(\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)\)</span>, under squared-error loss, we can seek the weights $w = (w_1, w_2,…, w_M) $ such that <span class="math display">\[
-\hat{w}=\arg \min_w E_P[Y-\sum_{i=1}^Mw_m\hat{f}_m(x)]^2
-\]</span> Here the input value <span class="math inline">\(x\)</span> is fixed and the <span class="math inline">\(N\)</span> observations in the dataset <span class="math inline">\(Z\)</span> (and the target <span class="math inline">\(Y\)</span> ) are distributed according to <span class="math inline">\(P\)</span>. The solution is the population linear regression of <span class="math inline">\(Y\)</span> on <span class="math inline">\(\hat{F}(x)^T=[\hat{f}_1(x); \hat{f}_2(x),…, \hat{f}_M(x)]\)</span> : <span class="math display">\[
-\hat{w}=E_P[\hat{F}(x)\hat{F}(x)^T]^{-1}E_P[\hat{F}(x)Y]
+          <h2 id="gaussian-distribution-mathcalnmusigma2">Gaussian distribution <span class="math inline">\(\mathcal{N}(\mu,\sigma^2)\)</span></h2>
+<p>Recall that, when deriving linear regression, the value of <span class="math inline">\(σ^2\)</span> had no effect on our final choice of <span class="math inline">\(θ\)</span> and <span class="math inline">\(h(x)\)</span>. To simplify the derivation below, let’s set <span class="math inline">\(σ^2 = 1.\)</span> We then have: <span class="math display">\[
+p(y;\mu)=\frac{1}{\sqrt{2\pi}}\exp{(-\frac{1}{2}(y-\mu)^2)} \\
+=\frac{1}{\sqrt{2\pi}}\exp{(-\frac{1}{2}y^2)}\exp{(y\mu-\frac{1}{2}\mu^2)}
+\]</span> Thus Gaussian is in the exponential family, with:</p>
+<ul>
+<li><span class="math inline">\(η = μ\)</span></li>
+<li><span class="math inline">\(T=1\)</span></li>
+<li><span class="math inline">\(b(y)=\frac{1}{\sqrt{2\pi}}\exp{(-\frac{1}{2}y^2)}\)</span></li>
+<li><span class="math inline">\(a(η)=\frac{1}{2}\mu^2=\frac{1}{2}η^2\)</span></li>
+<li><span class="math inline">\(T(y)=y\)</span></li>
+</ul>
+<h2 id="multinomial-distribution">Multinomial distribution</h2>
+<p>To parameterize a <strong>multinomial</strong> over <span class="math inline">\(k\)</span> possible outcomes, one could use <span class="math inline">\(k\)</span> parameters <span class="math inline">\(\phi_1, . . . , \phi_{k-1}\)</span>, as they must satisfy <span class="math inline">\(\sum_{i=1}^k \phi_i = 1)\)</span>, we can let <span class="math inline">\(\phi_{k}=1-\sum_{i=1}^{k-1} \phi_i\)</span>.</p>
+<p>To express the multinomial as an <strong>exponential family distribution</strong>, we will define <span class="math inline">\(T(y) ∈ R^{k−1}\)</span> as follows: <span class="math display">\[
+T(1)=\begin{bmatrix}1\\0\\0\\...\\0\end{bmatrix} , T(2)=\begin{bmatrix}0\\1\\0\\...\\0\end{bmatrix} , T(3)=\begin{bmatrix}0\\0\\1\\...\\0\end{bmatrix} ,T(k-1)=\begin{bmatrix}0\\0\\0\\...\\1\end{bmatrix} ,T(k)=\begin{bmatrix}0\\0\\0\\...\\0\end{bmatrix}
+\]</span> Unlike our previous examples, here we do not have <span class="math inline">\(T(y) = y\)</span>; also, <span class="math inline">\(T(y)\)</span> is now a <span class="math inline">\(k − 1\)</span> dimensional vector.</p>
+<p>We will write <span class="math inline">\((T(y))_i\)</span> to denote the i-th element of the vector <span class="math inline">\(T(y)\)</span>. We can also write the relationship between <span class="math inline">\(T(y)\)</span> and <span class="math inline">\(y\)</span> as <span class="math inline">\((T(y))_i = 1\{y = i\}\)</span>. Further, we have that <span class="math inline">\(E[(T(y))_i] = P(y = i) = \phi_i\)</span>. <span class="math display">\[
+\begin{align}
+p(y; \phi) &amp;=  \phi_1^{1\{y=1\}} \phi_2^{1\{y=2\}} ... \phi_k^{1\{y=k\}} \\
+&amp;=  \phi_1^{1\{y=1\}} \phi_2^{1\{y=2\}} ... \phi_k^{1-\sum_{i=1}^{k-1}1\{y=i\}} \\
+&amp;= \phi_1^{(T(y))_1} \phi_2^{(T(y))_2} ... \phi_k^{1-\sum_{i=1}^{k-1}(T(y))_i} \\
+&amp;= \exp{\left[(T(y))_1 \log{\phi_1}+(T(y))_2 \log{\phi_2}+...+(1-\sum_{i=1}^{k-1}(T(y))_i) \log{\phi_k}\right]} \\
+&amp;=\exp{\left[(T(y))_1 \log{\frac{\phi_1}{\phi_k}}+ (T(y))_2 \log{\frac{\phi_2}{\phi_k}} +...+(T(y))_{k-1} \log{\frac{\phi_{k-1}}{\phi_k}}+\log{\phi_k} \right]} \\
+&amp;=b(y) \exp{(η^TT(y) − a(η))}
+\end{align}
 \]</span></p>
+<h2 id="other-members-of-the-exponential-family">Other Members of the Exponential Family</h2>
+<ul>
+<li>Multinomial</li>
+<li>Poisson</li>
+<li>Gamma and Exponential (for modelling continuous, non-negative random variables, such as time intervals);</li>
+<li>Beta and the Dirichlet (for distributions over probabilities);</li>
+</ul>
+<h1 id="constructing-glms">Constructing GLMs</h1>
+<p>Consider a classification or regression problem where we would like to predict the value of some random variable <span class="math inline">\(y\)</span> as a function of <span class="math inline">\(x\)</span>. To derive a GLM for this problem, we will make the following three assumptions about the conditional distribution of <span class="math inline">\(y\)</span> given <span class="math inline">\(x\)</span> and about our model:</p>
+<ol type="1">
+<li><span class="math inline">\(y | x; θ ∼ ExponentialFamily(η)\)</span>. I.e., given <span class="math inline">\(x\)</span> and <span class="math inline">\(θ\)</span>, the distribution of <span class="math inline">\(y\)</span> follows some exponential family distribution, with parameter <span class="math inline">\(η\)</span>.</li>
+<li>Given <span class="math inline">\(x\)</span>, our goal is to predict the expected value of <span class="math inline">\(T(y)\)</span> given <span class="math inline">\(x\)</span>. In most of our examples, we will have <span class="math inline">\(T(y) = y\)</span>, so this means <span class="math inline">\(w\)</span> would like the prediction <span class="math inline">\(h(x)\)</span> output by our learned hypothesis <span class="math inline">\(h\)</span> to satisfy <span class="math inline">\(h(x) = E[y|x]\)</span>. For instance, in logistic regression, we had <span class="math inline">\(h(x) = p(y = 1|x; θ) = 0 \cdot p(y = 0|x; θ) + 1 \cdot p(y = 1|x; θ) = E[y|x; θ].)\)</span></li>
+<li>The natural parameter <span class="math inline">\(η\)</span> and the inputs x are related linearly: <span class="math inline">\(η = θ^T x\)</span>. (Or, if <span class="math inline">\(η\)</span> is vector-valued, then <span class="math inline">\(η_i = θ^T_i x\)</span>.)</li>
+</ol>
+<h2 id="ordinary-least-squares">Ordinary Least Squares</h2>
+<p><u>Ordinary least squares is a special case of the GLM family of models</u></p>
+<p>We let the <span class="math inline">\(ExponentialFamily(η)\)</span> distribution above be the <strong>Gaussian distribution</strong>. In the formulation of the Gaussian as an exponential family distribution, we had <span class="math inline">\(μ = η\)</span>. <span class="math display">\[
+h_\theta(x)=E[y|x;\theta] \\
+=\mu \\
+=η \\
+=\theta^Tx
+\]</span> The first equality follows from <em>Assumption 2</em>, above; the second equality follows from the fact that <span class="math inline">\(y|x; θ ∼ \mathcal{N}(μ, σ^2)\)</span>, and so its expected value is given by <span class="math inline">\(μ\)</span>; the third equality follows from <em>Assumption 1</em> (and our earlier derivation showing that μ = η in the formulation of the Gaussian as an exponential family distribution); and the last equality follows from Assumption 3.</p>
+<h2 id="logistic-regression">Logistic Regression</h2>
+<p>Given that <span class="math inline">\(y\)</span> is binary-valued, it therefore seems natural to choose the <strong>Bernoulli</strong> family of distributions to model the conditional distribution of <span class="math inline">\(y\)</span> given <span class="math inline">\(x\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(y|x; θ ∼ Bernoulli(φ)\)</span>, then <span class="math inline">\(E[y|x; θ] = φ\)</span>.</li>
+<li>In our formulation of the Bernoulli distribution as an exponential family distribution, we had <span class="math inline">\(φ = 1/(1 + e^{−η})\)</span></li>
+</ul>
+<p><span class="math display">\[
+h_\theta(x)=E[y|x;\theta] \\
+=φ \\
+=1/(1 + e^{−η}) \\
+=1/(1 + e^{−\theta^Tx})
+\]</span></p>
+<p><strong>canonical response function</strong>: the function <span class="math inline">\(g\)</span> giving the distribution’s mean as a function of the natural parameter <span class="math inline">\(g(η) = E[T(y); η]\)</span></p>
+<p><strong>canonical link function</strong>: g's inverse <span class="math inline">\(g^{-1}\)</span></p>
+<p>Thus, the <u>canonical response function</u> for the Gaussian family is just the <strong>identify function</strong>; and the <u>canonical response function</u> for the <strong>Bernoulli</strong> is the <strong>logistic function</strong></p>
+<h2 id="softmax-regression">Softmax Regression</h2>
+<p>Consider a classification problem in which the response variable <span class="math inline">\(y\)</span> can take on any one of <span class="math inline">\(k\)</span> values, so <span class="math inline">\(y ∈\{1, 2, . . . , k\}\)</span>.</p>
+<p>We will thus model it as distributed according to a multinomial distribution.</p>
 
         
       </div>
@@ -717,7 +772,7 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bayesian-model-averaging"><span class="nav-number">1.</span> <span class="nav-text">Bayesian Model Averaging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#frequentist-viewpoint"><span class="nav-number">1.1.</span> <span class="nav-text">Frequentist Viewpoint</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gaussian-distribution-mathcalnmusigma2"><span class="nav-number">1.</span> <span class="nav-text">Gaussian distribution \(\mathcal{N}(\mu,\sigma^2)\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multinomial-distribution"><span class="nav-number">2.</span> <span class="nav-text">Multinomial distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#other-members-of-the-exponential-family"><span class="nav-number">3.</span> <span class="nav-text">Other Members of the Exponential Family</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#constructing-glms"><span class="nav-number"></span> <span class="nav-text">Constructing GLMs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ordinary-least-squares"><span class="nav-number">1.</span> <span class="nav-text">Ordinary Least Squares</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic-regression"><span class="nav-number">2.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#softmax-regression"><span class="nav-number">3.</span> <span class="nav-text">Softmax Regression</span></a></li></ol></li></div>
             
 
           </div>
@@ -953,66 +1008,7 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
   
     renderGitment();
   
-</script>
-
-  
-
-
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1031,7 +1027,26 @@ E(\zeta|\mathbf{Z})=\sum_{i=1}^ME(\zeta|M_m,\mathbf{Z})\Pr(M_m| \mathbf{Z})
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-    
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
   
 
 
