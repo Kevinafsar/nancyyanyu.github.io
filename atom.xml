@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nancyyanyu.github.io/"/>
-  <updated>2019-11-10T23:49:21.263Z</updated>
+  <updated>2019-11-10T23:49:42.016Z</updated>
   <id>https://nancyyanyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://nancyyanyu.github.io/posts/781a431b/"/>
     <id>https://nancyyanyu.github.io/posts/781a431b/</id>
     <published>2019-11-10T20:47:45.000Z</published>
-    <updated>2019-11-10T23:49:21.263Z</updated>
+    <updated>2019-11-10T23:49:42.016Z</updated>
     
     <content type="html"><![CDATA[<p> </p><a id="more"></a><p> </p><center><b>❤ 10月手帳 ❤</b></center><table><thead><tr class="header"><th style="text-align: left;">Date</th><th>Study</th><th>Workout</th></tr></thead><tbody><tr class="odd"><td style="text-align: left;">10/06</td><td>TDS Podcast</td><td>20 mins cardio</td></tr><tr class="even"><td style="text-align: left;">10/07</td><td>TDS Podcast; read Yoav's Primer</td><td>20 mins cardio， 10 mins strength</td></tr><tr class="odd"><td style="text-align: left;">10/08</td><td>TDS Podcast</td><td>20 mins cardio</td></tr><tr class="even"><td style="text-align: left;">10/09</td><td>/</td><td>20 mins cardio</td></tr><tr class="odd"><td style="text-align: left;">10/10</td><td>/</td><td>20 mins cardio</td></tr><tr class="even"><td style="text-align: left;">10/11</td><td>/</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">10/12</td><td>CS224N</td><td>/</td></tr><tr class="even"><td style="text-align: left;">10/13</td><td>CS224N</td><td>20 mins cardio, 30 mins strength</td></tr><tr class="odd"><td style="text-align: left;">10/14</td><td>/</td><td>/</td></tr><tr class="even"><td style="text-align: left;">10/15</td><td>/</td><td>10 mins cardio</td></tr><tr class="odd"><td style="text-align: left;">10/16</td><td>Study for Azure Data Scientist Associate</td><td>/</td></tr><tr class="even"><td style="text-align: left;">10/17</td><td>Study for Azure Data Scientist Associate</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">10/18</td><td>Study for Azure Data Scientist Associate</td><td>10 mins cardio</td></tr><tr class="even"><td style="text-align: left;">10/19</td><td>Study for Azure Data Scientist Associate</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">10/20</td><td>CS229 Linear</td><td>/</td></tr><tr class="even"><td style="text-align: left;">10/21</td><td>CS229 Logistic</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">10/22</td><td>CS229 GLM</td><td>/</td></tr><tr class="even"><td style="text-align: left;">10/23</td><td>CS229 Generative Learning</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">10/24</td><td>/</td><td>/</td></tr><tr class="even"><td style="text-align: left;">10/25</td><td>Study for Azure Data Scientist Associate</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">10/26</td><td>/</td><td>/</td></tr><tr class="even"><td style="text-align: left;">10/27</td><td></td><td></td></tr></tbody></table><p> </p><p> </p><center><b>❤ Plan ❤</b></center><table><thead><tr class="header"><th style="text-align: center;">Categories</th><th style="text-align: center;">Content</th><th style="text-align: center;">Progress</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">Machine Learning</td><td style="text-align: center;"><a href="http://cs229.stanford.edu/syllabus.html" target="_blank" rel="noopener">CS229: Machine Learning</a></td><td style="text-align: center;">■■□□□□□□□□</td></tr><tr class="even"><td style="text-align: center;">NLP</td><td style="text-align: center;"><a href="https://web.stanford.edu/class/cs224n/" target="_blank" rel="noopener">CS224N: NLP with Deep Learning</a></td><td style="text-align: center;">■□□□□□□□□□</td></tr><tr class="odd"><td style="text-align: center;">NLP</td><td style="text-align: center;">Yoav's Primer</td><td style="text-align: center;">■□□□□□□□□□</td></tr><tr class="even"><td style="text-align: center;">Deep Learning</td><td style="text-align: center;">Replicate Boris' <a href="https://github.com/borisbanushev/stockpredictionai" target="_blank" rel="noopener">work</a></td><td style="text-align: center;">□□□□□□□□□□</td></tr></tbody></table><p> </p>]]></content>
     
@@ -480,9 +480,9 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
       <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
     
     
-      <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
-    
       <category term="LDA" scheme="https://nancyyanyu.github.io/tags/LDA/"/>
+    
+      <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
     
       <category term="Model Evaluation" scheme="https://nancyyanyu.github.io/tags/Model-Evaluation/"/>
     
