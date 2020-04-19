@@ -82,9 +82,9 @@
       <category term="CS229" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/CS229/"/>
     
     
-      <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
-    
       <category term="Linear Regression" scheme="https://nancyyanyu.github.io/tags/Linear-Regression/"/>
+    
+      <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
     
       <category term="Regression" scheme="https://nancyyanyu.github.io/tags/Regression/"/>
     
@@ -517,9 +517,9 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
       <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
     
     
-      <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
-    
       <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
+    
+      <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
     
   </entry>
   
@@ -619,11 +619,11 @@ p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x
       <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
     
     
+      <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
+    
       <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
     
       <category term="KNN" scheme="https://nancyyanyu.github.io/tags/KNN/"/>
-    
-      <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
     
       <category term="LDA" scheme="https://nancyyanyu.github.io/tags/LDA/"/>
     
