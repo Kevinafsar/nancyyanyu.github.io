@@ -82,9 +82,9 @@
       <category term="CS229" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/CS229/"/>
     
     
-      <category term="Linear Regression" scheme="https://nancyyanyu.github.io/tags/Linear-Regression/"/>
-    
       <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
+    
+      <category term="Linear Regression" scheme="https://nancyyanyu.github.io/tags/Linear-Regression/"/>
     
       <category term="Regression" scheme="https://nancyyanyu.github.io/tags/Regression/"/>
     
@@ -480,9 +480,9 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
       <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
     
     
-      <category term="LDA" scheme="https://nancyyanyu.github.io/tags/LDA/"/>
-    
       <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
+    
+      <category term="LDA" scheme="https://nancyyanyu.github.io/tags/LDA/"/>
     
       <category term="Model Evaluation" scheme="https://nancyyanyu.github.io/tags/Model-Evaluation/"/>
     
@@ -517,9 +517,9 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
       <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
     
     
-      <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
-    
       <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
+    
+      <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
     
   </entry>
   
@@ -589,24 +589,43 @@ Z_m=\sum_{j=1}^p\phi_{jm}X_j
   </entry>
   
   <entry>
-    <title>August 2019 | 八月日志</title>
-    <link href="https://nancyyanyu.github.io/posts/8e8e46fb/"/>
-    <id>https://nancyyanyu.github.io/posts/8e8e46fb/</id>
-    <published>2019-09-07T20:11:24.000Z</published>
-    <updated>2019-09-07T22:37:31.085Z</updated>
+    <title>ISLR Note - Comparison of Classification Methods</title>
+    <link href="https://nancyyanyu.github.io/posts/9b5af8e1/"/>
+    <id>https://nancyyanyu.github.io/posts/9b5af8e1/</id>
+    <published>2019-10-01T06:51:53.000Z</published>
+    <updated>2019-10-01T06:51:53.000Z</updated>
     
-    <content type="html"><![CDATA[<p> </p><a id="more"></a><center><b>❤ 8月手帳 ❤</b></center><table><colgroup><col style="width: 6%"><col style="width: 82%"><col style="width: 10%"></colgroup><thead><tr class="header"><th style="text-align: left;">Date</th><th>Study</th><th>Workout</th></tr></thead><tbody><tr class="odd"><td style="text-align: left;">08/01</td><td>Work with economy / news api; write news streaming module and economy data visualization, geomap</td><td>/</td></tr><tr class="even"><td style="text-align: left;">08/02</td><td>Write news streaming code</td><td>/</td></tr><tr class="odd"><td style="text-align: left;">08/03</td><td>Learn docker, write dockerfile</td><td>/</td></tr><tr class="even"><td style="text-align: left;">08/04</td><td>Write dockerfile</td><td>PingPong</td></tr><tr class="odd"><td style="text-align: left;">08/05</td><td>Write dockerfile; buy a domain name; deploy the web application on server</td><td>/</td></tr><tr class="even"><td style="text-align: left;">08/06</td><td>Test S&amp;P500 price streaming during trading hours; debug;</td><td>PingPong</td></tr><tr class="odd"><td style="text-align: left;">08/07</td><td><strong><em>Start job hunting and no more update on this page (but I will keep coding and practicing LeetCode SQL)</em></strong></td><td>/</td></tr></tbody></table><p> </p><p> </p><center><b>❤ Plan ❤</b></center><table><colgroup><col style="width: 12%"><col style="width: 74%"><col style="width: 12%"></colgroup><thead><tr class="header"><th style="text-align: center;">Categories</th><th style="text-align: center;">Content</th><th style="text-align: center;">Progress</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">Project</td><td style="text-align: center;">Realtime financial market data visualization and analysis</td><td style="text-align: center;">■■■■■■■■■□</td></tr></tbody></table><p> </p><p> </p>]]></content>
+    <content type="html"><![CDATA[<h1 id="comparing-logistic-regression-lda-qda-and-knn">Comparing Logistic Regression, LDA, QDA, and KNN</h1><h2 id="logistic-regression-and-lda-methods-are-closely-connected.">logistic regression and LDA methods are closely connected.</h2><p><strong>Setting</strong>: Consider the two-class setting with <span class="math inline">\(p = 1\)</span> predictor, and let <span class="math inline">\(p_1(x)\)</span> and <span class="math inline">\(p_2(x) = 1−p_1(x)\)</span> be the probabilities that the observation <span class="math inline">\(X = x\)</span> belongs to class 1 and class 2, respectively.</p><p>In LDA, from</p><p><span class="math display">\[\begin{align}p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_k)^2 \right)}}{\sum_{l=1}^K\pi_l\frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_l)^2 \right)}}\end{align}\]</span></p><p><span class="math display">\[\begin{align}\delta_k(x)=x\frac{\mu_k}{\sigma^2}-\frac{\mu_k^2}{2\sigma^2}+\log(\pi_k) \end{align}\]</span></p><a id="more"></a><p>The <strong>log odds</strong> is given by</p><p><span class="math display">\[\begin{align}\log{\frac{p_1(x)}{1-p_1(x)}}=\log{\frac{p_1(x)}{p_2(x)}}=c_0+c_1x\end{align}\]</span> where c0 and c1 are functions of μ1, μ2, and σ2.</p><p>In Logistic Regression,</p><p><span class="math display">\[\begin{align}\log{\frac{p_1}{1-p_1}}=\beta_0+\beta_1x\end{align}\]</span> <strong>SAME</strong></p><ul><li><strong>Both logistic regression and LDA produce linear decision boundaries.</strong></li></ul><p><strong>DIFFERENCES</strong></p><ul><li><p>The only difference between the two approaches lies in the fact that β0 and β1 are estimated using maximum likelihood, whereas c0 and c1 are computed using the estimated mean and variance from a normal distribution. This same connection between LDA and logistic regression also holds for multidimensional data with p &gt; 1.</p></li><li><p>LDA assumes that the observations are drawn from a Gaussian distribution with a common covariance matrix in each class, and so can provide some improvements over logistic regression when this assumption approximately holds. Conversely, logistic regression can outperform LDA if these Gaussian assumptions are not met.</p></li></ul><h2 id="knn-dominate-lda-and-logistic-in-non-linear-setting">KNN dominate LDA and Logistic in non-linear setting</h2><p>In order to make a prediction for an observation X = x, the K training observations that are closest to x are identified. Then X is assigned to the class to which the plurality of these observations belong. Hence KNN is a completely <strong>non-parametric</strong> approach: <em>no assumptions are made about the shape of the decision boundary</em>.</p><blockquote><p>Therefore, we can expect KNN to dominate LDA and logistic regression when the decision boundary is highly non-linear.</p></blockquote><p>On the other hand, KNN does not tell us which predictors are important</p><h2 id="qda-serves-as-a-compromise-between-knn-lda-and-logistic-regression">QDA serves as a compromise between KNN, LDA and logistic regression</h2><p>QDA serves as a compromise between the non-parametric KNN method and the linear LDA and logistic regression approaches. Since QDA assumes a quadratic decision boundary, it can accurately model a wider range of problems than can the linear methods. Though not as flexible as KNN, QDA can perform better in the presence of a <em>limited number of training observations</em> because it does make some assumptions about the form of the decision boundary.</p><p><img src="./images/17.png" width="800"></p><p><strong>Scenario 1</strong>: - 20 training observations in each of two classes. The observations within each class were uncorrelated random normal variables with a different mean in each class. - LDA performed well in this setting. KNN performed poorly because it paid a price in terms of variance that was not offset by a reduction in bias.</p><p><strong>Scenario 2</strong>: - Details are as in Scenario 1, except that within each class, the two predictors had a correlation of −0.5. - Little change in the relative performances of the methods as compared to the previous scenario.</p><p><strong>Scenario 3</strong>: - X1 and X2 are from the t-distribution, with 50 observations per class.</p><blockquote><p>The <strong>t-distribution</strong> has a similar shape to the normal distribution, but it has a tendency to yield more extreme points—that is, more points that are far from the mean.</p></blockquote><ul><li>The decision boundary was still linear, and so fit into the logistic regression framework. The set-up violated the assumptions of LDA, since the observations were not drawn from a normal distribution. QDA results deteriorated considerably as a consequence of non-normality.</li></ul><p><strong>Scenario 4</strong>: - The data were generated from a normal distribution, with a correlation of 0.5 between the predictors in the first class, and correlation of −0.5 between the predictors in the second class. - This setup corresponded to the QDA assumption, and resulted in quadratic decision boundaries.</p><p><strong>Scenario 5</strong>: - Within each class, the observations were generated from a normal distribution with uncorrelated predictors. However, the responses were sampled from the logistic function using <span class="math inline">\(X^2_1 , X^2_2, and \, X1 × X2\)</span> as predictors. - Consequently, there is a quadratic decision boundary. QDA once again performed best, followed closely by KNN-CV. The linear methods had poor performance.</p><p><strong>Scenario 6</strong>: - Details are as in the previous scenario, but the responses were sampled from a more complicated non-linear function. - Even the quadratic decision boundaries of QDA could not adequately model the data. - Much more flexible KNN-CV method gave the best results. But KNN with K = 1 gave the worst results out of all methods.</p><blockquote><p>This highlights the fact that <strong>even when the data exhibits a complex nonlinear relationship, a non-parametric method such as KNN can still give poor results if the level of smoothness is not chosen correctly.</strong></p></blockquote><h2 id="conclusion">Conclusion</h2><ul><li><p>When the true decision boundaries are linear, then the LDA and logistic regression approaches will tend to perform well.</p></li><li><p>When the boundaries are moderately non-linear, QDA may give better results.</p></li><li><p>For much more complicated decision boundaries, a non-parametric approach such as KNN can be superior. But the level of smoothness for a non-parametric approach must be chosen carefully.</p></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt; &lt;/p&gt;
+      &lt;h1 id=&quot;comparing-logistic-regression-lda-qda-and-knn&quot;&gt;Comparing Logistic Regression, LDA, QDA, and KNN&lt;/h1&gt;
+&lt;h2 id=&quot;logistic-regression-and-lda-methods-are-closely-connected.&quot;&gt;logistic regression and LDA methods are closely connected.&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Setting&lt;/strong&gt;: Consider the two-class setting with &lt;span class=&quot;math inline&quot;&gt;\(p = 1\)&lt;/span&gt; predictor, and let &lt;span class=&quot;math inline&quot;&gt;\(p_1(x)\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(p_2(x) = 1−p_1(x)\)&lt;/span&gt; be the probabilities that the observation &lt;span class=&quot;math inline&quot;&gt;\(X = x\)&lt;/span&gt; belongs to class 1 and class 2, respectively.&lt;/p&gt;
+&lt;p&gt;In LDA, from&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[
+\begin{align}
+p_k(x)=\frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_k)^2 \right)}}{\sum_{l=1}^K\pi_l\frac{1}{\sqrt{2\pi}\sigma}\exp{\left( -\frac{1}{2\sigma^2}(x-\mu_l)^2 \right)}}
+\end{align}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[
+\begin{align}
+\delta_k(x)=x\frac{\mu_k}{\sigma^2}-\frac{\mu_k^2}{2\sigma^2}+\log(\pi_k) 
+\end{align}
+\]&lt;/span&gt;&lt;/p&gt;
     
     </summary>
     
-      <category term="Journal" scheme="https://nancyyanyu.github.io/categories/Journal/"/>
+      <category term="Machine Learning" scheme="https://nancyyanyu.github.io/categories/Machine-Learning/"/>
     
     
-      <category term="Journal" scheme="https://nancyyanyu.github.io/tags/Journal/"/>
+      <category term="Classification" scheme="https://nancyyanyu.github.io/tags/Classification/"/>
+    
+      <category term="KNN" scheme="https://nancyyanyu.github.io/tags/KNN/"/>
+    
+      <category term="Logistic Regression" scheme="https://nancyyanyu.github.io/tags/Logistic-Regression/"/>
+    
+      <category term="LDA" scheme="https://nancyyanyu.github.io/tags/LDA/"/>
     
   </entry>
   
