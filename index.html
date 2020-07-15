@@ -445,7 +445,7 @@
                 
               
 
-              <time title="Created: 2020-07-15 15:14:40 / Modified: 17:29:02" itemprop="dateCreated datePublished" datetime="2020-07-15T15:14:40-05:00">2020-07-15</time>
+              <time title="Created: 2020-07-15 15:14:40 / Modified: 17:32:36" itemprop="dateCreated datePublished" datetime="2020-07-15T15:14:40-05:00">2020-07-15</time>
             
 
             
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">21k</span>
+                <span title="Symbols count in article">24k</span>
               
 
               
@@ -510,7 +510,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">20 mins.</span>
+                <span title="Reading time">21 mins.</span>
               
             </div>
           
@@ -901,6 +901,45 @@ Corr(X,Y)=Cov(X,Y)=0
 \]</span> <strong>Why Coveriance is hard to interpret?</strong> Covariance is sensitive to the scale of the data while correlation is not affected by the scale of the data.</p>
 <p><strong>Correlation - p-value relationship</strong>: For <strong>correlation</strong>, a <strong>p-value</strong> tells us the probability that randomly drawn dots will result in a similarly <em>strong</em> relationship or stronger. Thus, the smaller the <strong>p-value</strong>, the more confidence we have in the predictions we make with the line. We quantify the confidence of correlation with a <strong>p-value</strong>. The more data we have, the more confidence (smaller p-value) we have.</p>
 <p><strong>Why Correlation is still hard to interpret?</strong> It's not obvious that Corr=0.7 is twice as good at making predictions as Corr=0.5, while <span class="math inline">\(R^2=0.7\)</span> is 1.4 times as good as <span class="math inline">\(R^2=0.5\)</span></p>
+<h1 id="anova">ANOVA</h1>
+<h2 id="basic-ideas">Basic Ideas</h2>
+<p><strong>Why ANOVA?</strong>: the previous hypothesis tests are only about a maximum of 2 populations, ANOVA permits comparisons of multiple populations and even subgroups.</p>
+<p><strong>Null Hypothesis:</strong> whether or not these 3 sample means come from the same population. <span class="math display">\[
+H_0: \mu_1=\mu_2=\mu_3
+\]</span> <img src="anova1.png"></p>
+<p>In ANOVA, the ideas below are very important.</p>
+<ul>
+<li><strong>Variability AMONG/BETWEEN the sample means</strong>. each sample mean's distance from the mean of the overall population.</li>
+<li><strong>Variability AROUND/WITHIN the sample means</strong>. the variance or SPREAD of each distribution.</li>
+</ul>
+<p><img src="anova5.png"></p>
+<p><strong>Definition</strong>. <strong>ANOVA</strong> is a <em>variability ratio</em> <span class="math display">\[
+\frac{\text{Variability AMONG/BETWEEN the means}}{\text{Variability AROUND/WITHIN the distributions}}
+\]</span> <img src="anova3.png"></p>
+<blockquote>
+<p>If the variabitlity BETWEEN the means (distance from overall mean) in the numerator is relatively large compared to the variance WITHIN the samples (internal spread) in the denominator, the ratio will be much larger than 1. The samples then most likely do NOT come from a common population; REJECT Null Hypothesis that mean(s) are equal.</p>
+</blockquote>
+<p><img src="anova4.png"></p>
+<h2 id="one-way-anova">One-Way ANOVA</h2>
+<h2 id="two-way-anova">Two-Way ANOVA</h2>
+<p><strong>Two-Way ANOVA &quot;Block&quot; Design</strong>:</p>
+<p>ANOVA is about partitioning the total / overall variance into <strong>different parts</strong>; assigning parts of the overall variance to different sources.</p>
+<p>One of those parts is always ERROR; the unexplained source.</p>
+<p>In a One-Way ANOVA, aside from ERROR, we were only working with one potential source of variance: COLUMNS/GROUPS.</p>
+<p>A Two-Way ANOVA allows us to &quot;account for variation&quot; at the ROW level due to some other <strong>factor</strong> or <strong>grouping</strong> . We introduce a new way to separate the data: BLOCKS</p>
+<ul>
+<li>Blocks allow us to further refine how we &quot;assign&quot; or split apart the overall variance, allowing for more powerfil hypothesis tests.</li>
+<li>By adding blocks or factors to the ROWS, we can &quot;subtract out&quot; that ROW variance from the overall ERROR variance.</li>
+<li>This allows greater focus on COLUMN or GRROUP differences <em>making it easier to <strong>detect</strong> group differences.</em></li>
+</ul>
+<p><img src="anova6.png"></p>
+<p><strong>Eating up original SSE with Blocks</strong>:</p>
+<blockquote>
+<p>SSC wants SSE to be as small as possible. &quot;Hey SSB, eat up original SSE!&quot;</p>
+</blockquote>
+<blockquote>
+<p>In the end, SSC will be compared to SSE. So, the smaller SSE is, SSC can claim a larger part of SST.</p>
+</blockquote>
 <p>Ref:</p>
 <p>https://cnx.org/contents/6Znhbn2_<span class="citation" data-cites="1.5:7mUmR30Q">@1.5:7mUmR30Q</span><span class="citation" data-cites="1/Central-Limit-Theorem-Assumptions-and-Conditions">@1/Central-Limit-Theorem-Assumptions-and-Conditions</span></p>
 <p>https://github.com/wzchen/probability_cheatsheet/blob/master/probability_cheatsheet.pdf</p>
@@ -3039,7 +3078,7 @@ Corr(X,Y)=Cov(X,Y)=0
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">486k</span>
+    <span title="Symbols count total">489k</span>
   
 
   
