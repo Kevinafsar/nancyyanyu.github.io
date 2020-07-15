@@ -445,7 +445,7 @@
                 
               
 
-              <time title="Created: 2020-07-15 15:14:40 / Modified: 17:45:40" itemprop="dateCreated datePublished" datetime="2020-07-15T15:14:40-05:00">2020-07-15</time>
+              <time title="Created: 2020-07-15 15:14:40 / Modified: 17:50:45" itemprop="dateCreated datePublished" datetime="2020-07-15T15:14:40-05:00">2020-07-15</time>
             
 
             
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">25k</span>
+                <span title="Symbols count in article">29k</span>
               
 
               
@@ -510,7 +510,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">23 mins.</span>
+                <span title="Reading time">26 mins.</span>
               
             </div>
           
@@ -1106,6 +1106,210 @@ year_3
 <p>(44.333333333333464, 156.25396825396828, 0.28372612759041116)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F_crit=scipy.stats.f.ppf(q=<span class="number">1</span><span class="number">-0.05</span>, dfn=C<span class="number">-1</span>, dfd=N-C)</span><br><span class="line">print(<span class="string">"Since our F value(&#123;0:.2f&#125;) is smaller than F critical value(&#123;1:.2f&#125;), we fail to reject the null hypothesis. So there is no significant difference between the mean of each column"</span>.format(F,F_crit))</span><br></pre></td></tr></table></figure>
 <p>Since our F value(0.28) is smaller than F critical value(3.55), we fail to reject the null hypothesis. So there is no significant difference between the mean of each column</p>
+<h2 id="two-way-anova">Two-Way ANOVA</h2>
+<p><strong>Two-Way ANOVA &quot;Block&quot; Design</strong>:</p>
+<p>ANOVA is about partitioning the total / overall variance into <strong>different parts</strong>; assigning parts of the overall variance to different sources.</p>
+<p>One of those parts is always ERROR; the unexplained source.</p>
+<p>In a One-Way ANOVA, aside from ERROR, we were only working with one potential source of variance: COLUMNS/GROUPS.</p>
+<p>A Two-Way ANOVA allows us to &quot;account for variation&quot; at the ROW level due to some other <strong>factor</strong> or <strong>grouping</strong> . We introduce a new way to separate the data: BLOCKS</p>
+<ul>
+<li>Blocks allow us to further refine how we &quot;assign&quot; or split apart the overall variance, allowing for more powerfil hypothesis tests.</li>
+<li>By adding blocks or factors to the ROWS, we can &quot;subtract out&quot; that ROW variance from the overall ERROR variance.</li>
+<li>This allows greater focus on COLUMN or GRROUP differences <em>making it easier to <strong>detect</strong> group differences.</em></li>
+</ul>
+<p><img src="anova6.png"></p>
+<p><strong>Eating up original SSE with Blocks</strong>:</p>
+<blockquote>
+<p>SSC wants SSE to be as small as possible. &quot;Hey SSB, eat up original SSE!&quot;</p>
+</blockquote>
+<blockquote>
+<p>In the end, SSC will be compared to SSE. So, the smaller SSE is, SSC can claim a larger part of SST.</p>
+</blockquote>
+<p><strong>Formulas For One-Way ANOVA</strong>: <span class="math display">\[
+\begin{align}
+\text{Sum of Squares Total(SST)}=&amp;\text{Sum of Squares Between(SSC)}+ \\
+                &amp;\text{Sum of Squares Block(SSB)}+ \\
+                &amp;\text{Sum of Squares Within(SSE)}
+\end{align}
+\]</span></p>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 10%">
+<col style="width: 28%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Degree of Freedom</th>
+<th>Average</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\text{Sum of squares(columns)(SSC)}\)</span></td>
+<td><span class="math inline">\(C-1\)</span></td>
+<td><span class="math inline">\(\text{MSC}=\frac{SSC}{\text{df}_{columns}}\)</span></td>
+<td><span class="math inline">\(\sum_{j=1}^kn_j(\bar{x}_j-\bar{\bar{x}})^2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{Sum of squares(block)(SSB)}\)</span></td>
+<td><span class="math inline">\(B-1\)</span></td>
+<td><span class="math inline">\(\text{MSB}=\frac{SSB}{\text{df}_{blocks}}\)</span></td>
+<td><span class="math inline">\(\sum_{b=1}^Bn_b(\bar{x}_b-\bar{\bar{x}})^2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\text{Sum of squares(within/error)(SSE)}\)</span></td>
+<td><span class="math inline">\((C-1)(B-1)\)</span></td>
+<td><span class="math inline">\(\text{MSE}=\frac{SSE}{\text{df}_{error}}\)</span></td>
+<td><span class="math inline">\(SST-SSB-SSC\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{Sum of squares(total)(SST)}\)</span></td>
+<td><span class="math inline">\(N-1\)</span></td>
+<td><span class="math inline">\(\text{F}=\frac{MSC}{MSE}\)</span></td>
+<td><span class="math inline">\(\sum_{j=1}^k\sum_{i=1}^{n_j}(x_{ji}-\bar{\bar{x}})^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df=pd.DataFrame(data=np.array([[<span class="number">75</span>,<span class="number">70</span>,<span class="number">50</span>,<span class="number">65</span>,<span class="number">80</span>,<span class="number">65</span>],[<span class="number">75</span>,<span class="number">70</span>,<span class="number">55</span>,<span class="number">60</span>,<span class="number">65</span>,<span class="number">65</span>],[<span class="number">90</span>,<span class="number">70</span>,<span class="number">75</span>,<span class="number">85</span>,<span class="number">80</span>,<span class="number">65</span>]]).T,</span><br><span class="line">                columns=[<span class="string">"city_&#123;&#125;"</span>.format(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>)],index=[<span class="string">"shopper_&#123;&#125;"</span>.format(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">7</span>)])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+city_1
+</th>
+<th>
+city_2
+</th>
+<th>
+city_3
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+shopper_1
+</th>
+<td>
+75
+</td>
+<td>
+75
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<th>
+shopper_2
+</th>
+<td>
+70
+</td>
+<td>
+70
+</td>
+<td>
+70
+</td>
+</tr>
+<tr>
+<th>
+shopper_3
+</th>
+<td>
+50
+</td>
+<td>
+55
+</td>
+<td>
+75
+</td>
+</tr>
+<tr>
+<th>
+shopper_4
+</th>
+<td>
+65
+</td>
+<td>
+60
+</td>
+<td>
+85
+</td>
+</tr>
+<tr>
+<th>
+shopper_5
+</th>
+<td>
+80
+</td>
+<td>
+65
+</td>
+<td>
+80
+</td>
+</tr>
+<tr>
+<th>
+shopper_6
+</th>
+<td>
+65
+</td>
+<td>
+65
+</td>
+<td>
+65
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N=len(df)*len(df.columns)</span><br><span class="line">C=len(df.columns)</span><br><span class="line">B=len(df)</span><br><span class="line">N,C,B</span><br></pre></td></tr></table></figure>
+<p>(18, 3, 6)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">block_means=df.mean(axis=<span class="number">1</span>)</span><br><span class="line">column_means=df.mean(axis=<span class="number">0</span>)</span><br><span class="line">total_mean=df.values.mean()</span><br><span class="line">print(<span class="string">"Means of block"</span>)</span><br><span class="line">print(block_means)</span><br><span class="line">print()</span><br><span class="line">print(<span class="string">"Means of columns"</span>)</span><br><span class="line">print(column_means)</span><br><span class="line">print()</span><br><span class="line">print(<span class="string">"Total mean:"</span>,total_mean)</span><br></pre></td></tr></table></figure>
+<p>Means of block shopper_1 80.0 shopper_2 70.0 shopper_3 60.0 shopper_4 70.0 shopper_5 75.0 shopper_6 65.0 dtype: float64</p>
+<p>Means of columns city_1 67.5 city_2 65.0 city_3 77.5 dtype: float64</p>
+<p>Total mean: 70.0</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SST=sum((df.values.reshape(<span class="number">-1</span>)-total_mean)**<span class="number">2</span>)</span><br><span class="line">SSC=sum((column_means-total_mean)**<span class="number">2</span>)*len(df)</span><br><span class="line">SSB=sum((block_means-total_mean)**<span class="number">2</span>)*len(df.columns)</span><br><span class="line">SSE=SST-SSB-SSC</span><br><span class="line">SST,SSC,SSB,SSE</span><br></pre></td></tr></table></figure>
+<p>(1750.0, 525.0, 750.0, 475.0)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MST=SST/(N<span class="number">-1</span>)</span><br><span class="line">MSC=SSC/(C<span class="number">-1</span>)</span><br><span class="line">MSB=SSB/(B<span class="number">-1</span>)</span><br><span class="line">MSE=SSE/(C<span class="number">-1</span>)/(B<span class="number">-1</span>)</span><br><span class="line">MST,MSC,MSB,MSE</span><br></pre></td></tr></table></figure>
+<p>(102.94117647058823, 262.5, 150.0, 47.5)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">F=MSC/MSE</span><br><span class="line">F_=MSB/MSE</span><br><span class="line">F,F_</span><br></pre></td></tr></table></figure>
+<p>(5.526315789473684, 3.1578947368421053)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F_crit=scipy.stats.f.ppf(q=<span class="number">1</span><span class="number">-0.05</span>, dfn=C<span class="number">-1</span>, dfd=(C<span class="number">-1</span>)*(B<span class="number">-1</span>))</span><br><span class="line">print(<span class="string">"Since our F value(&#123;0:.2f&#125;) is larger than F critical value(&#123;1:.2f&#125;), we can reject the null hypothesis. So significant difference do exist in cities."</span>.format(F,F_crit))</span><br></pre></td></tr></table></figure>
+<p>Since our F value(5.53) is larger than F critical value(4.10), we can reject the null hypothesis. So significant difference do exist in cities.</p>
 <p>Ref:</p>
 <p>https://cnx.org/contents/6Znhbn2_<span class="citation" data-cites="1.5:7mUmR30Q">@1.5:7mUmR30Q</span><span class="citation" data-cites="1/Central-Limit-Theorem-Assumptions-and-Conditions">@1/Central-Limit-Theorem-Assumptions-and-Conditions</span></p>
 <p>https://github.com/wzchen/probability_cheatsheet/blob/master/probability_cheatsheet.pdf</p>
@@ -3244,7 +3448,7 @@ year_3
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">490k</span>
+    <span title="Symbols count total">494k</span>
   
 
   
