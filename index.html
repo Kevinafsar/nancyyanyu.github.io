@@ -445,7 +445,7 @@
                 
               
 
-              <time title="Created: 2020-07-15 15:14:40 / Modified: 17:32:36" itemprop="dateCreated datePublished" datetime="2020-07-15T15:14:40-05:00">2020-07-15</time>
+              <time title="Created: 2020-07-15 15:14:40 / Modified: 17:45:40" itemprop="dateCreated datePublished" datetime="2020-07-15T15:14:40-05:00">2020-07-15</time>
             
 
             
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">24k</span>
+                <span title="Symbols count in article">25k</span>
               
 
               
@@ -510,7 +510,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">21 mins.</span>
+                <span title="Reading time">23 mins.</span>
               
             </div>
           
@@ -921,25 +921,191 @@ H_0: \mu_1=\mu_2=\mu_3
 </blockquote>
 <p><img src="anova4.png"></p>
 <h2 id="one-way-anova">One-Way ANOVA</h2>
-<h2 id="two-way-anova">Two-Way ANOVA</h2>
-<p><strong>Two-Way ANOVA &quot;Block&quot; Design</strong>:</p>
-<p>ANOVA is about partitioning the total / overall variance into <strong>different parts</strong>; assigning parts of the overall variance to different sources.</p>
-<p>One of those parts is always ERROR; the unexplained source.</p>
-<p>In a One-Way ANOVA, aside from ERROR, we were only working with one potential source of variance: COLUMNS/GROUPS.</p>
-<p>A Two-Way ANOVA allows us to &quot;account for variation&quot; at the ROW level due to some other <strong>factor</strong> or <strong>grouping</strong> . We introduce a new way to separate the data: BLOCKS</p>
-<ul>
-<li>Blocks allow us to further refine how we &quot;assign&quot; or split apart the overall variance, allowing for more powerfil hypothesis tests.</li>
-<li>By adding blocks or factors to the ROWS, we can &quot;subtract out&quot; that ROW variance from the overall ERROR variance.</li>
-<li>This allows greater focus on COLUMN or GRROUP differences <em>making it easier to <strong>detect</strong> group differences.</em></li>
-</ul>
-<p><img src="anova6.png"></p>
-<p><strong>Eating up original SSE with Blocks</strong>:</p>
-<blockquote>
-<p>SSC wants SSE to be as small as possible. &quot;Hey SSB, eat up original SSE!&quot;</p>
-</blockquote>
-<blockquote>
-<p>In the end, SSC will be compared to SSE. So, the smaller SSE is, SSC can claim a larger part of SST.</p>
-</blockquote>
+<p><strong>Formulas For One-Way ANOVA</strong>: <span class="math display">\[
+\text{Sum of Squares Total(SST)}=\text{Sum of Squares Between(SSC)}+\text{Sum of Squares Within(SSE)}
+\]</span></p>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 10%">
+<col style="width: 28%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Degree of Freedom</th>
+<th>Average</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\text{Sum of squares(columns)(SSC)}\)</span></td>
+<td><span class="math inline">\(C-1\)</span></td>
+<td><span class="math inline">\(\text{MSC}=\frac{SSC}{\text{df}_{columns}}\)</span></td>
+<td><span class="math inline">\(\sum_{j=1}^kn_j(\bar{x}_j-\bar{\bar{x}})^2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{Sum of squares(within/error)(SSE)}\)</span></td>
+<td><span class="math inline">\(N-C\)</span></td>
+<td><span class="math inline">\(\text{MSE}=\frac{SSE}{\text{df}_{error}}\)</span></td>
+<td><span class="math inline">\(\sum_{j=1}^k(\sum_{i=1}^{n_1}(x_{ji}-\bar{x}_j)^2)\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\text{Sum of squares(total)(SST)}\)</span></td>
+<td><span class="math inline">\(N-1\)</span></td>
+<td><span class="math inline">\(\text{F}=\frac{MSC}{MSE}\)</span></td>
+<td><span class="math inline">\(\sum_{j=1}^k\sum_{i=1}^{n_j}(x_{ji}-\bar{\bar{x}})^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df=pd.DataFrame(data=np.array([[<span class="number">82</span>,<span class="number">93</span>,<span class="number">61</span>,<span class="number">74</span>,<span class="number">69</span>,<span class="number">70</span>,<span class="number">53</span>],[<span class="number">71</span>,<span class="number">62</span>,<span class="number">85</span>,<span class="number">94</span>,<span class="number">78</span>,<span class="number">66</span>,<span class="number">71</span>],[<span class="number">64</span>,<span class="number">73</span>,<span class="number">87</span>,<span class="number">91</span>,<span class="number">56</span>,<span class="number">78</span>,<span class="number">87</span>]]).T,</span><br><span class="line">                columns=[<span class="string">'year_1'</span>,<span class="string">'year_2'</span>,<span class="string">'year_3'</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+year_1
+</th>
+<th>
+year_2
+</th>
+<th>
+year_3
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+82
+</td>
+<td>
+71
+</td>
+<td>
+64
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+93
+</td>
+<td>
+62
+</td>
+<td>
+73
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+61
+</td>
+<td>
+85
+</td>
+<td>
+87
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+74
+</td>
+<td>
+94
+</td>
+<td>
+91
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+69
+</td>
+<td>
+78
+</td>
+<td>
+56
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+70
+</td>
+<td>
+66
+</td>
+<td>
+78
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+53
+</td>
+<td>
+71
+</td>
+<td>
+87
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">N=len(df)*len(df.columns)</span><br><span class="line">C=len(df.columns)</span><br><span class="line">N,C</span><br></pre></td></tr></table></figure>
+<p>(21, 3)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mean_1=df[<span class="string">'year_1'</span>].mean()</span><br><span class="line">mean_2=df[<span class="string">'year_2'</span>].mean()</span><br><span class="line">mean_3=df[<span class="string">'year_3'</span>].mean()</span><br><span class="line">mean_total=(df[<span class="string">'year_1'</span>].sum()+df[<span class="string">'year_2'</span>].sum()+df[<span class="string">'year_3'</span>].sum())/N</span><br><span class="line">mean_1,mean_2,mean_3,mean_total</span><br></pre></td></tr></table></figure>
+<p>(71.71428571428571, 75.28571428571429, 76.57142857142857, 74.52380952380952)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SSC = ((mean_1-mean_total)**<span class="number">2</span> +</span><br><span class="line">      (mean_2-mean_total)**<span class="number">2</span> +</span><br><span class="line">      (mean_3-mean_total)**<span class="number">2</span>)*<span class="number">7</span></span><br><span class="line"></span><br><span class="line">SSE = (sum((df[<span class="string">'year_1'</span>]-mean_1)**<span class="number">2</span>) +</span><br><span class="line">       sum((df[<span class="string">'year_2'</span>]-mean_2)**<span class="number">2</span>) +</span><br><span class="line">       sum((df[<span class="string">'year_3'</span>]-mean_3)**<span class="number">2</span>))</span><br><span class="line">SST=SSC+SSE</span><br><span class="line">SSC,SSE,SST</span><br></pre></td></tr></table></figure>
+<p>(88.66666666666693, 2812.571428571429, 2901.238095238096)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MSC=SSC/(C<span class="number">-1</span>)</span><br><span class="line">MSE=SSE/(N-C)</span><br><span class="line">F=MSC/MSE</span><br><span class="line">MSC,MSE,F</span><br></pre></td></tr></table></figure>
+<p>(44.333333333333464, 156.25396825396828, 0.28372612759041116)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F_crit=scipy.stats.f.ppf(q=<span class="number">1</span><span class="number">-0.05</span>, dfn=C<span class="number">-1</span>, dfd=N-C)</span><br><span class="line">print(<span class="string">"Since our F value(&#123;0:.2f&#125;) is smaller than F critical value(&#123;1:.2f&#125;), we fail to reject the null hypothesis. So there is no significant difference between the mean of each column"</span>.format(F,F_crit))</span><br></pre></td></tr></table></figure>
+<p>Since our F value(0.28) is smaller than F critical value(3.55), we fail to reject the null hypothesis. So there is no significant difference between the mean of each column</p>
 <p>Ref:</p>
 <p>https://cnx.org/contents/6Znhbn2_<span class="citation" data-cites="1.5:7mUmR30Q">@1.5:7mUmR30Q</span><span class="citation" data-cites="1/Central-Limit-Theorem-Assumptions-and-Conditions">@1/Central-Limit-Theorem-Assumptions-and-Conditions</span></p>
 <p>https://github.com/wzchen/probability_cheatsheet/blob/master/probability_cheatsheet.pdf</p>
@@ -3078,7 +3244,7 @@ H_0: \mu_1=\mu_2=\mu_3
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">489k</span>
+    <span title="Symbols count total">490k</span>
   
 
   
