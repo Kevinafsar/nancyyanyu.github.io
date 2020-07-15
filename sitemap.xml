@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nancyyanyu.github.io/techou/index.html</loc>
+    
+    <lastmod>2020-07-15T23:36:02.970Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nancyyanyu.github.io/posts/c27004a0/</loc>
     
     <lastmod>2020-07-15T23:02:52.194Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://nancyyanyu.github.io/posts/63adf3bb/</loc>
     
     <lastmod>2020-04-29T12:11:21.899Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nancyyanyu.github.io/techou/index.html</loc>
-    
-    <lastmod>2020-04-19T09:07:01.048Z</lastmod>
     
   </url>
   
@@ -352,14 +352,14 @@
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/bower.json</loc>
+    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2019-06-09T06:58:06.044Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/README.html</loc>
+    <loc>https://nancyyanyu.github.io/lib/jquery_lazyload/bower.json</loc>
     
     <lastmod>2019-06-09T06:58:06.044Z</lastmod>
     
