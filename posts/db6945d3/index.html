@@ -119,13 +119,26 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nancy&#39;s Notes">
-<meta property="og:url" content="https://nancyyanyu.github.io/index.html">
+  <meta name="description" content="Common Pitfalls Network Effect Limitations of per-user assignment to run an A/B test on user-to-user features or product relies heavily on interaction between users:  If you let the test group use vid">
+<meta name="keywords" content="ab-testing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A&#x2F;B Testing : Pitfalls, Baysian &amp; Math Behind">
+<meta property="og:url" content="https://nancyyanyu.github.io/posts/db6945d3/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Notes">
+<meta property="og:description" content="Common Pitfalls Network Effect Limitations of per-user assignment to run an A/B test on user-to-user features or product relies heavily on interaction between users:  If you let the test group use vid">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/6n-graph2.svg/350px-6n-graph2.svg.png">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/e6f63ff7144996fb004e3d4b211c2c73c5e59fbd">
+<meta property="og:image" content="https://nancyyanyu.github.io/Users/yan/Google%20Drive/Note/AB%20Testing/Math%20behind_files/Math%20behind_15_1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/Users/yan/Google%20Drive/Note/AB%20Testing/Math%20behind_files/Math%20behind_17_1.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/Users/yan/Google%20Drive/Note/AB%20Testing/Math%20behind_files/Math%20behind_22_0.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/Users/yan/Google%20Drive/Note/AB%20Testing/confusion.png">
+<meta property="og:image" content="https://nancyyanyu.github.io/Users/yan/Google%20Drive/Note/AB%20Testing/sample_size.png">
+<meta property="og:updated_time" content="2020-07-16T22:27:59.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nancy&#39;s Notes">
+<meta name="twitter:title" content="A&#x2F;B Testing : Pitfalls, Baysian &amp; Math Behind">
+<meta name="twitter:description" content="Common Pitfalls Network Effect Limitations of per-user assignment to run an A/B test on user-to-user features or product relies heavily on interaction between users:  If you let the test group use vid">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/6n-graph2.svg/350px-6n-graph2.svg.png">
 
 
 
@@ -135,7 +148,7 @@
 
   
   
-  <link rel="canonical" href="https://nancyyanyu.github.io/">
+  <link rel="canonical" href="https://nancyyanyu.github.io/posts/db6945d3/">
 
 
 
@@ -145,7 +158,7 @@
   };
 </script>
 
-  <title>Nancy's Notes</title>
+  <title>A/B Testing : Pitfalls, Baysian & Math Behind | Nancy's Notes</title>
   
 
 
@@ -193,8 +206,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right 
-  page-home">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,7 +248,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -383,180 +395,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/484e8aea/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/484e8aea/" class="post-title-link" itemprop="url">Pitfalls_Baysian_Math</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-07-16 15:22:59 / Modified: 17:27:12" itemprop="dateCreated datePublished" datetime="2020-07-16T15:22:59-05:00">2020-07-16</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -588,10 +429,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/db6945d3/" class="post-title-link" itemprop="url">A/B Testing : Pitfalls, Baysian & Math Behind</a>
+          <h1 class="post-title" itemprop="name headline">A/B Testing : Pitfalls, Baysian & Math Behind
+
               
             
           </h1>
@@ -701,9 +540,7 @@
       
 
       
-        
-          
-            <h1 id="common-pitfalls">Common Pitfalls</h1>
+        <h1 id="common-pitfalls">Common Pitfalls</h1>
 <h2 id="network-effect">Network Effect</h2>
 <p><strong>Limitations</strong> of per-user assignment to run an A/B test on <strong><em>user-to-user features</em></strong> or product relies heavily on interaction between users:</p>
 <ol type="1">
@@ -1095,8 +932,6 @@ z_{\alpha/2}&amp;= \text{corresponds to 2-tailed significance level (1.96 for $\
 <p><a href="https://towardsdatascience.com/the-math-behind-a-b-testing-with-example-code-part-1-of-2-7be752e1d06f" target="_blank" rel="noopener">The Math Behind A/B Testing with Example Python Code</a></p>
 <p><a href="https://medium.com/convoy-tech/the-power-of-bayesian-a-b-testing-f859d2219d5" target="_blank" rel="noopener">The Power of Bayesian A/B Testing</a></p>
 
-          
-        
       
     </div>
 
@@ -1117,404 +952,43 @@ z_{\alpha/2}&amp;= \text{corresponds to 2-tailed significance level (1.96 for $\
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/c27004a0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
         
+          
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/c27004a0/" class="post-title-link" itemprop="url">Probability & Statistics Fundamental</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-07-15 15:14:40 / Modified: 18:02:52" itemprop="dateCreated datePublished" datetime="2020-07-15T15:14:40-05:00">2020-07-15</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/ab-testing/" rel="tag"># ab-testing</a>
           
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">29k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">26 mins.</span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>Basic Probability &amp; Statistics knowledge.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/c27004a0/#more" rel="contents">
-                Read more &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/c27004a0/" rel="next" title="Probability & Statistics Fundamental">
+                <i class="fa fa-chevron-left"></i> Probability & Statistics Fundamental
               </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/8fdfc10f/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/8fdfc10f/" class="post-title-link" itemprop="url">A/B Testing Final Project</a>
-              
             
-          </h1>
-        
+          </div>
 
-        <div class="post-meta">
-          <span class="post-time">
+          <span class="post-nav-divider"></span>
 
+          <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/484e8aea/" rel="prev" title="Pitfalls_Baysian_Math">
+                Pitfalls_Baysian_Math <i class="fa fa-chevron-right"></i>
+              </a>
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-07-03 14:28:54 / Modified: 16:47:33" itemprop="dateCreated datePublished" datetime="2020-07-03T14:28:54-05:00">2020-07-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Product-Sense/" itemprop="url" rel="index"><span itemprop="name">Product Sense</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">17k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">16 mins.</span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>My implementation &amp; answer of Udacity A/B Testing course's final project.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/8fdfc10f/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1524,1237 +998,22 @@ z_{\alpha/2}&amp;= \text{corresponds to 2-tailed significance level (1.96 for $\
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/17c5bb19/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/17c5bb19/" class="post-title-link" itemprop="url">Study Notes of Udacity A/B Testing</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-07-03 14:24:21 / Modified: 16:54:59" itemprop="dateCreated datePublished" datetime="2020-07-03T14:24:21-05:00">2020-07-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Product-Sense/" itemprop="url" rel="index"><span itemprop="name">Product Sense</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">47k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">43 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>My study note of Udacity <a href="https://classroom.udacity.com/courses/ud257" target="_blank" rel="noopener">A/B Testing course</a>.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/17c5bb19/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/c8b80037/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/c8b80037/" class="post-title-link" itemprop="url">Study Note: Exploratory Data Analysis </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-04-29 04:58:33 / Modified: 07:20:08" itemprop="dateCreated datePublished" datetime="2020-04-29T04:58:33-05:00">2020-04-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/Practical-Statistics-for-DS/" itemprop="url" rel="index"><span itemprop="name">Practical Statistics for DS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">11k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">10 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>My study note of the book <em>Practical Statistics for Data Scientists: 50+ Essential Concepts Using R and Python - Chapter 1 Exploratory Data Analysis</em> .</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/c8b80037/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/781a431b/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/781a431b/" class="post-title-link" itemprop="url">October 2019 | 十月日志</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-11-10 15:47:45 / Modified: 18:49:42" itemprop="dateCreated datePublished" datetime="2019-11-10T15:47:45-05:00">2019-11-10</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Journal/" itemprop="url" rel="index"><span itemprop="name">Journal</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">992</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p> </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/781a431b/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/5576e748/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/5576e748/" class="post-title-link" itemprop="url">CS229 Note: Generative Learning</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-10-22 22:50:34" itemprop="dateCreated datePublished" datetime="2019-10-22T22:50:34-05:00">2019-10-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-11-09 16:52:21" itemprop="dateModified" datetime="2019-11-09T16:52:21-05:00">2019-11-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/CS229/" itemprop="url" rel="index"><span itemprop="name">CS229</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="generative-learning-algorithms">Generative Learning algorithms</h1>
-<p><strong>Discriminative learning algorithms</strong>: Algorithms that try to learn <span class="math inline">\(p(y|x)\)</span> directly (such as logistic regression), or algorithms that try to learn mappings directly from the space of inputs <span class="math inline">\(X\)</span> to the labels {0, 1}, (such as the perceptron algorithm)</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/5576e748/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/9b3e7e9e/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/9b3e7e9e/" class="post-title-link" itemprop="url">CS229 Note: Linear Regression, Logistic regression, Generalized Linear Models</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-10-20 16:50:20" itemprop="dateCreated datePublished" datetime="2019-10-20T16:50:20-05:00">2019-10-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-10-23 01:07:40" itemprop="dateModified" datetime="2019-10-23T01:07:40-05:00">2019-10-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/CS229/" itemprop="url" rel="index"><span itemprop="name">CS229</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">21k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">19 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>linear function</strong>: <span class="math inline">\(h_θ(x) = θ_0 + θ_1x_1 + θ_2x_2+...+θ_dx_d=θ^Tx\)</span></p>
-<p><strong>cost function</strong>: <span class="math inline">\(J(θ)=\frac{1}{2}\sum_{i=1}^n(h_θ(x^{(i)})-y^{(i)})^2\)</span></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/9b3e7e9e/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://nancyyanyu.github.io/posts/109fc1d1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nancy Yan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nancy's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/posts/109fc1d1/" class="post-title-link" itemprop="url">Realtime Financial Market Data Visualization and Analysis</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-10-19 20:51:45 / Modified: 20:56:49" itemprop="dateCreated datePublished" datetime="2019-10-19T20:51:45-05:00">2019-10-19</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">5.9k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">5 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="introduction">Introduction</h1>
-<p>In this project, I developed a financial data processing and visualization platform using <strong><u>Apache Kafka</u></strong>, <u><strong>Apache Cassandra</strong></u>, and <strong><u>Bokeh</u></strong>. I used Kafka for realtime stock price and market news streaming, Cassandra for historical and realtime stock data warehousing, and Bokeh for visualization on web browsers. I also wrote a web crawler to scrape companys' financial statements and basic information from Yahoo Finance, and played with various economy data APIs.</p>
-<p><em>Please check the <a href="https://github.com/nancyyanyu/kafka_stock" target="_blank" rel="noopener">GitHub repo</a> of this project, and <strong>most importantly, please check this platform's website and play with each plot</strong> <span class="math inline">\(\rightarrow\)</span> <a href="http://magiconch.me/" target="_blank" rel="noopener">magiconch.me</a></em></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/posts/109fc1d1/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -2774,8 +1033,17 @@ z_{\alpha/2}&amp;= \text{corresponds to 2-tailed significance level (1.96 for $\
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -2985,6 +1253,23 @@ z_{\alpha/2}&amp;= \text{corresponds to 2-tailed significance level (1.96 for $\
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#common-pitfalls"><span class="nav-number">1.</span> <span class="nav-text">Common Pitfalls</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#network-effect"><span class="nav-number">1.1.</span> <span class="nav-text">Network Effect</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-using-per-community-random-assignment"><span class="nav-number">1.1.1.</span> <span class="nav-text">Solution: Using per-community random assignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-defining-geographic-communities"><span class="nav-number">1.1.2.</span> <span class="nav-text">Solution: Defining geographic communities</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history-effect"><span class="nav-number">1.2.</span> <span class="nav-text">History Effect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instrumentation-effect"><span class="nav-number">1.3.</span> <span class="nav-text">Instrumentation Effect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selection-effect"><span class="nav-number">1.4.</span> <span class="nav-text">Selection Effect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#novelty-effect"><span class="nav-number">1.5.</span> <span class="nav-text">Novelty Effect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#statistical-regression"><span class="nav-number">1.6.</span> <span class="nav-text">Statistical Regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bayesian-ab-testing"><span class="nav-number">2.</span> <span class="nav-text">Bayesian A/B Testing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#math-behind-ab-testing"><span class="nav-number">3.</span> <span class="nav-text">Math Behind A/B Testing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set-up-the-experiment"><span class="nav-number">4.</span> <span class="nav-text">Set Up The Experiment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#baseline-conversion-rate-and-minimum-difference-between-test-and-control"><span class="nav-number">4.1.</span> <span class="nav-text">Baseline Conversion Rate and minimum difference between test and control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#control-group-a-and-test-group-b"><span class="nav-number">4.2.</span> <span class="nav-text">Control Group (A) and Test Group (B)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#run-the-test"><span class="nav-number">5.</span> <span class="nav-text">Run the Test</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#generate-fake-data"><span class="nav-number">5.1.</span> <span class="nav-text">Generate Fake data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary-of-ab-data"><span class="nav-number">5.2.</span> <span class="nav-text">Summary of AB data</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#compare-the-two-groups"><span class="nav-number">6.</span> <span class="nav-text">Compare the Two Groups</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bernoulli-distribution-and-the-central-limit-theorem"><span class="nav-number">6.1.</span> <span class="nav-text">Bernoulli Distribution and the Central Limit Theorem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#variance-of-the-sum"><span class="nav-number">6.2.</span> <span class="nav-text">Variance of the Sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#compare-the-null-hypothesis-vs.-the-alternative-hypothesis"><span class="nav-number">6.3.</span> <span class="nav-text">Compare the Null Hypothesis vs. the Alternative Hypothesis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#statistical-power-and-significance-level"><span class="nav-number">7.</span> <span class="nav-text">Statistical Power and Significance Level</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sample-size"><span class="nav-number">8.</span> <span class="nav-text">Sample Size</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sample-size-formula-for-difference-in-means"><span class="nav-number">8.0.0.1.</span> <span class="nav-text">Sample Size Formula for difference in means</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">9.</span> <span class="nav-text">Reference</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -3162,6 +1447,10 @@ z_{\alpha/2}&amp;= \text{corresponds to 2-tailed significance level (1.96 for $\
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
 
   
 
@@ -3178,8 +1467,39 @@ z_{\alpha/2}&amp;= \text{corresponds to 2-tailed significance level (1.96 for $\
   
 
 
+  
+    
+<!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
+
+<link rel="stylesheet" href="https://www.wenjunjiang.win/css/gitment.css">
+<!-- END LOCAL -->
 
 
+<script>
+  function renderGitment() {
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'nancyyanyu',
+      repo: 'nancyyanyu.github.io',
+      
+      oauth: {
+      
+      
+        client_secret: '75adc257166813deff478053f3f05133285d6cf0',
+      
+        client_id: '90ddd3d00d8930cb0d84'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
 
   
 
@@ -3188,36 +1508,17 @@ z_{\alpha/2}&amp;= \text{corresponds to 2-tailed significance level (1.96 for $\
 
   
 
+
+
+
+  
+
   
 
   
   
 
   
-  
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
 
   
