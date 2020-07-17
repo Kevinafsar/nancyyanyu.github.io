@@ -137,7 +137,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/5b711fed/14.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/5b711fed/15.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/5b711fed/16.png">
-<meta property="og:updated_time" content="2019-10-19T23:21:05.413Z">
+<meta property="og:updated_time" content="2020-07-17T09:24:13.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Study Note: Linear Discriminant Analysis, ROC &amp; AUC, Confusion Matrix">
 <meta name="twitter:description" content="LDA V.S. Logistic Regression:  When the classes are well-separated, the parameter estimates for the logistic regression model are surprisingly unstable. Linear discriminant analysis does not suffer fr">
@@ -458,12 +458,24 @@
                 
               
 
-              <time title="Created: 2019-10-19 17:59:57 / Modified: 18:21:05" itemprop="dateCreated datePublished" datetime="2019-10-19T17:59:57-05:00">2019-10-19</time>
+              <time title="Created: 2019-10-19 17:59:57" itemprop="dateCreated datePublished" datetime="2019-10-19T17:59:57-05:00">2019-10-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-07-17 04:24:13" itemprop="dateModified" datetime="2020-07-17T04:24:13-05:00">2020-07-17</time>
               
             
           </span>
@@ -545,13 +557,13 @@
       
         <p><strong>LDA V.S. Logistic Regression</strong>:</p>
 <ol type="1">
-<li><p>When the classes are well-separated, the parameter estimates for the logistic regression model are surprisingly unstable. Linear discriminant analysis does not suffer from this problem.</p></li>
-<li><p>If n is small and the distribution of the predictors X is approximately normal in each of the classes, the linear discriminant model is again more stable than the logistic regression model.</p></li>
-<li><p>Linear discriminant analysis is popular when we have more than two response classes.</p></li>
+<li>When the classes are well-separated, the parameter estimates for the logistic regression model are surprisingly unstable. Linear discriminant analysis does not suffer from this problem.</li>
+<li>If n is small and the distribution of the predictors X is approximately normal in each of the classes, the linear discriminant model is again more stable than the logistic regression model.</li>
+<li>Linear discriminant analysis is popular when we have more than two response classes.</li>
 </ol>
+<a id="more"></a>
 <h1 id="using-bayes-theorem-for-classification">Using Bayes’ Theorem for Classification</h1>
 <p>Suppose that we wish to classify an observation into one of K classes, where K ≥ 2.</p>
-<a id="more"></a>
 <p><strong>Prior</strong>:Let <span class="math inline">\(\pi_k=Pr(Y=k)\)</span> represent the overall or <strong><em>prior</em></strong> probability that a randomly chosen observation comes from the kth class. This is the probability that a given observation is associated with the kth category of the response variable Y .</p>
 <p>Let <span class="math inline">\(f_k(X) ≡ Pr(X = x|Y = k)\)</span> denote the <strong><em>density function</em></strong> of X for an observation that comes from the kth class. In other words, fk(x) is relatively large if there is a high probability that an observation in the kth class has X ≈ x.</p>
 <p><strong>Bayes’ theorem</strong> states that <span class="math display">\[
