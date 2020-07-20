@@ -144,7 +144,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/4df00c7b/23.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/4df00c7b/22.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/4df00c7b/24.png">
-<meta property="og:updated_time" content="2019-10-19T23:21:26.079Z">
+<meta property="og:updated_time" content="2020-07-20T01:08:28.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Study Note: Linear Regression Part II - Potential Problems">
 <meta name="twitter:description" content="Qualitative Predictors Predictors with Only Two Levels Suppose that we wish to investigate differences in credit card balance between males and females, ignoring the other variables for the moment. If">
@@ -465,12 +465,24 @@
                 
               
 
-              <time title="Created: 2019-10-19 17:56:41 / Modified: 18:21:26" itemprop="dateCreated datePublished" datetime="2019-10-19T17:56:41-05:00">2019-10-19</time>
+              <time title="Created: 2019-10-19 17:56:41" itemprop="dateCreated datePublished" datetime="2019-10-19T17:56:41-05:00">2019-10-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-07-19 20:08:28" itemprop="dateModified" datetime="2020-07-19T20:08:28-05:00">2020-07-19</time>
               
             
           </span>
@@ -530,7 +542,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">10 mins.</span>
+                <span title="Reading time">9 mins.</span>
               
             </div>
           
@@ -608,7 +620,15 @@ Y &amp;= β_0 + (β_1+β_3X_2)X_1 + β_2X_2 + \epsilon  \\
 <li>If the residual plot indicates non-linear associations in the data, then a simple approach is to use <strong>non-linear transformations</strong> of the predictors, such as <span class="math inline">\(\log{X},\sqrt{X}, X^2\)</span>, in the regression model.</li>
 </ul>
 <h2 id="correlation-of-error-terms">Correlation of Error Terms</h2>
-<p><strong>Assumption</strong>: The error terms, <span class="math inline">\(\epsilon_1,\epsilon_2,...,\epsilon_n\)</span>, are uncorrelated. - If the errors are uncorrelated, then the fact that i is positive provides little or no information about the sign of i+1. - If the error terms are correlated, we may have an unwarranted sense of confidence in our model. - <strong>estimated standard errors</strong> will underestimate the true standard errors. - <strong>confidence and prediction intervals</strong> will be narrower than they should be. For example, a 95% confidence interval may in reality have a much lower probability than 0.95 of containing the true value of the parameter. - <strong>p-values</strong> will be lower than they should be - Lead to erroneously conclude that a parameter is statistically significant.</p>
+<p><strong>Assumption</strong>: The error terms, <span class="math inline">\(\epsilon_1,\epsilon_2,...,\epsilon_n\)</span>, are uncorrelated.</p>
+<ul>
+<li>If the errors are uncorrelated, then the fact that i is positive provides little or no information about the sign of i+1.</li>
+<li>If the error terms are correlated, we may have an unwarranted sense of confidence in our model.</li>
+<li><strong>estimated standard errors</strong> will underestimate the true standard errors.</li>
+<li><strong>confidence and prediction intervals</strong> will be narrower than they should be. For example, a 95% confidence interval may in reality have a much lower probability than 0.95 of containing the true value of the parameter.</li>
+<li><strong>p-values</strong> will be lower than they should be</li>
+<li>Lead to erroneously conclude that a parameter is statistically significant.</li>
+</ul>
 <p><strong>Why might correlations among the error terms occur?</strong> - Such correlations frequently occur in the context of <strong>time series</strong> data - In many cases, observations that are obtained at adjacent time points will have <strong>positively correlated errors</strong>. - Plot the residuals from our model as a function of time to identify this correlation. - <strong>Tracking</strong>: If the error terms are positively correlated, then we may see <strong>tracking</strong> in the residuals—that is, adjacent residuals may have similar values. <img src="./19.png" width="600"></p>
 <h2 id="non-constant-variance-of-error-terms">Non-constant Variance of Error Terms</h2>
 <p><strong>Assumption</strong>: the error terms have a constant variance, <span class="math inline">\(Var(\epsilon_i) = σ^2\)</span>. - The standard errors, confidence intervals, and hypothesis tests associated with the linear model rely upon this assumption.</p>
