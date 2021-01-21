@@ -130,7 +130,7 @@
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/3.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/4.png">
 <meta property="og:image" content="https://nancyyanyu.github.io/posts/b358d10f/5.png">
-<meta property="og:updated_time" content="2020-09-12T04:20:01.333Z">
+<meta property="og:updated_time" content="2020-09-13T22:11:01.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Study Note: Logistic Regression">
 <meta name="twitter:description" content="Some notation: \[ \begin{align} \theta^Tx=\sum_{i=1}^n \theta_ix_i \tag{weighted sum} \\ \sigma(z)=\frac{1}{1+e^{-z}} \tag{sigmoid function} \end{align} \]">
@@ -255,23 +255,6 @@
     
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-resumé">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Resumé</a>
 
   </li>
         
@@ -468,7 +451,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-09-11 23:20:01" itemprop="dateModified" datetime="2020-09-11T23:20:01-05:00">2020-09-11</time>
+                <time title="Modified: 2020-09-13 17:11:01" itemprop="dateModified" datetime="2020-09-13T17:11:01-05:00">2020-09-13</time>
               
             
           </span>
@@ -571,9 +554,9 @@ P(Y = 0|\mathbf{X = x}) = 1-σ(\theta^T\mathbf{x})
 <li>Typically requires a large sample size.</li>
 </ol>
 <h2 id="log-likelihood">Log Likelihood</h2>
-<p>To start, here is a super slick way of writing the probability of one datapoint: <span class="math display">\[
+<p>To start, here is a super slick way of writing the <strong>probability of one datapoint</strong>: <span class="math display">\[
 P(Y=y|X=\mathbf{x})=\sigma(\theta^T\mathbf{x})^y \cdot[1-\sigma(\theta^T\mathbf{x})]^{1-y}
-\]</span> Since each datapoint is <em>independent</em>, the probability of all the data (likelihood) is: <span class="math display">\[
+\]</span> Since each datapoint is <em>independent</em>, the <strong>probability of all the data (likelihood)</strong> is: <span class="math display">\[
 \begin{align}
 l(\theta)&amp;=\prod_{i=1}^n P(Y=y^{(i)}| X=\mathbf{x}^{(i)}) \\
 &amp;=\prod_{i=1}^n \sigma(\theta^T\mathbf{x}^{(i)})^{y^{(i)}} \cdot[1-\sigma(\theta^T\mathbf{x})^{(i)}]^{1-y^{(i)}}
@@ -691,8 +674,7 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
 <li>The negative coefficient for student in the multiple logistic regression: for a fixed value of balance and income, a student is less likely to default than a non-student.</li>
 </ul>
 <p><strong>Reason</strong>:The variables <em>student</em> and <em>balance</em> are correlated.</p>
-<p><strong>Intuition</strong>: A student is riskier than a non-student if no information about the student’s credit card balance is available. However, that student is less risky than a non-student with the same credit card balance!</p>
-<p><span class="math display">\[
+<p><strong>Intuition</strong>: A student is riskier than a non-student if no information about the student’s credit card balance is available. However, that student is less risky than a non-student with the same credit card balance! <span class="math display">\[
 \text{NLL} = -\frac{1}{N} \left[
                 \left(
                     \sum_{i=0}^N y_i \log(\hat{y}_i) + (1-y_i) \log(1-\hat{y}_i)
@@ -1059,7 +1041,7 @@ p(X)=\frac{e^{\beta_0+\sum_{i=1}^p\beta_iX}}{1+e^{\beta_0+\sum_{i=1}^p\beta_iX}}
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
